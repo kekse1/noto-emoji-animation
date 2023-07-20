@@ -26,7 +26,7 @@ You can see it in the [PREVIEW screenshot](docs/preview.png): some errors. *Mayb
 Just for this moment I recommend you to read the script for yourself. I'm going to explain it **l8rs** *4u*!
 
 ## Settings
-Located on (more/less) the top of this **[`emoji.kekse.js`](src/emoji.kekse.js)**.
+Located on (more/less) the top of this **[`kekse.emoji.js`](src/kekse.emoji.js)**.
 
 ### PREVIEW
 ![PREVIEW screenshot](docs/preview.png)
