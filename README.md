@@ -17,7 +17,7 @@ are [ WebP, GIF, Lottie ]). And I really don't like to link to any Google server
 You can see it in the [PREVIEW screenshot](docs/preview.png): some errors. *Maybe **you**'d like to fix it??*
 
 ### Download
-[Here's the download link for this `kekse.emoji.js`](src/kekse.emoji.js)!
+[Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js)!
 
 ## Features
 > **Warning**
