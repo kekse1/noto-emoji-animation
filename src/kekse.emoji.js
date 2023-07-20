@@ -16,7 +16,7 @@ const http = require('http');
 
 //
 const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be as 'compact' as possible
-const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
+const download = false;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
 const connectionChunkSize = 2048;// max. length of every chunk/fragment being downloaded [if <= 0 || !number => default]
@@ -481,11 +481,11 @@ const routine = () => {
 			data[dataIndex - 1] = [ ... data[dataIndex - 1] ];
 		}
 		
-		result[name] = { tag, size, name, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links }, string };
+		result[name] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links } };
 		
 		for(var j = 0; j < tags.length; ++j)
 		{
-			result[tags[j]] = { tag, size, name, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links }, string };
+			result[tags[j]] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links } };
 		}
 	}
 
