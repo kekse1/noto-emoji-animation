@@ -4,8 +4,8 @@
 [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
 This was a requested feature: as Google wasn't willing to 'allow' to download all the animated emojis
-all in one packet, so one would need to scroll/traverse through the whole ist, to manually download each
-one (and each got three file types/formats atm).
+all in one packet, so one would need to scroll/traverse through the whole list, to manually download
+each one (and each one got three file types/formats atm.).
 
 I just hacked a bit into the `view-source:` and found everything necessary..
 
