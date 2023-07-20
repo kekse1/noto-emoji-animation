@@ -1,7 +1,7 @@
 <img src="https://kekse.biz/php/count.php?override=github:noto-emoji-animation&text=`noto-emoji-animation`" />
 
 # Animated Emojis by Google
-[https://googlefonts.github.io/noto-emoji-animation/](Google: The hub for everything animated emoji!);
+[Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
 This was a requested feature: as Google wasn't willing to 'allow' to download all the animated emojis
 all in one packet, so one would need to scroll/traverse through the whole ist, to manually download each
