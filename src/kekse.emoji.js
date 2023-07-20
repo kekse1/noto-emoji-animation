@@ -22,7 +22,7 @@ const instantStop = false;	// will stop process on the first download error; oth
 const connectionChunkSize = 2048;// max. length of every chunk/fragment being downloaded [if <= 0 || !number => default]
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
 const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
-const radix = 10;		// hehe..
+const radix = 16;		// hehe..
 const relativePaths = true;	// affects only the console output
 
 //
