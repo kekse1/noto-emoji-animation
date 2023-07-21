@@ -137,16 +137,16 @@ const startDownloads = () => {
 	return true;
 };
 
-const get = (_url, _path, _links, _callback) => {
-	var request;
-
-	if(_url.startsWith('http:'))
+const getRequestFunction = (_url) => {
+	var result;
+	
+	if(_url.startsWith('https:'))
 	{
-		request = http.get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback) });
+		result = https.get;
 	}
-	else if(_url.startsWith('https:'))
+	else if(_url.startsWith('http:'))
 	{
-		request = https.get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback); });
+		result = http.get;
 	}
 	else
 	{
@@ -157,17 +157,41 @@ const get = (_url, _path, _links, _callback) => {
 			process.exit(3);
 		}
 
-		request = null;
+		result = null;
 	}
 	
-	if(request !== null)
+	return result;
+};
+
+const getLength = (_url, _callback) => {
+	return getRequestFunction(_url).get(_url, { method: 'HEAD' }, (_ev) => {
+		var res;
+		
+		if(!isNaN(_e.headers['content-length']))
+		{
+			res = Number(_e.headers['content-length']);
+		}
+		else
+		{
+			res = null;
+		}
+		
+		_ev.destroy();
+		return _callback(res, _url);
+	});
+};
+
+const get = (_url, _path, _links, _callback) => {
+	const result = getRequestFunction(_url).get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback, result); });
+
+	if(result !== null)
 	{
 		++connections;
 		++secondConnections;
-		request.on('error', (_ev) => { return error(_ev, _url, _path, _links, _callback) });
+		result.on('error', (_ev) => { return error(_ev, _url, _path, _links, _callback, result) });
 	}
 	
-	return request;
+	return result;
 };
 
 const fin = (_error, _url, _path, _links, _callback) => {
@@ -184,10 +208,10 @@ const fin = (_error, _url, _path, _links, _callback) => {
 	setTimeout(tryQueue, 0);
 };
 
-const accept = (_response, _url, _path, _links, _callback) => {
+const accept = (_response, _url, _path, _links, _callback, _request) => {
 	if(_response.statusCode !== 200)
 	{
-		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _path, _links, _callback);
+		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _path, _links, _callback, _request);
 	}
 	
 	var downloadSize = 0;
@@ -215,11 +239,11 @@ const accept = (_response, _url, _path, _links, _callback) => {
 	});
 	
 	_response.on('error', (_error) => {
-		return error(_error, _url, _path, _links, _callback);
+		return error(_error, _url, _path, _links, _callback, _request);
 	});
 };
 
-const error = (_error, _url, _path, _links, _callback) => {
+const error = (_error, _url, _path, _links, _callback, _request) => {
 	++errors;
 
 	if(errorLog !== null)
