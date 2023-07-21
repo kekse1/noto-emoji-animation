@@ -49,8 +49,8 @@ _These_ ones are really **on demand**, directly from the Google servers.
 
 Just call this script with a GET query like **`?tag=:smile:&type=webp`**. :)~
 
-Inter alia for this the `emoji.ref.json` was meant to be there, as it indexes all tags and names, and refers to the
-real address on the Google servers (whereas there are all three file formats to select).
+Inter alia for this the `emoji.ref.json` was meant to be there, as it indexes all tags, and refers to the real address
+on the Google servers (whereas there are all three file formats to select).
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
