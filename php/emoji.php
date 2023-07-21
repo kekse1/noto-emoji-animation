@@ -2,7 +2,8 @@
 
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// v2.0.0
+// <https://github.com/kekse1/noto-emoji-animation/>
+// v2.0.1
 //
 
 //
@@ -12,6 +13,8 @@ if(!defined('KEKSE_CLI'))
 {
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
+
+define('KEKSE_EMOJI_VERSION', '2.0.1');
 
 //
 namespace kekse\emoji;
@@ -358,13 +361,13 @@ function getCodePointString($_codepoint, $_error = true)
 	$result = '';
 	$code = $EMOJI['codepoint'];
 	$len = count($code);
-	
+
 	for($i = 0; $i < $len; ++$i)
 	{
-		$result .= (string)$code[$i] . ' ';
+		$result .= (string)$code[$i] . SEP;
 	}
-	
-	return substr($result, 0, -1);
+
+	return substr($result, 0, -strlen(SEP));
 }
 
 //
