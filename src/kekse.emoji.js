@@ -10,7 +10,7 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/>
-// v1.1.0
+// v1.1.1
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //

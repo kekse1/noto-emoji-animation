@@ -13,7 +13,7 @@ so I hacked up a bit into the sources and quickly found everything necessary for
 The mass download is really fast, as Google really wants users to request any icon every time on demand! :)~
 
 ### Download
-[Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js) (v**1.1.0**)!
+[Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js) (v**1.1.1**)!
 
 ![Screenshot](docs/preview.png)
 
