@@ -52,6 +52,8 @@ Just call this script with a GET query like **`?tag=:smile:&type=webp`**. :)~
 Inter alia for this the `emoji.ref.json` was meant to be there, as it indexes all tags, and refers to the real address
 on the Google servers (whereas there are all three file formats to select).
 
+With **`?type=test`** you should always get a string `yes` or `no`, to just check if the tag exists at all!
+
 **IS NOT FINISHED YET** (so it doesn't work right now)!!
 
 ## Copyright and License
