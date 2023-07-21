@@ -20,7 +20,6 @@ const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be a
 const download = false;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
-const connectionChunkSize = 2048;// max. length of every chunk/fragment being downloaded [if <= 0 || !number => default]
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
 const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
 const radix = 10;		// hehe..
@@ -122,7 +121,7 @@ const startDownloads = () => {
 	}
 	else if(beganDownloads)
 	{
-		console.error('Download has already been started!');
+		console.error('Downloads already started!');
 	}
 	else
 	{
@@ -138,23 +137,16 @@ const startDownloads = () => {
 	return true;
 };
 
-const getOpts = {};
-
-if(typeof connectionChunkSize === 'number' && connectionChunkSize >= 1)
-{
-	getOpts['highWaterMark'] = connectionChunkSize;
-}
-
 const get = (_url, _path, _links, _callback) => {
 	var request;
 
 	if(_url.startsWith('http:'))
 	{
-		request = http.get(_url, getOpts, (_ev) => { return accept(_ev, _url, _path, _links, _callback) });
+		request = http.get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback) });
 	}
 	else if(_url.startsWith('https:'))
 	{
-		request = https.get(_url, getOpts, (_ev) => { return accept(_ev, _url, _path, _links, _callback); });
+		request = https.get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback); });
 	}
 	else
 	{
