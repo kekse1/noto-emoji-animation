@@ -20,12 +20,13 @@ The mass download is really fast, as Google really wants users to request any ic
 ## Features
 For this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**, j4u!
 
-### Yet to come (TODO)
-* Incremental download (checking `Content-Length` header against size of existing files); already prepared 4 it.
-* `getopt.js` ('instead' of constants on top of file)
-
 ### News
 * Fixed some less errors (but didn't update the [Preview Screenshot](docs/preview.png)..);
+* **Additive** downloading: Now checking if a file already exists, then omitting it's download!
+
+### Yet to come (TODO)
+* Incremental download by checking `Content-Length` header, to update outdated files, too!
+* `getopt.js` ('instead' of constants on top of file)
 
 ## Configuration
 Located on (more/less) the top of this **[`kekse.emoji.js`](src/kekse.emoji.js)** script..

@@ -10,14 +10,14 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/>
-// v1.1.1
+// v1.2
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
 
 //
 const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be as 'compact' as possible
-const download = false;		// should all the emojis also be downloaded (see `emojiPath` below)
+const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
@@ -30,18 +30,11 @@ const apiURL = 'https://googlefonts.github.io//noto-emoji-animation/data/api.jso
 const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
 
 //
+const debugMaxFiles = null;
 const workingDirectory = process.cwd();
 const apiPath = path.join(workingDirectory, path.basename(apiURL));
 const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
-const debugMaxFiles = null;
-
-if(fs.existsSync(emojiPath))
-{
-	console.error('There\'s already a directory `%s`! :/~', (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath));
-	process.exit(5);
-}
-
 const indexPath = path.join(workingDirectory, base + '.index.json');
 const jsonPath = path.join(workingDirectory, base + '.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
@@ -66,6 +59,7 @@ console.warn(os.EOL + os.EOL + 'Copyright (c) Sebastian Kucharczyk <kuchen@kekse
 console.info('<https://github.com/kekse1/>' + os.EOL + os.EOL + os.EOL);
 
 //
+var existed = 0;
 var downloads = 0;
 var finished = 0;
 var errors = 0;
@@ -114,7 +108,7 @@ const getTime = (_seconds = false) => {
 };
 
 //
-const startDownloads = () => {
+const startDownloads = (_really = true) => {
 	if(! download)
 	{
 		return false;
@@ -129,10 +123,13 @@ const startDownloads = () => {
 		beganDownloads = true;
 	}
 
-	interval = setInterval(tryQueue, 100);
-	secondInterval = setInterval(() => {
-		secondConnections = 0;
-	}, 1000);
+	if(_really)
+	{
+		interval = setInterval(tryQueue, 100);
+		secondInterval = setInterval(() => {
+			secondConnections = 0;
+		}, 1000);
+	}
 	
 	return true;
 };
@@ -374,7 +371,7 @@ const finishDownloads = () => {
 	stop = Date.now();
 
 	console.log(os.EOL + os.EOL + os.EOL);
-	console.info(os.EOL + os.EOL + 'Finished %s downloads, in %s seconds!' + os.EOL, bold + todo.toString(radix) + reset, bold + getTime(true).toString(radix) + reset);
+	console.info(os.EOL + os.EOL + 'Finished %s downloads (%s already existed), in %s seconds!' + os.EOL, bold + downloads.toString(radix) + reset, bold + existed.toString(radix) + reset, bold + getTime(true).toString(radix) + reset);
 
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
 	else
@@ -539,10 +536,20 @@ const routine = () => {
 	{
 		for(var i = 0; i < dataIndex; ++i)
 		{
+			if(fs.existsSync(path.join(emojiPath, data[i][0])))
+			{
+				++existed;
+				--dataIndex;
+				data.splice(i--, 1);
+			}
+		}
+		
+		for(var i = 0; i < dataIndex; ++i)
+		{
 			const __url = data[i][1];
 			const __path = path.join(emojiPath, data[i][0]);
 			const __links = [ ... data[i][2] ];
-			
+
 			enqueue(__url, __path, __links, (_error, _url, _path, _links, _callback) => {
 				var ms;
 				const s = Math.round((ms = getTime(false)) / 1000, 2).toString(radix);
@@ -561,18 +568,26 @@ const routine = () => {
 					'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
 					'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
 					'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
-					'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL + os.EOL +
+					'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
+					'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL + os.EOL +
 					'            Last URL: `' + _url + '`' + os.EOL +
 					'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
 
 				if(remaining <= 0)
 				{
-					return finishDownloads(true);
+					return finishDownloads();
 				}
 			});
 		}
 
-		if(startDownloads())
+		if(dataIndex <= 0)
+		{
+			if(startDownloads())
+			{
+				return finishDownloads();
+			}
+		}
+		else if(startDownloads())
 		{
 			process.stdin.resume();
 		}
