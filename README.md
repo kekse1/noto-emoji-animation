@@ -10,7 +10,7 @@ image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
 But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
 so I hacked up a bit into the sources and quickly found everything necessary for this.
 
-The mass download is really fast, as Google really wants users to download every time on demand! :)~
+The mass download is really fast, as Google really wants users to request any icon every time on demand! :)~
 
 ### Download
 [Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js) (v**1.1.0**)!
