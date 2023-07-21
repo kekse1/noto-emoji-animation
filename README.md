@@ -13,7 +13,7 @@ so I hacked up a bit into the sources and quickly found everything necessary for
 The mass download is really fast, as Google really wants users to request any icon every time on demand! :)~
 
 ### Download
-[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.4.0**)!
+[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.5.0**)!
 
 ![Screenshot](docs/preview.png)
 
@@ -27,11 +27,11 @@ Example `.json` output here:
 For this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**, j4u!
 
 ### News
-* Fixed some less errors (but didn't update the [Preview Screenshot](docs/preview.png)..);
+* The [Emoji **PHP** Script](#php-script) seems to be finished now (works both in console and the web browser)!
 * **Additive** downloading: Now checking if a file already exists, then omitting it's download!
-* Tiny changes in the format of the resulting `.json` outputs, and now with a **third** JSON output file.
-* Tiny changes, too.
-* And an [Emoji **PHP** Script](#php) has began.. but not yet finished.
+* Some changes in the format of the resulting `.json` outputs, and now with a **third** JSON output file.
+* Fixed some less errors (but didn't update the [Preview Screenshot](docs/preview.png)..);
+* Even more changes..
 
 ### Yet to come (TODO)
 * Incremental download by checking `Content-Length` header, to update outdated files, too!
@@ -43,22 +43,46 @@ Located on (more/less) the top of this **[`kekse.emoji.js`](js/emoji.js)** scrip
 > **Note**
 > My own **`getopt.js`** is _TODO_! ;)~
 
-## **PHP**
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) for direct emoji requests via emoji tags (like `:smile:`, etc.).
-_These_ ones are really **on demand**, directly from the Google servers.
+## **PHP** script
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.0**).
 
-Just call this script with a GET query like **`?tag=:smile:&type=webp`**. :)~
+> **Note**
+> This script runs either via web server request, or in CLI mode (command line interface). :)~
+> In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
+> Otherwise call via browser like **...`?tag=:smile:&type=test`**. ;)~
 
-Inter alia for this the `emoji.ref.json` was meant to be there, as it indexes all tags, and refers to the real address
-on the Google servers (whereas there are all three file formats to select).
+> **Note**
+> As a shebang is not supported here (because of the HTTPD mode), I just created a tiny shell script to start this `.php` script.
+> See the **[`emoji.sh`](php/emoji.sh)**.
 
-* **`?type=test`**: Will return `1` or `0` to check if the tag exists at all
-* **`?type=utf`**: Returns the unicode string representation for this tag
-* **`?type=code`**: The codepoint(s) are being returned. If many, they're separated by spaces
+For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are really **on demand**, directly from the Google servers.
 
-**IS NOT FINISHED YET** (so it doesn't work right now)!!
+> **Warning**
+> You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
+> Get it by using the **`emoji.js`** script, presented on this github page. ;)~
+
+> **Note**
+> In a GET query, the `+` sign needs to be replaced by `%2B` or `%2b`!
+> **BUT I'm also replacing any real space ` ` to a `+`!!! xD~**
+
+These are the supported types to query for (2nd parameter in the command line argv[]):
+
+| Key/Name      | Alias(es)     | Description/Comment                                                                |
+| ------------: | :------------ | :--------------------------------------------------------------------------------: |
+| **`test`**      | -/-           | Just return `0` or `1`, depending on the pure _existence_ of an emoji tag        |
+| **`string`**    | `utf`, `utf8` | The unicode string representation of an emoji (the used font is maybe important) |
+| **`codepoint`** | `code`        | The codepoint(s). If more than just one, they're separated by spaces (by default)|
+| **`webp`**      | -/-           | The `WebP` image format (`image/webp`), designed by Google                       |
+| **`gif`**       | -/-           | The old `GIF` format (`image/gif`); only 256 colors supported..                  |
+| **`json`**      | `lottie`      | A newer **vector** format (`application/json`), n1!                              |
+
+> **Note**
+> In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
+
+### Comment to myself
+Ich ueberlege, ob ich bei `string` output eher `text/html` fuer die Browser-Ausgabe verwende, um die passende Schriftart noch einzustellen? //TODO/
+ABER durch die `text/plain` Ausgabe perfekt zu embedden, also direkte Text-Einsetzung in HTML-Code! ^\_^
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
 and it's licensed under the [MIT](LICENSE.txt) (also known as 'X' or 'X11' license).
-
