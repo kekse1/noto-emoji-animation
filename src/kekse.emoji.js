@@ -159,30 +159,18 @@ const getRequestFunction = (_url) => {
 
 		result = null;
 	}
-	
+
 	return result;
 };
 
-const getLength = (_url, _callback) => {
-	return getRequestFunction(_url).get(_url, { method: 'HEAD' }, (_ev) => {
-		var res;
-		
-		if(!isNaN(_e.headers['content-length']))
-		{
-			res = Number(_e.headers['content-length']);
-		}
-		else
-		{
-			res = null;
-		}
-		
-		_ev.destroy();
-		return _callback(res, _url);
-	});
+const exists = (_url, _callback, _destroy = true) => {
+	return getLength(_url, (_res, _url, _ev, _result) => {
+		return _callback((_res !== false), _url, _ev, _result);
+	}, _destroy);
 };
 
 const get = (_url, _path, _links, _callback) => {
-	const result = getRequestFunction(_url).get(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback, result); });
+	const result = getRequestFunction(_url)(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback, result); });
 
 	if(result !== null)
 	{
@@ -190,6 +178,30 @@ const get = (_url, _path, _links, _callback) => {
 		++secondConnections;
 		result.on('error', (_ev) => { return error(_ev, _url, _path, _links, _callback, result) });
 	}
+	
+	return result;
+};
+
+const getLength = (_url, _callback, _destroy = true) => {
+	const result = getRequestFunction(_url)(_url, { method: 'HEAD' }, (_ev) => {
+		var res = null;
+		
+		if(_ev.statusCode !== 200)
+		{
+			res = false;
+		}
+		else if(!isNaN(_ev.headers['content-length']))
+		{
+			res = Number(_ev.headers['content-length']);
+		}
+		else
+		{
+			res = true;
+		}
+		
+		if(_destroy) _ev.destroy();
+		return _callback(res, _url, _ev, result);
+	});
 	
 	return result;
 };
