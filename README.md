@@ -1,31 +1,37 @@
 <img src="https://kekse.biz/php/count.php?override=github:noto-emoji-animation&text=`noto-emoji-animation`" />
 
 # Animated Emojis by Google
-[Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
+=> [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
-This was a requested feature: as Google wasn't willing to 'allow' to download all the animated emojis
-all in one packet, so one would need to scroll/traverse through the whole list, to manually download
-each one (and each one got three file types/formats atm.).
+This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
+in just one package.. you had to scroll through the list, select your emojis and then decide which one of three
+image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
 
-I just hacked a bit into the `view-source:` and found everything necessary..
+But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
+so I hacked up a bit into the sources and quickly found everything necessary for this.
 
-## STATE: **BETA**
-You can see it in the [PREVIEW screenshot](docs/preview.png): some errors. *Maybe **you**'d like to fix it??*
+The mass download is really fast, as Google really wants users to download every time on demand! :)~
 
 ### Download
-[Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js)!
+[Here's the link for this **`kekse.emoji.js`**](src/kekse.emoji.js) (v**1.1.0**)!
+
+![Screenshot](docs/preview.png)
 
 ## Features
-> **Warning**
-> \/\/TODO\/**!**
+For this moment I recommend you to read the fucking script for yourself. I'm going to explain it **l8rs** *4u*!
 
-Just for this moment I recommend you to read the script for yourself. I'm going to explain it **l8rs** *4u*!
+### Yet to come (TODO)
+* Incremental downloads (checking `Content-Length` header against size of existing files)
+* `getopt.js` ('instead' of constants on top of file)
 
-## Settings
-Located on (more/less) the top of this **[`kekse.emoji.js`](src/kekse.emoji.js)**.
+### News
+* Fixed some less errors (but didn't update the [Preview Screenshot](docs/preview.png)..);
 
-### PREVIEW
-![PREVIEW screenshot](docs/preview.png)
+## Configuration
+Located on (more/less) the top of this **[`kekse.emoji.js`](src/kekse.emoji.js)** script..
+
+> **Note**
+> My own **`getopt.js`** is _TODO_! ;)~
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
