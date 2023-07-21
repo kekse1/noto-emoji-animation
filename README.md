@@ -82,8 +82,7 @@ These are the supported types to query for (2nd parameter in the command line ar
 | **`gif`**       | -/-           | The old `GIF` format (`image/gif`); only 256 colors supported..                  |
 | **`json`**      | `lottie`      | A newer **vector** format (`application/json`), n1!                              |
 
-> **Note**
-> In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
+In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
 
 ### Comment to myself
 Ich ueberlege, ob ich bei `string` output eher `text/html` fuer die Browser-Ausgabe verwende, um die passende Schriftart noch einzustellen? //TODO/
