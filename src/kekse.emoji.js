@@ -10,6 +10,7 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/>
+// v1.1.0
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -22,7 +23,7 @@ const instantStop = false;	// will stop process on the first download error; oth
 const connectionChunkSize = 2048;// max. length of every chunk/fragment being downloaded [if <= 0 || !number => default]
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
 const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
-const radix = 16;		// hehe..
+const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
 
 //
@@ -54,12 +55,10 @@ const esc = String.fromCharCode(27);
 const reset = (esc + '[0m');
 const bold = (esc + '[1m');
 const home = (esc + '[H');
-//const save = (esc + '[s');
-//const load = (esc + '[u');
 const clearLine = (esc + '[2K');
 const clearBelow = (esc + '[0J');
 const prev = (esc + '[1F' + clearLine);
-const clear = (esc + '[2J');
+const clear = (esc + '[2J' + esc + '[3J');
 const back = (esc + home + esc + clear);
 
 //
@@ -346,10 +345,8 @@ const finishDownloads = () => {
 	finishedDownloads = true;
 	stop = Date.now();
 
-	if(typeof todo === 'number')
-	{
-		console.info(os.EOL + os.EOL + 'Finished %s downloads, in %s seconds!' + os.EOL, bold + todo.toString(radix) + reset, bold + getTime(true).toString(radix) + reset);
-	}
+	console.log(os.EOL + os.EOL + os.EOL);
+	console.info(os.EOL + os.EOL + 'Finished %s downloads, in %s seconds!' + os.EOL, bold + todo.toString(radix) + reset, bold + getTime(true).toString(radix) + reset);
 
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
 	else
@@ -369,6 +366,7 @@ const finishDownloads = () => {
 	}
 
 	console.debug(os.EOL + 'Images are here: `%s`!', bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
+	process.exit(0);
 };
 
 process.on('exit', cleanUp);
@@ -539,7 +537,7 @@ const routine = () => {
 					'            Last URL: `' + _url + '`' + os.EOL +
 					'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
 
-				if((finished + errors) >= downloads && remaining <= 0)
+				if(remaining <= 0)
 				{
 					return finishDownloads(true);
 				}
