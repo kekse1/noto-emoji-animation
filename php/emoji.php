@@ -60,7 +60,7 @@ namespace kekse\emoji\noto;
 
 //
 const REF = (__DIR__ . '/emoji.ref.json');
-const TYPES = array('string', 'webp', 'lottie', 'json', 'gif', 'test');//the 'test' type results in 'yes/no' (if tag exists)!
+const TYPES = array('utf', 'webp', 'lottie', 'json', 'gif', 'code', 'test');
 
 function error($_text, $_exit = 1)
 {
