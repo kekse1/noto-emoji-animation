@@ -2,7 +2,10 @@
 
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// v1.0.0
+// v1.1.0
+//
+//
+// new plan: just relay to google, no own download! ;-)
 //
 
 namespace kekse\emoji;
@@ -205,17 +208,22 @@ function parseJSON($_data)
 	return $result;
 }
 
-function requestFile($_url)
+function requestFile($_path)
 {
-	$result = file_get_contents($_url);
+	$result = file_get_contents($_path);
 
 	if($result === false)
 	{
-		return httpError($_url, 6);
 		return null;
 	}
 
 	return $result;
+}
+
+function relay($_url)
+{
+	header('Location: ' + $_url);
+	exit(0);
 }
 
 function findByTag($_tag)
