@@ -18,10 +18,10 @@ The mass download is really fast, as Google really wants users to request any ic
 ![Screenshot](docs/preview.png)
 
 ## Features
-For this moment I recommend you to read the fucking script for yourself. I'm going to explain it **l8rs** *4u*!
+For this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**, j4u!
 
 ### Yet to come (TODO)
-* Incremental downloads (checking `Content-Length` header against size of existing files)
+* Incremental download (checking `Content-Length` header against size of existing files); already prepared 4 it.
 * `getopt.js` ('instead' of constants on top of file)
 
 ### News
