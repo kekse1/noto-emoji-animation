@@ -65,11 +65,7 @@ For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are
 
 > **Warning**
 > You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
-> Get it by using the **`emoji.js`** script, presented on this github page. ;)~
-
-> **Note**
-> In a GET query, the `+` sign needs to be replaced by `%2B` or `%2b`!
-> **BUT I'm also replacing any real space ` ` to a `+`!!! xD~**
+> Get it by using the **`emoji.js`** script, presented on top of this github page.. ;)~
 
 These are the supported types to query for (2nd parameter in the command line argv[]):
 
@@ -84,10 +80,7 @@ These are the supported types to query for (2nd parameter in the command line ar
 
 In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
 
-### Comment to myself
-Ich ueberlege, ob ich bei `string` output eher `text/html` fuer die Browser-Ausgabe verwende, um die passende Schriftart noch einzustellen? //TODO/
-ABER durch die `text/plain` Ausgabe perfekt zu embedden, also direkte Text-Einsetzung in HTML-Code! ^\_^
-
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
 and it's licensed under the [MIT](LICENSE.txt) (also known as 'X' or 'X11' license).
+
