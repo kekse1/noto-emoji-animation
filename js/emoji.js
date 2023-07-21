@@ -10,14 +10,14 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/>
-// v1.2
+// v1.4.0
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
 
 //
 const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be as 'compact' as possible
-const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
+const download = false;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
@@ -37,6 +37,7 @@ const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
 const indexPath = path.join(workingDirectory, base + '.index.json');
 const jsonPath = path.join(workingDirectory, base + '.json');
+const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
@@ -166,8 +167,11 @@ const exists = (_url, _callback, _destroy = true) => {
 	}, _destroy);
 };
 
+const customHeaders = { 'X-URL': 'https://github.com/kekse1/noto-emoji-animation/' };
+
 const get = (_url, _path, _links, _callback) => {
-	const result = getRequestFunction(_url)(_url, {}, (_ev) => { return accept(_ev, _url, _path, _links, _callback, result); });
+	const result = getRequestFunction(_url)(_url, { headers: customHeaders }, (_ev) => {
+		return accept(_ev, _url, _path, _links, _callback, result); });
 
 	if(result !== null)
 	{
@@ -180,7 +184,7 @@ const get = (_url, _path, _links, _callback) => {
 };
 
 const getLength = (_url, _callback, _destroy = true) => {
-	const result = getRequestFunction(_url)(_url, { method: 'HEAD' }, (_ev) => {
+	const result = getRequestFunction(_url)(_url, { method: 'HEAD', headers: customHeaders }, (_ev) => {
 		var res = null;
 		
 		if(_ev.statusCode !== 200)
@@ -424,7 +428,8 @@ const jsonInfo = () => {
 	{
 		console.info('JSON data succesfully written (with ' + bold + '%s' + reset + ' items each):' + os.EOL +
 			'     Emoji data: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
-			'      Tag index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL, indexLength.toString(radix));
+			'      Tag index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL +
+			'Reference index: `' + bold + (relativePaths ? path.relative(workingDirectory, refPath) : refPath) + reset, indexLength.toString(radix));
 	}
 
 	return true;
@@ -435,6 +440,7 @@ const routine = () => {
 	const result = {};
 	const index = [];
 	const data = [];
+	const ref = {};
 	var dataIndex = 0;
 	var indexIndex = 0;
 
@@ -453,10 +459,12 @@ const routine = () => {
 		const name = icons[i].codepoint;
 		const tags = icons[i].tags;
 		const originalTags = [ ... tags ];
-		const file = {
-			webp: [ name + '.webp', (imageURL + name + '/' + size + '.webp') ],
-			gif: [ name + '.gif', (imageURL + name + '/' + size + '.gif') ],
-			json: [ name + '.json', (imageURL + name + '/lottie.json') ] };
+		const file = { webp: name + '.webp', gif: name + '.gif', json: name + '.json' };
+		const url = {
+			webp: imageURL + name + '/' + size + '.webp',
+			gif: imageURL + name + '/' + size + '.gif',
+			json: imageURL + name + '/lottie.json'
+		};
 		const links = {};
 		const string = String.fromCodePoint(... codepoint);
 		
@@ -481,9 +489,14 @@ const routine = () => {
 			index[indexIndex++] = tags[j] = tag;
 		}
 
+		for(var j = 0; j < tags.length; ++j)
+		{
+			ref[tags[j]] = { ... url, codepoint, string };
+		}
+
 		for(const idx in file)
 		{
-			data[dataIndex++] = [ file[idx][0], file[idx][1], [] ];
+			data[dataIndex++] = [ file[idx], url[idx], [] ];
 			links[idx] = [];
 			
 			for(var j = 0; j < tags.length; ++j)
@@ -499,16 +512,15 @@ const routine = () => {
 				links[tags[j]] = { ... links[tags[j]] };
 			}
 
-			file[idx] = file[idx][0];
 			links[idx] = [ ... links[idx] ];
 			data[dataIndex - 1] = [ ... data[dataIndex - 1] ];
 		}
 		
-		result[name] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links } };
+		result[name] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url }, links: { ... links } };
 		
 		for(var j = 0; j < tags.length; ++j)
 		{
-			result[tags[j]] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, links: { ... links } };
+			result[tags[j]] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url}, links: { ... links } };
 		}
 	}
 
@@ -522,6 +534,7 @@ const routine = () => {
 		//
 		fs.writeFileSync(jsonPath, JSON.stringify(result, null, beautifyJSON), { encoding: 'utf8' });
 		fs.writeFileSync(indexPath, JSON.stringify(index, null, beautifyJSON), { encoding: 'utf8' });
+		fs.writeFileSync(refPath, JSON.stringify(ref, null, beautifyJSON), { encoding: 'utf8' });
 
 		//
 		didJSON = true;
@@ -599,7 +612,7 @@ const routine = () => {
 	}
 	else
 	{
-		console.warn('Not going to download everything now! JFYI.');
+		console.warn(os.EOL + os.EOL + bold + 'NOT' + reset + ' going to download everything now (see `download` *setting*)!');
 		jsonInfo();
 	}
 };
