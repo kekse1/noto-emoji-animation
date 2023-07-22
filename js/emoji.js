@@ -741,7 +741,7 @@ const routine = () => {
 			//
 			openUpdate = true;
 			lastArgs = null;
-				
+
 			//
 			process.stdout.write(back);
 			console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
