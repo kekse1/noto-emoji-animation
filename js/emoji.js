@@ -521,9 +521,12 @@ const finishDownloads = () => {
 	stop = Date.now();
 
 	console.log(os.EOL + os.EOL + os.EOL);
-	console.info(os.EOL + os.EOL + 'Finished %s / %s downloads (%s already existed): %s (%s)!' + os.EOL, render(finished), render(downloads), render(existed), getTime(), renderSize(totalBytes));
-	if(typeof debugMaxFiles === 'number') console.debug('You are limited to %s downloads, due to the `debugMaxFiles` setting..', render(debugMaxFiles));
-	console.log(os.EOL);
+	console.info('Finished: %s / %s (%s already existed)', render(finished), render(downloads), render(existed));
+	console.info('    Size: %s', renderSize(totalBytes));
+	console.info('    Time: %s' + os.EOL, getTime());
+	
+	if(typeof debugMaxFiles === 'number') console.debug('You are limited to %s downloads, due to the `debugMaxFiles` setting..' + os.EOL, render(debugMaxFiles));
+	
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
 	else
 	{
