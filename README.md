@@ -19,7 +19,9 @@ this right now).
 It works both in console and web browser requests.. see the section below.
 
 ## Download
-[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.7.1**)!
+* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.7.1**);
+* [And here's the **`emoji.php`**](php/emoji.php) (see the [**PHP** script section](#php-script));
+* [A `.sh` starter for the **PHP** script](php/emoji.sh);
 
 ## Features
 * Existing emojis will cause a check if there's a newer version available (parallel to the downloads)
