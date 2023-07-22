@@ -401,8 +401,9 @@ const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 
 	//TODO/!!
 	//_response.on('timeout', () => {
-	//todo/!
-	//_callback(false, _url, _file, _links, _callback, _request, _response);
+	
+	//
+	_callback(0, _url, _file, _links, _callback, _request, _response);
 };
 
 const error = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
