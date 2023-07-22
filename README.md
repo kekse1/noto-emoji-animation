@@ -51,16 +51,16 @@ Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 ## **PHP** script
 Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.0**).
 
-> **Note**
-> This script runs either via web server request, or in CLI mode (command line interface). :)~
-> In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
-> Otherwise call via browser like **...`?tag=:smile:&type=test`**. ;)~
+This script runs either via web server request, or in CLI mode (command line interface). :)~
+In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
+Otherwise call via browser like **...`?tag=:smile:&type=test`**. ;)~
 
 > **Note**
 > As a shebang is not supported here (because of the HTTPD mode), I just created a tiny shell script to start this `.php` script.
 > See the **[`emoji.sh`](php/emoji.sh)**.
 
-For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are really **on demand**, directly from the Google servers.
+For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are really **on demand**,
+directly from the Google servers.
 
 > **Warning**
 > You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
