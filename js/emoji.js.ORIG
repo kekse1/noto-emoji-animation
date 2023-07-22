@@ -9,7 +9,7 @@ const http = require('http');
 
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
-// <https://github.com/kekse1/noto-emoji-animation/>
+// <https://github.com/kekse1/noto-emoji-animation>
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -21,12 +21,12 @@ const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be a
 const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
-const connectionLimit = 30;	// maximum concurrent connections to the download server (0 or below => infinite)
+const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
 const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
 const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
 const ansi = true;		// styles'n'colors..
-const refreshTime = 123;	// the state screen; to prevent flickering..
+const refreshTime = 100;	// the state screen; to prevent flimmering..
 
 //
 const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
@@ -47,7 +47,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.10.0';
+const VERSION = '1.9.0';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -94,7 +94,7 @@ var stop = null;
 var totalBytes = 0;
 const errorLog = ((typeof errorPath === 'string' && errorPath.length > 0) ? [] : null);
 var remaining = 0;
-var lastUpdate = 0;
+var openUpdate = false;
 
 //
 const _round = Math.round;
@@ -322,7 +322,7 @@ const fin = (_error, _url, _file, _links, _callback, _request = null, _response 
 
 	if(remaining <= 0 && open <= 0)
 	{
-		lastUpdate = 0;
+		openUpdate = false;
 	}
 	else
 	{
@@ -508,14 +508,14 @@ const cleanUp = (_ex) => {
 	
 	//
 	if(_ex instanceof Error) console.dir(_ex);
-	if(beganDownloads && !finishedDownloads) finishDownloads(false);
+	if(beganDownloads && !finishedDownloads) finishDownloads();
 	if(didJSON) jsonInfo();
 	
 	//
-	process.exit();//FIXME/code!
+	process.exit();
 };
 
-const finishDownloads = (_exit = true) => {
+const finishDownloads = () => {
 	clearInterval(interval); clearInterval(secondInterval);
 	finishedDownloads = true;
 	stop = Date.now();
@@ -546,8 +546,6 @@ const finishDownloads = (_exit = true) => {
 
 	console.info(os.EOL + 'Images are here: `%s`', bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
 	console.info('Tags are there: `%s`', bold + (relativePaths ? path.relative(workingDirectory, tagPath) : tagPath) + reset);
-
-	if(_exit) process.exit();
 };
 
 process.on('exit', cleanUp);
@@ -705,7 +703,7 @@ const routine = () => {
 	{
 		for(var i = 0; i < dataIndex; ++i)
 		{
-			if(fs.existsSync(path.join(emojiPath, data[i][1])))
+			if(fs.existsSync(path.join(emojiPath, data[i][0])))
 			{
 				++existed;
 				--dataIndex;
@@ -713,25 +711,14 @@ const routine = () => {
 			}
 		}
 
-		var lastUpdate = 0;
 		var lastArgs = null;
 
 		const callback = (... _args) => {
-			const now = Date.now();
-			const diff = (now - lastUpdate);
 			lastArgs = _args;
 
-			if(remaining <= 0 && open <= 0)
-			{
-				lastUpdate = 0;
-			}
-			else if(diff < refreshTime)
+			if(openUpdate)
 			{
 				return false;
-			}
-			else
-			{
-				lastUpdate = now;
 			}
 			
 			return update(... lastArgs);
@@ -739,6 +726,7 @@ const routine = () => {
 
 		const update = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
 			//
+			openUpdate = true;
 			lastArgs = null;
 
 			//
@@ -765,10 +753,16 @@ const routine = () => {
 
 			if(remaining <= 0 && open <= 0)
 			{
-				lastUpdate = 0;
+				openUpdate = false;
 				finishDownloads();
 				return null;
 			}
+			
+			//
+			setTimeout(() => {
+				openUpdate = false;
+				if(lastArgs !== null) return update(... lastArgs);
+			}, refreshTime);
 			
 			//
 			return true;
