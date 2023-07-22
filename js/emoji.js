@@ -10,7 +10,7 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation>
-// v1.8.0
+// v1.8.1
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -27,10 +27,10 @@ const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
 const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
 const ansi = true;		// styles'n'colors..
-const refreshTime = 42;		// the state screen; to prevent flimmering..
+const refreshTime = 100;	// the state screen; to prevent flimmering..
 
 //
-const apiURL = 'https://googlefonts.github.io//noto-emoji-animation/data/api.json';
+const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
 const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
 //const apiURL = 'http://localhost/mirror/noto-emoji-animation/api.json';
 //const imageURL = 'http://localhost/mirror/noto-emoji-animation/emoji/';
@@ -48,7 +48,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.8.0';
+const VERSION = '1.8.1';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -353,8 +353,8 @@ const accept = (_response, _url, _file, _links, _callback, _request) => {
 	{
 		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _file, _links, _callback, _request);
 	}
-
-	const p = path.join(emojiPath, _file);
+	
+	const p = (_file[0] === '/' ? _file : path.join(emojiPath, _file));
 	const dir = path.dirname(p);
 	
 	if(! fs.existsSync(dir))
@@ -415,7 +415,8 @@ const accept = (_response, _url, _file, _links, _callback, _request) => {
 		return error(_error, _url, _file, _links, _callback, _request);
 	});
 
-	_callback(false, _url, _file, _links, _callback);
+	//TODO/!!
+	//_response.on('timeout', () => {
 };
 
 const error = (_error, _url, _file, _links, _callback, _request) => {
@@ -781,10 +782,6 @@ const routine = () => {
 		
 		for(var i = 0; i < dataIndex; ++i)
 		{
-			/*const __url = data[i][0];
-			const __file = data[i][1];
-			const __links = [ ... data[i][2] ];
-			enqueue(__url, __file, __links, callback);*/
 			enqueue(... data[i], callback);
 		}
 
@@ -872,28 +869,29 @@ else
 
 	justWait(() => {
 		console.log(os.EOL + os.EOL);
+		console.log();
 
 		get(apiURL, apiPath, null, (_error) => {
 			if(typeof _error === 'number')
 			{
 				process.stdout.write(prev + 'Downloaded: ' + renderSize(_error, true) + os.EOL);
 			}
+			else if(_error !== null && _error !== false)
+			{
+				var errText = (typeof _error === 'string' ? ': ' + _error : '');
+				console.error('Download ' + bold + 'FAILED' + errText + reset + os.EOL);
+				if(errText.length === 0) console.dir(_error);
+				console.log(os.EOL);
+				process.exit(4);
+			}
 			else
 			{
-				if(_error !== null)
-				{
-					var errText = (typeof _error === 'string' ? ': ' + _error : '');
-					console.error('Download ' + bold + 'FAILED' + errText + reset + os.EOL);
-					if(errText.length === 0) console.dir(_error);
-					console.log(os.EOL);
-					process.exit(4);
-				}
-				else if(download)
+				if(download)
 				{
 					mkEmojiDirs(true);
 				}
 
-				routine();
+				return justWait(routine);
 			}
 		});
 	})
