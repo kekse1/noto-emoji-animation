@@ -805,7 +805,7 @@ const mkEmojiDirs = (_bool = !!download) => {
 		{
 			fs.mkdirSync(emojiPath, { recursive: true });
 			fs.mkdirSync(tagPath, { recursive: true });
-			console.info('Just created two directories (one for the images itself, one for the tag index (all symlinks).');
+			console.info(os.EOL + 'Just created two directories (one for the images itself, one for the tag index (all symlinks).');
 		}
 		catch(_error)
 		{
