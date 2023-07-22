@@ -660,11 +660,11 @@ const routine = () => {
 			data[dataIndex - 1] = [ ... data[dataIndex - 1] ];
 		}
 		
-		result[name] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url }, links: { ... links } };
+		result[name] = { name, size, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url }, links: { ... links } };
 		
 		for(var j = 0; j < tags.length; ++j)
 		{
-			result[tags[j]] = { tag, size, name, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url}, links: { ... links } };
+			result[tags[j]] = { name, size, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url}, links: { ... links } };
 		}
 	}
 
