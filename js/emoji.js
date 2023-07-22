@@ -10,7 +10,6 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation>
-// v1.8.2
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -48,7 +47,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.8.2';
+const VERSION = '1.9.0';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -107,9 +106,15 @@ Reflect.defineProperty(Math, 'round', { value: (_value, _precision = 0) => {
 	return ((_round(_value * coefficient) / coefficient) || 0);
 }});
 
+const render = (_value, _ansi = ansi) => {
+	var result = (radix === 10 ? _value.toLocaleString() : _value.toString(radix));
+	if(_ansi) result = bold + result + reset;
+	return result;
+};
+
 const units = [ 'Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB' ];
 
-const renderSize = (_bytes, _ansi = true, _precision = 4) => {
+const renderSize = (_bytes, _ansi = ansi, _precision = 4) => {
 	var rest = _bytes;
 	var index = 0;
 
@@ -120,8 +125,7 @@ const renderSize = (_bytes, _ansi = true, _precision = 4) => {
 	}
 	
 	var result = Math.round(rest, _precision);
-	if(_ansi) result = bold + result.toLocaleString() + reset;
-	return result + ' ' + units[index];
+	return render(result, _ansi) + ' ' + units[index];
 };
 
 const parseTime = (_time) => {
@@ -151,7 +155,7 @@ const parseTime = (_time) => {
 	return { ms, s, m, h, d };
 };
 
-const getTime = (_render = true, _ansi = true) => {
+const getTime = (_render = true, _ansi = ansi) => {
 	if(start === null)
 	{
 		return 0;
@@ -167,17 +171,6 @@ const getTime = (_render = true, _ansi = true) => {
 	{
 		result = (stop - start);
 	}
-
-	const ansi = (_value) => {
-		if(!_ansi) return _value;
-		return (bold + _value + reset);
-	};
-	
-	const num = (_value) => {
-		if(radix === 10) _value = _value.toLocaleString();
-		else _value = _value.toString(radix);
-		return ansi(_value);
-	};
 	
 	if(_render === null)
 	{
@@ -190,30 +183,30 @@ const getTime = (_render = true, _ansi = true) => {
 		
 		if(rendered.d >= 1)
 		{
-			result += num(rendered.d) + 'd ';
+			result += render(rendered.d, _ansi) + 'd ';
 		}
 		
 		if(rendered.h >= 1)
 		{
-			result += num(rendered.h) + 'h ';
+			result += render(rendered.h, _ansi) + 'h ';
 		}
 		
 		if(rendered.m >= 1)
 		{
-			result += num(rendered.m) + 'm ';
+			result += render(rendered.m, _ansi) + 'm ';
 		}
 		
 		if(rendered.s >= 1)
 		{
-			result += num(rendered.s) + 's ';
+			result += render(rendered.s, _ansi) + 's ';
 		}
 		
-		result += num(rendered.ms) + 'ms ';
+		result += render(rendered.ms, _ansi) + 'ms ';
 		result = result.slice(0, -1);
 	}
 	else
 	{
-		result = num(result);
+		result = render(result, _ansi);
 	}
 	
 	return result;
@@ -323,8 +316,7 @@ const fin = (_error, _url, _file, _links, _callback, _request = null, _response 
 
 	if(typeof debugMaxFiles === 'number' && debugMaxFiles >= 1 && finished >= debugMaxFiles)
 	{
-		console.debug(os.EOL + os.EOL + os.EOL + 'Reached/exceeded the `debugMaxFiles` limit = %s, so we stop here ($? = 255)!' + os.EOL,
-			bold + debugMaxFiles.toString(radix) + reset);
+		console.debug(os.EOL + os.EOL + os.EOL + 'Reached/exceeded the `debugMaxFiles` limit = %s, so we stop here ($? = 255)!' + os.EOL, render(debugMaxFiles));
 		process.exit(255)
 	}
 
@@ -423,7 +415,7 @@ const error = (_error, _url, _file, _links, _callback, _request = null, _respons
 
 	if(debug)
 	{
-		console.error('Now we got %s errors!' + os.EOL, bold + errors.toString(radix) + reset);
+		console.error('Now we got %s errors!' + os.EOL, render(errors));
 	}
 	
 	if(instantStop)
@@ -529,13 +521,13 @@ const finishDownloads = () => {
 	stop = Date.now();
 
 	console.log(os.EOL + os.EOL + os.EOL);
-	console.info(os.EOL + os.EOL + 'Finished %s / %s downloads (%s already existed): %s!' + os.EOL, bold + finished.toString(radix) + reset, bold + downloads.toString(radix) + reset, bold + existed.toString(radix) + reset, getTime(true, true));
-	if(typeof debugMaxFiles === 'number') console.debug('You are limited to %s downloads, due to the `debugMaxFiles` setting..', bold + debugMaxFiles.toString(radix) + reset);
+	console.info(os.EOL + os.EOL + 'Finished %s / %s downloads (%s already existed): %s (%s)!' + os.EOL, render(finished), render(downloads), render(existed), getTime(), renderSize(totalBytes));
+	if(typeof debugMaxFiles === 'number') console.debug('You are limited to %s downloads, due to the `debugMaxFiles` setting..', render(debugMaxFiles));
 	console.log(os.EOL);
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
 	else
 	{
-		console.warn(bold + errors.toString(radix) + reset + ' errors.');
+		console.warn('%s errors!', render(errors));
 		var errorText = '';
 
 		if(errorLog !== null) for(var j = 0; j < errorLog.length; ++j)
@@ -736,27 +728,26 @@ const routine = () => {
 
 			//
 			process.stdout.write(back);
-			console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
+			console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, render(downloads));
 			console.log('\tv' + bold + VERSION + reset + os.EOL);
 			console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
 			console.log('\t\t\tAnd visit me at <https://github.com/kekse1/noto-emoji-animation/>! :)~' + os.EOL + os.EOL + os.EOL);
 			process.stdout.write(
-				'        Elapsed Time: ' + getTime(true, true) + os.EOL + os.EOL +
-				'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
-				'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
-				'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
-				'            Received: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
-				'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
-				'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
-				'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
-				'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
-				'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL +
-				'            Checking: ' + bold + checking.toString(radix) + reset + os.EOL +
-				'             Updated: ' + bold + updated.toString(radix) + reset + os.EOL + os.EOL +
-				'            Last URL: `' + bold + (_url || '') + reset + '`' + os.EOL +
+				'        Elapsed Time: ' + getTime() + os.EOL + os.EOL +
+				'          Open files: ' + render(open) + os.EOL +
+				'         Connections: ' + render(connections) + os.EOL +
+				'     Total Downloads: ' + render(dataIndex) + os.EOL +
+				'            Received: ' + renderSize(totalBytes) + os.EOL +
+				'            Finished: ' + render(finished) + os.EOL +
+				'           Erroneous: ' + render(errors) + os.EOL +
+				'             Pending: ' + render(queue.length) + os.EOL +
+				'           Remaining: ' + render(remaining) + os.EOL +
+				'     Already existed: ' + render(existed) + os.EOL +
+				'            Checking: ' + render(checking) + os.EOL +
+				'             Updated: ' + render(updated) + os.EOL + os.EOL +
+				'            Last URL: `' +  bold + (_url || '') + reset + '`' + os.EOL +
 				'           Last File: `' + bold + (_file || '') + reset + '`' + os.EOL);
 
-			//
 			if(remaining <= 0 && open <= 0)
 			{
 				openUpdate = false;
@@ -833,7 +824,7 @@ const justWait = (_func, ... _args) => {
 	var timeoutDots = '';
 	var timeoutCount = 0;
 	const timeoutCb = () => {
-		console.warn(prev + '\tJust waiting:  ' + bold + '%s / %s' + reset + '  seconds..  ' + bold + '%s' + reset + '  left! %s ', timeoutCount.toString(radix), justWaitSeconds.toString(radix), (justWaitSeconds - timeoutCount).toString(radix), bold + timeoutDots + reset);
+		console.warn(prev + '\tJust waiting:  %s / %s  seconds..  %s  left! %s ', render(timeoutCount), render(justWaitSeconds), render(justWaitSeconds - timeoutCount), timeoutDots);
 		timeoutDots += '.';
 		
 		if(timeoutCount++ < justWaitSeconds)
