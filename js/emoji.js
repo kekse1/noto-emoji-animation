@@ -320,13 +320,13 @@ const getLength = (_url, _callback, _destroy = true) => {
 		}
 		
 		if(_destroy) _ev.destroy();
-		return _callback(res, _url, _ev, result);
+		return _callback(res, _url, _ev, result);//FIXME/
 	});
 	
 	return result;
 };
 
-const fin = (_error, _url, _file, _links, _callback) => {
+const fin = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
 	--connections; --remaining; ++finished;
 
 	if(typeof debugMaxFiles === 'number' && debugMaxFiles >= 1 && finished >= debugMaxFiles)
@@ -345,13 +345,13 @@ const fin = (_error, _url, _file, _links, _callback) => {
 		setTimeout(tryQueue, 0);
 	}
 	
-	_callback(_error, _url, _file, _links, _callback);
+	_callback(_error, _url, _file, _links, _callback, _request, _response);
 };
 
-const accept = (_response, _url, _file, _links, _callback, _request) => {
+const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 	if(_response.statusCode !== 200)
 	{
-		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _file, _links, _callback, _request);
+		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _file, _links, _callback, _request, null);
 	}
 	
 	const p = (_file[0] === '/' ? _file : path.join(emojiPath, _file));
@@ -391,7 +391,7 @@ const accept = (_response, _url, _file, _links, _callback, _request) => {
 			}
 		}
 
-		return fin(null, _url, _file, _links, _callback);
+		return fin(null, _url, _file, _links, _callback, _request, _response);
 	};
 	
 	_response.on('end', end);
@@ -402,24 +402,26 @@ const accept = (_response, _url, _file, _links, _callback, _request) => {
 		++writing;
 		fs.write(fd, _chunk, 0, _chunk.length, written, (_err, _written, _buffer) => {
 			if(--writing <= 0 && ended) return end();
-			return _callback(downloadSize, _url, _file, _links, _callback);
+			return _callback(downloadSize, _url, _file, _links, _callback, _request, _response);
 		});
 		written += _chunk.length;
-		_callback(downloadSize, _url, _file, _links, _callback);
+		_callback(downloadSize, _url, _file, _links, _callback, _request, _response);
 	});
 	
 	_response.on('error', (_error) => {
 		ended = true;
 		close();
 		fs.unlinkSync(p);
-		return error(_error, _url, _file, _links, _callback, _request);
+		return error(_error, _url, _file, _links, _callback, _request, _response);
 	});
 
 	//TODO/!!
 	//_response.on('timeout', () => {
+	//todo/!
+	//_callback(false, _url, _file, _links, _callback, _request, _response);
 };
 
-const error = (_error, _url, _file, _links, _callback, _request) => {
+const error = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
 	++errors;
 
 	if(errorLog !== null)
@@ -440,7 +442,7 @@ const error = (_error, _url, _file, _links, _callback, _request) => {
 		process.exit(2);
 	}
 	
-	return fin(_error, _url, _file, _links, _callback);
+	return fin(_error, _url, _file, _links, _callback, _request, _response);
 };
 
 const enqueue = (_url, _file, _links, _callback) => {
@@ -724,8 +726,8 @@ const routine = () => {
 
 		var lastArgs = null;
 
-		const callback = (_error, _url, _file, _links, _callback) => {
-			lastArgs = [ _error, _url, _file, _links, _callback ];
+		const callback = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
+			lastArgs = [ _error, _url, _file, _links, _callback, _request, _response ];
 
 			if(openUpdate)
 			{
@@ -735,7 +737,7 @@ const routine = () => {
 			return update(... lastArgs);
 		};
 
-		const update = (_error, _url, _file, _links, _callback) => {
+		const update = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
 			//
 			openUpdate = true;
 			lastArgs = null;
