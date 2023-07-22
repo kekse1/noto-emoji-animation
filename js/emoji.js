@@ -47,7 +47,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.10.0';
+const VERSION = '1.10.1';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -713,10 +713,16 @@ const routine = () => {
 			}
 		}
 
-		var lastUpdate = 0;
+		var timeout = null;
 		var lastArgs = null;
 
 		const callback = (... _args) => {
+			if(timeout !== null)
+			{
+				clearTimeout(timeout);
+				timeout = null;
+			}
+
 			const now = Date.now();
 			const diff = (now - lastUpdate);
 			lastArgs = _args;
@@ -727,6 +733,17 @@ const routine = () => {
 			}
 			else if(diff < refreshTime)
 			{
+				setTimeout(() => {
+					timeout = null;
+
+					if(lastArgs === null)
+					{
+						lastArgs = _args;
+					}
+
+					return callback(... lastArgs);
+				}, (diff + 1));
+
 				return false;
 			}
 			else
