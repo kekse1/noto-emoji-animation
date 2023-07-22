@@ -1,19 +1,16 @@
 #!/usr/bin/env node
 
+const start = new Date();//|| Date.now();
 
-var seconds = 0;
-
-const clock = () => {
+const clock = (_start) => {
 	//
-	
-	//
+	const diff = (Date.now() - (typeof _start === 'number' ? _start : _start.getTime()));
 
 	//
-	if(++seconds < 60)
-	{
-		setTimeout(clock, (1000 - (Date.now() % 1000)));
-	}
+
+	//
+	//setTimeout(clock, (1000 - (Date.now() % 1000)));
 };
 
-clock();
+clock(start);
 

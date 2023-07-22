@@ -10,7 +10,7 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation>
-// v1.8.1
+// v1.8.2
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -48,7 +48,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.8.1';
+const VERSION = '1.8.2';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -133,25 +133,25 @@ const parseTime = (_time) => {
 	var d = 0;
 
 	//
-	ms = (_time % 1000);
+	ms = Math.floor(_time % 1000);
 	_time /= 1000;
 	
-	s = (_time % 60);
+	s = Math.floor(_time % 60);
 	_time /= 60;
 
-	m = (_time % 60);
+	m = Math.floor(_time % 60);
 	_time /= 60;
 
-	h = (_time % 24);
+	h = Math.floor(_time % 24);
 	_time /= 24;
-				
-	d = _time;
+
+	d = Math.floor(_time);
 
 	//
 	return { ms, s, m, h, d };
 };
 
-const getTime = (_render = true, _ansi = true, _precision = 1) => {
+const getTime = (_render = true, _ansi = true) => {
 	if(start === null)
 	{
 		return 0;
@@ -174,21 +174,18 @@ const getTime = (_render = true, _ansi = true, _precision = 1) => {
 	};
 	
 	const num = (_value) => {
-		return ansi(Math.round(_value, _precision).toLocaleString());
+		if(radix === 10) _value = _value.toLocaleString();
+		else _value = _value.toString(radix);
+		return ansi(_value);
 	};
 	
 	if(_render === null)
 	{
-		if(_precision >= 1)
-		{
-			result = Math.round(result, Math.round(_precision));
-		}
-		
 		return result;
 	}
 	else if(_render)
 	{
-		const rendered = parseTime(result, _precision);
+		const rendered = parseTime(result);
 		result = '';
 		
 		if(rendered.d >= 1)
@@ -216,12 +213,7 @@ const getTime = (_render = true, _ansi = true, _precision = 1) => {
 	}
 	else
 	{
-		result = result.toString(radix);
-		
-		if(_ansi)
-		{
-			result = bold + result + reset;
-		}
+		result = num(result);
 	}
 	
 	return result;
