@@ -729,7 +729,7 @@ const routine = () => {
 
 			if(remaining <= 0 && open <= 0)
 			{
-				lastUpdate = 0;
+				lastUpdate = now;
 			}
 			else if(diff < refreshTime)
 			{
