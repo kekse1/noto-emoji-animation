@@ -718,12 +718,12 @@ const routine = () => {
 			}
 		}
 
-		var pending = false;
+		var pendingUpdate = false;
 
 		const callback = (_error, _url, _path, _links, _callback) => {
 			const update = () => {
-				if(openUpdate) return !(pending = true);
-				pending = !(openUpdate = true);
+				if(openUpdate) return !(pendingUpdate = true);
+				else pendingUpdate = !(openUpdate = true);
 				
 				process.stdout.write(back);
 				console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
@@ -754,7 +754,7 @@ const routine = () => {
 				}
 				else setTimeout(() => {
 					openUpdate = false;
-					if(pending) return update();
+					if(pendingUpdate) return update();
 				}, refreshTime);
 				
 				return true;
