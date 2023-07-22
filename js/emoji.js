@@ -715,7 +715,7 @@ const routine = () => {
 					console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
 					console.log('\tv' + bold + VERSION + reset + os.EOL);
 					console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
-					console.log('\t\t\tAnd visit me at <https://github.com/kekse1/>! :)~' + os.EOL + os.EOL + os.EOL);
+					console.log('\t\t\tAnd visit me at <https://github.com/kekse1/noto-emoji-animation/>! :)~' + os.EOL + os.EOL + os.EOL);
 					process.stdout.write(
 						'        Elapsed Time: ' + getTime(true, true) + os.EOL + os.EOL +
 						'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
