@@ -742,7 +742,7 @@ const routine = () => {
 					}
 
 					return callback(... lastArgs);
-				}, (diff + 1));
+				}, refreshTime);//(diff //+1));
 
 				return false;
 			}
