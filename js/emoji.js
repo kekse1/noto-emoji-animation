@@ -723,7 +723,7 @@ const routine = () => {
 		const callback = (_error, _url, _path, _links, _callback) => {
 			const update = () => {
 				if(openUpdate) return !(pending = true);
-				else openUpdate = true;
+				pending = !(openUpdate = true);
 				
 				process.stdout.write(back);
 				console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
