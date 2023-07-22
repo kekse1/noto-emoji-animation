@@ -734,7 +734,7 @@ const routine = () => {
 			}
 			else if(diff < refreshTime)
 			{
-				setTimeout(() => {
+				timeout = setTimeout(() => {
 					timeout = null;
 					if(lastArgs === null) return false;
 					return callback(... lastArgs);
