@@ -24,26 +24,14 @@ It works both in console and web browser requests.. see the section below.
 * [A `.sh` starter for the **PHP** script](php/emoji.sh);
 
 ## Features
-* Existing emojis will cause a check if there's a newer version available (parallel to the downloads)
-* All downloads are working asynchronous, and also every file operation!
-* Configurable downloads: maximum concurrent/parallel ones and how many connections per second
-* The image files itself are stored in the same hierarchy like Google choosed; so _image **mirroring**_ is possible.
-* A _**TAG** INDEX_ not only in `.json`, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
+* Existing emojis will cause a check if there's a newer version available (parallel to the downloads) [**TODO!**];
+* All downloads are working asynchronous, and also every file operation (don't panic: efficiently solved everything..)!
+* Configurable downloads: maximum concurrent ones and limitted how many connections per second are intiated.
+* The image files itself are stored in the same hierarchy like at the Google servers, so _image **mirroring**_ is possible.
+* A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
 * Three `.json` output files are created, see above at [**`.json`** output](#json-output).
 
 *But .. for this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**!*
-
-### News
-* The [Emoji **PHP** Script](#php-script) seems to be finished now (works both in console and the web browser)!
-* **Additive** downloading: Now checking if a file already exists, then omitting it's download!
-* Some changes in the format of the resulting `.json` outputs, and now with a **third** JSON output file.
-* Fixed some less errors (but didn't update the [Preview Screenshot](docs/screenshot.png)..);
-* Prevent flimmering in the status output
-* Changed the resulting fs hierarchy, and minor .json changes
-
-### Yet to come (TODO)
-* Incremental download by checking `Content-Length` header, to update outdated files!!
-* `getopt.js` ('instead' of constants on top of file)
 
 ## **`.json`** output
 * [`emoji.json`](json/emoji.json)
@@ -55,7 +43,7 @@ Just _downloading_ the images:
 ![Screenshot](docs/screenshot.png)
 
 ## Configuration
-Located on (more/less) the top of this **[`kekse.emoji.js`](js/emoji.js)** script..
+Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 
 > **Note**
 > My own **`getopt.js`** is _TODO_! ;)~
