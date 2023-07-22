@@ -736,15 +736,9 @@ const routine = () => {
 			{
 				setTimeout(() => {
 					timeout = null;
-
-					if(lastArgs === null)
-					{
-						lastArgs = _args;
-					}
-
+					if(lastArgs === null) return false;
 					return callback(... lastArgs);
-				}, diff + 1);//refreshTime);
-
+				}, diff + 1);
 				return false;
 			}
 			else
