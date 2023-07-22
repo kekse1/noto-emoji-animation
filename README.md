@@ -4,7 +4,7 @@
 => [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
-in just one package.. you had to scroll through the list, select your emojis and then decide which one of three
+in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
 image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
 
 But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
