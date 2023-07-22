@@ -726,8 +726,8 @@ const routine = () => {
 
 		var lastArgs = null;
 
-		const callback = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
-			lastArgs = [ _error, _url, _file, _links, _callback, _request, _response ];
+		const callback = (... _args) => {
+			lastArgs = _args;
 
 			if(openUpdate)
 			{
