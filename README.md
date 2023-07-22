@@ -25,13 +25,14 @@ And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Features
 * Existing emojis will cause a check if there's a newer version available (parallel to the downloads) [**TODO!**];
-* All downloads are working asynchronous, and also every file operation (don't panic: efficiently solved everything..)!
-* Configurable downloads: maximum concurrent ones and limitted how many connections per second are intiated.
-* The image files itself are stored in the same hierarchy like at the Google servers, so _image **mirroring**_ is possible.
+* All downloads are working asynchronous, and also every file operation (I really like efficiency ;)~
+* Configurable downloads: maximum concurrent ones and limit on how many connections per second are intiated.
+* The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
 * A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
-* Three `.json` output files are created, see above at [**`.json`** output](#json-output).
+* Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
 
-*But .. for this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**!*
+*But .. for this moment I recommend you to **read the fucking source** for yourself.
+I'm going to explain more **l8rs*.*
 
 ## **`.json`** output
 * [`emoji.json`](json/emoji.json)
