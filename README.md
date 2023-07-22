@@ -40,8 +40,7 @@ I'm going to explain more **l8rs*.*
 * [`emoji.ref.json`](json/emoji.ref.json)
 
 ## Screenshot
-Just _downloading_ the images:
-![Screenshot](docs/screenshot.png)
+Downloads in progess: ![Screenshot](docs/screenshot.png)
 
 ## Configuration
 Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
