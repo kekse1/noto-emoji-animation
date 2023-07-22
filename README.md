@@ -64,7 +64,7 @@ directly from the Google servers.
 
 > **Warning**
 > You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
-> Get it by using the **`emoji.js`** script, presented on top of this github page.. ;)~
+> Get it by using the **`emoji.js`** script itself!
 
 These are the supported types to query for (2nd parameter in the command line argv[]):
 
@@ -77,7 +77,8 @@ These are the supported types to query for (2nd parameter in the command line ar
 | **`gif`**       | -/-           | The old `GIF` format (`image/gif`); only 256 colors supported..                  |
 | **`json`**      | `lottie`      | A newer **vector** format (`application/json`), n1!                              |
 
-In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
+In the browser you'll automatically get relayed to the image/data itself;
+in the console the link will just be shown.
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
