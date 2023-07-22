@@ -718,52 +718,57 @@ const routine = () => {
 			}
 		}
 
+		var pending = false;
+
+		const callback = (_error, _url, _path, _links, _callback) => {
+			const update = () => {
+				if(openUpdate) return !(pending = true);
+				else openUpdate = true;
+				
+				process.stdout.write(back);
+				console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
+				console.log('\tv' + bold + VERSION + reset + os.EOL);
+				console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
+				console.log('\t\t\tAnd visit me at <https://github.com/kekse1/noto-emoji-animation/>! :)~' + os.EOL + os.EOL + os.EOL);
+				process.stdout.write(
+					'        Elapsed Time: ' + getTime(true, true) + os.EOL + os.EOL +
+					'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
+					'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
+					'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
+					'      Received Bytes: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
+					'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
+					'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
+					'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
+					'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
+					'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL +
+					'            Checking: ' + bold + checking.toString(radix) + reset + os.EOL +
+					'             Updated: ' + bold + updated.toString(radix) + reset + os.EOL + os.EOL +
+					'            Last URL: `' + _url + '`' + os.EOL +
+					'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
+
+				if(remaining <= 0 && open <= 0)
+				{
+					openUpdate = false;
+					finishDownloads();
+					return null;
+				}
+				else setTimeout(() => {
+					openUpdate = false;
+					if(pending) return update();
+				}, refreshTime);
+				
+				return true;
+			};
+			
+			return update();
+		};
+		
 		for(var i = 0; i < dataIndex; ++i)
 		{
 			const __url = data[i][1];
 			const __path = path.join(emojiPath, data[i][0]);
 			const __links = [ ... data[i][2] ];
-
-			enqueue(__url, __path, __links, (_error, _url, _path, _links, _callback) => {
-				const update = () => {
-					if(openUpdate) return false; openUpdate = true;
-					
-					process.stdout.write(back);
-					console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
-					console.log('\tv' + bold + VERSION + reset + os.EOL);
-					console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
-					console.log('\t\t\tAnd visit me at <https://github.com/kekse1/noto-emoji-animation/>! :)~' + os.EOL + os.EOL + os.EOL);
-					process.stdout.write(
-						'        Elapsed Time: ' + getTime(true, true) + os.EOL + os.EOL +
-						'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
-						'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
-						'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
-						'      Received Bytes: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
-						'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
-						'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
-						'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
-						'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
-						'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL +
-						'            Checking: ' + bold + checking.toString(radix) + reset + os.EOL +
-						'             Updated: ' + bold + updated.toString(radix) + reset + os.EOL + os.EOL +
-						'            Last URL: `' + _url + '`' + os.EOL +
-						'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
-
-					if(remaining <= 0 && open <= 0)
-					{
-						openUpdate = false;
-						finishDownloads();
-						return null;
-					}
-					else setTimeout(() => {
-						openUpdate = false;
-					}, refreshTime);
-					
-					return true;
-				};
-				
-				return update();
-			});
+			enqueue(__url, __path, __links, callback);
 		}
 
 		if(dataIndex <= 0)
