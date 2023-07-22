@@ -735,7 +735,7 @@ const routine = () => {
 					'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
 					'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
 					'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
-					'      Received Bytes: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
+					'            Received: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
 					'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
 					'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
 					'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
