@@ -10,9 +10,11 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation>
-// v1.5.0
+// v1.7.0
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
+//
+// TODO / check for file updates, if some already exists on your disk!
 //
 
 //
@@ -24,10 +26,14 @@ const connectionLimit = 20;	// maximum concurrent connections to the download se
 const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
 const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
+const ansi = true;		// styles'n'colors..
+const refreshTime = 42;		// the state screen; to prevent flimmering..
 
 //
 const apiURL = 'https://googlefonts.github.io//noto-emoji-animation/data/api.json';
 const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
+//const apiURL = 'http://localhost/mirror/noto-emoji-animation/api.json';
+//const imageURL = 'http://localhost/mirror/noto-emoji-animation/emoji/';
 
 //
 const debugMaxFiles = null;
@@ -35,33 +41,48 @@ const workingDirectory = process.cwd();
 const apiPath = path.join(workingDirectory, path.basename(apiURL));
 const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
+const tagPath = path.join(workingDirectory, 'tag');
 const indexPath = path.join(workingDirectory, base + '.index.json');
 const jsonPath = path.join(workingDirectory, base + '.json');
 const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
+const VERSION = '1.7.0';
 Error.stackTraceLimit = Infinity;
 
 //
-const esc = String.fromCharCode(27);
-const reset = (esc + '[0m');
-const bold = (esc + '[1m');
-const home = (esc + '[H');
-const clearLine = (esc + '[2K');
-const clearBelow = (esc + '[0J');
-const prev = (esc + '[1F' + clearLine);
-const clear = (esc + '[2J' + esc + '[3J');
-const back = (esc + home + esc + clear);
+var esc, reset, bold, home, clearLine, clearBelow, prev, clear, back;
+
+if(ansi)
+{
+	esc = String.fromCharCode(27);
+	reset = (esc + '[0m');
+	bold = (esc + '[1m');
+	home = (esc + '[H');
+	clearLine = (esc + '[2K');
+	clearBelow = (esc + '[0J');
+	prev = (esc + '[1F' + clearLine);
+	clear = (esc + '[2J' + esc + '[3J');
+	back = (esc + home + esc + clear);
+}
+else
+{
+	esc = reset = bold = home = clearLine = clearBelow = prev = clear = back = '';
+}
 
 //
-console.log(os.EOL + os.EOL + os.EOL + '[radix = %s] Index/Download all emojis: <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
+console.log(os.EOL + os.EOL + os.EOL + '[%s] Index/Download all emojis: <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
 console.warn(os.EOL + os.EOL + 'Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>');
-console.info('<https://github.com/kekse1/>' + os.EOL + os.EOL + os.EOL);
+console.info('<https://github.com/kekse1/noto-emoji-animation/>');
+console.log('v' + bold + VERSION + reset + os.EOL + os.EOL + os.EOL);
 
 //
 var existed = 0;
+var checking = 0;
+var updated = 0;
 var downloads = 0;
+var open = 0;
 var finished = 0;
 var errors = 0;
 var connections = 0;
@@ -74,16 +95,46 @@ var stop = null;
 var totalBytes = 0;
 const errorLog = ((typeof errorPath === 'string' && errorPath.length > 0) ? [] : null);
 var remaining = 0;
+var openUpdate = false;
 
 //
 const _round = Math.round;
 Reflect.defineProperty(Math, 'round', { value: (_value, _precision = 0) => {
+	if(typeof _precision !== 'number') return _round(_value);
+	else _precision = Math.abs(_round(_precision));
+	if(_precision === 0) return _round(_value);
 	const coefficient = Math.pow(10, _precision);
 	return ((_round(_value * coefficient) / coefficient) || 0);
 }});
 
-//
-const getTime = (_seconds = false) => {
+const parseTime = (_time) => {
+	//
+	var ms = 0;
+	var s = 0;
+	var m = 0;
+	var h = 0;
+	var d = 0;
+
+	//
+	ms = (_time % 1000);
+	_time /= 1000;
+	
+	s = (_time % 60);
+	_time /= 60;
+
+	m = (_time % 60);
+	_time /= 60;
+
+	h = (_time % 24);
+	_time /= 24;
+				
+	d = _time;
+
+	//
+	return { ms, s, m, h, d };
+};
+
+const getTime = (_render = true, _ansi = true, _precision = 1) => {
 	if(start === null)
 	{
 		return 0;
@@ -99,10 +150,61 @@ const getTime = (_seconds = false) => {
 	{
 		result = (stop - start);
 	}
+
+	const ansi = (_value) => {
+		if(!_ansi) return _value;
+		return (bold + _value + reset);
+	};
 	
-	if(_seconds)
+	const num = (_value) => {
+		return ansi(Math.round(_value, _precision));
+	};
+	
+	if(_render === null)
 	{
-		result = Math.round(result, 2);
+		if(_precision >= 1)
+		{
+			result = Math.round(result, Math.round(_precision));
+		}
+		
+		return result;
+	}
+	else if(_render)
+	{
+		const rendered = parseTime(result, _precision);
+		result = '';
+		
+		if(rendered.d >= 1)
+		{
+			result += num(rendered.d) + 'd ';
+		}
+		
+		if(rendered.h >= 1)
+		{
+			result += num(rendered.h) + 'h ';
+		}
+		
+		if(rendered.m >= 1)
+		{
+			result += num(rendered.m) + 'm ';
+		}
+		
+		if(rendered.s >= 1)
+		{
+			result += num(rendered.s) + 's ';
+		}
+		
+		result += num(rendered.ms) + 'ms ';
+		result = result.slice(0, -1);
+	}
+	else
+	{
+		result = result.toString(radix);
+		
+		if(_ansi)
+		{
+			result = bold + result + reset;
+		}
 	}
 	
 	return result;
@@ -217,8 +319,16 @@ const fin = (_error, _url, _path, _links, _callback) => {
 		process.exit(255)
 	}
 
+	if(remaining <= 0 && open <= 0)
+	{
+		openUpdate = false;
+	}
+	else
+	{
+		setTimeout(tryQueue, 0);
+	}
+	
 	_callback(_error, _url, _path, _links, _callback);
-	setTimeout(tryQueue, 0);
 };
 
 const accept = (_response, _url, _path, _links, _callback, _request) => {
@@ -226,32 +336,62 @@ const accept = (_response, _url, _path, _links, _callback, _request) => {
 	{
 		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _path, _links, _callback, _request);
 	}
+
+	const dir = path.dirname(_path);
 	
+	if(! fs.existsSync(dir))
+	{
+		fs.mkdirSync(dir, { recursive: true });
+	}
+
+	const fd = fs.openSync(_path, 'w');
 	var downloadSize = 0;
+	var ended = false;
+	var writing = 0;
+	var written = 0;
+	++open;
 	
-	_response.on('end', (_arg) => {
+	const close = () => {
+		fs.closeSync(fd);
+		--open;
+	};
+	
+	const end = () => {
+		ended = true;
+		if(writing > 0) return writing;
+		else close();
+
 		if(Array.isArray(_links))
 		{
-			const __base = path.basename(_path);
-			const targetDir = emojiPath;
+			const target = path.relative(tagPath, _path);
 			
 			for(var i = 0; i < _links.length; ++i)
 			{
-				fs.symlinkSync(__base, targetDir + '/' + _links[i]);
+				fs.symlinkSync(target, path.join(tagPath, _links[i]));
 			}
 		}
 
 		return fin(null, _url, _path, _links, _callback);
-	});
+	};
+	
+	_response.on('end', end);
 	
 	_response.on('data', (_chunk) => {
 		totalBytes += _chunk.length;
 		downloadSize += _chunk.length;
-		fs.appendFileSync(_path, _chunk);
+		++writing;
+		fs.write(fd, _chunk, 0, _chunk.length, written, (_err, _written, _buffer) => {
+			if(--writing <= 0 && ended) return end();
+			_callback(downloadSize, _url, _path, _links, _callback);
+		});
+		written += _chunk.length;
 		_callback(downloadSize, _url, _path, _links, _callback);
 	});
 	
 	_response.on('error', (_error) => {
+		ended = true;
+		close();
+		fs.unlinkSync(_path);
 		return error(_error, _url, _path, _links, _callback, _request);
 	});
 };
@@ -348,22 +488,19 @@ var didJSON = false;
 var beganDownloads = false;
 var finishedDownloads = false;
 
-const cleanUp = () => {
+const cleanUp = (_ex) => {
 	//
 	process.off('exit', cleanUp);
 	process.off('SIGINT', cleanUp);
 	process.off('SIGTERM', cleanUp);
 
 	//
-	if(beganDownloads && !finishedDownloads)
-	{
-		finishDownloads();
-	}
-	
-	if(didJSON)
-	{
-		jsonInfo();
-	}
+	console.log(os.EOL);
+
+	//
+	if(_ex instanceof Error) console.dir(_ex);
+	if(beganDownloads && !finishedDownloads) finishDownloads();
+	if(didJSON) jsonInfo();
 	
 	//
 	process.exit();
@@ -375,8 +512,9 @@ const finishDownloads = () => {
 	stop = Date.now();
 
 	console.log(os.EOL + os.EOL + os.EOL);
-	console.info(os.EOL + os.EOL + 'Finished %s downloads (%s already existed), in %s seconds!' + os.EOL, bold + downloads.toString(radix) + reset, bold + existed.toString(radix) + reset, bold + getTime(true).toString(radix) + reset);
-
+	console.info(os.EOL + os.EOL + 'Finished %s / %s downloads (%s already existed): %s!' + os.EOL, bold + finished.toString(radix) + reset, bold + downloads.toString(radix) + reset, bold + existed.toString(radix) + reset, getTime(true, true));
+	if(typeof debugMaxFiles === 'number') console.debug('You are limited to %s downloads, due to the `debugMaxFiles` setting..', bold + debugMaxFiles.toString(radix) + reset);
+	console.log(os.EOL);
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
 	else
 	{
@@ -394,13 +532,16 @@ const finishDownloads = () => {
 		console.info('Just wrote the error log file: `%s`', bold + (relativePaths ? path.relative(workingDirectory, errorPath) : errorPath) + reset);
 	}
 
-	console.debug(os.EOL + 'Images are here: `%s`!', bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
+	console.info(os.EOL + 'Images are here: `%s`', bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
+	console.info('Tags are there: `%s`', bold + (relativePaths ? path.relative(workingDirectory, tagPath) : tagPath) + reset);
+
 	process.exit(0);
 };
 
 process.on('exit', cleanUp);
 process.on('SIGINT', cleanUp);
 process.on('SIGTERM', cleanUp);
+process.on('uncaughtException', cleanUp);
 
 //
 var jsonError = false;
@@ -426,10 +567,10 @@ const jsonInfo = () => {
 	}
 	else if(jsonLength > 0 && indexLength > 0 && jsonLength === indexLength)
 	{
-		console.info('JSON data succesfully written (with ' + bold + '%s' + reset + ' items each):' + os.EOL +
+		console.info('JSON data succesfully written:' + os.EOL +
 			'     Emoji data: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
 			'      Tag index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL +
-			'Reference index: `' + bold + (relativePaths ? path.relative(workingDirectory, refPath) : refPath) + reset, indexLength.toString(radix));
+			'Reference index: `' + bold + (relativePaths ? path.relative(workingDirectory, refPath) : refPath) + reset);
 	}
 
 	return true;
@@ -459,11 +600,14 @@ const routine = () => {
 		const name = icons[i].codepoint;
 		const tags = icons[i].tags;
 		const originalTags = [ ... tags ];
-		const file = { webp: name + '.webp', gif: name + '.gif', json: name + '.json' };
+		const file = {
+			webp: name + '/' + size + '.webp',
+			gif: name + '/' + size + '.gif',
+			json: name + '/lottie.json' };
 		const url = {
-			webp: imageURL + name + '/' + size + '.webp',
-			gif: imageURL + name + '/' + size + '.gif',
-			json: imageURL + name + '/lottie.json'
+			webp: (imageURL + '/' + name + '/' + size + '.webp').split('//').join('/'),
+			gif: (imageURL + '/' + name + '/' + size + '.gif').split('//').join('/'),
+			json: (imageURL + '/' + name + '/lottie.json').split('//').join('/')
 		};
 		const links = {};
 		const string = String.fromCodePoint(... codepoint);
@@ -543,7 +687,7 @@ const routine = () => {
 	{
 		jsonError = true;
 	}
-
+	
 	//
 	if(download)
 	{
@@ -556,7 +700,7 @@ const routine = () => {
 				data.splice(i--, 1);
 			}
 		}
-		
+
 		for(var i = 0; i < dataIndex; ++i)
 		{
 			const __url = data[i][1];
@@ -564,32 +708,44 @@ const routine = () => {
 			const __links = [ ... data[i][2] ];
 
 			enqueue(__url, __path, __links, (_error, _url, _path, _links, _callback) => {
-				var ms;
-				const s = Math.round((ms = getTime(false)) / 1000, 2).toString(radix);
-				ms = ms.toString(radix);
+				const update = () => {
+					if(openUpdate) return false; openUpdate = true;
+					
+					process.stdout.write(back);
+					console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
+					console.log('\tv' + bold + VERSION + reset + os.EOL);
+					console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
+					console.log('\t\t\tAnd visit me at <https://github.com/kekse1/>! :)~' + os.EOL + os.EOL + os.EOL);
+					process.stdout.write(
+						'        Elapsed Time: ' + getTime(true, true) + os.EOL + os.EOL +
+						'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
+						'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
+						'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
+						'      Received Bytes: ' + bold + totalBytes.toString(radix) + reset + os.EOL +
+						'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
+						'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
+						'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
+						'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
+						'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL +
+						'            Checking: ' + bold + checking.toString(radix) + reset + os.EOL +
+						'             Updated: ' + bold + updated.toString(radix) + reset + os.EOL + os.EOL +
+						'            Last URL: `' + _url + '`' + os.EOL +
+						'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
 
-				process.stdout.write(back);
-				console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, bold + downloads.toString(radix) + reset);
-				console.log('\t\tAny questions? Send me a mailto:`kuchen@kekse.biz`.');
-				console.log('\t\t\tAnd visit me at <https://github.com/kekse1/>! :)~' + os.EOL + os.EOL + os.EOL);
-				process.stdout.write(
-					'             Seconds: ' + bold + s + reset + os.EOL +
-					'         Miliseconds: ' + bold + ms + reset + os.EOL + os.EOL +
-					'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
-					'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
-					'      Received Bytes: ' + bold + totalBytes.toString(radix) + reset + os.EOL +
-					'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
-					'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
-					'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
-					'           Remaining: ' + bold + remaining.toString(radix) + reset + os.EOL +
-					'     Already existed: ' + bold + existed.toString(radix) + reset + os.EOL + os.EOL +
-					'            Last URL: `' + _url + '`' + os.EOL +
-					'           Last File: `' + (relativePaths ? path.relative(workingDirectory, _path) : _path) + '`' + os.EOL);
-
-				if(remaining <= 0)
-				{
-					return finishDownloads();
-				}
+					if(remaining <= 0 && open <= 0)
+					{
+						openUpdate = false;
+						finishDownloads();
+						return null;
+					}
+					else setTimeout(() => {
+						openUpdate = false;
+					}, refreshTime);
+					
+					return true;
+				};
+				
+				return update();
 			});
 		}
 
@@ -618,13 +774,14 @@ const routine = () => {
 };
 
 //
-const mkEmojiDir = (_bool = !!download) => {
+const mkEmojiDirs = (_bool = !!download) => {
 	if(_bool && !fs.existsSync(emojiPath))
 	{
 		try
 		{
-			fs.mkdirSync(emojiPath);
-			console.info('Just created the emoji directory: `%s`.' + os.EOL, bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
+			fs.mkdirSync(emojiPath, { recursive: true });
+			fs.mkdirSync(tagPath, { recursive: true });
+			console.info('Just created two directories (one for the images itself, one for the tag index (all symlinks).');
 		}
 		catch(_error)
 		{
@@ -665,7 +822,7 @@ const justWait = (_func, ... _args) => {
 if(fs.existsSync(apiPath))
 {
 	console.info(os.EOL + 'The `api.js` from Google is already here: `%s`' + os.EOL, bold + (relativePaths ? path.relative(workingDirectory, apiPath) : apiPath) + reset);
-	mkEmojiDir(true);
+	if(download) mkEmojiDirs(true);
 	justWait(routine);
 }
 else
@@ -692,9 +849,9 @@ else
 					console.log(os.EOL);
 					process.exit(4);
 				}
-				else if(download && !fs.existsSync(emojiPath))
+				else if(download)
 				{
-					mkEmojiDir(true);
+					mkEmojiDirs(true);
 				}
 
 				routine();

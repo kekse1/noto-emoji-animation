@@ -19,29 +19,38 @@ this right now).
 It works both in console and web browser requests.. see the section below.
 
 ## Download
-[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.5.0**)!
-
-![Screenshot](docs/preview.png)
-
-## **`.json`** Output
-Example `.json` output here:
-* [`emoji.json`](json/emoji.json)
-* [`emoji.index.json`](json/emoji.index.json)
-* [`emoji.ref.json`](json/emoji.ref.json)
+[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.7.0**)!
 
 ## Features
-For this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**, j4u!
+* Existing emojis will cause a check if there's a newer version available (parallel to the downloads)
+* All downloads are working asynchronous, and also every file operation!
+* Configurable downloads: maximum concurrent/parallel ones and how many connections per second
+* The image files itself are stored in the same hierarchy like Google choosed; so _image **mirroring**_ is possible.
+* A _**TAG** INDEX_ not only in `.json`, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
+* Three `.json` output files are created, see above at [**`.json`** output](#json-output).
+
+*But .. for this moment I recommend you to **read the fucking source** for yourself. I'm going to explain it **l8rs**!*
 
 ### News
 * The [Emoji **PHP** Script](#php-script) seems to be finished now (works both in console and the web browser)!
 * **Additive** downloading: Now checking if a file already exists, then omitting it's download!
 * Some changes in the format of the resulting `.json` outputs, and now with a **third** JSON output file.
-* Fixed some less errors (but didn't update the [Preview Screenshot](docs/preview.png)..);
-* Even more changes..
+* Fixed some less errors (but didn't update the [Preview Screenshot](docs/screenshot.png)..);
+* Prevent flimmering in the status output
+* Changed the resulting fs hierarchy, and minor .json changes
 
 ### Yet to come (TODO)
-* Incremental download by checking `Content-Length` header, to update outdated files, too!
+* Incremental download by checking `Content-Length` header, to update outdated files!!
 * `getopt.js` ('instead' of constants on top of file)
+
+## **`.json`** output
+* [`emoji.json`](json/emoji.json)
+* [`emoji.index.json`](json/emoji.index.json)
+* [`emoji.ref.json`](json/emoji.ref.json)
+
+## Screenshot
+Just _downloading_ the images:
+![Screenshot](docs/screenshot.png)
 
 ## Configuration
 Located on (more/less) the top of this **[`kekse.emoji.js`](js/emoji.js)** script..
@@ -83,10 +92,6 @@ These are the supported types to query for (2nd parameter in the command line ar
 | **`json`**      | `lottie`      | A newer **vector** format (`application/json`), n1!                              |
 
 In the browser you'll automatically get relayed to the image/data itself; in the console the URL will only be printed out.
-
-### Comment to myself
-Ich ueberlege, ob ich bei `string` output eher `text/html` fuer die Browser-Ausgabe verwende, um die passende Schriftart noch einzustellen? //TODO/
-ABER durch die `text/plain` Ausgabe perfekt zu embedden, also direkte Text-Einsetzung in HTML-Code! ^\_^
 
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
