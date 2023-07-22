@@ -13,10 +13,10 @@ so I hacked up a bit into the sources and quickly found everything necessary for
 The mass download is really fast, as Google really wants users to request any icon every time on demand! :)~
 
 ## **Tag Lookup**
-My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google doesn't support
-this right now).
+My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google /seems/ to not
+support it right now?). PLUS some other features! Check out the [**PHP** script section](#php-script)! :)~
 
-It works both in console and web browser requests.. see the section below.
+And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Download
 * [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.7.1**);
