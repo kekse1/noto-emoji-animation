@@ -585,9 +585,9 @@ const jsonInfo = () => {
 	else if(jsonLength > 0 && indexLength > 0 && jsonLength === indexLength)
 	{
 		console.info('JSON data succesfully written:' + os.EOL +
-			'     Emoji data: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
-			'      Tag index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL +
-			'Reference index: `' + bold + (relativePaths ? path.relative(workingDirectory, refPath) : refPath) + reset);
+			'         Emojis: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
+			'          Index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL +
+			'      Reference: `' + bold + (relativePaths ? path.relative(workingDirectory, refPath) : refPath) + reset);
 	}
 
 	return true;
