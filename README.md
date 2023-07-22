@@ -19,7 +19,7 @@ this right now).
 It works both in console and web browser requests.. see the section below.
 
 ## Download
-[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.7.0**)!
+[Here's the link for this **`kekse.emoji.js`**](js/emoji.js) (v**1.7.1**)!
 
 ## Features
 * Existing emojis will cause a check if there's a newer version available (parallel to the downloads)

@@ -10,7 +10,7 @@ const http = require('http');
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation>
-// v1.7.0
+// v1.7.1
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
@@ -19,7 +19,7 @@ const http = require('http');
 
 //
 const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be as 'compact' as possible
-const download = false;		// should all the emojis also be downloaded (see `emojiPath` below)
+const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
 const debug = false;		// will show every download error, instead of just updating the status output
 const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
 const connectionLimit = 20;	// maximum concurrent connections to the download server (0 or below => infinite)
@@ -48,7 +48,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.7.0';
+const VERSION = '1.7.1';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -107,6 +107,23 @@ Reflect.defineProperty(Math, 'round', { value: (_value, _precision = 0) => {
 	return ((_round(_value * coefficient) / coefficient) || 0);
 }});
 
+const units = [ 'Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB' ];
+
+const renderSize = (_bytes, _ansi = true, _precision = 4) => {
+	var rest = _bytes;
+	var index = 0;
+
+	while(rest >= 1024)
+	{
+		rest /= 1024;
+		if(++index >= (units.length - 1)) break;
+	}
+	
+	var result = Math.round(rest, _precision);
+	if(_ansi) result = bold + result.toLocaleString() + reset;
+	return result + ' ' + units[index];
+};
+
 const parseTime = (_time) => {
 	//
 	var ms = 0;
@@ -157,7 +174,7 @@ const getTime = (_render = true, _ansi = true, _precision = 1) => {
 	};
 	
 	const num = (_value) => {
-		return ansi(Math.round(_value, _precision));
+		return ansi(Math.round(_value, _precision).toLocaleString());
 	};
 	
 	if(_render === null)
@@ -721,7 +738,7 @@ const routine = () => {
 						'          Open files: ' + bold + open.toString(radix) + reset + os.EOL +
 						'         Connections: ' + bold + connections.toString(radix) + reset + os.EOL +
 						'     Total Downloads: ' + bold + dataIndex.toString(radix) + reset + os.EOL +
-						'      Received Bytes: ' + bold + totalBytes.toString(radix) + reset + os.EOL +
+						'      Received Bytes: ' + bold + renderSize(totalBytes, true) + reset + os.EOL +
 						'            Finished: ' + bold + finished.toString(radix) + reset + os.EOL +
 						'           Erroneous: ' + bold + errors.toString(radix) + reset + os.EOL +
 						'             Pending: ' + bold + queue.length.toString(radix) + reset + os.EOL +
@@ -837,7 +854,7 @@ else
 		get(apiURL, apiPath, null, (_error) => {
 			if(typeof _error === 'number')
 			{
-				process.stdout.write(prev + 'Downloaded: ' + bold + _error.toString(radix) + ' Bytes' + os.EOL);
+				process.stdout.write(prev + 'Downloaded: ' + renderSize(_error, true) + os.EOL);
 			}
 			else
 			{
