@@ -40,14 +40,14 @@ const workingDirectory = process.cwd();
 const apiPath = path.join(workingDirectory, path.basename(apiURL));
 const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
-const tagPath = path.join(workingDirectory, 'tag');
+const tagPath = emojiPath;//path.join(workingDirectory, 'tag');
 const indexPath = path.join(workingDirectory, base + '.index.json');
 const jsonPath = path.join(workingDirectory, base + '.json');
 const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.10.1';
+const VERSION = '1.10.2';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -817,17 +817,19 @@ const routine = () => {
 
 //
 const mkEmojiDirs = (_bool = !!download) => {
-	if(_bool && !fs.existsSync(emojiPath))
+	const e = fs.existsSync(emojiPath);
+	const t = (emojiPath === tagPath ? e : fs.existsSync(tagPath));
+
+	if(_bool && !(e && t))
 	{
 		try
 		{
-			fs.mkdirSync(emojiPath, { recursive: true });
-			fs.mkdirSync(tagPath, { recursive: true });
-			console.info(os.EOL + 'Just created two directories (one for the images itself, one for the tag index (all symlinks).');
+			if(!e) fs.mkdirSync(emojiPath, { recursive: true });
+			if(!t) fs.mkdirSync(tagPath, { recursive: true });
 		}
 		catch(_error)
 		{
-			console.error(os.EOL + bold + 'FAILED' + reset + ' to create emoji directory: `%s`' + os.EOL, bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
+			console.error(os.EOL + bold + 'FAILED' + reset + ' to create directories!' + os.EOL);
 			process.exit(6);
 		}
 	}

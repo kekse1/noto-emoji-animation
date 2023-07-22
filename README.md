@@ -19,7 +19,7 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Download
-* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.10.1**);
+* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.10.2**);
 * [And here's the **`emoji.php`**](php/emoji.php) (see the [**PHP** script section](#php-script));
 * [A `.sh` starter for the **PHP** script](php/emoji.sh);
 
@@ -28,6 +28,7 @@ And, jfyi, it works both in console and web browser requests.. see below.
 * All downloads are working asynchronous, and also every file operation (I really like efficiency ;)~
 * Configurable downloads: maximum concurrent ones and limit on how many connections per second are intiated.
 * The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
+* Additionally creates symbolic links to the images by all possible tags! ;)~
 * A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
 * Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
 
