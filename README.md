@@ -74,11 +74,7 @@ For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are
 
 > **Warning**
 > You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
-> Get it by using the **`emoji.js`** script, presented on this github page. ;)~
-
-> **Note**
-> In a GET query, the `+` sign needs to be replaced by `%2B` or `%2b`!
-> **BUT I'm also replacing any real space ` ` to a `+`!!! xD~**
+> Get it by using the **`emoji.js`** script, presented on top of this github page.. ;)~
 
 These are the supported types to query for (2nd parameter in the command line argv[]):
 
@@ -96,3 +92,4 @@ In the browser you'll automatically get relayed to the image/data itself; in the
 ## Copyright and License
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
 and it's licensed under the [MIT](LICENSE.txt) (also known as 'X' or 'X11' license).
+
