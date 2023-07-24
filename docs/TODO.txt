@@ -1,0 +1,9 @@
+
+	# check for updates (if files exist); .. and show 'em, also in overview at the end
+
+	# show `Symlinks` and `Files` in the overview at the end (maybe even more?)
+
+	# adapt exit code in `cleanUp()`
+
+	# demo(s)? ^_^
+

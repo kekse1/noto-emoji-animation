@@ -95,6 +95,7 @@ var totalBytes = 0;
 const errorLog = ((typeof errorPath === 'string' && errorPath.length > 0) ? [] : null);
 var remaining = 0;
 var lastUpdate = 0;
+var symlinks = 0;
 
 //
 const _round = Math.round;
@@ -408,6 +409,7 @@ const makeSymlinks = (_links, _target) => {
 		++result;
 	}
 	
+	symlinks += result;
 	return result;
 };
 
@@ -777,7 +779,8 @@ const routine = () => {
 				'           Remaining: ' + render(remaining) + os.EOL +
 				'     Already existed: ' + render(existed) + os.EOL +
 				'            Checking: ' + render(checking) + os.EOL +
-				'             Updated: ' + render(updated) + os.EOL + os.EOL +
+				'             Updated: ' + render(updated) + os.EOL + 
+				'      Symbolic Links: ' + render(symlinks) + os.EOL + os.EOL +
 				'            Last URL: `' +  bold + (_url || '') + reset + '`' + os.EOL +
 				'           Last File: `' + bold + (_file || '') + reset + '`' + os.EOL);
 
