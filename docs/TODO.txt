@@ -9,3 +9,5 @@
 
 	# `getopt.js`! siehe 'kekse1/getopt.js'.
 
+	# test/find all tag chars
+
