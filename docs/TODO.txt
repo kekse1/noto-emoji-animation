@@ -7,5 +7,5 @@
 
 	# makeSymlinks() made even better..?! [von wegen einzelne pfade relativ aufloesen, nicht nur vorher einmal];
 
-	# demo(s)? ^_^
+	# `getopt.js`!
 
