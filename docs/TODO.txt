@@ -7,5 +7,5 @@
 
 	# makeSymlinks() made even better..?! [von wegen einzelne pfade relativ aufloesen, nicht nur vorher einmal];
 
-	# `getopt.js`!
+	# `getopt.js`! siehe 'kekse1/getopt.js'.
 
