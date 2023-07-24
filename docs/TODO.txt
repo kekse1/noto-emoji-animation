@@ -5,5 +5,7 @@
 
 	# adapt exit code in `cleanUp()`
 
+	# makeSymlinks() made even better..?! [von wegen einzelne pfade relativ aufloesen, nicht nur vorher einmal];
+
 	# demo(s)? ^_^
 
