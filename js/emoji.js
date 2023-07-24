@@ -47,7 +47,7 @@ const refPath = path.join(workingDirectory, base + '.ref.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.10.2';
+const VERSION = '1.11.0';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -362,19 +362,7 @@ const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 		ended = true;
 		if(writing > 0) return writing;
 		close();
-
-		if(Array.isArray(_links))
-		{
-			const target = path.relative(tagPath, p);
-			
-			for(var i = 0; i < _links.length; ++i)
-			{
-				const sym = path.join(tagPath, _links[i]);
-				if(fs.existsSync(sym)) continue;
-				fs.symlinkSync(target, path.join(tagPath, _links[i]));
-			}
-		}
-
+		if(Array.isArray(_links)) makeSymlinks(_links, p);
 		return fin(null, _url, _file, _links, _callback, _request, _response);
 	};
 	
@@ -404,6 +392,23 @@ const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 	
 	//
 	_callback(0, _url, _file, _links, _callback, _request, _response);
+};
+
+const makeSymlinks = (_links, _target) => {
+	if(! Array.isArray(_links)) return 0;
+	
+	var result = 0;
+	_target = path.relative(tagPath, (_target[0] === '/' ? _target : path.join(emojiPath, _target)));
+	
+	for(var i = 0; i < _links.length; ++i)
+	{
+		const p = (_links[i][0] === '/' ? _links[i] : path.join(tagPath, _links[i]));
+		if(fs.existsSync(p)) continue;
+		fs.symlinkSync(_target, p);
+		++result;
+	}
+	
+	return result;
 };
 
 const error = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
@@ -708,6 +713,7 @@ const routine = () => {
 		{
 			if(fs.existsSync(path.join(emojiPath, data[i][1])))
 			{
+				makeSymlinks(data[i][2], path.join(emojiPath, data[i][1]));
 				++existed;
 				--dataIndex;
 				data.splice(i--, 1);

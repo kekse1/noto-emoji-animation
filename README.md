@@ -19,7 +19,7 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Download
-* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.10.2**);
+* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.11.0**);
 * [And here's the **`emoji.php`**](php/emoji.php) (see the [**PHP** script section](#php-script));
 * [A `.sh` starter for the **PHP** script](php/emoji.sh);
 
