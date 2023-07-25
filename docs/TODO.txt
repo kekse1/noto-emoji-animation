@@ -13,4 +13,5 @@
 
 !	# better 'tryQueue()' calling?!
 
+		# and 'get()' in there maybe w/ setTimeout(.., 0)
 
