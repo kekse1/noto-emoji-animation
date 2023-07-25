@@ -11,7 +11,10 @@
 
 	# test/find all tag chars
 
-!	# better 'tryQueue()' calling?!
+!!	# better 'tryQueue()' calling?!
 
 		# and 'get()' in there maybe w/ setTimeout(.., 0)
+
+		# and instead of second-timeout use Date.now() diff
+
 
