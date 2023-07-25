@@ -17,4 +17,5 @@
 
 		# and instead of second-timeout use Date.now() diff
 
+		# better design, in general!
 
