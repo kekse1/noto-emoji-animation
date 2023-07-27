@@ -19,6 +19,11 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 
 And, jfyi, it works both in console and web browser requests.. see below.
 
+I also published an example here (feel free to use this script right here, from my server, it'll relay to the original Google URL):
+* [`?tag=zipper-face&type=codepoint`](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=codepoint)
+* [`?tag=zipper-face&type=string`](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=string)
+* [`?tag=zipper-face&type=webp`](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp)
+
 ## Download
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**1.11.4**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.1.0** (see the [**PHP** script section](#php-script));
