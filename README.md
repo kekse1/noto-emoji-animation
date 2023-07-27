@@ -121,7 +121,7 @@ The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
 and it's licensed under the [MIT](LICENSE.txt) (also known as 'X' or 'X11' license).
 
 The rest, everything on the Google servers (or smth. similar) is owned by Google, with their own license(s). **I do NOT own
-anything which is coming from the Google servers, _also not my mirrored images_, etc.
+anything which is coming from the Google servers, _also not my mirrored images_, etc.**.
 
 I'm only the creator of everything available on this github site (up until https://github.com/kekse1/).
 
