@@ -128,6 +128,8 @@ function getMimeType($_ext)
 			return 'application/json;charset=utf-8';
 		case 'txt':
 			return 'text/plain;charset=utf-8';
+		case 'html':
+			return 'text/html;charset=utf-8';
 	}
 	
 	return 'application/octet-stream';
@@ -168,7 +170,7 @@ function filterType($_string, $_error = true)
 	
 	if($l > 224)
 	{
-		if($_error) return error('Type parameter exceeds limit (' . $l . '/224).', 8);
+		if($_error) return error('Type parameter exceeds string length limit (' . $l . '/224).', 8);
 		return null;
 	}
 	
@@ -234,11 +236,59 @@ function filterType($_string, $_error = true)
 	return $result;
 }
 
+function filterSize($_size, $_error = true)
+{
+
+	if(!is_string($_size) || $_size === '')
+	{
+		return null;
+	}
+	
+	$l = strlen($_size);
+	
+	if($l > 224)
+	{
+		if($_error) return error('Size parameter exceeds string length limit (' . $l . '/224).', 8);
+		return null;
+	}
+	
+	$result = '';
+	$len = 0;
+	$byte;
+	$add;
+	
+	for($i = 0; $i < $l; ++$i)
+	{
+		if(($byte = ord($_size[$i])) >= 48 && $byte <= 57)
+		{
+			$result .= chr($byte);
+			++$len;
+		}
+		else if($len === 0)
+		{
+			continue;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	if($len === 0)
+	{
+		return null;
+	}
+	
+	return $result;
+}
+
 function getParameters($_error = true)
 {
 	//
 	$type = null;
 	$tag = null;
+	$size = null;
+	$font = null;
 	
 	//
 	if(KEKSE_CLI)
@@ -278,16 +328,27 @@ function getParameters($_error = true)
 	{
 		return null;
 	}
+	
+	//
+	if(!KEKSE_CLI)
+	{
+		if(isset($_GET['size']))
+		{
+			$size = $_GET['size'];
+		}
+		
+		$font = isset($_GET['font']);
+	}
 
 	//
-	$result = array('tag' => \kekse\emoji\getTag($tag, $_error), 'type' => filterType($type, $_error));
+	$result = array('tag' => \kekse\emoji\getTag($tag, $_error), 'type' => filterType($type, $_error), 'size' => filterSize($size, $_error), 'font' => $font);
 
 	if(! ($result['type'] && $result['tag']))
 	{
 		if($_error) return error('At least one of your parameters is not valid.', 5);
 		return null;
 	}
-	
+
 	return $result;
 }
 
@@ -388,16 +449,39 @@ else if($EMOJI === null)
 {
 	return error('This emoji is not available at all' . PHP_EOL . 'Just try them out via `?type=test`', 18);
 }
-else switch($PARAMS['type'])
+
+$result = '';
+$url = false;
+
+switch($PARAMS['type'])
 {
 	case 'codepoint':
 		return \kekse\emoji\output(getCodePointString(true), \kekse\emoji\getMimeType('txt'), 0);
 	case 'string':
 		if(!is_string($EMOJI['string']) || $EMOJI['string'] === '') return error('This emoji got no valid `string` entry (unexpected)!', 16);
-		return \kekse\emoji\output($EMOJI['string'], \kekse\emoji\getMimeType('txt'), 0);
+		$result = $EMOJI['string'];
+		if(!$PARAMS['size']) return \kekse\emoji\output($result, \kekse\emoji\getMimeType('txt'), 0);
+		break;
 	default:
 		if(! is_string($EMOJI[$PARAMS['type']]) || $EMOJI[$PARAMS['type']] === '') return error('The emoji got no valid item for type `' . $PARAMS['type'] . '` (unexpected)!', 18);
-		return relay($EMOJI[$PARAMS['type']], 0);
+		$url = true;
+		$result = $EMOJI[$PARAMS['type']];
+		if(!$PARAMS['size']) return relay($result, 0);
+		break;
+}
+
+if($url)
+{
+	$result = '<img src="' . $result . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
+	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
+}
+else
+{
+	$orig = $result;
+	$result = '<span style="font-size: ' . $PARAMS['size'] . ';';
+	if($PARAMS['font']) $result .= ' font-family: \'Noto Emoji\';';
+	$result .= '">' . $orig . '</span>';
+	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
 }
 
 //
