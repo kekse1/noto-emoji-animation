@@ -9,9 +9,10 @@ in just one packet.. you had to scroll through the list, select your emojis and 
 image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
 
 But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
-so I hacked up a bit into the sources and quickly found everything necessary for this.
+so I hacked up a bit into the sources and quickly found everything necessary for this. And the mass download is
+_really_ fast, as Google really wants users to request any icon every time on demand! :)~
 
-The mass download is really fast, as Google really wants users to request any icon every time on demand! :)~
+So that's the reason for this [**`emoji.js`**](js/emoji.js) and [**`emoji.php`**](php/emoji.php). :)~
 
 ## **Tag Lookup**
 My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google /seems/ to not
