@@ -14,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.0.2');
+define('KEKSE_EMOJI_VERSION', '2.1.0');
 
 //
 namespace kekse\emoji;
@@ -138,7 +138,7 @@ namespace kekse\emoji\google;
 
 //
 const JSON = (__DIR__ . '/emoji.index.json');
-const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'code', 'test');
+const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
 const SEP = ' ';
 const YES = '1';
 const NO = '0';
@@ -226,7 +226,7 @@ function filterType($_string, $_error = true)
 	{
 		$result = 'string';
 	}
-	else if($result === 'code')
+	else if($result === 'code' || $result === 'codepoints')
 	{
 		$result = 'codepoint';
 	}

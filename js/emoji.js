@@ -27,11 +27,12 @@ const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
 const refreshTime = 120;	// the state screen; to prevent flickering..
 
-//
-const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
-const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
-//const apiURL = 'http://localhost/mirror/noto-emoji-animation/api.json';
-//const imageURL = 'http://localhost/mirror/noto-emoji-animation/emoji/';
+//ORIGINAL(!): ..
+//const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
+//const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
+//my own MIRROR: ...
+const apiURL = 'https://mirror.kekse.biz/noto-emoji-animation/api.json';
+const imageURL = 'https://mirror.kekse.biz/noto-emoji-animation/emoji/';
 
 //
 const workingDirectory = process.cwd();
@@ -44,7 +45,7 @@ const indexPath = path.join(workingDirectory, base + '.index.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.11.3';
+const VERSION = '1.11.4';
 Error.stackTraceLimit = Infinity;
 
 //
@@ -656,9 +657,9 @@ const routine = () => {
 			gif: name + '/' + size + '.gif',
 			json: name + '/lottie.json' };
 		const url = {
-			webp: (imageURL + '/' + name + '/' + size + '.webp').split('//').join('/'),
-			gif: (imageURL + '/' + name + '/' + size + '.gif').split('//').join('/'),
-			json: (imageURL + '/' + name + '/lottie.json').split('//').join('/')
+			webp: (imageURL + '/' + name + '/' + size + '.webp'),
+			gif: (imageURL + '/' + name + '/' + size + '.gif'),
+			json: (imageURL + '/' + name + '/lottie.json')
 		};
 		const links = {};
 		const string = String.fromCodePoint(... codepoint);
