@@ -14,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.0.1');
+define('KEKSE_EMOJI_VERSION', '2.0.2');
 
 //
 namespace kekse\emoji;
@@ -48,17 +48,13 @@ function getTag($_string, $_url = true)
 		{
 			$add = chr($byte);
 		}
-		else if($byte === 32)
-		{
-			$add = '+';
-		}
-		else if($byte === 95 || $byte === 45 || $byte === 32 || $byte === 43)
+		else if($byte === 95 || $byte === 45 || $byte === 32 || $byte === 43 || $byte === 33 || $byte === 32)
 		{
 			$add = chr($byte);
 		}
 		else
 		{
-			$add = '';
+			continue;
 		}
 		
 		if($add !== '')
@@ -141,7 +137,7 @@ function getMimeType($_ext)
 namespace kekse\emoji\google;
 
 //
-const JSON = (__DIR__ . '/emoji.ref.json');
+const JSON = (__DIR__ . '/emoji.index.json');
 const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'code', 'test');
 const SEP = ' ';
 const YES = '1';
@@ -162,8 +158,8 @@ function httpError($_url, $_exit = 254)
 }
 
 //
-if(!is_string(JSON) || JSON === '') return error('Invalid emoji reference file path!', 3);
-else if(! (is_file(JSON) && is_readable(JSON))) return error('Emoji reference file `' . (is_string(JSON) ? basename(JSON) : '-') . '` was not found, or it\'s not readable.', 3);
+if(!is_string(JSON) || JSON === '') return error('Invalid emoji index file path!', 3);
+else if(! (is_file(JSON) && is_readable(JSON))) return error('Emoji index file `' . (is_string(JSON) ? basename(JSON) : '-') . '` was not found, or it\'s not readable.', 3);
 
 //
 function filterType($_string, $_error = true)
@@ -254,20 +250,25 @@ function getParameters($_error = true)
 		{
 			return error(' >> Invalid environment (CLI mode, but no argument count/vector found)!', 20);
 		}
-		else if($argc <= 2)
+		else if($argc < 2)
 		{
-			return error('Syntax: `' . basename($GLOBALS['argv'][0]) . '` <tag> <type>', 21);
+			return error('Syntax: `' . basename($argv[0]) . '` <tag> [ <type> ]	// default type is `test`.', 21);
 		}
 		else
 		{
-			$type = $GLOBALS['argv'][2];
-			$tag = $GLOBALS['argv'][1];
+			$tag = $argv[1];
+			$type = ($argc <= 2 ? 'test' : $argv[2]);
 		}
 	}
 	else if(isset($_GET['type']) && isset($_GET['tag']))
 	{
 		$type = $_GET['type'];
 		$tag = $_GET['tag'];
+	}
+	else if(isset($_GET['tag']))
+	{
+		$tag = $_GET['tag'];
+		$type = 'test';
 	}
 	else if($_error)
 	{
@@ -335,7 +336,7 @@ function lookUpTag($_tag, $_error = true)
 	
 	if($REFERENCE === null)
 	{
-		if($_error) return error('Emoji reference is not available!', 12);
+		if($_error) return error('Emoji index is not available!', 12);
 		return null;
 	}
 	
@@ -372,7 +373,7 @@ function getCodePointString($_codepoint, $_error = true)
 
 //
 $REFERENCE = parseJSON(requestFile(JSON, true), true);
-if($REFERENCE === null) return error('Unable to read/parse the `' . basename(JSON) . '` reference JSON file.', 13);
+if($REFERENCE === null) return error('Unable to read/parse the `' . basename(JSON) . '` index JSON file.', 13);
 $PARAMS = getParameters(true);
 if($PARAMS === null) return error('Parameters are not valid!', 14);
 $EMOJI = lookUpTag($PARAMS['tag']);

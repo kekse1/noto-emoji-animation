@@ -19,9 +19,12 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Download
-* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.11.0**);
+* [Here's the link for this **`emoji.js`**](js/emoji.js) (v**1.11.3**);
 * [And here's the **`emoji.php`**](php/emoji.php) (see the [**PHP** script section](#php-script));
-* [A `.sh` starter for the **PHP** script](php/emoji.sh);
+* [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
+
+> **Warning**
+> Only tested in a **Linux** environment, so I'm not sure whether it'll all work w/ Windows OS..
 
 ## Features
 * Existing emojis will cause a check if there's a newer version available (parallel to the downloads) [**TODO!**];
@@ -37,8 +40,8 @@ I'm going to explain more **l8rs*.*
 
 ## **`.json`** output
 * [`emoji.json`](json/emoji.json)
+* [`emoji.list.json`](json/emoji.list.json)
 * [`emoji.index.json`](json/emoji.index.json)
-* [`emoji.ref.json`](json/emoji.ref.json)
 
 ## Screenshot
 Downloads in progess: ![Screenshot](docs/screenshot.png)
@@ -50,7 +53,7 @@ Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 > My own **`getopt.js`** is _TODO_! ;)~
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.0**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.2**).
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
@@ -64,7 +67,7 @@ For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are
 directly from the Google servers.
 
 > **Warning**
-> You need a copy of my **`emoji.ref.json`** (which was meant for such cases like this script).
+> You need a copy of my **`emoji.index.json`** (which was meant for such cases like this script).
 > Get it by using the **`emoji.js`** script itself!
 
 These are the supported types to query for (2nd parameter in the command line argv[]):

@@ -1,0 +1,1 @@
+../js/count-tag-characters.js

@@ -1,17 +1,13 @@
 
 	# check for updates (if files exist); .. and show 'em, also in overview at the end
 
-	# show `Symlinks` and `Files` in the overview at the end (maybe even more?)
+		# where 'get()' is being called atm., just test for existence before, ..
 
-	# adapt exit code in `cleanUp()`
+			# and then maybe 'getLength()' to a callback which compares sizes, then optionally enqueue() again
 
-	# makeSymlinks() made even better..?! [von wegen einzelne pfade relativ aufloesen, nicht nur vorher einmal];
-
-		# remove 'tagPath'.
+				# maybe after unlinking the existent files.. and their symlinks maybe, too..
 
 	# `getopt.js`! siehe 'kekse1/getopt.js'.
-
-	# test/find all tag chars
 
 !!	# better 'tryQueue()' calling?!
 
@@ -20,6 +16,4 @@
 		# and instead of second-timeout use Date.now() diff
 
 		# better design, in general!
-
-	# ansi non-optional
 
