@@ -26,13 +26,9 @@ const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
 const radix = 10;		// hehe..
 const relativePaths = true;	// affects only the console output
 const refreshTime = 120;	// the state screen; to prevent flickering..
-
-//ORIGINAL(!): ..
-//const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
-//const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
-//my own MIRROR: ...
-const apiURL = 'https://mirror.kekse.biz/noto-emoji-animation/api.json';
-const imageURL = 'https://mirror.kekse.biz/noto-emoji-animation/emoji/';
+//ORIGINAL(!):
+const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
+const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
 
 //
 const workingDirectory = process.cwd();
