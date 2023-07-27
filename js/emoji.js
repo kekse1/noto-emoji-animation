@@ -532,7 +532,10 @@ const cleanUp = (_ex, _two) => {
 };
 
 const finishDownloads = (_exit = true) => {
-	clearInterval(interval); clearInterval(secondInterval);
+	console.info('Finishing downloads, right here, right now..' + os.EOL + os.EOL);
+
+	if(interval !== null) clearInterval(interval);
+	if(secondInterval !== null) clearInterval(secondInterval);
 	finishedDownloads = true;
 	stop = Date.now();
 
