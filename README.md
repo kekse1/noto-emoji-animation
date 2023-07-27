@@ -118,7 +118,7 @@ These are the supported types to query for (2nd parameter in the command line ar
 In the browser you'll automatically get relayed to the image/data itself;
 in the console the link will just be shown.
 
-_Only in the **browser**_: The new GET[] parameter **`?size`** is available now, for:
+_Only in the **browser**_: The _new_ GET[] parameter **`?size`** is available now, for:
 * (**a**) Scaling up the `string` (w/ also new parameter **`?font`**, to also specify `font-family: 'Noto Emoji'`)
 * (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
 
