@@ -1,7 +1,7 @@
 <img src="https://kekse.biz/php/count.php?override=github:noto-emoji-animation&text=`noto-emoji-animation`" />
 
 # Animated Emojis by Google
-=> [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
+**=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
 > **Warning**
 > This ain't a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
