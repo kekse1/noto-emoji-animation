@@ -19,7 +19,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 8. [Mirror](#mirror)
 9. [Configuration](#configuration)
 10. [PHP script](#php-script)
-11. [Copyright and License)(#copyright-and-license)
+11. [Copyright and License](#copyright-and-license)
 
 ## Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
