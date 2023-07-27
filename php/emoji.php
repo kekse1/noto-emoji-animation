@@ -14,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.1.0');
+define('KEKSE_EMOJI_VERSION', '2.2.0');
 
 //
 namespace kekse\emoji;
@@ -322,7 +322,7 @@ function getParameters($_error = true)
 	}
 	else if($_error)
 	{
-		return error('At least one neccessary parameter is not set [ `type`, `tag` ].', 4);
+		return error('The neccessary `?tag` parameter has not been set!', 4);
 	}
 	else
 	{

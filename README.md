@@ -8,6 +8,8 @@
 the Google servers](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
+<img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&size=256&tag=grinning" />
+
 # Index
 1. [Animated Emojis by Google](#animated-emojis-by-google)
 2. [Mass download (all emojis in one packet)](#mass-download-all-emojis-in-one-packet)
@@ -46,7 +48,7 @@ I also published an example here (feel free to use this script right here, from 
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**1.11.4**;
-* [And here's the **`emoji.php`**](php/emoji.php) v**2.1.0** (see the [**PHP** script section](#php-script));
+* [And here's the **`emoji.php`**](php/emoji.php) v**2.2.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
 > **Warning**
