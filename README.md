@@ -44,7 +44,8 @@ And, jfyi, it works both in console and web browser requests.. see below.
 * [`emoji.index.json`](json/emoji.index.json)
 
 ## Screenshot
-Downloads in progess: ![Screenshot](docs/example-screenshot.png)
+Downloads in progess:
+![Screenshot](docs/example-screenshot.png)
 
 ## **Mirror**
 I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~
