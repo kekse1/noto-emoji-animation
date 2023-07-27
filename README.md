@@ -45,6 +45,7 @@ And, jfyi, it works both in console and web browser requests.. see below.
 
 ## Screenshot
 Downloads in progess:
+
 ![Screenshot](docs/example-screenshot.png)
 
 ## **Mirror**
