@@ -44,7 +44,7 @@ I'm going to explain more **l8rs*.*
 * [`emoji.index.json`](json/emoji.index.json)
 
 ## Screenshot
-Downloads in progess: ![Screenshot](docs/screenshot.png)
+Downloads in progess: ![Screenshot](docs/example-screenshot.png)
 
 ## Configuration
 Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
