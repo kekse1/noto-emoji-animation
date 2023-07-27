@@ -5,8 +5,8 @@
 
 > **Warning**
 > This ain't a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
-the Google servers](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
-them better'.. **so this ain't a regular site for emoji downloads! ^_^**
+> the Google servers](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
+> them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 <img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face" />
 
