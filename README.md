@@ -19,12 +19,6 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 
 And, jfyi, it works both in console and web browser requests.. see below.
 
-## **Mirror**
-I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~
-
-* `api.json`: **https://mirror.kekse.biz/noto-emoji-animation/api.json**
-* `emoji/`: **https://mirror.kekse.biz/noto-emoji-animation/emoji/**
-
 ## Download
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**1.11.4**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.1.0** (see the [**PHP** script section](#php-script));
@@ -51,6 +45,12 @@ I've mirrored Google's original.. That's only fair, because I published this mir
 
 ## Screenshot
 Downloads in progess: ![Screenshot](docs/example-screenshot.png)
+
+## **Mirror**
+I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~
+
+* `api.json`: **https://mirror.kekse.biz/noto-emoji-animation/api.json**
+* `emoji/`: **https://mirror.kekse.biz/noto-emoji-animation/emoji/**
 
 ## Configuration
 Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
