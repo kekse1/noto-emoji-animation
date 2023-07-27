@@ -3,6 +3,7 @@
 # Animated Emojis by Google
 => [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
+## Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
 in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
 image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
