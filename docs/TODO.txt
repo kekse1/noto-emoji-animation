@@ -7,6 +7,8 @@
 
 	# makeSymlinks() made even better..?! [von wegen einzelne pfade relativ aufloesen, nicht nur vorher einmal];
 
+		# remove 'tagPath'.
+
 	# `getopt.js`! siehe 'kekse1/getopt.js'.
 
 	# test/find all tag chars
