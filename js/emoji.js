@@ -532,22 +532,21 @@ const cleanUp = (_ex, _two) => {
 };
 
 const finishDownloads = (_exit = true) => {
-	console.info('Finishing downloads, right here, right now..' + os.EOL + os.EOL);
+	console.info(os.EOL + os.EOL + os.EOL + 'Finishing downloads, right here, right now..' + os.EOL);
 
 	if(interval !== null) clearInterval(interval);
 	if(secondInterval !== null) clearInterval(secondInterval);
 	finishedDownloads = true;
 	stop = Date.now();
 
-	console.log(os.EOL + os.EOL + os.EOL);
 	console.info('     Downloads: %s', render(downloads));
+	console.info('      Finished: %s (%s)', render(finished), render(Math.round(finished / downloads * 100, 2) + ' %'));
 	console.info('          Size: %s', renderSize(totalBytes));
 	console.info('          Time: %s', getTime());
-	console.info('      Finished: %s (%s)', render(finished), render(Math.round(finished / downloads * 100, 2) + ' %'));
 	console.info('       Existed: %s', render(existed));
 	console.info('       Updated: %s', render(updated));
 	console.info('        Errors: %s', render(errors));
-	console.info(' Tags/Symlinks: %s', render(symlinks));
+	console.info('  New Symlinks: %s', render(symlinks));
 	console.log();
 	
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
