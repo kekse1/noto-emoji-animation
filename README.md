@@ -3,6 +3,24 @@
 # Animated Emojis by Google
 => [Google: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
+> **Warning**
+> This ain't a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
+the Google servers](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
+them better'.. **so this ain't a regular site for emoji downloads! ^_^**
+
+# Index
+1. [Animated Emojis by Google](#animated-emojis-by-google)
+2. [Mass download (all emojis in one packet)](#mass-download-all-emojis-in-one-packet)
+3. [Tag Lookup](#tag-lookup)
+4. [Downloads](#downloads)
+5. [**`.json`** output](#json-output)
+6. [Features](#features)
+7. [Screenshot](#screenshot)
+8. [Mirror](#mirror)
+9. [Configuration](#configuration)
+10. [PHP script](#php-script)
+11. [Copyright and License)(#copyright-and-license)
+
 ## Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
 in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
@@ -25,13 +43,18 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=zipper-face&type=string`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=string)
 * [**`?tag=zipper-face&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp)
 
-## Download
+## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**1.11.4**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.1.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
 > **Warning**
 > Only tested in a **Linux** environment, so I'm not sure whether it'll all work w/ Windows OS..
+
+## **`.json`** output
+* [`emoji.json`](json/emoji.json)
+* [`emoji.list.json`](json/emoji.list.json)
+* [`emoji.index.json`](json/emoji.index.json)
 
 ## Features
 * Existing emojis will cause a check if there's a newer version available (parallel to the downloads) [**TODO!**];
@@ -43,11 +66,6 @@ I also published an example here (feel free to use this script right here, from 
 * Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
 
 .. for this moment I recommend you to .. **read the fucking source**! I'm going to explain more **l8rs*.*
-
-## **`.json`** output
-* [`emoji.json`](json/emoji.json)
-* [`emoji.list.json`](json/emoji.list.json)
-* [`emoji.index.json`](json/emoji.index.json)
 
 ## Screenshot
 Downloads in progess:
@@ -102,3 +120,5 @@ in the console the link will just be shown.
 The Copyright is [(c) Sebastian Kucharczyk](COPYRIGHT.txt),
 and it's licensed under the [MIT](LICENSE.txt) (also known as 'X' or 'X11' license).
 
+The rest, everything on the Google servers (or smth. similar) is owned by Google, to their own license(s). **I do NOT own
+anything which is coming from the Google servers, also not my mirrored images, etc. I only own anything below `https://github.com/kekse1/`..**
