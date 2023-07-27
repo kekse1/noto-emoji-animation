@@ -39,7 +39,7 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 And, jfyi, it works both in console and web browser requests.. see below.
 
 I also published an example here (feel free to use this script right here, from my server, it'll relay to the original Google URL):
-* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=codepoint&size=384)
+* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=codepoint)
 * [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
 * [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=webp)
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
