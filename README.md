@@ -89,7 +89,8 @@ Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.2**).
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
-Otherwise call via browser like **...`?tag=:smile:&type=test`**. ;)~
+Otherwise call via browser like [...**`?tag=zipper-face&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp),
+or maybe [...**`?tag=:zipper-face:&type=string`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=:zipper-face:&type=string).. ;)~
 
 > **Note**
 > As a shebang is not supported here (because of the HTTPD mode), I just created a tiny shell script to start this `.php` script.
