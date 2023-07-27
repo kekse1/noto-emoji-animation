@@ -623,6 +623,7 @@ const jsonInfo = () => {
 		}
 	}
 
+	console.log();
 	return true;
 };
 
@@ -722,7 +723,7 @@ const routine = () => {
 	try
 	{
 		//
-		jsonLength = Object.keys(result).length;
+		emojiLength = Object.keys(result).length;
 		listLength = list.length;
 		indexLength = Object.keys(index).length;
 
