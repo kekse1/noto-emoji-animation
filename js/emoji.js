@@ -59,7 +59,7 @@ const clear = (esc + '[2J' + esc + '[3J');
 const back = (esc + home + esc + clear);
 
 //
-console.log(os.EOL + os.EOL + os.EOL + '[%s] Index/Download all emojis: <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
+console.log(os.EOL + os.EOL + os.EOL + '[%s] Index/Download all emojis from Google\'s <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
 console.warn(os.EOL + os.EOL + 'Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>');
 console.info('<https://github.com/kekse1/noto-emoji-animation/>');
 console.log('v' + bold + VERSION + reset + os.EOL + os.EOL + os.EOL);
