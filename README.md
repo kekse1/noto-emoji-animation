@@ -35,8 +35,7 @@ And, jfyi, it works both in console and web browser requests.. see below.
 * A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
 * Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
 
-*But .. for this moment I recommend you to **read the fucking source** for yourself.
-I'm going to explain more **l8rs*.*
+* .. for this moment I recommend you to .. **read the fucking source**! I'm going to explain more **l8rs*.*
 
 ## **`.json`** output
 * [`emoji.json`](json/emoji.json)
