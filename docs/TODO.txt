@@ -1,19 +1,4 @@
 
-	# check for updates (if files exist); .. and show 'em, also in overview at the end
-
-		# where 'get()' is being called atm., just test for existence before, ..
-
-			# and then maybe 'getLength()' to a callback which compares sizes, then optionally enqueue() again
-
-				# maybe after unlinking the existent files.. and their symlinks maybe, too..
 
 	# `getopt.js`! siehe 'kekse1/getopt.js'.
-
-!!	# better 'tryQueue()' calling?!
-
-		# and 'get()' in there maybe w/ setTimeout(.., 0)
-
-		# and instead of second-timeout use Date.now() diff
-
-		# better design, in general!
 
