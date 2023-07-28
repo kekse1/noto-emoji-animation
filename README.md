@@ -64,7 +64,7 @@ I also published an example here (feel free to use this script right here, from 
 ## Features
 * Locally existing emojis will be updated if a remote one has been updated (using the HTTP `ETag` header, or by comparing the `Content-Length`);
 * All downloads are working asynchronous, and also every file operation (I really like efficiency ;)~
-* Configurable downloads: maximum concurrent ones and limit on how many connections per second are intiated.
+* Configurable downloads: maximum concurrent ones and limit on how many connections per second are initiated.
 * The download rate can be limited.. both, for each link and also for all links together.
 * The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
 * Additionally creates symbolic links to the images by all possible tags! ;)~
