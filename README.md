@@ -3,6 +3,9 @@
 # Animated Emojis by Google
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
+#### NEWS
+Brand new v**2.0.0**, with better connection/link handling, and much more improvements! See the [Downloads](#downloads).
+
 > **Warning**
 > This ain't a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
 > the Google servers](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
@@ -47,7 +50,7 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
 ## Downloads
-* [Here's the link for this **`emoji.js`**](js/emoji.js) v**1.11.4**;
+* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.0.0**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.2.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
@@ -60,9 +63,10 @@ I also published an example here (feel free to use this script right here, from 
 * [`emoji.index.json`](json/emoji.index.json)
 
 ## Features
-* Existing emojis will cause a check if there's a newer version available (parallel to the downloads) [**TODO!**];
+* Locally existing emojis will be updated if a remote one has been updated (using the HTTP `ETag` header, or by comparing the `Content-Length`);
 * All downloads are working asynchronous, and also every file operation (I really like efficiency ;)~
 * Configurable downloads: maximum concurrent ones and limit on how many connections per second are intiated.
+* The download rate can be limited.. both, for each link and also for all links together.
 * The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
 * Additionally creates symbolic links to the images by all possible tags! ;)~
 * A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
@@ -73,7 +77,7 @@ I also published an example here (feel free to use this script right here, from 
 ## Screenshot
 Downloads in progess:
 
-![Screenshot](docs/example-screenshot.png)
+![Screenshot](docs/downloads.png)
 
 ## **Mirror**
 I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~

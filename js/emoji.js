@@ -13,22 +13,27 @@ const http = require('node:http');
 //
 // Can Index and even download *all* emojis on <https://googlefonts.github.io/noto-emoji-animation/>.
 //
-// TODO / check for file updates, if some already exists on your disk!
-//
 
 //
-const beautifyJSON = '\t';	// if nothing's here, the resulting .json's will be as 'compact' as possible
-const download = true;		// should all the emojis also be downloaded (see `emojiPath` below)
-const debug = false;		// will show every download error, instead of just updating the status output
-const instantStop = false;	// will stop process on the first download error; otherwise all errors are counted
-const connectionLimit = 30;	// maximum concurrent connections to the download server (0 or below => infinite)
-const connectionsPerSecond = 20;// self explaining.. (0 or below => infinite)
-const radix = 10;		// hehe..
-const relativePaths = true;	// affects only the console output
-const refreshTime = 120;	// the state screen; to prevent flickering..
-//ORIGINAL(!):
+const beautifyJSON = '\t';			// if nothing's here, the resulting .json's will be as 'compact' as possible
+const download = true;				// should all the emojis also be downloaded (see `emojiPath` below);
+const debug = false;				// will show every download error, instead of just updating the status output
+const instantStop = false;			// will stop process on the first download error; otherwise all errors are counted
+const connectionLimit = 36;			// maximum concurrent connections to the download server (0 or below => infinite);
+const connectionsPerSecond = 24;		// self explaining.. (0 or below => infinite);
+const connectionTimeout = 16000;		// the timeout for each http(s) request (defaults to 20 seconds);
+const connectionBandwidthPerLink = 1024*1024*50;// bytes per second per link (defaults to 10 mib/s);
+const connectionBandwidthGlobal = 1024*1024*500;// bytes per second in total, so all links together (defaults to 100 mib/s);
+const radix = 10;				// hehe.. BUT: (!==10) won't .toLocaleString(), so w/ thousand dots/commas, etc..
+const relativePaths = true;			// affects only the console output, where paths are printed out.
+const refreshTime = 96;				// the state screen; to prevent screen flickering in the update-output.
+const averageUpdate = 24;			// when to decrement the average values
+
+//
 const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
 const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
+//const apiURL = 'http://localhost/mirror/noto-emoji-animation/api.json';
+//const imageURL = 'http://localhost/mirror/noto-emoji-animation/emoji/';
 
 //
 const workingDirectory = process.cwd();
@@ -36,12 +41,15 @@ const apiPath = path.join(workingDirectory, path.basename(apiURL));
 const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
 const jsonPath = path.join(workingDirectory, base + '.json');
-const listPath = path.join(workingDirectory, base + '.list.json');
-const indexPath = path.join(workingDirectory, base + '.index.json');
+const listPath = jsonPath.slice(0, -4) + 'list.json';
+const indexPath = jsonPath.slice(0, -4) + 'index.json';
+const eTagIndexPath = path.join(emojiPath, 'emoji.http-e-tags.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '1.11.4';
+const VERSION = '2.0.0';
+
+//
 Error.stackTraceLimit = Infinity;
 
 //
@@ -56,31 +64,34 @@ const clear = (esc + '[2J' + esc + '[3J');
 const back = (esc + home + esc + clear);
 
 //
-console.log(os.EOL + os.EOL + os.EOL + '[%s] Index/Download all emojis from Google\'s <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
+console.log('[%s] Index/Download all emojis from Google\'s <https://googlefonts.github.io/noto-emoji-animation/>.' + os.EOL, bold + radix.toString() + reset);
 console.warn(os.EOL + os.EOL + 'Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>');
 console.info('<https://github.com/kekse1/noto-emoji-animation/>');
 console.log('v' + bold + VERSION + reset + os.EOL + os.EOL + os.EOL);
 
 //
 var existed = 0;
-var checking = 0;
 var updated = 0;
 var downloads = 0;
-var open = 0;
+var openFiles = 0;
 var finished = 0;
 var errors = 0;
-var connections = 0;
 var secondConnections = 0;
 const queue = [];
-var interval = null;
-var secondInterval = null;
 var start = null;
 var stop = null;
 var totalBytes = 0;
 const errorLog = ((typeof errorPath === 'string' && errorPath.length > 0) ? [] : null);
-var remaining = 0;
 var lastUpdate = 0;
 var symlinks = 0;
+var lastSecond = 0;
+const connections = [];
+var secondBytes = 0;
+var totalPauseTime = 0;
+var totalPause = false;
+var pausedConnections = 0;
+const globalBandwidthLimit = (typeof connectionBandwidthGlobal === 'number' && connectionBandwidthGlobal >= 1);
+const perLinkBandwidthLimit = (typeof connectionBandwidthPerLink === 'number' && connectionBandwidthPerLink >= 1);
 
 //
 const _round = Math.round;
@@ -141,6 +152,36 @@ const parseTime = (_time) => {
 	return { ms, s, m, h, d };
 };
 
+const renderTime = (_time, _ansi = true) => {
+	const rendered = parseTime(_time);
+	result = '';
+	
+	if(rendered.d >= 1)
+	{
+		result += render(rendered.d, _ansi) + 'd ';
+	}
+	
+	if(rendered.h >= 1)
+	{
+		result += render(rendered.h, _ansi) + 'h ';
+	}
+	
+	if(rendered.m >= 1)
+	{
+		result += render(rendered.m, _ansi) + 'm ';
+	}
+	
+	if(rendered.s >= 1)
+	{
+		result += render(rendered.s, _ansi) + 's ';
+	}
+	
+	result += render(rendered.ms, _ansi) + 'ms ';
+	result = result.slice(0, -1);
+	
+	return result;
+};
+
 const getTime = (_render = true, _ansi = true) => {
 	if(start === null)
 	{
@@ -164,31 +205,7 @@ const getTime = (_render = true, _ansi = true) => {
 	}
 	else if(_render)
 	{
-		const rendered = parseTime(result);
-		result = '';
-		
-		if(rendered.d >= 1)
-		{
-			result += render(rendered.d, _ansi) + 'd ';
-		}
-		
-		if(rendered.h >= 1)
-		{
-			result += render(rendered.h, _ansi) + 'h ';
-		}
-		
-		if(rendered.m >= 1)
-		{
-			result += render(rendered.m, _ansi) + 'm ';
-		}
-		
-		if(rendered.s >= 1)
-		{
-			result += render(rendered.s, _ansi) + 's ';
-		}
-		
-		result += render(rendered.ms, _ansi) + 'ms ';
-		result = result.slice(0, -1);
+		result = renderTime(result, _ansi);
 	}
 	else
 	{
@@ -214,12 +231,21 @@ const startDownloads = (_really = true) => {
 		beganDownloads = true;
 	}
 
-	if(_really)
+	if(_really && queue.length > 0)
 	{
-		interval = setInterval(tryQueue, 100);
-		secondInterval = setInterval(() => {
-			secondConnections = 0;
-		}, 1000);
+		console.info(os.EOL + 'Starting the download process.');
+		
+		if(globalBandwidthLimit)
+		{
+			console.debug('Connection bandwidth: %s', renderSize(connectionBandwidthGlobal) + ' / second');
+		}
+
+		if(perLinkBandwidthLimit)		
+		{
+			console.debug('  Bandwidth per link: %s', renderSize(connectionBandwidthPerLink) + ' / second');
+		}
+		
+		nextQueueItem();
 	}
 	
 	return true;
@@ -251,74 +277,254 @@ const getRequestFunction = (_url) => {
 	return result;
 };
 
-const exists = (_url, _callback, _destroy = true) => {
-	return getLength(_url, (_res, _url, _ev, _result) => {
-		return _callback((_res !== false), _url, _ev, _result);
-	}, _destroy);
-};
+const customOptions = { headers: { 'X-URL': 'https://github.com/kekse1/noto-emoji-animation/' } };
 
-const customHeaders = { 'X-URL': 'https://github.com/kekse1/noto-emoji-animation/' };
+const get = (_url, _file, _links, _eTag, _callback) => {
+	const opts = Object.assign({}, customOptions);
+	
+	if(! ('headers' in opts))
+	{
+		opts.headers = {};
+	}
+	
+	if(typeof _eTag === 'string' && _eTag.length > 0)
+	{
+		opts.headers['If-None-Match'] = '"' + _eTag + '"';
+	}
 
-const get = (_url, _file, _links, _callback) => {
-	const result = getRequestFunction(_url)(_url, { headers: customHeaders }, (_ev) => {
-		return accept(_ev, _url, _file, _links, _callback, result); });
+	var result = connections[connections.length] = getRequestFunction(_url)(_url, opts, (_ev) => {
+		result.response = _ev;
+		_ev.response = _ev;
+		return accept(_url, _file, _links, _eTag, _callback, result, _ev); });
+	++secondConnections;
 
 	if(result !== null)
 	{
-		++connections;
-		++secondConnections;
-		result.on('error', (_ev) => { return error(_ev, _url, _file, _links, _callback, result) });
-	}
-	
-	return result;
-};
-
-const getLength = (_url, _callback, _destroy = true) => {
-	const result = getRequestFunction(_url)(_url, { method: 'HEAD', headers: customHeaders }, (_ev) => {
-		var res = null;
+		result.on('error', (_ev) => { return error(_ev, _url, _file, _links, _eTag, _callback, result, null); });
+		result.on('timeout', () => { return error('timeout', _url, _file, _links, _eTag, _callback, result, null); });
 		
-		if(_ev.statusCode !== 200)
+		if(typeof connectionTimeout === 'number' && connectionTimeout >= 1)
 		{
-			res = false;
-		}
-		else if(!isNaN(_ev.headers['content-length']))
-		{
-			res = Number(_ev.headers['content-length']);
-		}
-		else
-		{
-			res = true;
+			result.setTimeout(Math.round(connectionTimeout));
 		}
 		
-		if(_destroy) _ev.destroy();
-		return _callback(res, _url, _ev, result);//FIXME/
-	});
-	
-	return result;
-};
-
-const fin = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
-	--connections; --remaining; ++finished;
-
-	if(remaining <= 0 && open <= 0)
-	{
-		lastUpdate = 0;
+		_callback(0, _url, _file, _links, _eTag, _callback, result, null);
 	}
 	else
 	{
-		setTimeout(tryQueue, 0);
+		error(true, _url, _file, _links, _eTag, _callback, result, null, false);
 	}
 	
-	_callback(_error, _url, _file, _links, _callback, _request, _response);
+	return result;
 };
 
-const accept = (_response, _url, _file, _links, _callback, _request = null) => {
-	if(_response.statusCode !== 200)
+const isFinished = () => {
+	return (beganDownloads && openFiles <= 0 && connections.length === 0 && (finished + errors) >= downloads && queue.length === 0 && pausedConnections <= 0);
+};
+
+const fin = (_error, _url, _file, _links, _eTag, _callback, _request = null, _response = null, _counting = true) => {
+	if(_request || _response) for(var i = 0; i < connections.length; ++i)
 	{
-		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _file, _links, _callback, _request, null);
+		if(connections[i] === _request || (connections[i].response && connections[i].response === _response))
+		{
+			if(connections[i].response && connections[i].response.PAUSED)
+			{
+				resumeConnections(connections[i]);
+			}
+			
+			connections.splice(i, 1);
+			break;
+		}
+	}
+
+	if(_counting)
+	{
+		if(_error)
+		{
+			++errors;
+		}
+		else
+		{
+			++finished;
+		}
 	}
 	
+	if(isFinished())
+	{
+		lastUpdate = 0;
+	}
+	
+	_callback(_error, _url, _file, _links, _eTag, _callback, _request, _response);
+	return nextQueueItem();
+};
+
+const parseHeaders = (_raw_headers) => {
+	if(! Array.isArray(_raw_headers))
+	{
+		return _raw_headers;
+	}
+	
+	const result = Object.create(null);
+	
+	for(var i = 0; i < _raw_headers.length; i += 2)
+	{
+		result[_raw_headers[i].toLowerCase()] = _raw_headers[i + 1];
+	}
+
+	return result;
+};
+
+var lastPauseSeconds = 0;
+var totalConnectionTimeout = null;
+
+const pauseConnections = (_seconds, ... _connections) => {
+	if(typeof _seconds !== 'number' || _seconds < 1)
+	{
+		_seconds = lastPauseSeconds;
+	}
+	else
+	{
+		_seconds = lastPauseSeconds = Math.round(_seconds);
+	}
+
+	if(_connections.length === 0)
+	{
+		_connection = connections;
+		totalPause = true;
+	}
+	
+	var result = 0;
+	
+	for(var i = 0; i < _connections.length; ++i)
+	{
+		if(_connections[i].response && !_connections[i].response.PAUSED)
+		{
+			_connections[i].response.PAUSED = _seconds;
+			_connections[i].response.secondBytes = 0;
+			_connections[i].response.pause();
+			
+			_connections[i].response.connectionTimeout = setTimeout(() => {
+				return resumeConnections(_connections[i]);
+			}, (_seconds * 1000));
+
+			++result;
+		}
+	}
+
+	//	
+	if(result === 0 && totalConnectionTimeout === null)
+	{
+		totalConnectionTimeout = setTimeout(() => {
+			return resumeConnections();
+		}, (_seconds * 1000));
+	}
+	else if(result > 0)
+	{
+		totalPauseTime += (_seconds * 1000);
+	}
+	
+	pausedConnections += result;
+	nextQueueItem();
+	return result;
+};
+
+const resumeConnections = (... _connections) => {
+	if(_connections.length === 0)
+	{
+		_connections = connections;
+	}
+	
+	if(totalConnectionTimeout !== null)
+	{
+		clearTimeout(totalConnectionTimeout);
+		totalConnectionTimeout = null;
+	}
+	
+	totalPause = false;
+	secondBytes = 0;
+
+	var result = 0;
+	
+	for(var i = 0; i < _connections.length; ++i)
+	{
+		if(_connections[i].response && _connections[i].response.PAUSED)
+		{
+			if(_connections[i].response.connectionTimeout)
+			{
+				clearTimeout(_connections[i].response.connectionTimeout);
+				_connections[i].response.connectionTimeout = null;
+			}
+			
+			_connections[i].response.secondBytes = 0;
+			_connections[i].response.PAUSED = false;
+			_connections[i].response.resume();
+
+			++result;
+		}
+	}
+	
+	pausedConnections -= result;
+	nextQueueItem();
+	return result;
+};
+
+const accept = (_url, _file, _links, _eTag, _callback, _request, _response = null) => {
 	const p = (_file[0] === '/' ? _file : path.join(emojiPath, _file));
+	const headers = parseHeaders(_response.rawHeaders);
+
+	if(_response.statusCode.toString()[0] !== '2' && _response.statusCode !== 304)
+	{
+		return error('[' + _response.statusCode + '] ' + _response.statusMessage + ': `' + _url + '`', _url, _file, _links, _eTag, _callback, _request, _response);
+	}
+	else if(fs.existsSync(p))
+	{
+		++existed;
+
+		if(_response.statusCode === 304)
+		{
+			--downloads;
+			return fin(false, _url, _file, _links, _eTag, _callback, _request, _response);
+		}
+		else if(!isNaN(headers['content-length']))
+		{
+			const remoteSize = Number(headers['content-length']);
+			const localSize = fs.statSync(p, { bigint: false }).size;
+
+			if(localSize > 0 && remoteSize > 0)
+			{
+				if(localSize === remoteSize)
+				{
+					--downloads;
+					return fin(false, _url, _file, _links, _eTag, _callback, _request, _response);
+				}
+				else
+				{
+					++updated;
+				}
+			}
+			else
+			{
+				++updated;
+			}
+		}
+		else
+		{
+			++updated;
+		}
+	}
+
+	if(totalPause && _request)
+	{
+		pauseConnections(_request);
+	}
+
+	var eTag = '';
+
+	if(headers['ETag'])
+	{
+		eTag = eTagIndex[_file] = headers['ETag'].slice(1, -1);
+	}
+
 	const dir = path.dirname(p);
 	
 	if(! fs.existsSync(dir))
@@ -330,12 +536,12 @@ const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 	var downloadSize = 0;
 	var ended = false;
 	var writing = 0;
-	var written = 0;
-	++open;
+	var position = 0;
+	++openFiles;
 	
 	const close = () => {
 		fs.closeSync(fd);
-		--open;
+		--openFiles;
 	};
 	
 	const end = () => {
@@ -343,41 +549,62 @@ const accept = (_response, _url, _file, _links, _callback, _request = null) => {
 		if(writing > 0) return writing;
 		close();
 		if(Array.isArray(_links)) makeSymlinks(_links, _file);
-		return fin(null, _url, _file, _links, _callback, _request, _response);
+		return fin(null, _url, _file, _links, _eTag, _callback, _request, _response);
 	};
 	
 	_response.on('end', end);
 	
 	_response.on('data', (_chunk) => {
+		++writing;
+
 		totalBytes += _chunk.length;
 		downloadSize += _chunk.length;
-		++writing;
-		fs.write(fd, _chunk, 0, _chunk.length, written, (_err, _written, _buffer) => {
+
+		secondBytes += _chunk.length;
+		_response.secondBytes += _chunk.length;
+
+		fs.write(fd, _chunk, 0, _chunk.length, position, (_err, _written, _buffer) => {
 			if(--writing <= 0 && ended) return end();
-			return _callback(downloadSize, _url, _file, _links, _callback, _request, _response);
+			return _callback(downloadSize, _url, _file, _links, _eTag, _callback, _request, _response);
 		});
-		written += _chunk.length;
-		_callback(downloadSize, _url, _file, _links, _callback, _request, _response);
+		
+		position += _chunk.length;
+		
+		if(globalBandwidthLimit && secondBytes >= connectionBandwidthGlobal)
+		{
+			pauseConnections(secondBytes / connectionBandwidthGlobal);
+		}
+		
+		if(perLinkBandwidthLimit && _response.secondBytes >= connectionBandwidthPerLink)
+		{
+			pauseConnections(_response.secondBytes / connectionBandwidthPerLink, _response);
+		}
+
+		_callback(downloadSize, _url, _file, _links, _eTag, _callback, _request, _response);
 	});
 	
 	_response.on('error', (_error) => {
 		ended = true;
 		close();
 		fs.unlinkSync(p);
-		return error(_error, _url, _file, _links, _callback, _request, _response);
+		return error(_error, _url, _file, _links, _eTag, _callback, _request, _response);
 	});
 
-	//TODO/!!
-	//_response.on('timeout', () => {
+	_response.on('timeout', () => { return error('timeout', _url, _file, _links, _eTag, _callback, _request, _response); });
+	
+	if(typeof connectionTimeout === 'number' && connectionTimeout >= 1)
+	{
+		_response.setTimeout(Math.round(connectionTimeout));
+	}
 	
 	//
-	_callback(0, _url, _file, _links, _callback, _request, _response);
+	_callback(0, _url, _file, _links, _eTag, _callback, _request, _response);
 };
 
 const makeSymlinks = (_links, _target) => {
 	if(! Array.isArray(_links)) return -1;
 	else if(typeof _target !== 'string' || _target.length === 0) return -2;
-	const p = path.join(emojiPath, _target);
+	const p = (_target[0] === '/' ? _target : path.join(emojiPath, _target));
 
 	if(! fs.existsSync(p))
 	{
@@ -401,9 +628,7 @@ const makeSymlinks = (_links, _target) => {
 	return result;
 };
 
-const error = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
-	++errors;
-
+const error = (_error, _url, _file, _links, _eTag, _callback, _request = null, _response = null, _counting = true) => {
 	if(errorLog !== null)
 	{
 		errorLog.push([ _url, _file, _error ]);
@@ -422,70 +647,55 @@ const error = (_error, _url, _file, _links, _callback, _request = null, _respons
 		process.exit(2);
 	}
 	
-	return fin(_error, _url, _file, _links, _callback, _request, _response);
+	return fin(_error, _url, _file, _links, _eTag, _callback, _request, _response, _counting);
 };
 
-const enqueue = (_url, _file, _links, _callback) => {
-	queue.push([ _url, _file, _links, _callback ]);
-	++remaining;
-	return ++downloads;
+const enqueue = (_url, _file, _links, _eTag, _callback) => {
+	queue.push([ _url, _file, _links, _eTag, _callback ]);
 };
 
-const tryQueue = () => {
+const nextQueueItem = () => {
 	//
+	const now = Date.now();
+	var secondDiff = (now - lastSecond);
+
+	//
+	if(secondDiff >= 1000 || lastSecond === 0)
+	{
+		secondConnections = 0;
+		lastSecond = now;
+		secondDiff = 1000;
+	}
+
 	if(queue.length === 0)
 	{
 		return 0;
 	}
-	
-	//
-	if((typeof connectionLimit === 'number' && connectionLimit >= 1) && connections >= connectionLimit)
+	else if(totalPause)
 	{
 		return 0;
 	}
 	
-	var diff = 0;
-	
 	if(typeof connectionsPerSecond === 'number' && connectionsPerSecond >= 1)
 	{
-		if(typeof connectionLimit === 'number' && connectionLimit >= 1)
+		if(secondConnections >= connectionsPerSecond)
 		{
-			diff = Math.min(queue.length, (connectionLimit - connections), (connectionsPerSecond - secondConnections));
+			setTimeout(nextQueueItem, secondDiff);
+			return false;
 		}
-		else
-		{
-			diff = Math.min(queue.length, (connectionsPerSecond - secondConnections));
-		}
-	}
-	else if(connectionLimit === 'number' && connectionLimit >= 1)
-	{
-		diff = Math.min(queue.length, (connectionLimit - connections));
-	}
-	else
-	{
-		diff = queue.length;
 	}
 
-	if(diff <= 0)
+	if(typeof connectionLimit === 'number' && connectionLimit >= 1)
 	{
-		return diff;
+		if((connections.length + pauseConnections) >= connectionLimit)
+		{
+			return false;
+		}
 	}
 
 	//
-	var result = 0;
-	
-	do
-	{
-		if(get(... queue.shift()) !== null)
-		{
-			--diff;
-			++result;
-		}
-	}
-	while(diff > 0);
-
-	//	
-	return result;
+	get(... queue.shift());
+	return setTimeout(nextQueueItem, 0);
 };
 
 //
@@ -523,30 +733,30 @@ const cleanUp = (_ex, _two) => {
 	console.log(os.EOL);
 	
 	//
-	if(_ex instanceof Error) console.dir(_ex);
 	if(beganDownloads && !finishedDownloads) finishDownloads(false);
 	if(didJSON) jsonInfo();
+
+	//
+	if(_ex instanceof Error) console.dir(_ex);
 	
 	//
 	process.exit(exitCode);
 };
 
 const finishDownloads = (_exit = true) => {
-	console.info(os.EOL + os.EOL + os.EOL + 'Finishing downloads, right here, right now..' + os.EOL);
-
-	if(interval !== null) clearInterval(interval);
-	if(secondInterval !== null) clearInterval(secondInterval);
 	finishedDownloads = true;
 	stop = Date.now();
 
+	console.info(os.EOL + os.EOL + os.EOL + 'Finishing downloads, right here, right now..' + os.EOL);
 	console.info('     Downloads: %s', render(downloads));
-	console.info('      Finished: %s (%s)', render(finished), render(Math.round(finished / downloads * 100, 2) + ' %'));
+	console.info('      Finished: %s (%s)', render(finished), render(Math.round(finished / downloads * 100, 2) + '%'));
 	console.info('          Size: %s', renderSize(totalBytes));
 	console.info('          Time: %s', getTime());
 	console.info('       Existed: %s', render(existed));
 	console.info('       Updated: %s', render(updated));
 	console.info('        Errors: %s', render(errors));
 	console.info('  New Symlinks: %s', render(symlinks));
+	console.info('    Pause time: %s', renderTime(totalPauseTime));
 	console.log();
 	
 	if(errors === 0) console.info(bold + 'NO' + reset + ' errors.');
@@ -565,6 +775,23 @@ const finishDownloads = (_exit = true) => {
 		fs.writeFileSync(errorPath, errorText, { encoding: 'utf8' });
 		console.info('Just wrote the error log file: `%s`', bold + (relativePaths ? path.relative(workingDirectory, errorPath) : errorPath) + reset);
 	}
+	
+	try
+	{
+		if((eTagIndexLength = Object.keys(eTagIndex).length) > 0)
+		{
+			fs.writeFileSync(eTagIndexPath, JSON.stringify(eTagIndex, null, beautifyJSON), { encoding: 'utf8' });
+		}
+		else
+		{
+			console.warn(os.EOL + 'The ETag index (`%s`) has not been written; maybe the server doesn\'t send such \'ETag\' headers?', (relativePaths ? path.relative(workingDirectory, eTagIndexPath) : eTagIndexPath));
+		}
+	}
+	catch(_error)
+	{
+		console.error(os.EOL + 'The ETag index (`%s`) couldn\'t be generated or saved!', (relativePaths ? path.relative(workingDirectory, eTagIndexPath) : eTagIndexPath));
+		console.debug('So next time there\'ll be no check for outdated emojis, existing ones will just be omitted..');
+	}
 
 	console.info(os.EOL + 'Images (with tag symlinks) are here: `%s`', bold + (relativePaths ? path.relative(workingDirectory, emojiPath) : emojiPath) + reset);
 
@@ -582,7 +809,10 @@ var jsonShown = false;
 var emojiLength = -1;
 var listLength = -1;
 var indexLength = -1;
+var eTagIndexLength = -1;
+var eTagIndex = {};
 
+//
 const jsonInfo = () => {
 	if(jsonShown || !didJSON)
 	{
@@ -602,9 +832,10 @@ const jsonInfo = () => {
 	else if(emojiLength > -1 || listLength > -1 || indexLength > -1)
 	{
 		console.info('JSON data succesfully written:' + os.EOL +
+			(eTagIndexLength < 1 ? '' : '     ETag index: `' + bold + (relativePaths ? path.relative(workingDirectory, eTagIndexPath) : eTagIndexPath) + reset + '`' + os.EOL) +
 			'         Emojis: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
 			'           List: `' + bold + (relativePaths ? path.relative(workingDirectory, listPath) : listPath) + reset + '`' + os.EOL +
-			'          Index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset);
+			'          Index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL);
 
 		if(emojiLength < 0)
 		{
@@ -632,8 +863,10 @@ const routine = () => {
 	const list = [];
 	const data = [];
 	const index = {};
+	const eTagIndex = {};
 	var dataIndex = 0;
 	var listIndex = 0;
+	const eTagCurrent = (fs.existsSync(eTagIndexPath) ? require(eTagIndexPath) : null);
 
 	for(var i = 0; i < icons.length; ++i)
 	{
@@ -661,6 +894,13 @@ const routine = () => {
 		};
 		const links = {};
 		const string = String.fromCodePoint(... codepoint);
+		const eTags = {};
+		
+		//
+		if(eTagCurrent !== null) for(const idx in file)
+		{
+			eTags[idx] = ((typeof eTagCurrent[file[idx]] === 'string' && eTagCurrent[file[idx]].length > 0) ? eTagCurrent[file[idx]] : '');
+		}
 		
 		//
 		list[listIndex++] = name;
@@ -690,7 +930,7 @@ const routine = () => {
 
 		for(const idx in file)
 		{
-			data[dataIndex++] = [ url[idx], file[idx], [] ];
+			data[dataIndex++] = [ url[idx], file[idx], [], (eTagCurrent === null ? null : eTagCurrent[file[idx]]) ];
 			links[idx] = [];
 			
 			for(var j = 0; j < tags.length; ++j)
@@ -742,42 +982,35 @@ const routine = () => {
 	//
 	if(download)
 	{
-		for(var i = 0; i < dataIndex; ++i)
-		{
-			if(fs.existsSync(path.join(emojiPath, data[i][1])))
-			{
-				makeSymlinks(data[i][2], data[i][1]);
-				++existed;
-				--dataIndex;
-				data.splice(i--, 1);
-			}
-		}
-
-		var timeout = null;
+		const high = { connections: 0, openFiles: 0 };
+		const max = { connections: 0, openFiles: 0 };
+		var updateInterval = null;
+		var updateTimeout = null;
 		var lastArgs = null;
+		var updateCalls = 0;
 
 		const callback = (... _args) => {
-			if(timeout !== null)
+			lastArgs = _args;
+			
+			if(updateTimeout !== null)
 			{
-				clearTimeout(timeout);
-				timeout = null;
+				clearTimeout(updateTimeout);
+				updateTimeout = null;
 			}
 
 			const now = Date.now();
 			const diff = (now - lastUpdate);
-			lastArgs = _args;
 
-			if(remaining <= 0 && open <= 0)
+			if(isFinished())
 			{
 				lastUpdate = 0;
 			}
 			else if(diff < refreshTime)
 			{
-				timeout = setTimeout(() => {
-					timeout = null;
-					if(lastArgs === null) return false;
+				updateTimeout = setTimeout(() => {
+					updateTimeout = null;
 					return callback(... lastArgs);
-				}, diff + 1);
+				}, diff);
 				return false;
 			}
 			else
@@ -788,43 +1021,111 @@ const routine = () => {
 			return update(... lastArgs);
 		};
 
-		const update = (_error, _url, _file, _links, _callback, _request = null, _response = null) => {
+		const update = (_error, _url, _file, _links, _eTag, _callback, _request = null, _response = null) => {
 			//
-			lastArgs = null;
+			if((++updateCalls % averageUpdate) === 0)
+			{
+				//
+				if(--high.connections <= 0)
+				{
+					high.connections = connections.length;
+				}
+				
+				if(--high.openFiles <= 0)
+				{
+					high.openFiles = openFiles;
+				}
+			}
+			
+			//
+			if(connections.length > high.connections)
+			{
+				high.connections = connections.length;
+			}
+			
+			if(openFiles > high.openFiles)
+			{
+				high.openFiles = openFiles;
+			}
 
+			if(connections.length > max.connections)
+			{
+				max.connections = connections.length;
+			}
+
+			if(openFiles > max.openFiles)
+			{
+				max.openFiles = openFiles;
+			}
+			
 			//
 			process.stdout.write(back);
-			console.info(os.EOL + os.EOL + 'Now just wait for all %s downloads to complete. ...' + os.EOL, render(downloads));
+			console.info(os.EOL + os.EOL + 'Now just wait for all downloads to complete. ...' + os.EOL);
+
 			console.log('\tv' + bold + VERSION + reset + os.EOL);
 			console.log('\t\tAny questions? Send me a `mailto:kuchen@kekse.biz`.');
 			console.log('\t\t\tAnd visit me at <https://github.com/kekse1/>! :)~' + os.EOL + os.EOL + os.EOL);
 			process.stdout.write(
-				'        Elapsed Time: ' + getTime() + os.EOL + os.EOL +
-				'          Open files: ' + render(open) + os.EOL +
-				'         Connections: ' + render(connections) + os.EOL +
-				'     Total Downloads: ' + render(dataIndex) + os.EOL +
-				'            Received: ' + renderSize(totalBytes) + os.EOL +
-				'            Finished: ' + render(finished) + os.EOL +
-				'           Erroneous: ' + render(errors) + os.EOL +
-				'             Pending: ' + render(queue.length) + os.EOL +
-				'           Remaining: ' + render(remaining) + os.EOL +
-				'     Already existed: ' + render(existed) + os.EOL +
-				'            Checking: ' + render(checking) + os.EOL +
-				'             Updated: ' + render(updated) + os.EOL + 
-				'      Symbolic Links: ' + render(symlinks) + os.EOL + os.EOL +
-				'            Last URL: `' +  bold + (_url || '') + reset + '`' + os.EOL +
-				'           Last File: `' + bold + (_file || '') + reset + '`' + os.EOL);
+				'          Elapsed Time: ' + getTime() + os.EOL +
+				'       Percentage done: ' + render(Math.round((finished + errors) / (downloads + queue.length) * 100)) + '%' + os.EOL + os.EOL +
+				'            Open files: ' + render(openFiles) + ' / ' + render(high.openFiles) + ' (max: ' + render(max.openFiles) + ')' + os.EOL +
+				'           Connections: ' + render(connections.length) + ' / ' + render(high.connections) + ' (max: ' + render(max.connections) + ')' + os.EOL +
+				'       Total Downloads: ' + render(downloads) + os.EOL +
+				'              Received: ' + renderSize(totalBytes) + os.EOL +
+				'              Finished: ' + render(finished) + os.EOL +
+				'             Erroneous: ' + render(errors) + os.EOL +
+				'               Pending: ' + render(queue.length) + os.EOL +
+				'               Updated: ' + render(updated) + os.EOL + 
+				'       Already existed: ' + render(existed) + os.EOL +
+				'        Symbolic Links: ' + render(symlinks) + os.EOL + os.EOL);
+				
+			if(typeof connectionLimit === 'number' && connectionLimit >= 1)
+			{
+				process.stdout.write('      Connection limit: ' + render(Math.round(connectionLimit)) + os.EOL);
+			}
+			
+			if(typeof connectionsPerSecond === 'number' && connectionsPerSecond >= 1)
+			{
+				process.stdout.write('  Connections per sec.: ' + render(Math.round(connectionsPerSecond)) + os.EOL);
+			}
 
-			if(remaining <= 0 && open <= 0)
+			if(globalBandwidthLimit || perLinkBandwidthLimit)
+			{
+				if(globalBandwidthLimit)
+				{
+					     process.stdout.write('   Connection bandwidth: ' + renderSize(connectionBandwidthGlobal) + ' / second' + os.EOL);
+				}
+				
+				if(perLinkBandwidthLimit)
+				{
+					     process.stdout.write('         Link bandwidth: ' + renderSize(connectionBandwidthPerLink) + ' / second' + os.EOL);
+				}
+
+				process.stdout.write('       Total Pause Time: ' + renderTime(totalPauseTime) + os.EOL);
+				process.stdout.write('     Paused Connections: ' + render((totalPause ? connections.length : pausedConnections)) + os.EOL);
+			}
+			
+			process.stdout.write(os.EOL +
+				'              Last URL: `' +  bold + (_url || '') + reset + '`' + os.EOL +
+				'             Last File: `' + bold + (_file || '') + reset + '`' + os.EOL +
+				'             Last ETag: `' + bold + (_eTag || '') + reset + '`' + os.EOL + os.EOL);
+			process.stdout.write('        Screen updates: ' + render(updateCalls) + ' / ' + renderTime(refreshTime) + os.EOL +
+				'  Until average update: ' + render(averageUpdate - (updateCalls % averageUpdate)) + ' / ' + render(averageUpdate) + os.EOL);
+
+			if(isFinished())
 			{
 				lastUpdate = 0;
-				finishDownloads();
+				finishDownloads(true);
+				if(updateInterval !== null) clearInterval(updateInterval);
+				updateInterval = null;
 				return null;
 			}
 			
 			//
 			return true;
 		};
+		
+		downloads = dataIndex;
 		
 		for(var i = 0; i < dataIndex; ++i)
 		{
@@ -833,14 +1134,18 @@ const routine = () => {
 
 		if(dataIndex <= 0)
 		{
-			if(startDownloads())
+			if(startDownloads(false))
 			{
-				return finishDownloads();
+				return finishDownloads(true);
 			}
 		}
-		else if(startDownloads())
+		else if(startDownloads(true))
 		{
 			process.stdin.resume();
+			updateInterval = setInterval(() => {
+				if(lastArgs === null) return;
+				return update(... lastArgs);
+			}, refreshTime);
 		}
 		else
 		{
@@ -918,7 +1223,7 @@ else
 		console.log(os.EOL + os.EOL);
 		console.log();
 
-		get(apiURL, apiPath, null, (_error) => {
+		get(apiURL, apiPath, null, null, (_error) => {
 			if(typeof _error === 'number')
 			{
 				process.stdout.write(prev + 'Downloaded: ' + renderSize(_error, true) + os.EOL);
