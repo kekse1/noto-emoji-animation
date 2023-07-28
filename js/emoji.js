@@ -1067,8 +1067,8 @@ const routine = () => {
 			process.stdout.write(
 				'          Elapsed Time: ' + getTime() + os.EOL +
 				'       Percentage done: ' + render(Math.round((finished + errors) / (downloads + queue.length) * 100)) + '%' + os.EOL + os.EOL +
-				'            Open files: ' + render(openFiles) + ' / ' + render(high.openFiles) + ' (max: ' + render(max.openFiles) + ')' + os.EOL +
-				'           Connections: ' + render(connections.length) + ' / ' + render(high.connections) + ' (max: ' + render(max.connections) + ')' + os.EOL +
+				'            Open files: ' + render(openFiles) + ' / ' + render(high.openFiles) + ' (max. ' + render(max.openFiles) + ')' + os.EOL +
+				'           Connections: ' + render(connections.length) + ' / ' + render(high.connections) + ' (max. ' + render(max.connections) + ')' + os.EOL +
 				'       Total Downloads: ' + render(downloads) + os.EOL +
 				'              Received: ' + renderSize(totalBytes) + os.EOL +
 				'              Finished: ' + render(finished) + os.EOL +
