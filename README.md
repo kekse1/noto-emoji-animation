@@ -67,8 +67,7 @@ I also published an example here (feel free to use this script right here, from 
 * Configurable downloads: maximum concurrent ones and limit on how many connections per second are initiated.
 * The download rate can be limited.. both for each link and for all links together (the whole line).
 * The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
-* Additionally creates symbolic links to the images by all possible tags! ;)~
-* A _**TAG** INDEX_ not only in JSONs, but also in the **`tag/` directory**. Full of **symbolic links** to lookup for!
+* Additionally creates symbolic links to the images by all possible tags (lookup tags, very important! ;)~
 * Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
 
 .. for this moment I recommend you to .. **read the fucking source**! I'm going to explain more **l8rs*.*
