@@ -4,7 +4,7 @@
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
 #### NEWS
-Brand new v**2.0.0**, with better connection/link handling, and much more improvements! See the [Downloads](#downloads).
+Brand new v**2.0.0**, with better connection handling, and much more improvements! See the [Downloads](#downloads).
 
 > **Warning**
 > This ain't a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
