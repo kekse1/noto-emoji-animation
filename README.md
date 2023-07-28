@@ -9,8 +9,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 #### NEWS
 Brand new v**2.0.0**, with better connection handling, and much more improvements! See the [Downloads](#downloads).
-```html
-<script src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face&size=256"></script>
+<img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face" />
 
 # Index
 1. [Animated Emojis by Google](#animated-emojis-by-google)
