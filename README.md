@@ -16,7 +16,7 @@ Brand new v**2.0.0**, with better connection handling, and much more improvement
 2. [Mass download (all emojis in one packet)](#mass-download-all-emojis-in-one-packet)
 3. [Tag Lookup](#tag-lookup)
 4. [Downloads](#downloads)
-5. [**`.json`** output](#json-output)
+5. [`.json` output](#json-output)
 6. [Features](#features)
 7. [Screenshot](#screenshot)
 8. [Mirror](#mirror)
@@ -55,7 +55,7 @@ I also published an example here (feel free to use this script right here, from 
 > **Warning**
 > Only tested in a **Linux** environment, so I'm not sure whether it'll all work w/ Windows OS..
 
-## **`.json`** output
+## `.json` output
 * [`emoji.json`](json/emoji.json)
 * [`emoji.list.json`](json/emoji.list.json)
 * [`emoji.index.json`](json/emoji.index.json)
