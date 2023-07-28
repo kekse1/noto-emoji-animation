@@ -8,7 +8,7 @@ Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two 
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 #### NEWS
-Brand new v**2.0.0**, with better connection handling, and much more improvements! See the [Downloads](#downloads).
+Brand new v**2.0.1**, with better connection handling, better update checks, and much more improvements! See the [Downloads](#downloads).
 <img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face" />
 
 # Index
