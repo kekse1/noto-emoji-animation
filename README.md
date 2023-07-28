@@ -48,7 +48,7 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
 ## Downloads
-* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.0.0**;
+* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.0.1**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.2.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
@@ -59,6 +59,7 @@ I also published an example here (feel free to use this script right here, from 
 * [`emoji.json`](json/emoji.json)
 * [`emoji.list.json`](json/emoji.list.json)
 * [`emoji.index.json`](json/emoji.index.json)
+* [`emoji.http-e-tags.json`](json/emoji.http-e-tags.json) [if the server supports this header variable];
 
 ## Features
 * Locally existing emojis will be updated if a remote one has been updated (using the HTTP `ETag` header, or by comparing the `Content-Length`);

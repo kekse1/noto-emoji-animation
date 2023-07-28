@@ -32,8 +32,6 @@ const averageUpdate = 24;			// when to decrement the average values
 //
 const apiURL = 'https://googlefonts.github.io/noto-emoji-animation/data/api.json';
 const imageURL = 'https://fonts.gstatic.com/s/e/notoemoji/latest/';
-//const apiURL = 'http://localhost/mirror/noto-emoji-animation/api.json';
-//const imageURL = 'http://localhost/mirror/noto-emoji-animation/emoji/';
 
 //
 const workingDirectory = process.cwd();
@@ -47,7 +45,7 @@ const eTagIndexPath = path.join(emojiPath, 'emoji.http-e-tags.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 
 //
 Error.stackTraceLimit = Infinity;
@@ -286,7 +284,7 @@ const get = (_url, _file, _links, _eTag, _callback) => {
 	{
 		opts.headers = {};
 	}
-	
+
 	if(typeof _eTag === 'string' && _eTag.length > 0)
 	{
 		opts.headers['If-None-Match'] = '"' + _eTag + '"';
@@ -480,10 +478,17 @@ const accept = (_url, _file, _links, _eTag, _callback, _request, _response = nul
 	{
 		++existed;
 
-		if(_response.statusCode === 304)
+		if(_eTag && headers['etag'] && headers['etag'] !== '*')
 		{
-			--downloads;
-			return fin(false, _url, _file, _links, _eTag, _callback, _request, _response);
+			if(_response.statusCode === 304)
+			{
+				--downloads;
+				return fin(false, _url, _file, _links, _eTag, _callback, _request, _response);
+			}
+			else
+			{
+				++updated;
+			}
 		}
 		else if(!isNaN(headers['content-length']))
 		{
@@ -520,9 +525,9 @@ const accept = (_url, _file, _links, _eTag, _callback, _request, _response = nul
 
 	var eTag = '';
 
-	if(headers['ETag'])
+	if(headers['etag'])
 	{
-		eTag = eTagIndex[_file] = headers['ETag'].slice(1, -1);
+		eTag = eTagIndex[_file] = headers['etag'].slice(1, -1);
 	}
 
 	const dir = path.dirname(p);
@@ -894,14 +899,7 @@ const routine = () => {
 		};
 		const links = {};
 		const string = String.fromCodePoint(... codepoint);
-		const eTags = {};
-		
-		//
-		if(eTagCurrent !== null) for(const idx in file)
-		{
-			eTags[idx] = ((typeof eTagCurrent[file[idx]] === 'string' && eTagCurrent[file[idx]].length > 0) ? eTagCurrent[file[idx]] : '');
-		}
-		
+
 		//
 		list[listIndex++] = name;
 
@@ -930,9 +928,10 @@ const routine = () => {
 
 		for(const idx in file)
 		{
-			data[dataIndex++] = [ url[idx], file[idx], [], (eTagCurrent === null ? null : eTagCurrent[file[idx]]) ];
+			const eTag = (eTagCurrent === null ? null : eTagCurrent[file[idx]]);
+			data[dataIndex++] = [ url[idx], file[idx], [], eTag ];
 			links[idx] = [];
-			
+
 			for(var j = 0; j < tags.length; ++j)
 			{
 				data[dataIndex - 1][2].push(tags[j] + '.' + idx);
@@ -1108,7 +1107,8 @@ const routine = () => {
 			process.stdout.write(os.EOL +
 				'              Last URL: `' +  bold + (_url || '') + reset + '`' + os.EOL +
 				'             Last File: `' + bold + (_file || '') + reset + '`' + os.EOL +
-				'             Last ETag: `' + bold + (_eTag || '') + reset + '`' + os.EOL + os.EOL);
+				'             Last ETag: `' + bold + (_eTag || '') + reset + '`' + os.EOL + os.EOL +
+				'             Image URL: `' + bold + imageURL + reset + os.EOL + os.EOL);
 			process.stdout.write('        Screen updates: ' + render(updateCalls) + ' / ' + renderTime(refreshTime) + os.EOL +
 				'  Until average update: ' + render(averageUpdate - (updateCalls % averageUpdate)) + ' / ' + render(averageUpdate) + os.EOL);
 
@@ -1206,6 +1206,10 @@ const justWait = (_func, ... _args) => {
 
 	timeoutCb();
 };
+
+console.info('The emojis are searched at `%s`.', imageURL);
+console.info('The `api.json` is searched at `%s`.', apiURL);
+console.log();
 
 if(fs.existsSync(apiPath))
 {
