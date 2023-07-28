@@ -69,6 +69,7 @@ I also published an example here (feel free to use this script right here, from 
 * The images itself are stored in the same fs hierarchy like at the Google servers, so _image **mirroring**_ is possible.
 * Additionally creates symbolic links to the images by all possible tags (to lookup tags, very important! ;)~
 * Three `.json` output files are created (see the [**`.json`** output section](#json-output) below).
+* And a fourth `.json` with the last `ETag` HTTP header values (if the server supports them);
 
 .. for this moment I recommend you to .. **read the fucking source**! I'm going to explain more **l8rs*.*
 
