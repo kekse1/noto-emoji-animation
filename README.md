@@ -55,7 +55,7 @@ I also published an example here (feel free to use this script right here, from 
 
 ## `.json` output
 * [`emoji.json`](json/emoji.json)
-* [`emoji.list.json`](json/emoji.list.json)
+* [`emoji.tags.json`](json/emoji.tags.json)
 * [`emoji.index.json`](json/emoji.index.json)
 * [`emoji.http-e-tags.json`](json/emoji.http-e-tags.json) [if the server supports this header variable];
 
