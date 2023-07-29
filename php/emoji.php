@@ -3,7 +3,7 @@
 //
 // Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
 // <https://github.com/kekse1/noto-emoji-animation/>
-// v2.0.1
+// v2.1.0
 //
 
 //
@@ -15,6 +15,7 @@ if(!defined('KEKSE_CLI'))
 }
 
 define('KEKSE_EMOJI_VERSION', '2.2.0');
+define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
 namespace kekse\emoji;
@@ -466,13 +467,13 @@ switch($PARAMS['type'])
 		if(! is_string($EMOJI[$PARAMS['type']]) || $EMOJI[$PARAMS['type']] === '') return error('The emoji got no valid item for type `' . $PARAMS['type'] . '` (unexpected)!', 18);
 		$url = true;
 		$result = $EMOJI[$PARAMS['type']];
-		if(!$PARAMS['size']) return relay($result, 0);
+		if(!$PARAMS['size']) return relay(KEKSE_EMOJI_URL . '/' . $result, 0);
 		break;
 }
 
 if($url)
 {
-	$result = '<img src="' . $result . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
+	$result = '<img src="' . KEKSE_EMOJI_URL . '/' . $result . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
 	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
 }
 else

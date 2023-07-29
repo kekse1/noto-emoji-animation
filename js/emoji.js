@@ -19,11 +19,11 @@ const beautifyJSON = '\t';			// if nothing's here, the resulting .json's will be
 const download = true;				// should all the emojis also be downloaded (see `emojiPath` below);
 const debug = false;				// will show every download error, instead of just updating the status output
 const instantStop = false;			// will stop process on the first download error; otherwise all errors are counted
-const connectionLimit = 90;			// maximum concurrent connections to the download server (0 or below => infinite);
-const connectionsPerSecond = 30;		// self explaining.. (0 or below => infinite);
+const connectionLimit = 75;			// maximum concurrent connections to the download server (0 or below => infinite);
+const connectionsPerSecond = 25;		// self explaining.. (0 or below => infinite);
 const connectionTimeout = 16000;		// the timeout for each http(s) request (defaults to 20 seconds);
-const connectionBandwidthPerLink = 1024*1024*100;// bytes per second per link (defaults to 10 mib/s);
-const connectionBandwidthGlobal = 1024*1024*1000;// bytes per second in total, so all links together (defaults to 100 mib/s);
+const connectionBandwidthPerLink = null;//1024*1024*100;// bytes per second per link (defaults to 10 mib/s);
+const connectionBandwidthGlobal = null;//1024*1024*1000;// bytes per second in total, so all links together (defaults to 100 mib/s);
 const radix = 10;				// hehe.. BUT: (!==10) won't .toLocaleString(), so w/ thousand dots/commas, etc..
 const relativePaths = true;			// affects only the console output, where paths are printed out.
 const refreshTime = 96;				// the state screen; to prevent screen flickering in the update-output.
@@ -39,13 +39,13 @@ const apiPath = path.join(workingDirectory, path.basename(apiURL));
 const base = 'emoji';
 const emojiPath = path.join(workingDirectory, base);
 const jsonPath = path.join(workingDirectory, base + '.json');
-const listPath = jsonPath.slice(0, -4) + 'list.json';
+const tagsPath = jsonPath.slice(0, -4) + 'tags.json';
 const indexPath = jsonPath.slice(0, -4) + 'index.json';
 const eTagIndexPath = path.join(emojiPath, 'emoji.http-e-tags.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '2.0.2';
+const VERSION = '2.1.0';
 
 //
 Error.stackTraceLimit = Infinity;
@@ -812,7 +812,7 @@ process.on('uncaughtException', cleanUp);
 var jsonError = false;
 var jsonShown = false;
 var emojiLength = -1;
-var listLength = -1;
+var tagsLength = -1;
 var indexLength = -1;
 var eTagIndexLength = -1;
 var eTagIndex = {};
@@ -834,12 +834,12 @@ const jsonInfo = () => {
 	{
 		console.error('Error while trying to write `*.json` (either in FS or JSON conversion)!');
 	}
-	else if(emojiLength > -1 || listLength > -1 || indexLength > -1)
+	else if(emojiLength > -1 || tagsLength > -1 || indexLength > -1)
 	{
 		console.info('JSON data succesfully written:' + os.EOL +
 			(eTagIndexLength < 1 ? '' : '     ETag index: `' + bold + (relativePaths ? path.relative(workingDirectory, eTagIndexPath) : eTagIndexPath) + reset + '`' + os.EOL) +
 			'         Emojis: `' + bold + (relativePaths ? path.relative(workingDirectory, jsonPath) : jsonPath) + reset + '`' + os.EOL +
-			'           List: `' + bold + (relativePaths ? path.relative(workingDirectory, listPath) : listPath) + reset + '`' + os.EOL +
+			'           List: `' + bold + (relativePaths ? path.relative(workingDirectory, tagsPath) : tagsPath) + reset + '`' + os.EOL +
 			'          Index: `' + bold + (relativePaths ? path.relative(workingDirectory, indexPath) : indexPath) + reset + '`' + os.EOL);
 
 		if(emojiLength < 0)
@@ -847,9 +847,9 @@ const jsonInfo = () => {
 			console.error('Something strange occured with the `%s`!', 'emoji.json');
 		}
 
-		if(listLength < 0)
+		if(tagsLength < 0)
 		{
-			console.error('Something strange with the `%s`!', 'emoji.list.json');
+			console.error('Something strange with the `%s`!', 'emoji.tags.json');
 		}
 
 		if(indexLength < 0)
@@ -865,12 +865,12 @@ const jsonInfo = () => {
 const routine = () => {
 	const icons = require(apiPath).icons; //see `apiPath` and `apiURL`.
 	const result = {};
-	const list = [];
+	const tags = [];
 	const data = [];
 	const index = {};
 	const eTagIndex = {};
 	var dataIndex = 0;
-	var listIndex = 0;
+	var tagsIndex = 0;
 	const eTagCurrent = (fs.existsSync(eTagIndexPath) ? require(eTagIndexPath) : null);
 
 	for(var i = 0; i < icons.length; ++i)
@@ -884,10 +884,10 @@ const routine = () => {
 		}
 
 		//
-		const size = 512;
+		const size = [ 512 ];
 		const name = icons[i].codepoint;
-		const tags = icons[i].tags;
-		const originalTags = [ ... tags ];
+		const tag = icons[i].tags;
+		const originalTag = [ ... tag ];
 		const file = {
 			webp: name + '/' + size + '.webp',
 			gif: name + '/' + size + '.gif',
@@ -901,29 +901,27 @@ const routine = () => {
 		const string = String.fromCodePoint(... codepoint);
 
 		//
-		list[listIndex++] = name;
-
-		for(var j = 0; j < tags.length; ++j)
+		for(var j = 0; j < tag.length; ++j)
 		{
-			var tag = tags[j];
+			var t = tag[j];
 			var num = 0;
 
-			while(tag in result)
+			while(t in result)
 			{
 				if(num > 0)
 				{
-					tag = tags[j].slice(0, -1) + '+' + num.toString() + ':';
+					t = tag[j].slice(0, -1) + '+' + num.toString() + ':';
 				}
 
 				++num;
 			}
 			
-			list[listIndex++] = tags[j] = tag;
+			tags[tagsIndex++] = (tag[j] = t).slice(1, -1);
 		}
 
-		for(var j = 0; j < tags.length; ++j)
+		for(var j = 0; j < tag.length; ++j)
 		{
-			index[tags[j]] = { ... url, codepoint, string };
+			index[tag[j].slice(1, -1)] = { ... file, codepoint, string, size: [ ... size ] };
 		}
 
 		for(const idx in file)
@@ -932,28 +930,28 @@ const routine = () => {
 			data[dataIndex++] = [ url[idx], file[idx], [], eTag ];
 			links[idx] = [];
 
-			for(var j = 0; j < tags.length; ++j)
+			for(var j = 0; j < tag.length; ++j)
 			{
-				data[dataIndex - 1][2].push(tags[j] + '.' + idx);
-				links[idx].push(tags[j] + '.' + idx);
-				if(! (tags[j] in links)) links[tags[j]] = {};
-				links[tags[j]][idx] = (tags[j] + '.' + idx);
+				data[dataIndex - 1][2].push(tag[j] + '.' + idx);
+				links[idx].push(tag[j] + '.' + idx);
+				if(! (tag[j] in links)) links[tag[j]] = {};
+				links[tag[j]][idx] = (tag[j] + '.' + idx);
 			}
 			
-			for(var j = 0; j < tags.length; ++j)
+			for(var j = 0; j < tag.length; ++j)
 			{
-				links[tags[j]] = { ... links[tags[j]] };
+				links[tag[j]] = { ... links[tag[j]] };
 			}
 
 			links[idx] = [ ... links[idx] ];
 			data[dataIndex - 1] = [ ... data[dataIndex - 1] ];
 		}
 		
-		result[name] = { name, size, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url }, links: { ... links } };
+		result[name] = { name, size, codepoint, string, tag: [ ... tag ], originalTag, file: { ... file }, /*url: { ... url },*/ links: { ... links } };
 		
-		for(var j = 0; j < tags.length; ++j)
+		for(var j = 0; j < tag.length; ++j)
 		{
-			result[tags[j]] = { name, size, codepoint, string, tags: [ ... tags ], originalTags, file: { ... file }, url: { ... url}, links: { ... links } };
+			result[tag[j]] = { name, size, codepoint, string, tag: [ ... tag ], originalTag, file: { ... file }, /*url: { ... url},*/ links: { ... links } };
 		}
 	}
 
@@ -962,12 +960,12 @@ const routine = () => {
 	{
 		//
 		emojiLength = Object.keys(result).length;
-		listLength = list.length;
+		tagsLength = tags.length;
 		indexLength = Object.keys(index).length;
 
 		//
 		fs.writeFileSync(jsonPath, JSON.stringify(result, null, beautifyJSON), { encoding: 'utf8' });
-		fs.writeFileSync(listPath, JSON.stringify(list, null, beautifyJSON), { encoding: 'utf8' });
+		fs.writeFileSync(tagsPath, JSON.stringify(tags, null, beautifyJSON), { encoding: 'utf8' });
 		fs.writeFileSync(indexPath, JSON.stringify(index, null, beautifyJSON), { encoding: 'utf8' });
 
 		//
