@@ -19,11 +19,11 @@ const beautifyJSON = '\t';			// if nothing's here, the resulting .json's will be
 const download = true;				// should all the emojis also be downloaded (see `emojiPath` below);
 const debug = false;				// will show every download error, instead of just updating the status output
 const instantStop = false;			// will stop process on the first download error; otherwise all errors are counted
-const connectionLimit = 36;			// maximum concurrent connections to the download server (0 or below => infinite);
-const connectionsPerSecond = 24;		// self explaining.. (0 or below => infinite);
+const connectionLimit = 90;			// maximum concurrent connections to the download server (0 or below => infinite);
+const connectionsPerSecond = 30;		// self explaining.. (0 or below => infinite);
 const connectionTimeout = 16000;		// the timeout for each http(s) request (defaults to 20 seconds);
-const connectionBandwidthPerLink = 1024*1024*50;// bytes per second per link (defaults to 10 mib/s);
-const connectionBandwidthGlobal = 1024*1024*500;// bytes per second in total, so all links together (defaults to 100 mib/s);
+const connectionBandwidthPerLink = 1024*1024*100;// bytes per second per link (defaults to 10 mib/s);
+const connectionBandwidthGlobal = 1024*1024*1000;// bytes per second in total, so all links together (defaults to 100 mib/s);
 const radix = 10;				// hehe.. BUT: (!==10) won't .toLocaleString(), so w/ thousand dots/commas, etc..
 const relativePaths = true;			// affects only the console output, where paths are printed out.
 const refreshTime = 96;				// the state screen; to prevent screen flickering in the update-output.
@@ -45,7 +45,7 @@ const eTagIndexPath = path.join(emojiPath, 'emoji.http-e-tags.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '2.0.1';
+const VERSION = '2.0.2';
 
 //
 Error.stackTraceLimit = Infinity;
@@ -760,7 +760,7 @@ const finishDownloads = (_exit = true) => {
 	console.info('       Existed: %s', render(existed));
 	console.info('       Updated: %s', render(updated));
 	console.info('        Errors: %s', render(errors));
-	console.info('  New Symlinks: %s', render(symlinks));
+	console.info('      Symlinks: %s', render(symlinks));
 	console.info('    Pause time: %s', renderTime(totalPauseTime));
 	console.log();
 	

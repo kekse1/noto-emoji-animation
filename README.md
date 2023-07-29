@@ -7,8 +7,6 @@ This **ain't** a regular emoji website or smth. like this.. _here_ it's all abou
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
-#### NEWS
-Brand new v**2.0.1**, with better connection handling, better update checks, and much more improvements! See the [Downloads](#downloads).
 <img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face" />
 
 # Index
@@ -48,7 +46,7 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
 ## Downloads
-* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.0.1**;
+* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.0.2**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.2.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
@@ -91,7 +89,7 @@ Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 > My own **`getopt.js`** is _TODO_! ;)~
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.0.2**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.2.0**).
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
