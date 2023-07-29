@@ -74,7 +74,7 @@ I also published an example here (feel free to use this script right here, from 
 ## Screenshot
 Downloads in progess:
 
-![Screenshot](docs/downloads.png)
+![Screenshot](docs/downloading.png)
 
 ## **Mirror**
 I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~
