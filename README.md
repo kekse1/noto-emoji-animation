@@ -11,6 +11,29 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 ![:zany-face:](https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face)
 
+# Mass download (all emojis in one packet)
+This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
+in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
+image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
+
+But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
+so I hacked up a bit into the sources and quickly found everything necessary for this. And the mass download is
+_really_ fast, as Google really wants users to request any icon every time on demand! :)~
+
+So that's the reason for this [**`emoji.js`**](js/emoji.js) and [**`emoji.php`**](php/emoji.php). :)~
+
+# **Tag Lookup**
+My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google /seems/ to not
+support it right now?). PLUS some other features! Check out the [**PHP** script section](#php-script)! :)~
+
+And, jfyi, it works both in console and web browser requests.. see below.
+
+I also published an example here (feel free to use this script right here, from my server, it'll relay to the original Google URL):
+* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=codepoint)
+* [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
+* [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=webp)
+* [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
+
 # Index
 1. [Animated Emojis by Google](#animated-emojis-by-google)
 2. [Mass download (all emojis in one packet)](#mass-download-all-emojis-in-one-packet)
@@ -23,29 +46,6 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 9. [Configuration](#configuration)
 10. [PHP script](#php-script)
 11. [Copyright and License](#copyright-and-license)
-
-## Mass download (all emojis in one packet)
-This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
-in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
-image types (supported: **GIF**, **WebP** and **Lottie** (.json)).
-
-But I didn't want to manually download them, I just wanted my own copy (for template/pre-precessor replacements),
-so I hacked up a bit into the sources and quickly found everything necessary for this. And the mass download is
-_really_ fast, as Google really wants users to request any icon every time on demand! :)~
-
-So that's the reason for this [**`emoji.js`**](js/emoji.js) and [**`emoji.php`**](php/emoji.php). :)~
-
-## **Tag Lookup**
-My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google /seems/ to not
-support it right now?). PLUS some other features! Check out the [**PHP** script section](#php-script)! :)~
-
-And, jfyi, it works both in console and web browser requests.. see below.
-
-I also published an example here (feel free to use this script right here, from my server, it'll relay to the original Google URL):
-* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=codepoint)
-* [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
-* [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=webp)
-* [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.0**;
