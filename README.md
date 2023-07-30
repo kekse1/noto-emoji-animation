@@ -3,11 +3,13 @@
 # Animated Emojis by Google
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/)
 
+![Google F.A.Q. item](docs/google-faq.png)
+
 This **ain't** a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
-<img src="https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face" />
+![:zany-face:](https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face)
 
 # Index
 1. [Animated Emojis by Google](#animated-emojis-by-google)
