@@ -48,7 +48,7 @@ I also published an example here (feel free to use this script right here, from 
 11. [Copyright and License](#copyright-and-license)
 
 ## Downloads
-* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.0**;
+* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.1**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.1.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
@@ -91,7 +91,7 @@ Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 > My own **`getopt.js`** is _TODO_! ;)~
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.1.0**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.1.1**).
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!

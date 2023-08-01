@@ -45,7 +45,7 @@ const eTagIndexPath = path.join(emojiPath, 'emoji.http-e-tags.json');
 const errorPath = path.join(workingDirectory, 'error.log');		// may be empty string or no string, to disable logging download errors
 
 //
-const VERSION = '2.1.0';
+const VERSION = '2.1.1';
 
 //
 Error.stackTraceLimit = Infinity;
@@ -107,7 +107,7 @@ const render = (_value, _ansi = true) => {
 	return result;
 };
 
-const units = [ 'Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB' ];
+const units = [ 'Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB' ];
 
 const renderSize = (_bytes, _ansi = true, _precision = 2) => {
 	var rest = _bytes;
