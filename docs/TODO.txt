@@ -1,4 +1,0 @@
-
-
-	# `getopt.js`! siehe 'kekse1/getopt.js'.
-
