@@ -1,0 +1,1 @@
+https://docs.github.com/de/rest/emojis/emojis?apiVersion=2022-11-28
