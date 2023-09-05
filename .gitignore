@@ -1,0 +1,8 @@
+*.swp
+.*.swp
+.~lock*
+a.out
+*.buf
+*.sw[a-p]
+!*.swf
+
