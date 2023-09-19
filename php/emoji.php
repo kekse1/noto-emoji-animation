@@ -323,7 +323,7 @@ function getParameters($_error = true)
 	}
 	else if($_error)
 	{
-		return error('The neccessary `?tag` parameter has not been set!', 4);
+		return error('The necessary `?tag` parameter has not been set!', 4);
 	}
 	else
 	{
