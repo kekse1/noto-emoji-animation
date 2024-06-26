@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.1.1
+ * v2.1.2
  */
 
 //
@@ -21,7 +21,7 @@ define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 namespace kekse\emoji;
 
 //
-function getTag($_string, $_url = true)
+function getTagName($_string, $_url = true)
 {
 	$l = strlen($_string);
 	
@@ -73,8 +73,8 @@ function getTag($_string, $_url = true)
 	{
 		return null;
 	}
-  
-	return (':' . $result. ':');
+
+	return $result;
 }
 
 function output($_data, $_mime = null, $_exit = 0)
@@ -342,7 +342,7 @@ function getParameters($_error = true)
 	}
 
 	//
-	$result = array('tag' => \kekse\emoji\getTag($tag, $_error), 'type' => filterType($type, $_error), 'size' => filterSize($size, $_error), 'font' => $font);
+	$result = array('tag' => \kekse\emoji\getTagName($tag, $_error), 'type' => filterType($type, $_error), 'size' => filterSize($size, $_error), 'font' => $font);
 
 	if(! ($result['type'] && $result['tag']))
 	{
@@ -400,17 +400,6 @@ function lookUpTag($_tag, $_error = true)
 	{
 		if($_error) return error('Emoji index is not available!', 12);
 		return null;
-	}
-
-	if($_tag[0] === ':')
-	{
-		$_tag = substr($_tag, 1);
-	}
-
-	$len = strlen($_tag);
-	if($_tag[$len - 1] === ':')
-	{
-		$_tag = substr($_tag, 0, $len - 1);
 	}
 
 	if(! isset($REFERENCE[$_tag])) return null;
