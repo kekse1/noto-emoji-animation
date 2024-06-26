@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.1.2
+ * v2.1.3
  */
 
 //
@@ -105,7 +105,7 @@ function output($_data, $_mime = null, $_exit = 0)
 	if(!is_string($_mime) || $_mime === '') $_mime = getMimeType('txt');
 
 	header('Content-Type: ' . $_mime);
-	//header('Content-Length: ' . strlen($_data));
+	header('Content-Length: ' . strlen($_data));
 
 	echo $_data;
 	if($_exit !== false) exit($_exit);
