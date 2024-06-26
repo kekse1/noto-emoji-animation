@@ -74,7 +74,7 @@ function getTag($_string, $_url = true)
 		return null;
 	}
   
-  return (':' . $result. ':');
+	return (':' . $result. ':');
 }
 
 function output($_data, $_mime = null, $_exit = 0)
