@@ -49,7 +49,7 @@ I also published an example here (feel free to use this script right here, from 
 11. [Copyright and License](#copyright-and-license)
 
 ## Downloads
-* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.1**;
+* [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.2**;
 * [And here's the **`emoji.php`**](php/emoji.php) v**2.1.1** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
