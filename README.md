@@ -46,7 +46,8 @@ I also published an example here (feel free to use this script right here, from 
 8. [Mirror](#mirror)
 9. [Configuration](#configuration)
 10. [PHP script](#php-script)
-11. [Copyright and License](#copyright-and-license)
+11. [Contact](#contact)
+12. [Copyright and License](#copyright-and-license)
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
@@ -127,6 +128,9 @@ in the console the link will just be shown.
 _Only in the **browser**_: The _new_ GET[] parameter **`?size`** is available now, for:
 * (**a**) Scaling up the `string` (w/ also new parameter **`?font`**, to also specify `font-family: 'Noto Emoji'`)
 * (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
+
+# Contact
+<img src="https://kekse.biz/github.php?override=github:noto-emoji-animation&draw&text=noto-emoji-animation@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
 
 # Copyright and License
 The rest, everything on the Google servers (or smth. similar) is owned by Google, with their own license(s).
