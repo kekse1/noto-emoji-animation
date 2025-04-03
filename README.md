@@ -1,5 +1,7 @@
 <img src="https://kekse.biz/github.php?draw&override=github:noto-emoji-animation" />
 
+<br>
+
 # Animated Emojis by Google
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/),
 also with it's own [github repository](https://github.com/googlefonts/noto-emoji).
@@ -12,6 +14,8 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 ![:zany-face:](https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face)
 
+<br>
+
 # Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
 in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
@@ -22,6 +26,8 @@ so I hacked up a bit into the sources and quickly found everything necessary for
 _really_ fast, as Google really wants users to request any icon every time on demand! :)~
 
 So that's the reason for this [**`emoji.js`**](js/emoji.js) and [**`emoji.php`**](php/emoji.php). :)~
+
+<br>
 
 # **Tag Lookup**
 My [**PHP** script](#php-script) is also there, just to request emojis by their tags (Google /seems/ to not
@@ -35,6 +41,8 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=webp)
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
+<br><br>
+
 # Index
 1. [Animated Emojis by Google](#animated-emojis-by-google)
 2. [Mass download (all emojis in one packet)](#mass-download-all-emojis-in-one-packet)
@@ -43,11 +51,12 @@ I also published an example here (feel free to use this script right here, from 
 5. [`.json` output](#json-output)
 6. [Features](#features)
 7. [Screenshot](#screenshot)
-8. [Mirror](#mirror)
-9. [Configuration](#configuration)
-10. [PHP script](#php-script)
-11. [Contact](#contact)
-12. [Copyright and License](#copyright-and-license)
+8. [Configuration](#configuration)
+9. [PHP script](#php-script)
+10. [Contact](#contact)
+11. [Copyright and License](#copyright-and-license)
+
+<br><br>
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
@@ -57,11 +66,15 @@ I also published an example here (feel free to use this script right here, from 
 > **Warning**
 > Only tested in a **Linux** environment, so I'm not sure whether it'll all work w/ Windows OS..
 
+<br>
+
 ## `.json` output
 * [`emoji.json`](json/emoji.json)
 * [`emoji.tags.json`](json/emoji.tags.json)
 * [`emoji.index.json`](json/emoji.index.json)
 * [`emoji.http-e-tags.json`](json/emoji.http-e-tags.json) [if the server supports this header variable];
+
+<br>
 
 ## Features
 * Locally existing emojis will be updated if a remote one has been updated (using the HTTP `ETag` header, or by comparing the `Content-Length`);
@@ -75,22 +88,22 @@ I also published an example here (feel free to use this script right here, from 
 
 .. for this moment I recommend you to .. **read the fucking source**! I'm going to explain more **l8rs*.*
 
+<br>
+
 ## Screenshot
 Downloads in progess:
 
 ![Screenshot](docs/downloading.png)
 
-## **Mirror**
-I've mirrored Google's original.. That's only fair, because I published this mirroring alike script.. ;)~
-
-* `api.json`: **https://mirror.kekse.biz/noto-emoji-animation/api.json**
-* `emoji/`: **https://mirror.kekse.biz/noto-emoji-animation/emoji/**
+<br>
 
 ## Configuration
 Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 
 > **Note**
 > My own **`getopt.js`** is _TODO_! ;)~
+
+<br>
 
 ## **PHP** script
 Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.1.1**).
@@ -128,6 +141,8 @@ in the console the link will just be shown.
 _Only in the **browser**_: The _new_ GET[] parameter **`?size`** is available now, for:
 * (**a**) Scaling up the `string` (w/ also new parameter **`?font`**, to also specify `font-family: 'Noto Emoji'`)
 * (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
+
+<br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:noto-emoji-animation&draw&text=noto-emoji-animation@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
