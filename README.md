@@ -12,7 +12,7 @@ This **ain't** a regular emoji website or smth. like this.. _here_ it's all abou
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
-![:zany-face:](https://mirror.kekse.biz/noto-emoji-animation/?type=webp&tag=zany-face)
+![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face)
 
 <br>
 
@@ -36,10 +36,10 @@ support it right now?). PLUS some other features! Check out the [**PHP** script 
 And, jfyi, it works both in console and web browser requests.. see below.
 
 I also published an example here (feel free to use this script right here, from my server, it'll relay to the original Google URL):
-* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=codepoint)
-* [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
-* [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=:zipper-face:&type=webp)
-* [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
+* [**`?tag=:zipper-face:&type=codepoint`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=:zipper-face:&type=codepoint)
+* [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
+* [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=:zipper-face:&type=webp)
+* [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
 <br><br>
 
@@ -110,8 +110,8 @@ Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.1.1**).
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
-Otherwise call via browser like [...**`?tag=zipper-face&type=webp`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp),
-or maybe [...**`?tag=:zipper-face:&type=string`**](https://mirror.kekse.biz/noto-emoji-animation/emoji.php?tag=:zipper-face:&type=string).. ;)~
+Otherwise call via browser like [...**`?tag=zipper-face&type=webp`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp),
+or maybe [...**`?tag=:zipper-face:&type=string`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/emoji.php?tag=:zipper-face:&type=string).. ;)~
 
 > **Note**
 > As a shebang is not supported here (because of the HTTPD mode), I just created a tiny shell script to start this `.php` script.
