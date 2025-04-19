@@ -6,7 +6,7 @@
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/),
 also with it's own [github repository](https://github.com/googlefonts/noto-emoji).
 
-![Google F.A.Q. item](docs/google-faq.png)
+![Google F.A.Q. item](img/google-faq.png)
 
 This **ain't** a regular emoji website or smth. like this.. _here_ it's all about the [animated emojis available from
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
@@ -93,7 +93,7 @@ I also published an example here (feel free to use this script right here, from 
 ## Screenshot
 Downloads in progess:
 
-![Screenshot](docs/downloading.png)
+![Screenshot](img/downloading.png)
 
 <br>
 
