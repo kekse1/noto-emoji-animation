@@ -336,6 +336,36 @@
 			512
 		]
 	},
+	"head-nod": {
+		"webp": "1f642_200d_2195_fe0f/512.webp",
+		"gif": "1f642_200d_2195_fe0f/512.gif",
+		"json": "1f642_200d_2195_fe0f/lottie.json",
+		"codepoint": [
+			128578,
+			8205,
+			8597,
+			65039
+		],
+		"string": "🙂‍↕️",
+		"size": [
+			512
+		]
+	},
+	"head-shake": {
+		"webp": "1f642_200d_2194_fe0f/512.webp",
+		"gif": "1f642_200d_2194_fe0f/512.gif",
+		"json": "1f642_200d_2194_fe0f/lottie.json",
+		"codepoint": [
+			128578,
+			8205,
+			8596,
+			65039
+		],
+		"string": "🙂‍↔️",
+		"size": [
+			512
+		]
+	},
 	"smirk": {
 		"webp": "1f60f/512.webp",
 		"gif": "1f60f/512.gif",
@@ -344,42 +374,6 @@
 			128527
 		],
 		"string": "😏",
-		"size": [
-			512
-		]
-	},
-	"sleep": {
-		"webp": "1f634/512.webp",
-		"gif": "1f634/512.gif",
-		"json": "1f634/lottie.json",
-		"codepoint": [
-			128564
-		],
-		"string": "😴",
-		"size": [
-			512
-		]
-	},
-	"tired": {
-		"webp": "1f634/512.webp",
-		"gif": "1f634/512.gif",
-		"json": "1f634/lottie.json",
-		"codepoint": [
-			128564
-		],
-		"string": "😴",
-		"size": [
-			512
-		]
-	},
-	"sleepy": {
-		"webp": "1f62a/512.webp",
-		"gif": "1f62a/512.gif",
-		"json": "1f62a/lottie.json",
-		"codepoint": [
-			128554
-		],
-		"string": "😪",
 		"size": [
 			512
 		]
@@ -1283,6 +1277,54 @@
 			512
 		]
 	},
+	"tired": {
+		"webp": "1fae9/512.webp",
+		"gif": "1fae9/512.gif",
+		"json": "1fae9/lottie.json",
+		"codepoint": [
+			129769
+		],
+		"string": "🫩",
+		"size": [
+			512
+		]
+	},
+	"bags-under-eyes": {
+		"webp": "1fae9/512.webp",
+		"gif": "1fae9/512.gif",
+		"json": "1fae9/lottie.json",
+		"codepoint": [
+			129769
+		],
+		"string": "🫩",
+		"size": [
+			512
+		]
+	},
+	"sleep": {
+		"webp": "1f634/512.webp",
+		"gif": "1f634/512.gif",
+		"json": "1f634/lottie.json",
+		"codepoint": [
+			128564
+		],
+		"string": "😴",
+		"size": [
+			512
+		]
+	},
+	"sleepy": {
+		"webp": "1f62a/512.webp",
+		"gif": "1f62a/512.gif",
+		"json": "1f62a/lottie.json",
+		"codepoint": [
+			128554
+		],
+		"string": "😪",
+		"size": [
+			512
+		]
+	},
 	"sneeze": {
 		"webp": "1f927/512.webp",
 		"gif": "1f927/512.gif",
@@ -1439,6 +1481,18 @@
 			512
 		]
 	},
+	"poop": {
+		"webp": "1f4a9/512.webp",
+		"gif": "1f4a9/512.gif",
+		"json": "1f4a9/lottie.json",
+		"codepoint": [
+			128169
+		],
+		"string": "💩",
+		"size": [
+			512
+		]
+	},
 	"imp-smile": {
 		"webp": "1f608/512.webp",
 		"gif": "1f608/512.gif",
@@ -1475,6 +1529,43 @@
 			512
 		]
 	},
+	"skull": {
+		"webp": "1f480/512.webp",
+		"gif": "1f480/512.gif",
+		"json": "1f480/lottie.json",
+		"codepoint": [
+			128128
+		],
+		"string": "💀",
+		"size": [
+			512
+		]
+	},
+	"snowman-with-snow": {
+		"webp": "2603_fe0f/512.webp",
+		"gif": "2603_fe0f/512.gif",
+		"json": "2603_fe0f/lottie.json",
+		"codepoint": [
+			9731,
+			65039
+		],
+		"string": "☃️",
+		"size": [
+			512
+		]
+	},
+	"snowman": {
+		"webp": "26c4/512.webp",
+		"gif": "26c4/512.gif",
+		"json": "26c4/lottie.json",
+		"codepoint": [
+			9924
+		],
+		"string": "⛄",
+		"size": [
+			512
+		]
+	},
 	"jack-o-lantern": {
 		"webp": "1f383/512.webp",
 		"gif": "1f383/512.gif",
@@ -1483,18 +1574,6 @@
 			127875
 		],
 		"string": "🎃",
-		"size": [
-			512
-		]
-	},
-	"poop": {
-		"webp": "1f4a9/512.webp",
-		"gif": "1f4a9/512.gif",
-		"json": "1f4a9/lottie.json",
-		"codepoint": [
-			128169
-		],
-		"string": "💩",
 		"size": [
 			512
 		]
@@ -1523,6 +1602,30 @@
 			512
 		]
 	},
+	"alien-monster": {
+		"webp": "1f47e/512.webp",
+		"gif": "1f47e/512.gif",
+		"json": "1f47e/lottie.json",
+		"codepoint": [
+			128126
+		],
+		"string": "👾",
+		"size": [
+			512
+		]
+	},
+	"sun-with-face": {
+		"webp": "1f31e/512.webp",
+		"gif": "1f31e/512.gif",
+		"json": "1f31e/lottie.json",
+		"codepoint": [
+			127774
+		],
+		"string": "🌞",
+		"size": [
+			512
+		]
+	},
 	"moon-face-first-quarter": {
 		"webp": "1f31b/512.webp",
 		"gif": "1f31b/512.gif",
@@ -1543,174 +1646,6 @@
 			127772
 		],
 		"string": "🌜",
-		"size": [
-			512
-		]
-	},
-	"sun-with-face": {
-		"webp": "1f31e/512.webp",
-		"gif": "1f31e/512.gif",
-		"json": "1f31e/lottie.json",
-		"codepoint": [
-			127774
-		],
-		"string": "🌞",
-		"size": [
-			512
-		]
-	},
-	"fire": {
-		"webp": "1f525/512.webp",
-		"gif": "1f525/512.gif",
-		"json": "1f525/lottie.json",
-		"codepoint": [
-			128293
-		],
-		"string": "🔥",
-		"size": [
-			512
-		]
-	},
-	"burn": {
-		"webp": "1f525/512.webp",
-		"gif": "1f525/512.gif",
-		"json": "1f525/lottie.json",
-		"codepoint": [
-			128293
-		],
-		"string": "🔥",
-		"size": [
-			512
-		]
-	},
-	"lit": {
-		"webp": "1f525/512.webp",
-		"gif": "1f525/512.gif",
-		"json": "1f525/lottie.json",
-		"codepoint": [
-			128293
-		],
-		"string": "🔥",
-		"size": [
-			512
-		]
-	},
-	"one-hundred": {
-		"webp": "1f4af/512.webp",
-		"gif": "1f4af/512.gif",
-		"json": "1f4af/lottie.json",
-		"codepoint": [
-			128175
-		],
-		"string": "💯",
-		"size": [
-			512
-		]
-	},
-	"hundred": {
-		"webp": "1f4af/512.webp",
-		"gif": "1f4af/512.gif",
-		"json": "1f4af/lottie.json",
-		"codepoint": [
-			128175
-		],
-		"string": "💯",
-		"size": [
-			512
-		]
-	},
-	"points": {
-		"webp": "1f4af/512.webp",
-		"gif": "1f4af/512.gif",
-		"json": "1f4af/lottie.json",
-		"codepoint": [
-			128175
-		],
-		"string": "💯",
-		"size": [
-			512
-		]
-	},
-	"glowing-star": {
-		"webp": "1f31f/512.webp",
-		"gif": "1f31f/512.gif",
-		"json": "1f31f/lottie.json",
-		"codepoint": [
-			127775
-		],
-		"string": "🌟",
-		"size": [
-			512
-		]
-	},
-	"sparkles": {
-		"webp": "2728/512.webp",
-		"gif": "2728/512.gif",
-		"json": "2728/lottie.json",
-		"codepoint": [
-			10024
-		],
-		"string": "✨",
-		"size": [
-			512
-		]
-	},
-	"collision": {
-		"webp": "1f4a5/512.webp",
-		"gif": "1f4a5/512.gif",
-		"json": "1f4a5/lottie.json",
-		"codepoint": [
-			128165
-		],
-		"string": "💥",
-		"size": [
-			512
-		]
-	},
-	"party-popper": {
-		"webp": "1f389/512.webp",
-		"gif": "1f389/512.gif",
-		"json": "1f389/lottie.json",
-		"codepoint": [
-			127881
-		],
-		"string": "🎉",
-		"size": [
-			512
-		]
-	},
-	"see-no-evil-monkey": {
-		"webp": "1f648/512.webp",
-		"gif": "1f648/512.gif",
-		"json": "1f648/lottie.json",
-		"codepoint": [
-			128584
-		],
-		"string": "🙈",
-		"size": [
-			512
-		]
-	},
-	"hear-no-evil-monkey": {
-		"webp": "1f649/512.webp",
-		"gif": "1f649/512.gif",
-		"json": "1f649/lottie.json",
-		"codepoint": [
-			128585
-		],
-		"string": "🙉",
-		"size": [
-			512
-		]
-	},
-	"speak-no-evil-monkey": {
-		"webp": "1f64a/512.webp",
-		"gif": "1f64a/512.gif",
-		"json": "1f64a/lottie.json",
-		"codepoint": [
-			128586
-		],
-		"string": "🙊",
 		"size": [
 			512
 		]
@@ -1819,6 +1754,210 @@
 			128574
 		],
 		"string": "😾",
+		"size": [
+			512
+		]
+	},
+	"see-no-evil-monkey": {
+		"webp": "1f648/512.webp",
+		"gif": "1f648/512.gif",
+		"json": "1f648/lottie.json",
+		"codepoint": [
+			128584
+		],
+		"string": "🙈",
+		"size": [
+			512
+		]
+	},
+	"hear-no-evil-monkey": {
+		"webp": "1f649/512.webp",
+		"gif": "1f649/512.gif",
+		"json": "1f649/lottie.json",
+		"codepoint": [
+			128585
+		],
+		"string": "🙉",
+		"size": [
+			512
+		]
+	},
+	"speak-no-evil-monkey": {
+		"webp": "1f64a/512.webp",
+		"gif": "1f64a/512.gif",
+		"json": "1f64a/lottie.json",
+		"codepoint": [
+			128586
+		],
+		"string": "🙊",
+		"size": [
+			512
+		]
+	},
+	"glowing-star": {
+		"webp": "1f31f/512.webp",
+		"gif": "1f31f/512.gif",
+		"json": "1f31f/lottie.json",
+		"codepoint": [
+			127775
+		],
+		"string": "🌟",
+		"size": [
+			512
+		]
+	},
+	"sparkles": {
+		"webp": "2728/512.webp",
+		"gif": "2728/512.gif",
+		"json": "2728/lottie.json",
+		"codepoint": [
+			10024
+		],
+		"string": "✨",
+		"size": [
+			512
+		]
+	},
+	"electricity": {
+		"webp": "26a1/512.webp",
+		"gif": "26a1/512.gif",
+		"json": "26a1/lottie.json",
+		"codepoint": [
+			9889
+		],
+		"string": "⚡",
+		"size": [
+			512
+		]
+	},
+	"zap": {
+		"webp": "26a1/512.webp",
+		"gif": "26a1/512.gif",
+		"json": "26a1/lottie.json",
+		"codepoint": [
+			9889
+		],
+		"string": "⚡",
+		"size": [
+			512
+		]
+	},
+	"lightning": {
+		"webp": "26a1/512.webp",
+		"gif": "26a1/512.gif",
+		"json": "26a1/lottie.json",
+		"codepoint": [
+			9889
+		],
+		"string": "⚡",
+		"size": [
+			512
+		]
+	},
+	"collision": {
+		"webp": "1f4a5/512.webp",
+		"gif": "1f4a5/512.gif",
+		"json": "1f4a5/lottie.json",
+		"codepoint": [
+			128165
+		],
+		"string": "💥",
+		"size": [
+			512
+		]
+	},
+	"fire": {
+		"webp": "1f525/512.webp",
+		"gif": "1f525/512.gif",
+		"json": "1f525/lottie.json",
+		"codepoint": [
+			128293
+		],
+		"string": "🔥",
+		"size": [
+			512
+		]
+	},
+	"burn": {
+		"webp": "1f525/512.webp",
+		"gif": "1f525/512.gif",
+		"json": "1f525/lottie.json",
+		"codepoint": [
+			128293
+		],
+		"string": "🔥",
+		"size": [
+			512
+		]
+	},
+	"lit": {
+		"webp": "1f525/512.webp",
+		"gif": "1f525/512.gif",
+		"json": "1f525/lottie.json",
+		"codepoint": [
+			128293
+		],
+		"string": "🔥",
+		"size": [
+			512
+		]
+	},
+	"one-hundred": {
+		"webp": "1f4af/512.webp",
+		"gif": "1f4af/512.gif",
+		"json": "1f4af/lottie.json",
+		"codepoint": [
+			128175
+		],
+		"string": "💯",
+		"size": [
+			512
+		]
+	},
+	"hundred": {
+		"webp": "1f4af/512.webp",
+		"gif": "1f4af/512.gif",
+		"json": "1f4af/lottie.json",
+		"codepoint": [
+			128175
+		],
+		"string": "💯",
+		"size": [
+			512
+		]
+	},
+	"points": {
+		"webp": "1f4af/512.webp",
+		"gif": "1f4af/512.gif",
+		"json": "1f4af/lottie.json",
+		"codepoint": [
+			128175
+		],
+		"string": "💯",
+		"size": [
+			512
+		]
+	},
+	"party-popper": {
+		"webp": "1f389/512.webp",
+		"gif": "1f389/512.gif",
+		"json": "1f389/lottie.json",
+		"codepoint": [
+			127881
+		],
+		"string": "🎉",
+		"size": [
+			512
+		]
+	},
+	"confetti-ball": {
+		"webp": "1f38a/512.webp",
+		"gif": "1f38a/512.gif",
+		"json": "1f38a/lottie.json",
+		"codepoint": [
+			127882
+		],
+		"string": "🎊",
 		"size": [
 			512
 		]
@@ -2064,6 +2203,18 @@
 			512
 		]
 	},
+	"heart-box": {
+		"webp": "1f49f/512.webp",
+		"gif": "1f49f/512.gif",
+		"json": "1f49f/lottie.json",
+		"codepoint": [
+			128159
+		],
+		"string": "💟",
+		"size": [
+			512
+		]
+	},
 	"heart-exclamation-point": {
 		"webp": "2763_fe0f/512.webp",
 		"gif": "2763_fe0f/512.gif",
@@ -2143,6 +2294,18 @@
 			512
 		]
 	},
+	"fingerprint": {
+		"webp": "1fac6/512.webp",
+		"gif": "1fac6/512.gif",
+		"json": "1fac6/lottie.json",
+		"codepoint": [
+			129734
+		],
+		"string": "🫆",
+		"size": [
+			512
+		]
+	},
 	"anatomical-heart": {
 		"webp": "1fac0/512.webp",
 		"gif": "1fac0/512.gif",
@@ -2191,18 +2354,6 @@
 			512
 		]
 	},
-	"skull": {
-		"webp": "1f480/512.webp",
-		"gif": "1f480/512.gif",
-		"json": "1f480/lottie.json",
-		"codepoint": [
-			128128
-		],
-		"string": "💀",
-		"size": [
-			512
-		]
-	},
 	"eyes": {
 		"webp": "1f440/512.webp",
 		"gif": "1f440/512.gif",
@@ -2236,6 +2387,391 @@
 			129766
 		],
 		"string": "🫦",
+		"size": [
+			512
+		]
+	},
+	"nose": {
+		"webp": "1f443/512.webp",
+		"gif": "1f443/512.gif",
+		"json": "1f443/lottie.json",
+		"codepoint": [
+			128067
+		],
+		"string": "👃",
+		"size": [
+			512
+		]
+	},
+	"nose+1": {
+		"webp": "1f443_1f3fb/512.webp",
+		"gif": "1f443_1f3fb/512.gif",
+		"json": "1f443_1f3fb/lottie.json",
+		"codepoint": [
+			128067,
+			127995
+		],
+		"string": "👃🏻",
+		"size": [
+			512
+		]
+	},
+	"nose+2": {
+		"webp": "1f443_1f3fc/512.webp",
+		"gif": "1f443_1f3fc/512.gif",
+		"json": "1f443_1f3fc/lottie.json",
+		"codepoint": [
+			128067,
+			127996
+		],
+		"string": "👃🏼",
+		"size": [
+			512
+		]
+	},
+	"nose+3": {
+		"webp": "1f443_1f3fd/512.webp",
+		"gif": "1f443_1f3fd/512.gif",
+		"json": "1f443_1f3fd/lottie.json",
+		"codepoint": [
+			128067,
+			127997
+		],
+		"string": "👃🏽",
+		"size": [
+			512
+		]
+	},
+	"nose+4": {
+		"webp": "1f443_1f3fe/512.webp",
+		"gif": "1f443_1f3fe/512.gif",
+		"json": "1f443_1f3fe/lottie.json",
+		"codepoint": [
+			128067,
+			127998
+		],
+		"string": "👃🏾",
+		"size": [
+			512
+		]
+	},
+	"nose+5": {
+		"webp": "1f443_1f3ff/512.webp",
+		"gif": "1f443_1f3ff/512.gif",
+		"json": "1f443_1f3ff/lottie.json",
+		"codepoint": [
+			128067,
+			127999
+		],
+		"string": "👃🏿",
+		"size": [
+			512
+		]
+	},
+	"ear": {
+		"webp": "1f442/512.webp",
+		"gif": "1f442/512.gif",
+		"json": "1f442/lottie.json",
+		"codepoint": [
+			128066
+		],
+		"string": "👂",
+		"size": [
+			512
+		]
+	},
+	"ear+1": {
+		"webp": "1f442_1f3fb/512.webp",
+		"gif": "1f442_1f3fb/512.gif",
+		"json": "1f442_1f3fb/lottie.json",
+		"codepoint": [
+			128066,
+			127995
+		],
+		"string": "👂🏻",
+		"size": [
+			512
+		]
+	},
+	"ear+2": {
+		"webp": "1f442_1f3fc/512.webp",
+		"gif": "1f442_1f3fc/512.gif",
+		"json": "1f442_1f3fc/lottie.json",
+		"codepoint": [
+			128066,
+			127996
+		],
+		"string": "👂🏼",
+		"size": [
+			512
+		]
+	},
+	"ear+3": {
+		"webp": "1f442_1f3fd/512.webp",
+		"gif": "1f442_1f3fd/512.gif",
+		"json": "1f442_1f3fd/lottie.json",
+		"codepoint": [
+			128066,
+			127997
+		],
+		"string": "👂🏽",
+		"size": [
+			512
+		]
+	},
+	"ear+4": {
+		"webp": "1f442_1f3fe/512.webp",
+		"gif": "1f442_1f3fe/512.gif",
+		"json": "1f442_1f3fe/lottie.json",
+		"codepoint": [
+			128066,
+			127998
+		],
+		"string": "👂🏾",
+		"size": [
+			512
+		]
+	},
+	"ear+5": {
+		"webp": "1f442_1f3ff/512.webp",
+		"gif": "1f442_1f3ff/512.gif",
+		"json": "1f442_1f3ff/lottie.json",
+		"codepoint": [
+			128066,
+			127999
+		],
+		"string": "👂🏿",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid": {
+		"webp": "1f9bb/512.webp",
+		"gif": "1f9bb/512.gif",
+		"json": "1f9bb/lottie.json",
+		"codepoint": [
+			129467
+		],
+		"string": "🦻",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid+1": {
+		"webp": "1f9bb_1f3fb/512.webp",
+		"gif": "1f9bb_1f3fb/512.gif",
+		"json": "1f9bb_1f3fb/lottie.json",
+		"codepoint": [
+			129467,
+			127995
+		],
+		"string": "🦻🏻",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid+2": {
+		"webp": "1f9bb_1f3fc/512.webp",
+		"gif": "1f9bb_1f3fc/512.gif",
+		"json": "1f9bb_1f3fc/lottie.json",
+		"codepoint": [
+			129467,
+			127996
+		],
+		"string": "🦻🏼",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid+3": {
+		"webp": "1f9bb_1f3fd/512.webp",
+		"gif": "1f9bb_1f3fd/512.gif",
+		"json": "1f9bb_1f3fd/lottie.json",
+		"codepoint": [
+			129467,
+			127997
+		],
+		"string": "🦻🏽",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid+4": {
+		"webp": "1f9bb_1f3fe/512.webp",
+		"gif": "1f9bb_1f3fe/512.gif",
+		"json": "1f9bb_1f3fe/lottie.json",
+		"codepoint": [
+			129467,
+			127998
+		],
+		"string": "🦻🏾",
+		"size": [
+			512
+		]
+	},
+	"hearing-aid+5": {
+		"webp": "1f9bb_1f3ff/512.webp",
+		"gif": "1f9bb_1f3ff/512.gif",
+		"json": "1f9bb_1f3ff/lottie.json",
+		"codepoint": [
+			129467,
+			127999
+		],
+		"string": "🦻🏿",
+		"size": [
+			512
+		]
+	},
+	"foot": {
+		"webp": "1f9b6/512.webp",
+		"gif": "1f9b6/512.gif",
+		"json": "1f9b6/lottie.json",
+		"codepoint": [
+			129462
+		],
+		"string": "🦶",
+		"size": [
+			512
+		]
+	},
+	"foot+1": {
+		"webp": "1f9b6_1f3fb/512.webp",
+		"gif": "1f9b6_1f3fb/512.gif",
+		"json": "1f9b6_1f3fb/lottie.json",
+		"codepoint": [
+			129462,
+			127995
+		],
+		"string": "🦶🏻",
+		"size": [
+			512
+		]
+	},
+	"foot+2": {
+		"webp": "1f9b6_1f3fc/512.webp",
+		"gif": "1f9b6_1f3fc/512.gif",
+		"json": "1f9b6_1f3fc/lottie.json",
+		"codepoint": [
+			129462,
+			127996
+		],
+		"string": "🦶🏼",
+		"size": [
+			512
+		]
+	},
+	"foot+3": {
+		"webp": "1f9b6_1f3fd/512.webp",
+		"gif": "1f9b6_1f3fd/512.gif",
+		"json": "1f9b6_1f3fd/lottie.json",
+		"codepoint": [
+			129462,
+			127997
+		],
+		"string": "🦶🏽",
+		"size": [
+			512
+		]
+	},
+	"foot+4": {
+		"webp": "1f9b6_1f3fe/512.webp",
+		"gif": "1f9b6_1f3fe/512.gif",
+		"json": "1f9b6_1f3fe/lottie.json",
+		"codepoint": [
+			129462,
+			127998
+		],
+		"string": "🦶🏾",
+		"size": [
+			512
+		]
+	},
+	"foot+5": {
+		"webp": "1f9b6_1f3ff/512.webp",
+		"gif": "1f9b6_1f3ff/512.gif",
+		"json": "1f9b6_1f3ff/lottie.json",
+		"codepoint": [
+			129462,
+			127999
+		],
+		"string": "🦶🏿",
+		"size": [
+			512
+		]
+	},
+	"leg": {
+		"webp": "1f9b5/512.webp",
+		"gif": "1f9b5/512.gif",
+		"json": "1f9b5/lottie.json",
+		"codepoint": [
+			129461
+		],
+		"string": "🦵",
+		"size": [
+			512
+		]
+	},
+	"leg+1": {
+		"webp": "1f9b5_1f3fb/512.webp",
+		"gif": "1f9b5_1f3fb/512.gif",
+		"json": "1f9b5_1f3fb/lottie.json",
+		"codepoint": [
+			129461,
+			127995
+		],
+		"string": "🦵🏻",
+		"size": [
+			512
+		]
+	},
+	"leg+2": {
+		"webp": "1f9b5_1f3fc/512.webp",
+		"gif": "1f9b5_1f3fc/512.gif",
+		"json": "1f9b5_1f3fc/lottie.json",
+		"codepoint": [
+			129461,
+			127996
+		],
+		"string": "🦵🏼",
+		"size": [
+			512
+		]
+	},
+	"leg+3": {
+		"webp": "1f9b5_1f3fd/512.webp",
+		"gif": "1f9b5_1f3fd/512.gif",
+		"json": "1f9b5_1f3fd/lottie.json",
+		"codepoint": [
+			129461,
+			127997
+		],
+		"string": "🦵🏽",
+		"size": [
+			512
+		]
+	},
+	"leg+4": {
+		"webp": "1f9b5_1f3fe/512.webp",
+		"gif": "1f9b5_1f3fe/512.gif",
+		"json": "1f9b5_1f3fe/lottie.json",
+		"codepoint": [
+			129461,
+			127998
+		],
+		"string": "🦵🏾",
+		"size": [
+			512
+		]
+	},
+	"leg+5": {
+		"webp": "1f9b5_1f3ff/512.webp",
+		"gif": "1f9b5_1f3ff/512.gif",
+		"json": "1f9b5_1f3ff/lottie.json",
+		"codepoint": [
+			129461,
+			127999
+		],
+		"string": "🦵🏿",
 		"size": [
 			512
 		]
@@ -2880,6 +3416,83 @@
 			512
 		]
 	},
+	"heart-hands": {
+		"webp": "1faf6/512.webp",
+		"gif": "1faf6/512.gif",
+		"json": "1faf6/lottie.json",
+		"codepoint": [
+			129782
+		],
+		"string": "🫶",
+		"size": [
+			512
+		]
+	},
+	"heart-hands+1": {
+		"webp": "1faf6_1f3fb/512.webp",
+		"gif": "1faf6_1f3fb/512.gif",
+		"json": "1faf6_1f3fb/lottie.json",
+		"codepoint": [
+			129782,
+			127995
+		],
+		"string": "🫶🏻",
+		"size": [
+			512
+		]
+	},
+	"heart-hands+2": {
+		"webp": "1faf6_1f3fc/512.webp",
+		"gif": "1faf6_1f3fc/512.gif",
+		"json": "1faf6_1f3fc/lottie.json",
+		"codepoint": [
+			129782,
+			127996
+		],
+		"string": "🫶🏼",
+		"size": [
+			512
+		]
+	},
+	"heart-hands+3": {
+		"webp": "1faf6_1f3fd/512.webp",
+		"gif": "1faf6_1f3fd/512.gif",
+		"json": "1faf6_1f3fd/lottie.json",
+		"codepoint": [
+			129782,
+			127997
+		],
+		"string": "🫶🏽",
+		"size": [
+			512
+		]
+	},
+	"heart-hands+4": {
+		"webp": "1faf6_1f3fe/512.webp",
+		"gif": "1faf6_1f3fe/512.gif",
+		"json": "1faf6_1f3fe/lottie.json",
+		"codepoint": [
+			129782,
+			127998
+		],
+		"string": "🫶🏾",
+		"size": [
+			512
+		]
+	},
+	"heart-hands+5": {
+		"webp": "1faf6_1f3ff/512.webp",
+		"gif": "1faf6_1f3ff/512.gif",
+		"json": "1faf6_1f3ff/lottie.json",
+		"codepoint": [
+			129782,
+			127999
+		],
+		"string": "🫶🏿",
+		"size": [
+			512
+		]
+	},
 	"raising-hands": {
 		"webp": "1f64c/512.webp",
 		"gif": "1f64c/512.gif",
@@ -3034,6 +3647,1161 @@
 			512
 		]
 	},
+	"open-hands": {
+		"webp": "1f450/512.webp",
+		"gif": "1f450/512.gif",
+		"json": "1f450/lottie.json",
+		"codepoint": [
+			128080
+		],
+		"string": "👐",
+		"size": [
+			512
+		]
+	},
+	"open-hands+1": {
+		"webp": "1f450_1f3fb/512.webp",
+		"gif": "1f450_1f3fb/512.gif",
+		"json": "1f450_1f3fb/lottie.json",
+		"codepoint": [
+			128080,
+			127995
+		],
+		"string": "👐🏻",
+		"size": [
+			512
+		]
+	},
+	"open-hands+2": {
+		"webp": "1f450_1f3fc/512.webp",
+		"gif": "1f450_1f3fc/512.gif",
+		"json": "1f450_1f3fc/lottie.json",
+		"codepoint": [
+			128080,
+			127996
+		],
+		"string": "👐🏼",
+		"size": [
+			512
+		]
+	},
+	"open-hands+3": {
+		"webp": "1f450_1f3fd/512.webp",
+		"gif": "1f450_1f3fd/512.gif",
+		"json": "1f450_1f3fd/lottie.json",
+		"codepoint": [
+			128080,
+			127997
+		],
+		"string": "👐🏽",
+		"size": [
+			512
+		]
+	},
+	"open-hands+4": {
+		"webp": "1f450_1f3fe/512.webp",
+		"gif": "1f450_1f3fe/512.gif",
+		"json": "1f450_1f3fe/lottie.json",
+		"codepoint": [
+			128080,
+			127998
+		],
+		"string": "👐🏾",
+		"size": [
+			512
+		]
+	},
+	"open-hands+5": {
+		"webp": "1f450_1f3ff/512.webp",
+		"gif": "1f450_1f3ff/512.gif",
+		"json": "1f450_1f3ff/lottie.json",
+		"codepoint": [
+			128080,
+			127999
+		],
+		"string": "👐🏿",
+		"size": [
+			512
+		]
+	},
+	"palms-up": {
+		"webp": "1f932/512.webp",
+		"gif": "1f932/512.gif",
+		"json": "1f932/lottie.json",
+		"codepoint": [
+			129330
+		],
+		"string": "🤲",
+		"size": [
+			512
+		]
+	},
+	"palms-up+1": {
+		"webp": "1f932_1f3fb/512.webp",
+		"gif": "1f932_1f3fb/512.gif",
+		"json": "1f932_1f3fb/lottie.json",
+		"codepoint": [
+			129330,
+			127995
+		],
+		"string": "🤲🏻",
+		"size": [
+			512
+		]
+	},
+	"palms-up+2": {
+		"webp": "1f932_1f3fc/512.webp",
+		"gif": "1f932_1f3fc/512.gif",
+		"json": "1f932_1f3fc/lottie.json",
+		"codepoint": [
+			129330,
+			127996
+		],
+		"string": "🤲🏼",
+		"size": [
+			512
+		]
+	},
+	"palms-up+3": {
+		"webp": "1f932_1f3fd/512.webp",
+		"gif": "1f932_1f3fd/512.gif",
+		"json": "1f932_1f3fd/lottie.json",
+		"codepoint": [
+			129330,
+			127997
+		],
+		"string": "🤲🏽",
+		"size": [
+			512
+		]
+	},
+	"palms-up+4": {
+		"webp": "1f932_1f3fe/512.webp",
+		"gif": "1f932_1f3fe/512.gif",
+		"json": "1f932_1f3fe/lottie.json",
+		"codepoint": [
+			129330,
+			127998
+		],
+		"string": "🤲🏾",
+		"size": [
+			512
+		]
+	},
+	"palms-up+5": {
+		"webp": "1f932_1f3ff/512.webp",
+		"gif": "1f932_1f3ff/512.gif",
+		"json": "1f932_1f3ff/lottie.json",
+		"codepoint": [
+			129330,
+			127999
+		],
+		"string": "🤲🏿",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards": {
+		"webp": "1f91c/512.webp",
+		"gif": "1f91c/512.gif",
+		"json": "1f91c/lottie.json",
+		"codepoint": [
+			129308
+		],
+		"string": "🤜",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards+1": {
+		"webp": "1f91c_1f3fb/512.webp",
+		"gif": "1f91c_1f3fb/512.gif",
+		"json": "1f91c_1f3fb/lottie.json",
+		"codepoint": [
+			129308,
+			127995
+		],
+		"string": "🤜🏻",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards+2": {
+		"webp": "1f91c_1f3fc/512.webp",
+		"gif": "1f91c_1f3fc/512.gif",
+		"json": "1f91c_1f3fc/lottie.json",
+		"codepoint": [
+			129308,
+			127996
+		],
+		"string": "🤜🏼",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards+3": {
+		"webp": "1f91c_1f3fd/512.webp",
+		"gif": "1f91c_1f3fd/512.gif",
+		"json": "1f91c_1f3fd/lottie.json",
+		"codepoint": [
+			129308,
+			127997
+		],
+		"string": "🤜🏽",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards+4": {
+		"webp": "1f91c_1f3fe/512.webp",
+		"gif": "1f91c_1f3fe/512.gif",
+		"json": "1f91c_1f3fe/lottie.json",
+		"codepoint": [
+			129308,
+			127998
+		],
+		"string": "🤜🏾",
+		"size": [
+			512
+		]
+	},
+	"fist-rightwards+5": {
+		"webp": "1f91c_1f3ff/512.webp",
+		"gif": "1f91c_1f3ff/512.gif",
+		"json": "1f91c_1f3ff/lottie.json",
+		"codepoint": [
+			129308,
+			127999
+		],
+		"string": "🤜🏿",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards": {
+		"webp": "1f91b/512.webp",
+		"gif": "1f91b/512.gif",
+		"json": "1f91b/lottie.json",
+		"codepoint": [
+			129307
+		],
+		"string": "🤛",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards+1": {
+		"webp": "1f91b_1f3fb/512.webp",
+		"gif": "1f91b_1f3fb/512.gif",
+		"json": "1f91b_1f3fb/lottie.json",
+		"codepoint": [
+			129307,
+			127995
+		],
+		"string": "🤛🏻",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards+2": {
+		"webp": "1f91b_1f3fc/512.webp",
+		"gif": "1f91b_1f3fc/512.gif",
+		"json": "1f91b_1f3fc/lottie.json",
+		"codepoint": [
+			129307,
+			127996
+		],
+		"string": "🤛🏼",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards+3": {
+		"webp": "1f91b_1f3fd/512.webp",
+		"gif": "1f91b_1f3fd/512.gif",
+		"json": "1f91b_1f3fd/lottie.json",
+		"codepoint": [
+			129307,
+			127997
+		],
+		"string": "🤛🏽",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards+4": {
+		"webp": "1f91b_1f3fe/512.webp",
+		"gif": "1f91b_1f3fe/512.gif",
+		"json": "1f91b_1f3fe/lottie.json",
+		"codepoint": [
+			129307,
+			127998
+		],
+		"string": "🤛🏾",
+		"size": [
+			512
+		]
+	},
+	"fist-leftwards+5": {
+		"webp": "1f91b_1f3ff/512.webp",
+		"gif": "1f91b_1f3ff/512.gif",
+		"json": "1f91b_1f3ff/lottie.json",
+		"codepoint": [
+			129307,
+			127999
+		],
+		"string": "🤛🏿",
+		"size": [
+			512
+		]
+	},
+	"raised-fist": {
+		"webp": "270a/512.webp",
+		"gif": "270a/512.gif",
+		"json": "270a/lottie.json",
+		"codepoint": [
+			9994
+		],
+		"string": "✊",
+		"size": [
+			512
+		]
+	},
+	"raised-fist+1": {
+		"webp": "270a_1f3fb/512.webp",
+		"gif": "270a_1f3fb/512.gif",
+		"json": "270a_1f3fb/lottie.json",
+		"codepoint": [
+			9994,
+			127995
+		],
+		"string": "✊🏻",
+		"size": [
+			512
+		]
+	},
+	"raised-fist+2": {
+		"webp": "270a_1f3fc/512.webp",
+		"gif": "270a_1f3fc/512.gif",
+		"json": "270a_1f3fc/lottie.json",
+		"codepoint": [
+			9994,
+			127996
+		],
+		"string": "✊🏼",
+		"size": [
+			512
+		]
+	},
+	"raised-fist+3": {
+		"webp": "270a_1f3fd/512.webp",
+		"gif": "270a_1f3fd/512.gif",
+		"json": "270a_1f3fd/lottie.json",
+		"codepoint": [
+			9994,
+			127997
+		],
+		"string": "✊🏽",
+		"size": [
+			512
+		]
+	},
+	"raised-fist+4": {
+		"webp": "270a_1f3fe/512.webp",
+		"gif": "270a_1f3fe/512.gif",
+		"json": "270a_1f3fe/lottie.json",
+		"codepoint": [
+			9994,
+			127998
+		],
+		"string": "✊🏾",
+		"size": [
+			512
+		]
+	},
+	"raised-fist+5": {
+		"webp": "270a_1f3ff/512.webp",
+		"gif": "270a_1f3ff/512.gif",
+		"json": "270a_1f3ff/lottie.json",
+		"codepoint": [
+			9994,
+			127999
+		],
+		"string": "✊🏿",
+		"size": [
+			512
+		]
+	},
+	"fist": {
+		"webp": "1f44a/512.webp",
+		"gif": "1f44a/512.gif",
+		"json": "1f44a/lottie.json",
+		"codepoint": [
+			128074
+		],
+		"string": "👊",
+		"size": [
+			512
+		]
+	},
+	"bump": {
+		"webp": "1f44a/512.webp",
+		"gif": "1f44a/512.gif",
+		"json": "1f44a/lottie.json",
+		"codepoint": [
+			128074
+		],
+		"string": "👊",
+		"size": [
+			512
+		]
+	},
+	"fist+1": {
+		"webp": "1f44a_1f3fb/512.webp",
+		"gif": "1f44a_1f3fb/512.gif",
+		"json": "1f44a_1f3fb/lottie.json",
+		"codepoint": [
+			128074,
+			127995
+		],
+		"string": "👊🏻",
+		"size": [
+			512
+		]
+	},
+	"bump+1": {
+		"webp": "1f44a_1f3fb/512.webp",
+		"gif": "1f44a_1f3fb/512.gif",
+		"json": "1f44a_1f3fb/lottie.json",
+		"codepoint": [
+			128074,
+			127995
+		],
+		"string": "👊🏻",
+		"size": [
+			512
+		]
+	},
+	"fist+2": {
+		"webp": "1f44a_1f3fc/512.webp",
+		"gif": "1f44a_1f3fc/512.gif",
+		"json": "1f44a_1f3fc/lottie.json",
+		"codepoint": [
+			128074,
+			127996
+		],
+		"string": "👊🏼",
+		"size": [
+			512
+		]
+	},
+	"bump+2": {
+		"webp": "1f44a_1f3fc/512.webp",
+		"gif": "1f44a_1f3fc/512.gif",
+		"json": "1f44a_1f3fc/lottie.json",
+		"codepoint": [
+			128074,
+			127996
+		],
+		"string": "👊🏼",
+		"size": [
+			512
+		]
+	},
+	"fist+3": {
+		"webp": "1f44a_1f3fd/512.webp",
+		"gif": "1f44a_1f3fd/512.gif",
+		"json": "1f44a_1f3fd/lottie.json",
+		"codepoint": [
+			128074,
+			127997
+		],
+		"string": "👊🏽",
+		"size": [
+			512
+		]
+	},
+	"bump+3": {
+		"webp": "1f44a_1f3fd/512.webp",
+		"gif": "1f44a_1f3fd/512.gif",
+		"json": "1f44a_1f3fd/lottie.json",
+		"codepoint": [
+			128074,
+			127997
+		],
+		"string": "👊🏽",
+		"size": [
+			512
+		]
+	},
+	"fist+4": {
+		"webp": "1f44a_1f3fe/512.webp",
+		"gif": "1f44a_1f3fe/512.gif",
+		"json": "1f44a_1f3fe/lottie.json",
+		"codepoint": [
+			128074,
+			127998
+		],
+		"string": "👊🏾",
+		"size": [
+			512
+		]
+	},
+	"bump+4": {
+		"webp": "1f44a_1f3fe/512.webp",
+		"gif": "1f44a_1f3fe/512.gif",
+		"json": "1f44a_1f3fe/lottie.json",
+		"codepoint": [
+			128074,
+			127998
+		],
+		"string": "👊🏾",
+		"size": [
+			512
+		]
+	},
+	"fist+5": {
+		"webp": "1f44a_1f3ff/512.webp",
+		"gif": "1f44a_1f3ff/512.gif",
+		"json": "1f44a_1f3ff/lottie.json",
+		"codepoint": [
+			128074,
+			127999
+		],
+		"string": "👊🏿",
+		"size": [
+			512
+		]
+	},
+	"bump+5": {
+		"webp": "1f44a_1f3ff/512.webp",
+		"gif": "1f44a_1f3ff/512.gif",
+		"json": "1f44a_1f3ff/lottie.json",
+		"codepoint": [
+			128074,
+			127999
+		],
+		"string": "👊🏿",
+		"size": [
+			512
+		]
+	},
+	"palm-down": {
+		"webp": "1faf3/512.webp",
+		"gif": "1faf3/512.gif",
+		"json": "1faf3/lottie.json",
+		"codepoint": [
+			129779
+		],
+		"string": "🫳",
+		"size": [
+			512
+		]
+	},
+	"drop": {
+		"webp": "1faf3/512.webp",
+		"gif": "1faf3/512.gif",
+		"json": "1faf3/lottie.json",
+		"codepoint": [
+			129779
+		],
+		"string": "🫳",
+		"size": [
+			512
+		]
+	},
+	"palm-down+1": {
+		"webp": "1faf3_1f3fb/512.webp",
+		"gif": "1faf3_1f3fb/512.gif",
+		"json": "1faf3_1f3fb/lottie.json",
+		"codepoint": [
+			129779,
+			127995
+		],
+		"string": "🫳🏻",
+		"size": [
+			512
+		]
+	},
+	"drop+1": {
+		"webp": "1faf3_1f3fb/512.webp",
+		"gif": "1faf3_1f3fb/512.gif",
+		"json": "1faf3_1f3fb/lottie.json",
+		"codepoint": [
+			129779,
+			127995
+		],
+		"string": "🫳🏻",
+		"size": [
+			512
+		]
+	},
+	"palm-down+2": {
+		"webp": "1faf3_1f3fc/512.webp",
+		"gif": "1faf3_1f3fc/512.gif",
+		"json": "1faf3_1f3fc/lottie.json",
+		"codepoint": [
+			129779,
+			127996
+		],
+		"string": "🫳🏼",
+		"size": [
+			512
+		]
+	},
+	"drop+2": {
+		"webp": "1faf3_1f3fc/512.webp",
+		"gif": "1faf3_1f3fc/512.gif",
+		"json": "1faf3_1f3fc/lottie.json",
+		"codepoint": [
+			129779,
+			127996
+		],
+		"string": "🫳🏼",
+		"size": [
+			512
+		]
+	},
+	"palm-down+3": {
+		"webp": "1faf3_1f3fd/512.webp",
+		"gif": "1faf3_1f3fd/512.gif",
+		"json": "1faf3_1f3fd/lottie.json",
+		"codepoint": [
+			129779,
+			127997
+		],
+		"string": "🫳🏽",
+		"size": [
+			512
+		]
+	},
+	"drop+3": {
+		"webp": "1faf3_1f3fd/512.webp",
+		"gif": "1faf3_1f3fd/512.gif",
+		"json": "1faf3_1f3fd/lottie.json",
+		"codepoint": [
+			129779,
+			127997
+		],
+		"string": "🫳🏽",
+		"size": [
+			512
+		]
+	},
+	"palm-down+4": {
+		"webp": "1faf3_1f3fe/512.webp",
+		"gif": "1faf3_1f3fe/512.gif",
+		"json": "1faf3_1f3fe/lottie.json",
+		"codepoint": [
+			129779,
+			127998
+		],
+		"string": "🫳🏾",
+		"size": [
+			512
+		]
+	},
+	"drop+4": {
+		"webp": "1faf3_1f3fe/512.webp",
+		"gif": "1faf3_1f3fe/512.gif",
+		"json": "1faf3_1f3fe/lottie.json",
+		"codepoint": [
+			129779,
+			127998
+		],
+		"string": "🫳🏾",
+		"size": [
+			512
+		]
+	},
+	"palm-down+5": {
+		"webp": "1faf3_1f3ff/512.webp",
+		"gif": "1faf3_1f3ff/512.gif",
+		"json": "1faf3_1f3ff/lottie.json",
+		"codepoint": [
+			129779,
+			127999
+		],
+		"string": "🫳🏿",
+		"size": [
+			512
+		]
+	},
+	"drop+5": {
+		"webp": "1faf3_1f3ff/512.webp",
+		"gif": "1faf3_1f3ff/512.gif",
+		"json": "1faf3_1f3ff/lottie.json",
+		"codepoint": [
+			129779,
+			127999
+		],
+		"string": "🫳🏿",
+		"size": [
+			512
+		]
+	},
+	"palm-up": {
+		"webp": "1faf4/512.webp",
+		"gif": "1faf4/512.gif",
+		"json": "1faf4/lottie.json",
+		"codepoint": [
+			129780
+		],
+		"string": "🫴",
+		"size": [
+			512
+		]
+	},
+	"throw": {
+		"webp": "1faf4/512.webp",
+		"gif": "1faf4/512.gif",
+		"json": "1faf4/lottie.json",
+		"codepoint": [
+			129780
+		],
+		"string": "🫴",
+		"size": [
+			512
+		]
+	},
+	"palm-up+1": {
+		"webp": "1faf4_1f3fb/512.webp",
+		"gif": "1faf4_1f3fb/512.gif",
+		"json": "1faf4_1f3fb/lottie.json",
+		"codepoint": [
+			129780,
+			127995
+		],
+		"string": "🫴🏻",
+		"size": [
+			512
+		]
+	},
+	"throw+1": {
+		"webp": "1faf4_1f3fb/512.webp",
+		"gif": "1faf4_1f3fb/512.gif",
+		"json": "1faf4_1f3fb/lottie.json",
+		"codepoint": [
+			129780,
+			127995
+		],
+		"string": "🫴🏻",
+		"size": [
+			512
+		]
+	},
+	"palm-up+2": {
+		"webp": "1faf4_1f3fc/512.webp",
+		"gif": "1faf4_1f3fc/512.gif",
+		"json": "1faf4_1f3fc/lottie.json",
+		"codepoint": [
+			129780,
+			127996
+		],
+		"string": "🫴🏼",
+		"size": [
+			512
+		]
+	},
+	"throw+2": {
+		"webp": "1faf4_1f3fc/512.webp",
+		"gif": "1faf4_1f3fc/512.gif",
+		"json": "1faf4_1f3fc/lottie.json",
+		"codepoint": [
+			129780,
+			127996
+		],
+		"string": "🫴🏼",
+		"size": [
+			512
+		]
+	},
+	"palm-up+3": {
+		"webp": "1faf4_1f3fd/512.webp",
+		"gif": "1faf4_1f3fd/512.gif",
+		"json": "1faf4_1f3fd/lottie.json",
+		"codepoint": [
+			129780,
+			127997
+		],
+		"string": "🫴🏽",
+		"size": [
+			512
+		]
+	},
+	"throw+3": {
+		"webp": "1faf4_1f3fd/512.webp",
+		"gif": "1faf4_1f3fd/512.gif",
+		"json": "1faf4_1f3fd/lottie.json",
+		"codepoint": [
+			129780,
+			127997
+		],
+		"string": "🫴🏽",
+		"size": [
+			512
+		]
+	},
+	"palm-up+4": {
+		"webp": "1faf4_1f3fe/512.webp",
+		"gif": "1faf4_1f3fe/512.gif",
+		"json": "1faf4_1f3fe/lottie.json",
+		"codepoint": [
+			129780,
+			127998
+		],
+		"string": "🫴🏾",
+		"size": [
+			512
+		]
+	},
+	"throw+4": {
+		"webp": "1faf4_1f3fe/512.webp",
+		"gif": "1faf4_1f3fe/512.gif",
+		"json": "1faf4_1f3fe/lottie.json",
+		"codepoint": [
+			129780,
+			127998
+		],
+		"string": "🫴🏾",
+		"size": [
+			512
+		]
+	},
+	"palm-up+5": {
+		"webp": "1faf4_1f3ff/512.webp",
+		"gif": "1faf4_1f3ff/512.gif",
+		"json": "1faf4_1f3ff/lottie.json",
+		"codepoint": [
+			129780,
+			127999
+		],
+		"string": "🫴🏿",
+		"size": [
+			512
+		]
+	},
+	"throw+5": {
+		"webp": "1faf4_1f3ff/512.webp",
+		"gif": "1faf4_1f3ff/512.gif",
+		"json": "1faf4_1f3ff/lottie.json",
+		"codepoint": [
+			129780,
+			127999
+		],
+		"string": "🫴🏿",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand": {
+		"webp": "1faf1/512.webp",
+		"gif": "1faf1/512.gif",
+		"json": "1faf1/lottie.json",
+		"codepoint": [
+			129777
+		],
+		"string": "🫱",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand+1": {
+		"webp": "1faf1_1f3fb/512.webp",
+		"gif": "1faf1_1f3fb/512.gif",
+		"json": "1faf1_1f3fb/lottie.json",
+		"codepoint": [
+			129777,
+			127995
+		],
+		"string": "🫱🏻",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand+2": {
+		"webp": "1faf1_1f3fc/512.webp",
+		"gif": "1faf1_1f3fc/512.gif",
+		"json": "1faf1_1f3fc/lottie.json",
+		"codepoint": [
+			129777,
+			127996
+		],
+		"string": "🫱🏼",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand+3": {
+		"webp": "1faf1_1f3fd/512.webp",
+		"gif": "1faf1_1f3fd/512.gif",
+		"json": "1faf1_1f3fd/lottie.json",
+		"codepoint": [
+			129777,
+			127997
+		],
+		"string": "🫱🏽",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand+4": {
+		"webp": "1faf1_1f3fe/512.webp",
+		"gif": "1faf1_1f3fe/512.gif",
+		"json": "1faf1_1f3fe/lottie.json",
+		"codepoint": [
+			129777,
+			127998
+		],
+		"string": "🫱🏾",
+		"size": [
+			512
+		]
+	},
+	"rightwards-hand+5": {
+		"webp": "1faf1_1f3ff/512.webp",
+		"gif": "1faf1_1f3ff/512.gif",
+		"json": "1faf1_1f3ff/lottie.json",
+		"codepoint": [
+			129777,
+			127999
+		],
+		"string": "🫱🏿",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand": {
+		"webp": "1faf2/512.webp",
+		"gif": "1faf2/512.gif",
+		"json": "1faf2/lottie.json",
+		"codepoint": [
+			129778
+		],
+		"string": "🫲",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand+1": {
+		"webp": "1faf2_1f3fb/512.webp",
+		"gif": "1faf2_1f3fb/512.gif",
+		"json": "1faf2_1f3fb/lottie.json",
+		"codepoint": [
+			129778,
+			127995
+		],
+		"string": "🫲🏻",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand+2": {
+		"webp": "1faf2_1f3fc/512.webp",
+		"gif": "1faf2_1f3fc/512.gif",
+		"json": "1faf2_1f3fc/lottie.json",
+		"codepoint": [
+			129778,
+			127996
+		],
+		"string": "🫲🏼",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand+3": {
+		"webp": "1faf2_1f3fd/512.webp",
+		"gif": "1faf2_1f3fd/512.gif",
+		"json": "1faf2_1f3fd/lottie.json",
+		"codepoint": [
+			129778,
+			127997
+		],
+		"string": "🫲🏽",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand+4": {
+		"webp": "1faf2_1f3fe/512.webp",
+		"gif": "1faf2_1f3fe/512.gif",
+		"json": "1faf2_1f3fe/lottie.json",
+		"codepoint": [
+			129778,
+			127998
+		],
+		"string": "🫲🏾",
+		"size": [
+			512
+		]
+	},
+	"leftwards-hand+5": {
+		"webp": "1faf2_1f3ff/512.webp",
+		"gif": "1faf2_1f3ff/512.gif",
+		"json": "1faf2_1f3ff/lottie.json",
+		"codepoint": [
+			129778,
+			127999
+		],
+		"string": "🫲🏿",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards": {
+		"webp": "1faf8/512.webp",
+		"gif": "1faf8/512.gif",
+		"json": "1faf8/lottie.json",
+		"codepoint": [
+			129784
+		],
+		"string": "🫸",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards+1": {
+		"webp": "1faf8_1f3fb/512.webp",
+		"gif": "1faf8_1f3fb/512.gif",
+		"json": "1faf8_1f3fb/lottie.json",
+		"codepoint": [
+			129784,
+			127995
+		],
+		"string": "🫸🏻",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards+2": {
+		"webp": "1faf8_1f3fc/512.webp",
+		"gif": "1faf8_1f3fc/512.gif",
+		"json": "1faf8_1f3fc/lottie.json",
+		"codepoint": [
+			129784,
+			127996
+		],
+		"string": "🫸🏼",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards+3": {
+		"webp": "1faf8_1f3fd/512.webp",
+		"gif": "1faf8_1f3fd/512.gif",
+		"json": "1faf8_1f3fd/lottie.json",
+		"codepoint": [
+			129784,
+			127997
+		],
+		"string": "🫸🏽",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards+4": {
+		"webp": "1faf8_1f3fe/512.webp",
+		"gif": "1faf8_1f3fe/512.gif",
+		"json": "1faf8_1f3fe/lottie.json",
+		"codepoint": [
+			129784,
+			127998
+		],
+		"string": "🫸🏾",
+		"size": [
+			512
+		]
+	},
+	"push-rightwards+5": {
+		"webp": "1faf8_1f3ff/512.webp",
+		"gif": "1faf8_1f3ff/512.gif",
+		"json": "1faf8_1f3ff/lottie.json",
+		"codepoint": [
+			129784,
+			127999
+		],
+		"string": "🫸🏿",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards": {
+		"webp": "1faf7/512.webp",
+		"gif": "1faf7/512.gif",
+		"json": "1faf7/lottie.json",
+		"codepoint": [
+			129783
+		],
+		"string": "🫷",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards+1": {
+		"webp": "1faf7_1f3fb/512.webp",
+		"gif": "1faf7_1f3fb/512.gif",
+		"json": "1faf7_1f3fb/lottie.json",
+		"codepoint": [
+			129783,
+			127995
+		],
+		"string": "🫷🏻",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards+2": {
+		"webp": "1faf7_1f3fc/512.webp",
+		"gif": "1faf7_1f3fc/512.gif",
+		"json": "1faf7_1f3fc/lottie.json",
+		"codepoint": [
+			129783,
+			127996
+		],
+		"string": "🫷🏼",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards+3": {
+		"webp": "1faf7_1f3fd/512.webp",
+		"gif": "1faf7_1f3fd/512.gif",
+		"json": "1faf7_1f3fd/lottie.json",
+		"codepoint": [
+			129783,
+			127997
+		],
+		"string": "🫷🏽",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards+4": {
+		"webp": "1faf7_1f3fe/512.webp",
+		"gif": "1faf7_1f3fe/512.gif",
+		"json": "1faf7_1f3fe/lottie.json",
+		"codepoint": [
+			129783,
+			127998
+		],
+		"string": "🫷🏾",
+		"size": [
+			512
+		]
+	},
+	"push-leftwards+5": {
+		"webp": "1faf7_1f3ff/512.webp",
+		"gif": "1faf7_1f3ff/512.gif",
+		"json": "1faf7_1f3ff/lottie.json",
+		"codepoint": [
+			129783,
+			127999
+		],
+		"string": "🫷🏿",
+		"size": [
+			512
+		]
+	},
 	"wave": {
 		"webp": "1f44b/512.webp",
 		"gif": "1f44b/512.gif",
@@ -3107,6 +4875,700 @@
 			127999
 		],
 		"string": "👋🏿",
+		"size": [
+			512
+		]
+	},
+	"back-hand": {
+		"webp": "1f91a/512.webp",
+		"gif": "1f91a/512.gif",
+		"json": "1f91a/lottie.json",
+		"codepoint": [
+			129306
+		],
+		"string": "🤚",
+		"size": [
+			512
+		]
+	},
+	"back-hand+1": {
+		"webp": "1f91a_1f3fb/512.webp",
+		"gif": "1f91a_1f3fb/512.gif",
+		"json": "1f91a_1f3fb/lottie.json",
+		"codepoint": [
+			129306,
+			127995
+		],
+		"string": "🤚🏻",
+		"size": [
+			512
+		]
+	},
+	"back-hand+2": {
+		"webp": "1f91a_1f3fc/512.webp",
+		"gif": "1f91a_1f3fc/512.gif",
+		"json": "1f91a_1f3fc/lottie.json",
+		"codepoint": [
+			129306,
+			127996
+		],
+		"string": "🤚🏼",
+		"size": [
+			512
+		]
+	},
+	"back-hand+3": {
+		"webp": "1f91a_1f3fd/512.webp",
+		"gif": "1f91a_1f3fd/512.gif",
+		"json": "1f91a_1f3fd/lottie.json",
+		"codepoint": [
+			129306,
+			127997
+		],
+		"string": "🤚🏽",
+		"size": [
+			512
+		]
+	},
+	"back-hand+4": {
+		"webp": "1f91a_1f3fe/512.webp",
+		"gif": "1f91a_1f3fe/512.gif",
+		"json": "1f91a_1f3fe/lottie.json",
+		"codepoint": [
+			129306,
+			127998
+		],
+		"string": "🤚🏾",
+		"size": [
+			512
+		]
+	},
+	"back-hand+5": {
+		"webp": "1f91a_1f3ff/512.webp",
+		"gif": "1f91a_1f3ff/512.gif",
+		"json": "1f91a_1f3ff/lottie.json",
+		"codepoint": [
+			129306,
+			127999
+		],
+		"string": "🤚🏿",
+		"size": [
+			512
+		]
+	},
+	"palm": {
+		"webp": "1f590_fe0f/512.webp",
+		"gif": "1f590_fe0f/512.gif",
+		"json": "1f590_fe0f/lottie.json",
+		"codepoint": [
+			128400,
+			65039
+		],
+		"string": "🖐️",
+		"size": [
+			512
+		]
+	},
+	"palm+1": {
+		"webp": "1f590_1f3fb/512.webp",
+		"gif": "1f590_1f3fb/512.gif",
+		"json": "1f590_1f3fb/lottie.json",
+		"codepoint": [
+			128400,
+			127995
+		],
+		"string": "🖐🏻",
+		"size": [
+			512
+		]
+	},
+	"palm+2": {
+		"webp": "1f590_1f3fc/512.webp",
+		"gif": "1f590_1f3fc/512.gif",
+		"json": "1f590_1f3fc/lottie.json",
+		"codepoint": [
+			128400,
+			127996
+		],
+		"string": "🖐🏼",
+		"size": [
+			512
+		]
+	},
+	"palm+3": {
+		"webp": "1f590_1f3fd/512.webp",
+		"gif": "1f590_1f3fd/512.gif",
+		"json": "1f590_1f3fd/lottie.json",
+		"codepoint": [
+			128400,
+			127997
+		],
+		"string": "🖐🏽",
+		"size": [
+			512
+		]
+	},
+	"palm+4": {
+		"webp": "1f590_1f3fe/512.webp",
+		"gif": "1f590_1f3fe/512.gif",
+		"json": "1f590_1f3fe/lottie.json",
+		"codepoint": [
+			128400,
+			127998
+		],
+		"string": "🖐🏾",
+		"size": [
+			512
+		]
+	},
+	"palm+5": {
+		"webp": "1f590_1f3ff/512.webp",
+		"gif": "1f590_1f3ff/512.gif",
+		"json": "1f590_1f3ff/lottie.json",
+		"codepoint": [
+			128400,
+			127999
+		],
+		"string": "🖐🏿",
+		"size": [
+			512
+		]
+	},
+	"raised-hand": {
+		"webp": "270b/512.webp",
+		"gif": "270b/512.gif",
+		"json": "270b/lottie.json",
+		"codepoint": [
+			9995
+		],
+		"string": "✋",
+		"size": [
+			512
+		]
+	},
+	"raised-hand+1": {
+		"webp": "270b_1f3fb/512.webp",
+		"gif": "270b_1f3fb/512.gif",
+		"json": "270b_1f3fb/lottie.json",
+		"codepoint": [
+			9995,
+			127995
+		],
+		"string": "✋🏻",
+		"size": [
+			512
+		]
+	},
+	"raised-hand+2": {
+		"webp": "270b_1f3fc/512.webp",
+		"gif": "270b_1f3fc/512.gif",
+		"json": "270b_1f3fc/lottie.json",
+		"codepoint": [
+			9995,
+			127996
+		],
+		"string": "✋🏼",
+		"size": [
+			512
+		]
+	},
+	"raised-hand+3": {
+		"webp": "270b_1f3fd/512.webp",
+		"gif": "270b_1f3fd/512.gif",
+		"json": "270b_1f3fd/lottie.json",
+		"codepoint": [
+			9995,
+			127997
+		],
+		"string": "✋🏽",
+		"size": [
+			512
+		]
+	},
+	"raised-hand+4": {
+		"webp": "270b_1f3fe/512.webp",
+		"gif": "270b_1f3fe/512.gif",
+		"json": "270b_1f3fe/lottie.json",
+		"codepoint": [
+			9995,
+			127998
+		],
+		"string": "✋🏾",
+		"size": [
+			512
+		]
+	},
+	"raised-hand+5": {
+		"webp": "270b_1f3ff/512.webp",
+		"gif": "270b_1f3ff/512.gif",
+		"json": "270b_1f3ff/lottie.json",
+		"codepoint": [
+			9995,
+			127999
+		],
+		"string": "✋🏿",
+		"size": [
+			512
+		]
+	},
+	"vulcan": {
+		"webp": "1f596/512.webp",
+		"gif": "1f596/512.gif",
+		"json": "1f596/lottie.json",
+		"codepoint": [
+			128406
+		],
+		"string": "🖖",
+		"size": [
+			512
+		]
+	},
+	"prosper": {
+		"webp": "1f596/512.webp",
+		"gif": "1f596/512.gif",
+		"json": "1f596/lottie.json",
+		"codepoint": [
+			128406
+		],
+		"string": "🖖",
+		"size": [
+			512
+		]
+	},
+	"spock": {
+		"webp": "1f596/512.webp",
+		"gif": "1f596/512.gif",
+		"json": "1f596/lottie.json",
+		"codepoint": [
+			128406
+		],
+		"string": "🖖",
+		"size": [
+			512
+		]
+	},
+	"vulcan+1": {
+		"webp": "1f596_1f3fb/512.webp",
+		"gif": "1f596_1f3fb/512.gif",
+		"json": "1f596_1f3fb/lottie.json",
+		"codepoint": [
+			128406,
+			127995
+		],
+		"string": "🖖🏻",
+		"size": [
+			512
+		]
+	},
+	"prosper+1": {
+		"webp": "1f596_1f3fb/512.webp",
+		"gif": "1f596_1f3fb/512.gif",
+		"json": "1f596_1f3fb/lottie.json",
+		"codepoint": [
+			128406,
+			127995
+		],
+		"string": "🖖🏻",
+		"size": [
+			512
+		]
+	},
+	"spock+1": {
+		"webp": "1f596_1f3fb/512.webp",
+		"gif": "1f596_1f3fb/512.gif",
+		"json": "1f596_1f3fb/lottie.json",
+		"codepoint": [
+			128406,
+			127995
+		],
+		"string": "🖖🏻",
+		"size": [
+			512
+		]
+	},
+	"vulcan+2": {
+		"webp": "1f596_1f3fc/512.webp",
+		"gif": "1f596_1f3fc/512.gif",
+		"json": "1f596_1f3fc/lottie.json",
+		"codepoint": [
+			128406,
+			127996
+		],
+		"string": "🖖🏼",
+		"size": [
+			512
+		]
+	},
+	"prosper+2": {
+		"webp": "1f596_1f3fc/512.webp",
+		"gif": "1f596_1f3fc/512.gif",
+		"json": "1f596_1f3fc/lottie.json",
+		"codepoint": [
+			128406,
+			127996
+		],
+		"string": "🖖🏼",
+		"size": [
+			512
+		]
+	},
+	"spock+2": {
+		"webp": "1f596_1f3fc/512.webp",
+		"gif": "1f596_1f3fc/512.gif",
+		"json": "1f596_1f3fc/lottie.json",
+		"codepoint": [
+			128406,
+			127996
+		],
+		"string": "🖖🏼",
+		"size": [
+			512
+		]
+	},
+	"vulcan+3": {
+		"webp": "1f596_1f3fd/512.webp",
+		"gif": "1f596_1f3fd/512.gif",
+		"json": "1f596_1f3fd/lottie.json",
+		"codepoint": [
+			128406,
+			127997
+		],
+		"string": "🖖🏽",
+		"size": [
+			512
+		]
+	},
+	"prosper+3": {
+		"webp": "1f596_1f3fd/512.webp",
+		"gif": "1f596_1f3fd/512.gif",
+		"json": "1f596_1f3fd/lottie.json",
+		"codepoint": [
+			128406,
+			127997
+		],
+		"string": "🖖🏽",
+		"size": [
+			512
+		]
+	},
+	"spock+3": {
+		"webp": "1f596_1f3fd/512.webp",
+		"gif": "1f596_1f3fd/512.gif",
+		"json": "1f596_1f3fd/lottie.json",
+		"codepoint": [
+			128406,
+			127997
+		],
+		"string": "🖖🏽",
+		"size": [
+			512
+		]
+	},
+	"vulcan+4": {
+		"webp": "1f596_1f3fe/512.webp",
+		"gif": "1f596_1f3fe/512.gif",
+		"json": "1f596_1f3fe/lottie.json",
+		"codepoint": [
+			128406,
+			127998
+		],
+		"string": "🖖🏾",
+		"size": [
+			512
+		]
+	},
+	"prosper+4": {
+		"webp": "1f596_1f3fe/512.webp",
+		"gif": "1f596_1f3fe/512.gif",
+		"json": "1f596_1f3fe/lottie.json",
+		"codepoint": [
+			128406,
+			127998
+		],
+		"string": "🖖🏾",
+		"size": [
+			512
+		]
+	},
+	"spock+4": {
+		"webp": "1f596_1f3fe/512.webp",
+		"gif": "1f596_1f3fe/512.gif",
+		"json": "1f596_1f3fe/lottie.json",
+		"codepoint": [
+			128406,
+			127998
+		],
+		"string": "🖖🏾",
+		"size": [
+			512
+		]
+	},
+	"vulcan+5": {
+		"webp": "1f596_1f3ff/512.webp",
+		"gif": "1f596_1f3ff/512.gif",
+		"json": "1f596_1f3ff/lottie.json",
+		"codepoint": [
+			128406,
+			127999
+		],
+		"string": "🖖🏿",
+		"size": [
+			512
+		]
+	},
+	"prosper+5": {
+		"webp": "1f596_1f3ff/512.webp",
+		"gif": "1f596_1f3ff/512.gif",
+		"json": "1f596_1f3ff/lottie.json",
+		"codepoint": [
+			128406,
+			127999
+		],
+		"string": "🖖🏿",
+		"size": [
+			512
+		]
+	},
+	"spock+5": {
+		"webp": "1f596_1f3ff/512.webp",
+		"gif": "1f596_1f3ff/512.gif",
+		"json": "1f596_1f3ff/lottie.json",
+		"codepoint": [
+			128406,
+			127999
+		],
+		"string": "🖖🏿",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture": {
+		"webp": "1f91f/512.webp",
+		"gif": "1f91f/512.gif",
+		"json": "1f91f/lottie.json",
+		"codepoint": [
+			129311
+		],
+		"string": "🤟",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture+1": {
+		"webp": "1f91f_1f3fb/512.webp",
+		"gif": "1f91f_1f3fb/512.gif",
+		"json": "1f91f_1f3fb/lottie.json",
+		"codepoint": [
+			129311,
+			127995
+		],
+		"string": "🤟🏻",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture+2": {
+		"webp": "1f91f_1f3fc/512.webp",
+		"gif": "1f91f_1f3fc/512.gif",
+		"json": "1f91f_1f3fc/lottie.json",
+		"codepoint": [
+			129311,
+			127996
+		],
+		"string": "🤟🏼",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture+3": {
+		"webp": "1f91f_1f3fd/512.webp",
+		"gif": "1f91f_1f3fd/512.gif",
+		"json": "1f91f_1f3fd/lottie.json",
+		"codepoint": [
+			129311,
+			127997
+		],
+		"string": "🤟🏽",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture+4": {
+		"webp": "1f91f_1f3fe/512.webp",
+		"gif": "1f91f_1f3fe/512.gif",
+		"json": "1f91f_1f3fe/lottie.json",
+		"codepoint": [
+			129311,
+			127998
+		],
+		"string": "🤟🏾",
+		"size": [
+			512
+		]
+	},
+	"love-you-gesture+5": {
+		"webp": "1f91f_1f3ff/512.webp",
+		"gif": "1f91f_1f3ff/512.gif",
+		"json": "1f91f_1f3ff/lottie.json",
+		"codepoint": [
+			129311,
+			127999
+		],
+		"string": "🤟🏿",
+		"size": [
+			512
+		]
+	},
+	"metal": {
+		"webp": "1f918/512.webp",
+		"gif": "1f918/512.gif",
+		"json": "1f918/lottie.json",
+		"codepoint": [
+			129304
+		],
+		"string": "🤘",
+		"size": [
+			512
+		]
+	},
+	"horns": {
+		"webp": "1f918/512.webp",
+		"gif": "1f918/512.gif",
+		"json": "1f918/lottie.json",
+		"codepoint": [
+			129304
+		],
+		"string": "🤘",
+		"size": [
+			512
+		]
+	},
+	"metal+1": {
+		"webp": "1f918_1f3fb/512.webp",
+		"gif": "1f918_1f3fb/512.gif",
+		"json": "1f918_1f3fb/lottie.json",
+		"codepoint": [
+			129304,
+			127995
+		],
+		"string": "🤘🏻",
+		"size": [
+			512
+		]
+	},
+	"horns+1": {
+		"webp": "1f918_1f3fb/512.webp",
+		"gif": "1f918_1f3fb/512.gif",
+		"json": "1f918_1f3fb/lottie.json",
+		"codepoint": [
+			129304,
+			127995
+		],
+		"string": "🤘🏻",
+		"size": [
+			512
+		]
+	},
+	"metal+2": {
+		"webp": "1f918_1f3fc/512.webp",
+		"gif": "1f918_1f3fc/512.gif",
+		"json": "1f918_1f3fc/lottie.json",
+		"codepoint": [
+			129304,
+			127996
+		],
+		"string": "🤘🏼",
+		"size": [
+			512
+		]
+	},
+	"horns+2": {
+		"webp": "1f918_1f3fc/512.webp",
+		"gif": "1f918_1f3fc/512.gif",
+		"json": "1f918_1f3fc/lottie.json",
+		"codepoint": [
+			129304,
+			127996
+		],
+		"string": "🤘🏼",
+		"size": [
+			512
+		]
+	},
+	"metal+3": {
+		"webp": "1f918_1f3fd/512.webp",
+		"gif": "1f918_1f3fd/512.gif",
+		"json": "1f918_1f3fd/lottie.json",
+		"codepoint": [
+			129304,
+			127997
+		],
+		"string": "🤘🏽",
+		"size": [
+			512
+		]
+	},
+	"horns+3": {
+		"webp": "1f918_1f3fd/512.webp",
+		"gif": "1f918_1f3fd/512.gif",
+		"json": "1f918_1f3fd/lottie.json",
+		"codepoint": [
+			129304,
+			127997
+		],
+		"string": "🤘🏽",
+		"size": [
+			512
+		]
+	},
+	"metal+4": {
+		"webp": "1f918_1f3fe/512.webp",
+		"gif": "1f918_1f3fe/512.gif",
+		"json": "1f918_1f3fe/lottie.json",
+		"codepoint": [
+			129304,
+			127998
+		],
+		"string": "🤘🏾",
+		"size": [
+			512
+		]
+	},
+	"horns+4": {
+		"webp": "1f918_1f3fe/512.webp",
+		"gif": "1f918_1f3fe/512.gif",
+		"json": "1f918_1f3fe/lottie.json",
+		"codepoint": [
+			129304,
+			127998
+		],
+		"string": "🤘🏾",
+		"size": [
+			512
+		]
+	},
+	"metal+5": {
+		"webp": "1f918_1f3ff/512.webp",
+		"gif": "1f918_1f3ff/512.gif",
+		"json": "1f918_1f3ff/lottie.json",
+		"codepoint": [
+			129304,
+			127999
+		],
+		"string": "🤘🏿",
+		"size": [
+			512
+		]
+	},
+	"horns+5": {
+		"webp": "1f918_1f3ff/512.webp",
+		"gif": "1f918_1f3ff/512.gif",
+		"json": "1f918_1f3ff/lottie.json",
+		"codepoint": [
+			129304,
+			127999
+		],
+		"string": "🤘🏿",
 		"size": [
 			512
 		]
@@ -3422,6 +5884,776 @@
 			512
 		]
 	},
+	"hand-with-index-finger-and-thumb-crossed": {
+		"webp": "1faf0/512.webp",
+		"gif": "1faf0/512.gif",
+		"json": "1faf0/lottie.json",
+		"codepoint": [
+			129776
+		],
+		"string": "🫰",
+		"size": [
+			512
+		]
+	},
+	"snap": {
+		"webp": "1faf0/512.webp",
+		"gif": "1faf0/512.gif",
+		"json": "1faf0/lottie.json",
+		"codepoint": [
+			129776
+		],
+		"string": "🫰",
+		"size": [
+			512
+		]
+	},
+	"finger-heart": {
+		"webp": "1faf0/512.webp",
+		"gif": "1faf0/512.gif",
+		"json": "1faf0/lottie.json",
+		"codepoint": [
+			129776
+		],
+		"string": "🫰",
+		"size": [
+			512
+		]
+	},
+	"hand-with-index-finger-and-thumb-crossed+1": {
+		"webp": "1faf0_1f3fb/512.webp",
+		"gif": "1faf0_1f3fb/512.gif",
+		"json": "1faf0_1f3fb/lottie.json",
+		"codepoint": [
+			129776,
+			127995
+		],
+		"string": "🫰🏻",
+		"size": [
+			512
+		]
+	},
+	"snap+1": {
+		"webp": "1faf0_1f3fb/512.webp",
+		"gif": "1faf0_1f3fb/512.gif",
+		"json": "1faf0_1f3fb/lottie.json",
+		"codepoint": [
+			129776,
+			127995
+		],
+		"string": "🫰🏻",
+		"size": [
+			512
+		]
+	},
+	"finger-heart+1": {
+		"webp": "1faf0_1f3fb/512.webp",
+		"gif": "1faf0_1f3fb/512.gif",
+		"json": "1faf0_1f3fb/lottie.json",
+		"codepoint": [
+			129776,
+			127995
+		],
+		"string": "🫰🏻",
+		"size": [
+			512
+		]
+	},
+	"hand-with-index-finger-and-thumb-crossed+2": {
+		"webp": "1faf0_1f3fc/512.webp",
+		"gif": "1faf0_1f3fc/512.gif",
+		"json": "1faf0_1f3fc/lottie.json",
+		"codepoint": [
+			129776,
+			127996
+		],
+		"string": "🫰🏼",
+		"size": [
+			512
+		]
+	},
+	"snap+2": {
+		"webp": "1faf0_1f3fc/512.webp",
+		"gif": "1faf0_1f3fc/512.gif",
+		"json": "1faf0_1f3fc/lottie.json",
+		"codepoint": [
+			129776,
+			127996
+		],
+		"string": "🫰🏼",
+		"size": [
+			512
+		]
+	},
+	"finger-heart+2": {
+		"webp": "1faf0_1f3fc/512.webp",
+		"gif": "1faf0_1f3fc/512.gif",
+		"json": "1faf0_1f3fc/lottie.json",
+		"codepoint": [
+			129776,
+			127996
+		],
+		"string": "🫰🏼",
+		"size": [
+			512
+		]
+	},
+	"hand-with-index-finger-and-thumb-crossed+3": {
+		"webp": "1faf0_1f3fd/512.webp",
+		"gif": "1faf0_1f3fd/512.gif",
+		"json": "1faf0_1f3fd/lottie.json",
+		"codepoint": [
+			129776,
+			127997
+		],
+		"string": "🫰🏽",
+		"size": [
+			512
+		]
+	},
+	"snap+3": {
+		"webp": "1faf0_1f3fd/512.webp",
+		"gif": "1faf0_1f3fd/512.gif",
+		"json": "1faf0_1f3fd/lottie.json",
+		"codepoint": [
+			129776,
+			127997
+		],
+		"string": "🫰🏽",
+		"size": [
+			512
+		]
+	},
+	"finger-heart+3": {
+		"webp": "1faf0_1f3fd/512.webp",
+		"gif": "1faf0_1f3fd/512.gif",
+		"json": "1faf0_1f3fd/lottie.json",
+		"codepoint": [
+			129776,
+			127997
+		],
+		"string": "🫰🏽",
+		"size": [
+			512
+		]
+	},
+	"hand-with-index-finger-and-thumb-crossed+4": {
+		"webp": "1faf0_1f3fe/512.webp",
+		"gif": "1faf0_1f3fe/512.gif",
+		"json": "1faf0_1f3fe/lottie.json",
+		"codepoint": [
+			129776,
+			127998
+		],
+		"string": "🫰🏾",
+		"size": [
+			512
+		]
+	},
+	"snap+4": {
+		"webp": "1faf0_1f3fe/512.webp",
+		"gif": "1faf0_1f3fe/512.gif",
+		"json": "1faf0_1f3fe/lottie.json",
+		"codepoint": [
+			129776,
+			127998
+		],
+		"string": "🫰🏾",
+		"size": [
+			512
+		]
+	},
+	"finger-heart+4": {
+		"webp": "1faf0_1f3fe/512.webp",
+		"gif": "1faf0_1f3fe/512.gif",
+		"json": "1faf0_1f3fe/lottie.json",
+		"codepoint": [
+			129776,
+			127998
+		],
+		"string": "🫰🏾",
+		"size": [
+			512
+		]
+	},
+	"hand-with-index-finger-and-thumb-crossed+5": {
+		"webp": "1faf0_1f3ff/512.webp",
+		"gif": "1faf0_1f3ff/512.gif",
+		"json": "1faf0_1f3ff/lottie.json",
+		"codepoint": [
+			129776,
+			127999
+		],
+		"string": "🫰🏿",
+		"size": [
+			512
+		]
+	},
+	"snap+5": {
+		"webp": "1faf0_1f3ff/512.webp",
+		"gif": "1faf0_1f3ff/512.gif",
+		"json": "1faf0_1f3ff/lottie.json",
+		"codepoint": [
+			129776,
+			127999
+		],
+		"string": "🫰🏿",
+		"size": [
+			512
+		]
+	},
+	"finger-heart+5": {
+		"webp": "1faf0_1f3ff/512.webp",
+		"gif": "1faf0_1f3ff/512.gif",
+		"json": "1faf0_1f3ff/lottie.json",
+		"codepoint": [
+			129776,
+			127999
+		],
+		"string": "🫰🏿",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand": {
+		"webp": "1f919/512.webp",
+		"gif": "1f919/512.gif",
+		"json": "1f919/lottie.json",
+		"codepoint": [
+			129305
+		],
+		"string": "🤙",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand+1": {
+		"webp": "1f919_1f3fb/512.webp",
+		"gif": "1f919_1f3fb/512.gif",
+		"json": "1f919_1f3fb/lottie.json",
+		"codepoint": [
+			129305,
+			127995
+		],
+		"string": "🤙🏻",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand+2": {
+		"webp": "1f919_1f3fc/512.webp",
+		"gif": "1f919_1f3fc/512.gif",
+		"json": "1f919_1f3fc/lottie.json",
+		"codepoint": [
+			129305,
+			127996
+		],
+		"string": "🤙🏼",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand+3": {
+		"webp": "1f919_1f3fd/512.webp",
+		"gif": "1f919_1f3fd/512.gif",
+		"json": "1f919_1f3fd/lottie.json",
+		"codepoint": [
+			129305,
+			127997
+		],
+		"string": "🤙🏽",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand+4": {
+		"webp": "1f919_1f3fe/512.webp",
+		"gif": "1f919_1f3fe/512.gif",
+		"json": "1f919_1f3fe/lottie.json",
+		"codepoint": [
+			129305,
+			127998
+		],
+		"string": "🤙🏾",
+		"size": [
+			512
+		]
+	},
+	"call-me-hand+5": {
+		"webp": "1f919_1f3ff/512.webp",
+		"gif": "1f919_1f3ff/512.gif",
+		"json": "1f919_1f3ff/lottie.json",
+		"codepoint": [
+			129305,
+			127999
+		],
+		"string": "🤙🏿",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers": {
+		"webp": "1f90c/512.webp",
+		"gif": "1f90c/512.gif",
+		"json": "1f90c/lottie.json",
+		"codepoint": [
+			129292
+		],
+		"string": "🤌",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers+1": {
+		"webp": "1f90c_1f3fb/512.webp",
+		"gif": "1f90c_1f3fb/512.gif",
+		"json": "1f90c_1f3fb/lottie.json",
+		"codepoint": [
+			129292,
+			127995
+		],
+		"string": "🤌🏻",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers+2": {
+		"webp": "1f90c_1f3fc/512.webp",
+		"gif": "1f90c_1f3fc/512.gif",
+		"json": "1f90c_1f3fc/lottie.json",
+		"codepoint": [
+			129292,
+			127996
+		],
+		"string": "🤌🏼",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers+3": {
+		"webp": "1f90c_1f3fd/512.webp",
+		"gif": "1f90c_1f3fd/512.gif",
+		"json": "1f90c_1f3fd/lottie.json",
+		"codepoint": [
+			129292,
+			127997
+		],
+		"string": "🤌🏽",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers+4": {
+		"webp": "1f90c_1f3fe/512.webp",
+		"gif": "1f90c_1f3fe/512.gif",
+		"json": "1f90c_1f3fe/lottie.json",
+		"codepoint": [
+			129292,
+			127998
+		],
+		"string": "🤌🏾",
+		"size": [
+			512
+		]
+	},
+	"pinched-fingers+5": {
+		"webp": "1f90c_1f3ff/512.webp",
+		"gif": "1f90c_1f3ff/512.gif",
+		"json": "1f90c_1f3ff/lottie.json",
+		"codepoint": [
+			129292,
+			127999
+		],
+		"string": "🤌🏿",
+		"size": [
+			512
+		]
+	},
+	"pinch": {
+		"webp": "1f90f/512.webp",
+		"gif": "1f90f/512.gif",
+		"json": "1f90f/lottie.json",
+		"codepoint": [
+			129295
+		],
+		"string": "🤏",
+		"size": [
+			512
+		]
+	},
+	"pinch+1": {
+		"webp": "1f90f_1f3fb/512.webp",
+		"gif": "1f90f_1f3fb/512.gif",
+		"json": "1f90f_1f3fb/lottie.json",
+		"codepoint": [
+			129295,
+			127995
+		],
+		"string": "🤏🏻",
+		"size": [
+			512
+		]
+	},
+	"pinch+2": {
+		"webp": "1f90f_1f3fc/512.webp",
+		"gif": "1f90f_1f3fc/512.gif",
+		"json": "1f90f_1f3fc/lottie.json",
+		"codepoint": [
+			129295,
+			127996
+		],
+		"string": "🤏🏼",
+		"size": [
+			512
+		]
+	},
+	"pinch+3": {
+		"webp": "1f90f_1f3fd/512.webp",
+		"gif": "1f90f_1f3fd/512.gif",
+		"json": "1f90f_1f3fd/lottie.json",
+		"codepoint": [
+			129295,
+			127997
+		],
+		"string": "🤏🏽",
+		"size": [
+			512
+		]
+	},
+	"pinch+4": {
+		"webp": "1f90f_1f3fe/512.webp",
+		"gif": "1f90f_1f3fe/512.gif",
+		"json": "1f90f_1f3fe/lottie.json",
+		"codepoint": [
+			129295,
+			127998
+		],
+		"string": "🤏🏾",
+		"size": [
+			512
+		]
+	},
+	"pinch+5": {
+		"webp": "1f90f_1f3ff/512.webp",
+		"gif": "1f90f_1f3ff/512.gif",
+		"json": "1f90f_1f3ff/lottie.json",
+		"codepoint": [
+			129295,
+			127999
+		],
+		"string": "🤏🏿",
+		"size": [
+			512
+		]
+	},
+	"ok": {
+		"webp": "1f44c/512.webp",
+		"gif": "1f44c/512.gif",
+		"json": "1f44c/lottie.json",
+		"codepoint": [
+			128076
+		],
+		"string": "👌",
+		"size": [
+			512
+		]
+	},
+	"ok+1": {
+		"webp": "1f44c_1f3fb/512.webp",
+		"gif": "1f44c_1f3fb/512.gif",
+		"json": "1f44c_1f3fb/lottie.json",
+		"codepoint": [
+			128076,
+			127995
+		],
+		"string": "👌🏻",
+		"size": [
+			512
+		]
+	},
+	"ok+2": {
+		"webp": "1f44c_1f3fc/512.webp",
+		"gif": "1f44c_1f3fc/512.gif",
+		"json": "1f44c_1f3fc/lottie.json",
+		"codepoint": [
+			128076,
+			127996
+		],
+		"string": "👌🏼",
+		"size": [
+			512
+		]
+	},
+	"ok+3": {
+		"webp": "1f44c_1f3fd/512.webp",
+		"gif": "1f44c_1f3fd/512.gif",
+		"json": "1f44c_1f3fd/lottie.json",
+		"codepoint": [
+			128076,
+			127997
+		],
+		"string": "👌🏽",
+		"size": [
+			512
+		]
+	},
+	"ok+4": {
+		"webp": "1f44c_1f3fe/512.webp",
+		"gif": "1f44c_1f3fe/512.gif",
+		"json": "1f44c_1f3fe/lottie.json",
+		"codepoint": [
+			128076,
+			127998
+		],
+		"string": "👌🏾",
+		"size": [
+			512
+		]
+	},
+	"ok+5": {
+		"webp": "1f44c_1f3ff/512.webp",
+		"gif": "1f44c_1f3ff/512.gif",
+		"json": "1f44c_1f3ff/lottie.json",
+		"codepoint": [
+			128076,
+			127999
+		],
+		"string": "👌🏿",
+		"size": [
+			512
+		]
+	},
+	"pointing": {
+		"webp": "1faf5/512.webp",
+		"gif": "1faf5/512.gif",
+		"json": "1faf5/lottie.json",
+		"codepoint": [
+			129781
+		],
+		"string": "🫵",
+		"size": [
+			512
+		]
+	},
+	"pointing+1": {
+		"webp": "1faf5_1f3fb/512.webp",
+		"gif": "1faf5_1f3fb/512.gif",
+		"json": "1faf5_1f3fb/lottie.json",
+		"codepoint": [
+			129781,
+			127995
+		],
+		"string": "🫵🏻",
+		"size": [
+			512
+		]
+	},
+	"pointing+2": {
+		"webp": "1faf5_1f3fc/512.webp",
+		"gif": "1faf5_1f3fc/512.gif",
+		"json": "1faf5_1f3fc/lottie.json",
+		"codepoint": [
+			129781,
+			127996
+		],
+		"string": "🫵🏼",
+		"size": [
+			512
+		]
+	},
+	"pointing+3": {
+		"webp": "1faf5_1f3fd/512.webp",
+		"gif": "1faf5_1f3fd/512.gif",
+		"json": "1faf5_1f3fd/lottie.json",
+		"codepoint": [
+			129781,
+			127997
+		],
+		"string": "🫵🏽",
+		"size": [
+			512
+		]
+	},
+	"pointing+4": {
+		"webp": "1faf5_1f3fe/512.webp",
+		"gif": "1faf5_1f3fe/512.gif",
+		"json": "1faf5_1f3fe/lottie.json",
+		"codepoint": [
+			129781,
+			127998
+		],
+		"string": "🫵🏾",
+		"size": [
+			512
+		]
+	},
+	"pointing+5": {
+		"webp": "1faf5_1f3ff/512.webp",
+		"gif": "1faf5_1f3ff/512.gif",
+		"json": "1faf5_1f3ff/lottie.json",
+		"codepoint": [
+			129781,
+			127999
+		],
+		"string": "🫵🏿",
+		"size": [
+			512
+		]
+	},
+	"point-right": {
+		"webp": "1f449/512.webp",
+		"gif": "1f449/512.gif",
+		"json": "1f449/lottie.json",
+		"codepoint": [
+			128073
+		],
+		"string": "👉",
+		"size": [
+			512
+		]
+	},
+	"point-right+1": {
+		"webp": "1f449_1f3fb/512.webp",
+		"gif": "1f449_1f3fb/512.gif",
+		"json": "1f449_1f3fb/lottie.json",
+		"codepoint": [
+			128073,
+			127995
+		],
+		"string": "👉🏻",
+		"size": [
+			512
+		]
+	},
+	"point-right+2": {
+		"webp": "1f449_1f3fc/512.webp",
+		"gif": "1f449_1f3fc/512.gif",
+		"json": "1f449_1f3fc/lottie.json",
+		"codepoint": [
+			128073,
+			127996
+		],
+		"string": "👉🏼",
+		"size": [
+			512
+		]
+	},
+	"point-right+3": {
+		"webp": "1f449_1f3fd/512.webp",
+		"gif": "1f449_1f3fd/512.gif",
+		"json": "1f449_1f3fd/lottie.json",
+		"codepoint": [
+			128073,
+			127997
+		],
+		"string": "👉🏽",
+		"size": [
+			512
+		]
+	},
+	"point-right+4": {
+		"webp": "1f449_1f3fe/512.webp",
+		"gif": "1f449_1f3fe/512.gif",
+		"json": "1f449_1f3fe/lottie.json",
+		"codepoint": [
+			128073,
+			127998
+		],
+		"string": "👉🏾",
+		"size": [
+			512
+		]
+	},
+	"point-right+5": {
+		"webp": "1f449_1f3ff/512.webp",
+		"gif": "1f449_1f3ff/512.gif",
+		"json": "1f449_1f3ff/lottie.json",
+		"codepoint": [
+			128073,
+			127999
+		],
+		"string": "👉🏿",
+		"size": [
+			512
+		]
+	},
+	"point-left": {
+		"webp": "1f448/512.webp",
+		"gif": "1f448/512.gif",
+		"json": "1f448/lottie.json",
+		"codepoint": [
+			128072
+		],
+		"string": "👈",
+		"size": [
+			512
+		]
+	},
+	"point-left+1": {
+		"webp": "1f448_1f3fb/512.webp",
+		"gif": "1f448_1f3fb/512.gif",
+		"json": "1f448_1f3fb/lottie.json",
+		"codepoint": [
+			128072,
+			127995
+		],
+		"string": "👈🏻",
+		"size": [
+			512
+		]
+	},
+	"point-left+2": {
+		"webp": "1f448_1f3fc/512.webp",
+		"gif": "1f448_1f3fc/512.gif",
+		"json": "1f448_1f3fc/lottie.json",
+		"codepoint": [
+			128072,
+			127996
+		],
+		"string": "👈🏼",
+		"size": [
+			512
+		]
+	},
+	"point-left+3": {
+		"webp": "1f448_1f3fd/512.webp",
+		"gif": "1f448_1f3fd/512.gif",
+		"json": "1f448_1f3fd/lottie.json",
+		"codepoint": [
+			128072,
+			127997
+		],
+		"string": "👈🏽",
+		"size": [
+			512
+		]
+	},
+	"point-left+4": {
+		"webp": "1f448_1f3fe/512.webp",
+		"gif": "1f448_1f3fe/512.gif",
+		"json": "1f448_1f3fe/lottie.json",
+		"codepoint": [
+			128072,
+			127998
+		],
+		"string": "👈🏾",
+		"size": [
+			512
+		]
+	},
+	"point-left+5": {
+		"webp": "1f448_1f3ff/512.webp",
+		"gif": "1f448_1f3ff/512.gif",
+		"json": "1f448_1f3ff/lottie.json",
+		"codepoint": [
+			128072,
+			127999
+		],
+		"string": "👈🏿",
+		"size": [
+			512
+		]
+	},
 	"index-finger": {
 		"webp": "261d_fe0f/512.webp",
 		"gif": "261d_fe0f/512.gif",
@@ -3496,6 +6728,392 @@
 			127999
 		],
 		"string": "☝🏿",
+		"size": [
+			512
+		]
+	},
+	"point-up": {
+		"webp": "1f446/512.webp",
+		"gif": "1f446/512.gif",
+		"json": "1f446/lottie.json",
+		"codepoint": [
+			128070
+		],
+		"string": "👆",
+		"size": [
+			512
+		]
+	},
+	"point-up+1": {
+		"webp": "1f446_1f3fb/512.webp",
+		"gif": "1f446_1f3fb/512.gif",
+		"json": "1f446_1f3fb/lottie.json",
+		"codepoint": [
+			128070,
+			127995
+		],
+		"string": "👆🏻",
+		"size": [
+			512
+		]
+	},
+	"point-up+2": {
+		"webp": "1f446_1f3fc/512.webp",
+		"gif": "1f446_1f3fc/512.gif",
+		"json": "1f446_1f3fc/lottie.json",
+		"codepoint": [
+			128070,
+			127996
+		],
+		"string": "👆🏼",
+		"size": [
+			512
+		]
+	},
+	"point-up+3": {
+		"webp": "1f446_1f3fd/512.webp",
+		"gif": "1f446_1f3fd/512.gif",
+		"json": "1f446_1f3fd/lottie.json",
+		"codepoint": [
+			128070,
+			127997
+		],
+		"string": "👆🏽",
+		"size": [
+			512
+		]
+	},
+	"point-up+4": {
+		"webp": "1f446_1f3fe/512.webp",
+		"gif": "1f446_1f3fe/512.gif",
+		"json": "1f446_1f3fe/lottie.json",
+		"codepoint": [
+			128070,
+			127998
+		],
+		"string": "👆🏾",
+		"size": [
+			512
+		]
+	},
+	"point-up+5": {
+		"webp": "1f446_1f3ff/512.webp",
+		"gif": "1f446_1f3ff/512.gif",
+		"json": "1f446_1f3ff/lottie.json",
+		"codepoint": [
+			128070,
+			127999
+		],
+		"string": "👆🏿",
+		"size": [
+			512
+		]
+	},
+	"point-down": {
+		"webp": "1f447/512.webp",
+		"gif": "1f447/512.gif",
+		"json": "1f447/lottie.json",
+		"codepoint": [
+			128071
+		],
+		"string": "👇",
+		"size": [
+			512
+		]
+	},
+	"point-down+1": {
+		"webp": "1f447_1f3fb/512.webp",
+		"gif": "1f447_1f3fb/512.gif",
+		"json": "1f447_1f3fb/lottie.json",
+		"codepoint": [
+			128071,
+			127995
+		],
+		"string": "👇🏻",
+		"size": [
+			512
+		]
+	},
+	"point-down+2": {
+		"webp": "1f447_1f3fc/512.webp",
+		"gif": "1f447_1f3fc/512.gif",
+		"json": "1f447_1f3fc/lottie.json",
+		"codepoint": [
+			128071,
+			127996
+		],
+		"string": "👇🏼",
+		"size": [
+			512
+		]
+	},
+	"point-down+3": {
+		"webp": "1f447_1f3fd/512.webp",
+		"gif": "1f447_1f3fd/512.gif",
+		"json": "1f447_1f3fd/lottie.json",
+		"codepoint": [
+			128071,
+			127997
+		],
+		"string": "👇🏽",
+		"size": [
+			512
+		]
+	},
+	"point-down+4": {
+		"webp": "1f447_1f3fe/512.webp",
+		"gif": "1f447_1f3fe/512.gif",
+		"json": "1f447_1f3fe/lottie.json",
+		"codepoint": [
+			128071,
+			127998
+		],
+		"string": "👇🏾",
+		"size": [
+			512
+		]
+	},
+	"point-down+5": {
+		"webp": "1f447_1f3ff/512.webp",
+		"gif": "1f447_1f3ff/512.gif",
+		"json": "1f447_1f3ff/lottie.json",
+		"codepoint": [
+			128071,
+			127999
+		],
+		"string": "👇🏿",
+		"size": [
+			512
+		]
+	},
+	"middle-finger": {
+		"webp": "1f595/512.webp",
+		"gif": "1f595/512.gif",
+		"json": "1f595/lottie.json",
+		"codepoint": [
+			128405
+		],
+		"string": "🖕",
+		"size": [
+			512
+		]
+	},
+	"middle-finger+1": {
+		"webp": "1f595_1f3fb/512.webp",
+		"gif": "1f595_1f3fb/512.gif",
+		"json": "1f595_1f3fb/lottie.json",
+		"codepoint": [
+			128405,
+			127995
+		],
+		"string": "🖕🏻",
+		"size": [
+			512
+		]
+	},
+	"middle-finger+2": {
+		"webp": "1f595_1f3fc/512.webp",
+		"gif": "1f595_1f3fc/512.gif",
+		"json": "1f595_1f3fc/lottie.json",
+		"codepoint": [
+			128405,
+			127996
+		],
+		"string": "🖕🏼",
+		"size": [
+			512
+		]
+	},
+	"middle-finger+3": {
+		"webp": "1f595_1f3fd/512.webp",
+		"gif": "1f595_1f3fd/512.gif",
+		"json": "1f595_1f3fd/lottie.json",
+		"codepoint": [
+			128405,
+			127997
+		],
+		"string": "🖕🏽",
+		"size": [
+			512
+		]
+	},
+	"middle-finger+4": {
+		"webp": "1f595_1f3fe/512.webp",
+		"gif": "1f595_1f3fe/512.gif",
+		"json": "1f595_1f3fe/lottie.json",
+		"codepoint": [
+			128405,
+			127998
+		],
+		"string": "🖕🏾",
+		"size": [
+			512
+		]
+	},
+	"middle-finger+5": {
+		"webp": "1f595_1f3ff/512.webp",
+		"gif": "1f595_1f3ff/512.gif",
+		"json": "1f595_1f3ff/lottie.json",
+		"codepoint": [
+			128405,
+			127999
+		],
+		"string": "🖕🏿",
+		"size": [
+			512
+		]
+	},
+	"writing-hand": {
+		"webp": "270d_fe0f/512.webp",
+		"gif": "270d_fe0f/512.gif",
+		"json": "270d_fe0f/lottie.json",
+		"codepoint": [
+			9997,
+			65039
+		],
+		"string": "✍️",
+		"size": [
+			512
+		]
+	},
+	"writing-hand+1": {
+		"webp": "270d_1f3fb/512.webp",
+		"gif": "270d_1f3fb/512.gif",
+		"json": "270d_1f3fb/lottie.json",
+		"codepoint": [
+			9997,
+			127995
+		],
+		"string": "✍🏻",
+		"size": [
+			512
+		]
+	},
+	"writing-hand+2": {
+		"webp": "270d_1f3fc/512.webp",
+		"gif": "270d_1f3fc/512.gif",
+		"json": "270d_1f3fc/lottie.json",
+		"codepoint": [
+			9997,
+			127996
+		],
+		"string": "✍🏼",
+		"size": [
+			512
+		]
+	},
+	"writing-hand+3": {
+		"webp": "270d_1f3fd/512.webp",
+		"gif": "270d_1f3fd/512.gif",
+		"json": "270d_1f3fd/lottie.json",
+		"codepoint": [
+			9997,
+			127997
+		],
+		"string": "✍🏽",
+		"size": [
+			512
+		]
+	},
+	"writing-hand+4": {
+		"webp": "270d_1f3fe/512.webp",
+		"gif": "270d_1f3fe/512.gif",
+		"json": "270d_1f3fe/lottie.json",
+		"codepoint": [
+			9997,
+			127998
+		],
+		"string": "✍🏾",
+		"size": [
+			512
+		]
+	},
+	"writing-hand+5": {
+		"webp": "270d_1f3ff/512.webp",
+		"gif": "270d_1f3ff/512.gif",
+		"json": "270d_1f3ff/lottie.json",
+		"codepoint": [
+			9997,
+			127999
+		],
+		"string": "✍🏿",
+		"size": [
+			512
+		]
+	},
+	"selfie": {
+		"webp": "1f933/512.webp",
+		"gif": "1f933/512.gif",
+		"json": "1f933/lottie.json",
+		"codepoint": [
+			129331
+		],
+		"string": "🤳",
+		"size": [
+			512
+		]
+	},
+	"selfie+1": {
+		"webp": "1f933_1f3fb/512.webp",
+		"gif": "1f933_1f3fb/512.gif",
+		"json": "1f933_1f3fb/lottie.json",
+		"codepoint": [
+			129331,
+			127995
+		],
+		"string": "🤳🏻",
+		"size": [
+			512
+		]
+	},
+	"selfie+2": {
+		"webp": "1f933_1f3fc/512.webp",
+		"gif": "1f933_1f3fc/512.gif",
+		"json": "1f933_1f3fc/lottie.json",
+		"codepoint": [
+			129331,
+			127996
+		],
+		"string": "🤳🏼",
+		"size": [
+			512
+		]
+	},
+	"selfie+3": {
+		"webp": "1f933_1f3fd/512.webp",
+		"gif": "1f933_1f3fd/512.gif",
+		"json": "1f933_1f3fd/lottie.json",
+		"codepoint": [
+			129331,
+			127997
+		],
+		"string": "🤳🏽",
+		"size": [
+			512
+		]
+	},
+	"selfie+4": {
+		"webp": "1f933_1f3fe/512.webp",
+		"gif": "1f933_1f3fe/512.gif",
+		"json": "1f933_1f3fe/lottie.json",
+		"codepoint": [
+			129331,
+			127998
+		],
+		"string": "🤳🏾",
+		"size": [
+			512
+		]
+	},
+	"selfie+5": {
+		"webp": "1f933_1f3ff/512.webp",
+		"gif": "1f933_1f3ff/512.gif",
+		"json": "1f933_1f3ff/lottie.json",
+		"codepoint": [
+			129331,
+			127999
+		],
+		"string": "🤳🏿",
 		"size": [
 			512
 		]
@@ -4039,6 +7657,480 @@
 			512
 		]
 	},
+	"nail-care": {
+		"webp": "1f485/512.webp",
+		"gif": "1f485/512.gif",
+		"json": "1f485/lottie.json",
+		"codepoint": [
+			128133
+		],
+		"string": "💅",
+		"size": [
+			512
+		]
+	},
+	"nail-care+1": {
+		"webp": "1f485_1f3fb/512.webp",
+		"gif": "1f485_1f3fb/512.gif",
+		"json": "1f485_1f3fb/lottie.json",
+		"codepoint": [
+			128133,
+			127995
+		],
+		"string": "💅🏻",
+		"size": [
+			512
+		]
+	},
+	"nail-care+2": {
+		"webp": "1f485_1f3fc/512.webp",
+		"gif": "1f485_1f3fc/512.gif",
+		"json": "1f485_1f3fc/lottie.json",
+		"codepoint": [
+			128133,
+			127996
+		],
+		"string": "💅🏼",
+		"size": [
+			512
+		]
+	},
+	"nail-care+3": {
+		"webp": "1f485_1f3fd/512.webp",
+		"gif": "1f485_1f3fd/512.gif",
+		"json": "1f485_1f3fd/lottie.json",
+		"codepoint": [
+			128133,
+			127997
+		],
+		"string": "💅🏽",
+		"size": [
+			512
+		]
+	},
+	"nail-care+4": {
+		"webp": "1f485_1f3fe/512.webp",
+		"gif": "1f485_1f3fe/512.gif",
+		"json": "1f485_1f3fe/lottie.json",
+		"codepoint": [
+			128133,
+			127998
+		],
+		"string": "💅🏾",
+		"size": [
+			512
+		]
+	},
+	"nail-care+5": {
+		"webp": "1f485_1f3ff/512.webp",
+		"gif": "1f485_1f3ff/512.gif",
+		"json": "1f485_1f3ff/lottie.json",
+		"codepoint": [
+			128133,
+			127999
+		],
+		"string": "💅🏿",
+		"size": [
+			512
+		]
+	},
+	"handshake": {
+		"webp": "1f91d/512.webp",
+		"gif": "1f91d/512.gif",
+		"json": "1f91d/lottie.json",
+		"codepoint": [
+			129309
+		],
+		"string": "🤝",
+		"size": [
+			512
+		]
+	},
+	"handshake+1": {
+		"webp": "1f91d_1f3fb/512.webp",
+		"gif": "1f91d_1f3fb/512.gif",
+		"json": "1f91d_1f3fb/lottie.json",
+		"codepoint": [
+			129309,
+			127995
+		],
+		"string": "🤝🏻",
+		"size": [
+			512
+		]
+	},
+	"handshake+2": {
+		"webp": "1faf1_1f3fb_200d_1faf2_1f3fc/512.webp",
+		"gif": "1faf1_1f3fb_200d_1faf2_1f3fc/512.gif",
+		"json": "1faf1_1f3fb_200d_1faf2_1f3fc/lottie.json",
+		"codepoint": [
+			129777,
+			127995,
+			8205,
+			129778,
+			127996
+		],
+		"string": "🫱🏻‍🫲🏼",
+		"size": [
+			512
+		]
+	},
+	"handshake+3": {
+		"webp": "1faf1_1f3fb_200d_1faf2_1f3fd/512.webp",
+		"gif": "1faf1_1f3fb_200d_1faf2_1f3fd/512.gif",
+		"json": "1faf1_1f3fb_200d_1faf2_1f3fd/lottie.json",
+		"codepoint": [
+			129777,
+			127995,
+			8205,
+			129778,
+			127997
+		],
+		"string": "🫱🏻‍🫲🏽",
+		"size": [
+			512
+		]
+	},
+	"handshake+4": {
+		"webp": "1faf1_1f3fb_200d_1faf2_1f3fe/512.webp",
+		"gif": "1faf1_1f3fb_200d_1faf2_1f3fe/512.gif",
+		"json": "1faf1_1f3fb_200d_1faf2_1f3fe/lottie.json",
+		"codepoint": [
+			129777,
+			127995,
+			8205,
+			129778,
+			127998
+		],
+		"string": "🫱🏻‍🫲🏾",
+		"size": [
+			512
+		]
+	},
+	"handshake+5": {
+		"webp": "1faf1_1f3fb_200d_1faf2_1f3ff/512.webp",
+		"gif": "1faf1_1f3fb_200d_1faf2_1f3ff/512.gif",
+		"json": "1faf1_1f3fb_200d_1faf2_1f3ff/lottie.json",
+		"codepoint": [
+			129777,
+			127995,
+			8205,
+			129778,
+			127999
+		],
+		"string": "🫱🏻‍🫲🏿",
+		"size": [
+			512
+		]
+	},
+	"handshake+6": {
+		"webp": "1faf1_1f3fc_200d_1faf2_1f3fb/512.webp",
+		"gif": "1faf1_1f3fc_200d_1faf2_1f3fb/512.gif",
+		"json": "1faf1_1f3fc_200d_1faf2_1f3fb/lottie.json",
+		"codepoint": [
+			129777,
+			127996,
+			8205,
+			129778,
+			127995
+		],
+		"string": "🫱🏼‍🫲🏻",
+		"size": [
+			512
+		]
+	},
+	"handshake+7": {
+		"webp": "1f91d_1f3fc/512.webp",
+		"gif": "1f91d_1f3fc/512.gif",
+		"json": "1f91d_1f3fc/lottie.json",
+		"codepoint": [
+			129309,
+			127996
+		],
+		"string": "🤝🏼",
+		"size": [
+			512
+		]
+	},
+	"handshake+8": {
+		"webp": "1faf1_1f3fc_200d_1faf2_1f3fd/512.webp",
+		"gif": "1faf1_1f3fc_200d_1faf2_1f3fd/512.gif",
+		"json": "1faf1_1f3fc_200d_1faf2_1f3fd/lottie.json",
+		"codepoint": [
+			129777,
+			127996,
+			8205,
+			129778,
+			127997
+		],
+		"string": "🫱🏼‍🫲🏽",
+		"size": [
+			512
+		]
+	},
+	"handshake+9": {
+		"webp": "1faf1_1f3fc_200d_1faf2_1f3fe/512.webp",
+		"gif": "1faf1_1f3fc_200d_1faf2_1f3fe/512.gif",
+		"json": "1faf1_1f3fc_200d_1faf2_1f3fe/lottie.json",
+		"codepoint": [
+			129777,
+			127996,
+			8205,
+			129778,
+			127998
+		],
+		"string": "🫱🏼‍🫲🏾",
+		"size": [
+			512
+		]
+	},
+	"handshake+10": {
+		"webp": "1faf1_1f3fc_200d_1faf2_1f3ff/512.webp",
+		"gif": "1faf1_1f3fc_200d_1faf2_1f3ff/512.gif",
+		"json": "1faf1_1f3fc_200d_1faf2_1f3ff/lottie.json",
+		"codepoint": [
+			129777,
+			127996,
+			8205,
+			129778,
+			127999
+		],
+		"string": "🫱🏼‍🫲🏿",
+		"size": [
+			512
+		]
+	},
+	"handshake+11": {
+		"webp": "1faf1_1f3fd_200d_1faf2_1f3fb/512.webp",
+		"gif": "1faf1_1f3fd_200d_1faf2_1f3fb/512.gif",
+		"json": "1faf1_1f3fd_200d_1faf2_1f3fb/lottie.json",
+		"codepoint": [
+			129777,
+			127997,
+			8205,
+			129778,
+			127995
+		],
+		"string": "🫱🏽‍🫲🏻",
+		"size": [
+			512
+		]
+	},
+	"handshake+12": {
+		"webp": "1faf1_1f3fd_200d_1faf2_1f3fc/512.webp",
+		"gif": "1faf1_1f3fd_200d_1faf2_1f3fc/512.gif",
+		"json": "1faf1_1f3fd_200d_1faf2_1f3fc/lottie.json",
+		"codepoint": [
+			129777,
+			127997,
+			8205,
+			129778,
+			127996
+		],
+		"string": "🫱🏽‍🫲🏼",
+		"size": [
+			512
+		]
+	},
+	"handshake+13": {
+		"webp": "1f91d_1f3fd/512.webp",
+		"gif": "1f91d_1f3fd/512.gif",
+		"json": "1f91d_1f3fd/lottie.json",
+		"codepoint": [
+			129309,
+			127997
+		],
+		"string": "🤝🏽",
+		"size": [
+			512
+		]
+	},
+	"handshake+14": {
+		"webp": "1faf1_1f3fd_200d_1faf2_1f3fe/512.webp",
+		"gif": "1faf1_1f3fd_200d_1faf2_1f3fe/512.gif",
+		"json": "1faf1_1f3fd_200d_1faf2_1f3fe/lottie.json",
+		"codepoint": [
+			129777,
+			127997,
+			8205,
+			129778,
+			127998
+		],
+		"string": "🫱🏽‍🫲🏾",
+		"size": [
+			512
+		]
+	},
+	"handshake+15": {
+		"webp": "1faf1_1f3fd_200d_1faf2_1f3ff/512.webp",
+		"gif": "1faf1_1f3fd_200d_1faf2_1f3ff/512.gif",
+		"json": "1faf1_1f3fd_200d_1faf2_1f3ff/lottie.json",
+		"codepoint": [
+			129777,
+			127997,
+			8205,
+			129778,
+			127999
+		],
+		"string": "🫱🏽‍🫲🏿",
+		"size": [
+			512
+		]
+	},
+	"handshake+16": {
+		"webp": "1faf1_1f3fe_200d_1faf2_1f3fb/512.webp",
+		"gif": "1faf1_1f3fe_200d_1faf2_1f3fb/512.gif",
+		"json": "1faf1_1f3fe_200d_1faf2_1f3fb/lottie.json",
+		"codepoint": [
+			129777,
+			127998,
+			8205,
+			129778,
+			127995
+		],
+		"string": "🫱🏾‍🫲🏻",
+		"size": [
+			512
+		]
+	},
+	"handshake+17": {
+		"webp": "1faf1_1f3fe_200d_1faf2_1f3fc/512.webp",
+		"gif": "1faf1_1f3fe_200d_1faf2_1f3fc/512.gif",
+		"json": "1faf1_1f3fe_200d_1faf2_1f3fc/lottie.json",
+		"codepoint": [
+			129777,
+			127998,
+			8205,
+			129778,
+			127996
+		],
+		"string": "🫱🏾‍🫲🏼",
+		"size": [
+			512
+		]
+	},
+	"handshake+18": {
+		"webp": "1faf1_1f3fe_200d_1faf2_1f3fd/512.webp",
+		"gif": "1faf1_1f3fe_200d_1faf2_1f3fd/512.gif",
+		"json": "1faf1_1f3fe_200d_1faf2_1f3fd/lottie.json",
+		"codepoint": [
+			129777,
+			127998,
+			8205,
+			129778,
+			127997
+		],
+		"string": "🫱🏾‍🫲🏽",
+		"size": [
+			512
+		]
+	},
+	"handshake+19": {
+		"webp": "1f91d_1f3fe/512.webp",
+		"gif": "1f91d_1f3fe/512.gif",
+		"json": "1f91d_1f3fe/lottie.json",
+		"codepoint": [
+			129309,
+			127998
+		],
+		"string": "🤝🏾",
+		"size": [
+			512
+		]
+	},
+	"handshake+20": {
+		"webp": "1faf1_1f3fe_200d_1faf2_1f3ff/512.webp",
+		"gif": "1faf1_1f3fe_200d_1faf2_1f3ff/512.gif",
+		"json": "1faf1_1f3fe_200d_1faf2_1f3ff/lottie.json",
+		"codepoint": [
+			129777,
+			127998,
+			8205,
+			129778,
+			127999
+		],
+		"string": "🫱🏾‍🫲🏿",
+		"size": [
+			512
+		]
+	},
+	"handshake+21": {
+		"webp": "1faf1_1f3ff_200d_1faf2_1f3fb/512.webp",
+		"gif": "1faf1_1f3ff_200d_1faf2_1f3fb/512.gif",
+		"json": "1faf1_1f3ff_200d_1faf2_1f3fb/lottie.json",
+		"codepoint": [
+			129777,
+			127999,
+			8205,
+			129778,
+			127995
+		],
+		"string": "🫱🏿‍🫲🏻",
+		"size": [
+			512
+		]
+	},
+	"handshake+22": {
+		"webp": "1faf1_1f3ff_200d_1faf2_1f3fc/512.webp",
+		"gif": "1faf1_1f3ff_200d_1faf2_1f3fc/512.gif",
+		"json": "1faf1_1f3ff_200d_1faf2_1f3fc/lottie.json",
+		"codepoint": [
+			129777,
+			127999,
+			8205,
+			129778,
+			127996
+		],
+		"string": "🫱🏿‍🫲🏼",
+		"size": [
+			512
+		]
+	},
+	"handshake+23": {
+		"webp": "1faf1_1f3ff_200d_1faf2_1f3fd/512.webp",
+		"gif": "1faf1_1f3ff_200d_1faf2_1f3fd/512.gif",
+		"json": "1faf1_1f3ff_200d_1faf2_1f3fd/lottie.json",
+		"codepoint": [
+			129777,
+			127999,
+			8205,
+			129778,
+			127997
+		],
+		"string": "🫱🏿‍🫲🏽",
+		"size": [
+			512
+		]
+	},
+	"handshake+24": {
+		"webp": "1faf1_1f3ff_200d_1faf2_1f3fe/512.webp",
+		"gif": "1faf1_1f3ff_200d_1faf2_1f3fe/512.gif",
+		"json": "1faf1_1f3ff_200d_1faf2_1f3fe/lottie.json",
+		"codepoint": [
+			129777,
+			127999,
+			8205,
+			129778,
+			127998
+		],
+		"string": "🫱🏿‍🫲🏾",
+		"size": [
+			512
+		]
+	},
+	"handshake+25": {
+		"webp": "1f91d_1f3ff/512.webp",
+		"gif": "1f91d_1f3ff/512.gif",
+		"json": "1f91d_1f3ff/lottie.json",
+		"codepoint": [
+			129309,
+			127999
+		],
+		"string": "🤝🏿",
+		"size": [
+			512
+		]
+	},
 	"dancer-woman": {
 		"webp": "1f483/512.webp",
 		"gif": "1f483/512.gif",
@@ -4116,6 +8208,30 @@
 			512
 		]
 	},
+	"bouquet": {
+		"webp": "1f490/512.webp",
+		"gif": "1f490/512.gif",
+		"json": "1f490/lottie.json",
+		"codepoint": [
+			128144
+		],
+		"string": "💐",
+		"size": [
+			512
+		]
+	},
+	"flowers": {
+		"webp": "1f490/512.webp",
+		"gif": "1f490/512.gif",
+		"json": "1f490/lottie.json",
+		"codepoint": [
+			128144
+		],
+		"string": "💐",
+		"size": [
+			512
+		]
+	},
 	"rose": {
 		"webp": "1f339/512.webp",
 		"gif": "1f339/512.gif",
@@ -4176,6 +8292,18 @@
 			512
 		]
 	},
+	"leaves": {
+		"webp": "1f343/512.webp",
+		"gif": "1f343/512.gif",
+		"json": "1f343/lottie.json",
+		"codepoint": [
+			127811
+		],
+		"string": "🍃",
+		"size": [
+			512
+		]
+	},
 	"luck": {
 		"webp": "1f340/512.webp",
 		"gif": "1f340/512.gif",
@@ -4196,6 +8324,18 @@
 			127808
 		],
 		"string": "🍀",
+		"size": [
+			512
+		]
+	},
+	"leafless-tree": {
+		"webp": "1fabe/512.webp",
+		"gif": "1fabe/512.gif",
+		"json": "1fabe/lottie.json",
+		"codepoint": [
+			129726
+		],
+		"string": "🪾",
 		"size": [
 			512
 		]
@@ -4287,6 +8427,30 @@
 			512
 		]
 	},
+	"bubbles": {
+		"webp": "1fae7/512.webp",
+		"gif": "1fae7/512.gif",
+		"json": "1fae7/lottie.json",
+		"codepoint": [
+			129767
+		],
+		"string": "🫧",
+		"size": [
+			512
+		]
+	},
+	"ocean": {
+		"webp": "1f30a/512.webp",
+		"gif": "1f30a/512.gif",
+		"json": "1f30a/lottie.json",
+		"codepoint": [
+			127754
+		],
+		"string": "🌊",
+		"size": [
+			512
+		]
+	},
 	"wind-face": {
 		"webp": "1f32c_fe0f/512.webp",
 		"gif": "1f32c_fe0f/512.gif",
@@ -4300,50 +8464,89 @@
 			512
 		]
 	},
-	"electricity": {
-		"webp": "26a1/512.webp",
-		"gif": "26a1/512.gif",
-		"json": "26a1/lottie.json",
+	"tornado": {
+		"webp": "1f32a_fe0f/512.webp",
+		"gif": "1f32a_fe0f/512.gif",
+		"json": "1f32a_fe0f/lottie.json",
 		"codepoint": [
-			9889
+			127786,
+			65039
 		],
-		"string": "⚡",
+		"string": "🌪️",
 		"size": [
 			512
 		]
 	},
-	"zap": {
-		"webp": "26a1/512.webp",
-		"gif": "26a1/512.gif",
-		"json": "26a1/lottie.json",
+	"droplet": {
+		"webp": "1f4a7/512.webp",
+		"gif": "1f4a7/512.gif",
+		"json": "1f4a7/lottie.json",
 		"codepoint": [
-			9889
+			128167
 		],
-		"string": "⚡",
+		"string": "💧",
 		"size": [
 			512
 		]
 	},
-	"lightning": {
-		"webp": "26a1/512.webp",
-		"gif": "26a1/512.gif",
-		"json": "26a1/lottie.json",
+	"rain-cloud": {
+		"webp": "1f327_fe0f/512.webp",
+		"gif": "1f327_fe0f/512.gif",
+		"json": "1f327_fe0f/lottie.json",
 		"codepoint": [
-			9889
+			127783,
+			65039
 		],
-		"string": "⚡",
+		"string": "🌧️",
 		"size": [
 			512
 		]
 	},
-	"dizzy": {
-		"webp": "1f4ab/512.webp",
-		"gif": "1f4ab/512.gif",
-		"json": "1f4ab/lottie.json",
+	"cloud-with-lightning": {
+		"webp": "1f329_fe0f/512.webp",
+		"gif": "1f329_fe0f/512.gif",
+		"json": "1f329_fe0f/lottie.json",
 		"codepoint": [
-			128171
+			127785,
+			65039
 		],
-		"string": "💫",
+		"string": "🌩️",
+		"size": [
+			512
+		]
+	},
+	"globe-showing-Europe-Africa": {
+		"webp": "1f30d/512.webp",
+		"gif": "1f30d/512.gif",
+		"json": "1f30d/lottie.json",
+		"codepoint": [
+			127757
+		],
+		"string": "🌍",
+		"size": [
+			512
+		]
+	},
+	"globe-showing-Americas": {
+		"webp": "1f30e/512.webp",
+		"gif": "1f30e/512.gif",
+		"json": "1f30e/lottie.json",
+		"codepoint": [
+			127758
+		],
+		"string": "🌎",
+		"size": [
+			512
+		]
+	},
+	"globe-showing-Asia-Australia": {
+		"webp": "1f30f/512.webp",
+		"gif": "1f30f/512.gif",
+		"json": "1f30f/lottie.json",
+		"codepoint": [
+			127759
+		],
+		"string": "🌏",
 		"size": [
 			512
 		]
@@ -4361,14 +8564,14 @@
 			512
 		]
 	},
-	"globe-showing-Europe-Africa": {
-		"webp": "1f30d/512.webp",
-		"gif": "1f30d/512.gif",
-		"json": "1f30d/lottie.json",
+	"cow-face": {
+		"webp": "1f42e/512.webp",
+		"gif": "1f42e/512.gif",
+		"json": "1f42e/lottie.json",
 		"codepoint": [
-			127757
+			128046
 		],
-		"string": "🌍",
+		"string": "🐮",
 		"size": [
 			512
 		]
@@ -4421,6 +8624,18 @@
 			512
 		]
 	},
+	"dinosaur": {
+		"webp": "1f995/512.webp",
+		"gif": "1f995/512.gif",
+		"json": "1f995/lottie.json",
+		"codepoint": [
+			129429
+		],
+		"string": "🦕",
+		"size": [
+			512
+		]
+	},
 	"turtle": {
 		"webp": "1f422/512.webp",
 		"gif": "1f422/512.gif",
@@ -4429,6 +8644,18 @@
 			128034
 		],
 		"string": "🐢",
+		"size": [
+			512
+		]
+	},
+	"crocodile": {
+		"webp": "1f40a/512.webp",
+		"gif": "1f40a/512.gif",
+		"json": "1f40a/lottie.json",
+		"codepoint": [
+			128010
+		],
+		"string": "🐊",
 		"size": [
 			512
 		]
@@ -4481,6 +8708,18 @@
 			512
 		]
 	},
+	"poodle": {
+		"webp": "1f429/512.webp",
+		"gif": "1f429/512.gif",
+		"json": "1f429/lottie.json",
+		"codepoint": [
+			128041
+		],
+		"string": "🐩",
+		"size": [
+			512
+		]
+	},
 	"dog": {
 		"webp": "1f415/512.webp",
 		"gif": "1f415/512.gif",
@@ -4489,6 +8728,32 @@
 			128021
 		],
 		"string": "🐕",
+		"size": [
+			512
+		]
+	},
+	"guide-dog": {
+		"webp": "1f9ae/512.webp",
+		"gif": "1f9ae/512.gif",
+		"json": "1f9ae/lottie.json",
+		"codepoint": [
+			129454
+		],
+		"string": "🦮",
+		"size": [
+			512
+		]
+	},
+	"service-dog": {
+		"webp": "1f415_200d_1f9ba/512.webp",
+		"gif": "1f415_200d_1f9ba/512.gif",
+		"json": "1f415_200d_1f9ba/lottie.json",
+		"codepoint": [
+			128021,
+			8205,
+			129466
+		],
+		"string": "🐕‍🦺",
 		"size": [
 			512
 		]
@@ -4589,6 +8854,30 @@
 			512
 		]
 	},
+	"gorilla": {
+		"webp": "1f98d/512.webp",
+		"gif": "1f98d/512.gif",
+		"json": "1f98d/lottie.json",
+		"codepoint": [
+			129421
+		],
+		"string": "🦍",
+		"size": [
+			512
+		]
+	},
+	"orangutan": {
+		"webp": "1f9a7/512.webp",
+		"gif": "1f9a7/512.gif",
+		"json": "1f9a7/lottie.json",
+		"codepoint": [
+			129447
+		],
+		"string": "🦧",
+		"size": [
+			512
+		]
+	},
 	"chipmunk": {
 		"webp": "1f43f_fe0f/512.webp",
 		"gif": "1f43f_fe0f/512.gif",
@@ -4622,6 +8911,32 @@
 			129415
 		],
 		"string": "🦇",
+		"size": [
+			512
+		]
+	},
+	"bird": {
+		"webp": "1f426/512.webp",
+		"gif": "1f426/512.gif",
+		"json": "1f426/lottie.json",
+		"codepoint": [
+			128038
+		],
+		"string": "🐦",
+		"size": [
+			512
+		]
+	},
+	"black-bird": {
+		"webp": "1f426_200d_2b1b/512.webp",
+		"gif": "1f426_200d_2b1b/512.gif",
+		"json": "1f426_200d_2b1b/lottie.json",
+		"codepoint": [
+			128038,
+			8205,
+			11035
+		],
+		"string": "🐦‍⬛",
 		"size": [
 			512
 		]
@@ -4686,6 +9001,18 @@
 			512
 		]
 	},
+	"owl": {
+		"webp": "1f989/512.webp",
+		"gif": "1f989/512.gif",
+		"json": "1f989/lottie.json",
+		"codepoint": [
+			129417
+		],
+		"string": "🦉",
+		"size": [
+			512
+		]
+	},
 	"peace": {
 		"webp": "1f54a_fe0f/512.webp",
 		"gif": "1f54a_fe0f/512.gif",
@@ -4736,6 +9063,20 @@
 			512
 		]
 	},
+	"phoenix": {
+		"webp": "1f426_200d_1f525/512.webp",
+		"gif": "1f426_200d_1f525/512.gif",
+		"json": "1f426_200d_1f525/lottie.json",
+		"codepoint": [
+			128038,
+			8205,
+			128293
+		],
+		"string": "🐦‍🔥",
+		"size": [
+			512
+		]
+	},
 	"seal": {
 		"webp": "1f9ad/512.webp",
 		"gif": "1f9ad/512.gif",
@@ -4744,6 +9085,18 @@
 			129453
 		],
 		"string": "🦭",
+		"size": [
+			512
+		]
+	},
+	"shark": {
+		"webp": "1f988/512.webp",
+		"gif": "1f988/512.gif",
+		"json": "1f988/lottie.json",
+		"codepoint": [
+			129416
+		],
+		"string": "🦈",
 		"size": [
 			512
 		]
@@ -4772,6 +9125,18 @@
 			512
 		]
 	},
+	"fish": {
+		"webp": "1f41f/512.webp",
+		"gif": "1f41f/512.gif",
+		"json": "1f41f/lottie.json",
+		"codepoint": [
+			128031
+		],
+		"string": "🐟",
+		"size": [
+			512
+		]
+	},
 	"blowfish": {
 		"webp": "1f421/512.webp",
 		"gif": "1f421/512.gif",
@@ -4780,6 +9145,18 @@
 			128033
 		],
 		"string": "🐡",
+		"size": [
+			512
+		]
+	},
+	"lobster": {
+		"webp": "1f99e/512.webp",
+		"gif": "1f99e/512.gif",
+		"json": "1f99e/lottie.json",
+		"codepoint": [
+			129438
+		],
+		"string": "🦞",
 		"size": [
 			512
 		]
@@ -4820,6 +9197,31 @@
 			512
 		]
 	},
+	"scorpion": {
+		"webp": "1f982/512.webp",
+		"gif": "1f982/512.gif",
+		"json": "1f982/lottie.json",
+		"codepoint": [
+			129410
+		],
+		"string": "🦂",
+		"size": [
+			512
+		]
+	},
+	"spider": {
+		"webp": "1f577_fe0f/512.webp",
+		"gif": "1f577_fe0f/512.gif",
+		"json": "1f577_fe0f/lottie.json",
+		"codepoint": [
+			128375,
+			65039
+		],
+		"string": "🕷️",
+		"size": [
+			512
+		]
+	},
 	"snail": {
 		"webp": "1f40c/512.webp",
 		"gif": "1f40c/512.gif",
@@ -4856,6 +9258,30 @@
 			512
 		]
 	},
+	"cockroach": {
+		"webp": "1fab3/512.webp",
+		"gif": "1fab3/512.gif",
+		"json": "1fab3/lottie.json",
+		"codepoint": [
+			129715
+		],
+		"string": "🪳",
+		"size": [
+			512
+		]
+	},
+	"fly": {
+		"webp": "1fab0/512.webp",
+		"gif": "1fab0/512.gif",
+		"json": "1fab0/lottie.json",
+		"codepoint": [
+			129712
+		],
+		"string": "🪰",
+		"size": [
+			512
+		]
+	},
 	"bee": {
 		"webp": "1f41d/512.webp",
 		"gif": "1f41d/512.gif",
@@ -4868,6 +9294,18 @@
 			512
 		]
 	},
+	"lady-bug": {
+		"webp": "1f41e/512.webp",
+		"gif": "1f41e/512.gif",
+		"json": "1f41e/lottie.json",
+		"codepoint": [
+			128030
+		],
+		"string": "🐞",
+		"size": [
+			512
+		]
+	},
 	"butterfly": {
 		"webp": "1f98b/512.webp",
 		"gif": "1f98b/512.gif",
@@ -4876,6 +9314,30 @@
 			129419
 		],
 		"string": "🦋",
+		"size": [
+			512
+		]
+	},
+	"bug": {
+		"webp": "1f41b/512.webp",
+		"gif": "1f41b/512.gif",
+		"json": "1f41b/lottie.json",
+		"codepoint": [
+			128027
+		],
+		"string": "🐛",
+		"size": [
+			512
+		]
+	},
+	"worm": {
+		"webp": "1fab1/512.webp",
+		"gif": "1fab1/512.gif",
+		"json": "1fab1/lottie.json",
+		"codepoint": [
+			129713
+		],
+		"string": "🪱",
 		"size": [
 			512
 		]
@@ -4900,6 +9362,90 @@
 			127813
 		],
 		"string": "🍅",
+		"size": [
+			512
+		]
+	},
+	"root-vegetable": {
+		"webp": "1fadc/512.webp",
+		"gif": "1fadc/512.gif",
+		"json": "1fadc/lottie.json",
+		"codepoint": [
+			129756
+		],
+		"string": "🫜",
+		"size": [
+			512
+		]
+	},
+	"beet": {
+		"webp": "1fadc/512.webp",
+		"gif": "1fadc/512.gif",
+		"json": "1fadc/lottie.json",
+		"codepoint": [
+			129756
+		],
+		"string": "🫜",
+		"size": [
+			512
+		]
+	},
+	"turnip": {
+		"webp": "1fadc/512.webp",
+		"gif": "1fadc/512.gif",
+		"json": "1fadc/lottie.json",
+		"codepoint": [
+			129756
+		],
+		"string": "🫜",
+		"size": [
+			512
+		]
+	},
+	"cooking": {
+		"webp": "1f373/512.webp",
+		"gif": "1f373/512.gif",
+		"json": "1f373/lottie.json",
+		"codepoint": [
+			127859
+		],
+		"string": "🍳",
+		"size": [
+			512
+		]
+	},
+	"burrito": {
+		"webp": "1f32f/512.webp",
+		"gif": "1f32f/512.gif",
+		"json": "1f32f/lottie.json",
+		"codepoint": [
+			127791
+		],
+		"string": "🌯",
+		"size": [
+			512
+		]
+	},
+	"spaghetti": {
+		"webp": "1f35d/512.webp",
+		"gif": "1f35d/512.gif",
+		"json": "1f35d/lottie.json",
+		"codepoint": [
+			127837
+		],
+		"string": "🍝",
+		"size": [
+			512
+		]
+	},
+	"steaming-bowl": {
+		"webp": "1f35c/512.webp",
+		"gif": "1f35c/512.gif",
+		"json": "1f35c/lottie.json",
+		"codepoint": [
+			127836
+		],
+		"string": "🍜",
 		"size": [
 			512
 		]
@@ -4976,6 +9522,18 @@
 			512
 		]
 	},
+	"pour": {
+		"webp": "1fad7/512.webp",
+		"gif": "1fad7/512.gif",
+		"json": "1fad7/lottie.json",
+		"codepoint": [
+			129751
+		],
+		"string": "🫗",
+		"size": [
+			512
+		]
+	},
 	"tropical-drink": {
 		"webp": "1f379/512.webp",
 		"gif": "1f379/512.gif",
@@ -4988,6 +9546,18 @@
 			512
 		]
 	},
+	"construction": {
+		"webp": "1f6a7/512.webp",
+		"gif": "1f6a7/512.gif",
+		"json": "1f6a7/lottie.json",
+		"codepoint": [
+			128679
+		],
+		"string": "🚧",
+		"size": [
+			512
+		]
+	},
 	"police-car-light": {
 		"webp": "1f6a8/512.webp",
 		"gif": "1f6a8/512.gif",
@@ -4996,6 +9566,91 @@
 			128680
 		],
 		"string": "🚨",
+		"size": [
+			512
+		]
+	},
+	"bicycle": {
+		"webp": "1f6b2/512.webp",
+		"gif": "1f6b2/512.gif",
+		"json": "1f6b2/lottie.json",
+		"codepoint": [
+			128690
+		],
+		"string": "🚲",
+		"size": [
+			512
+		]
+	},
+	"automobile": {
+		"webp": "1f697/512.webp",
+		"gif": "1f697/512.gif",
+		"json": "1f697/lottie.json",
+		"codepoint": [
+			128663
+		],
+		"string": "🚗",
+		"size": [
+			512
+		]
+	},
+	"racing-car": {
+		"webp": "1f3ce_fe0f/512.webp",
+		"gif": "1f3ce_fe0f/512.gif",
+		"json": "1f3ce_fe0f/lottie.json",
+		"codepoint": [
+			127950,
+			65039
+		],
+		"string": "🏎️",
+		"size": [
+			512
+		]
+	},
+	"taxi": {
+		"webp": "1f695/512.webp",
+		"gif": "1f695/512.gif",
+		"json": "1f695/lottie.json",
+		"codepoint": [
+			128661
+		],
+		"string": "🚕",
+		"size": [
+			512
+		]
+	},
+	"bus": {
+		"webp": "1f68c/512.webp",
+		"gif": "1f68c/512.gif",
+		"json": "1f68c/lottie.json",
+		"codepoint": [
+			128652
+		],
+		"string": "🚌",
+		"size": [
+			512
+		]
+	},
+	"sailboat": {
+		"webp": "26f5/512.webp",
+		"gif": "26f5/512.gif",
+		"json": "26f5/lottie.json",
+		"codepoint": [
+			9973
+		],
+		"string": "⛵",
+		"size": [
+			512
+		]
+	},
+	"canoe": {
+		"webp": "1f6f6/512.webp",
+		"gif": "1f6f6/512.gif",
+		"json": "1f6f6/lottie.json",
+		"codepoint": [
+			128758
+		],
+		"string": "🛶",
 		"size": [
 			512
 		]
@@ -5060,14 +9715,27 @@
 			512
 		]
 	},
-	"confetti-ball": {
-		"webp": "1f38a/512.webp",
-		"gif": "1f38a/512.gif",
-		"json": "1f38a/lottie.json",
+	"ferris-wheel": {
+		"webp": "1f3a1/512.webp",
+		"gif": "1f3a1/512.gif",
+		"json": "1f3a1/lottie.json",
 		"codepoint": [
-			127882
+			127905
 		],
-		"string": "🎊",
+		"string": "🎡",
+		"size": [
+			512
+		]
+	},
+	"camping": {
+		"webp": "1f3d5_fe0f/512.webp",
+		"gif": "1f3d5_fe0f/512.gif",
+		"json": "1f3d5_fe0f/lottie.json",
+		"codepoint": [
+			127957,
+			65039
+		],
+		"string": "🏕️",
 		"size": [
 			512
 		]
@@ -5096,6 +9764,18 @@
 			512
 		]
 	},
+	"wrapped-gift": {
+		"webp": "1f381/512.webp",
+		"gif": "1f381/512.gif",
+		"json": "1f381/lottie.json",
+		"codepoint": [
+			127873
+		],
+		"string": "🎁",
+		"size": [
+			512
+		]
+	},
 	"fireworks": {
 		"webp": "1f386/512.webp",
 		"gif": "1f386/512.gif",
@@ -5104,6 +9784,18 @@
 			127878
 		],
 		"string": "🎆",
+		"size": [
+			512
+		]
+	},
+	"piñata": {
+		"webp": "1fa85/512.webp",
+		"gif": "1fa85/512.gif",
+		"json": "1fa85/lottie.json",
+		"codepoint": [
+			129669
+		],
+		"string": "🪅",
 		"size": [
 			512
 		]
@@ -5132,6 +9824,90 @@
 			512
 		]
 	},
+	"gold-medal": {
+		"webp": "1f947/512.webp",
+		"gif": "1f947/512.gif",
+		"json": "1f947/lottie.json",
+		"codepoint": [
+			129351
+		],
+		"string": "🥇",
+		"size": [
+			512
+		]
+	},
+	"1st-place-medal": {
+		"webp": "1f947/512.webp",
+		"gif": "1f947/512.gif",
+		"json": "1f947/lottie.json",
+		"codepoint": [
+			129351
+		],
+		"string": "🥇",
+		"size": [
+			512
+		]
+	},
+	"silver-medal": {
+		"webp": "1f948/512.webp",
+		"gif": "1f948/512.gif",
+		"json": "1f948/lottie.json",
+		"codepoint": [
+			129352
+		],
+		"string": "🥈",
+		"size": [
+			512
+		]
+	},
+	"2nd-place-medal": {
+		"webp": "1f948/512.webp",
+		"gif": "1f948/512.gif",
+		"json": "1f948/lottie.json",
+		"codepoint": [
+			129352
+		],
+		"string": "🥈",
+		"size": [
+			512
+		]
+	},
+	"bronze-medal": {
+		"webp": "1f949/512.webp",
+		"gif": "1f949/512.gif",
+		"json": "1f949/lottie.json",
+		"codepoint": [
+			129353
+		],
+		"string": "🥉",
+		"size": [
+			512
+		]
+	},
+	"3rd-place-medal": {
+		"webp": "1f949/512.webp",
+		"gif": "1f949/512.gif",
+		"json": "1f949/lottie.json",
+		"codepoint": [
+			129353
+		],
+		"string": "🥉",
+		"size": [
+			512
+		]
+	},
+	"trophy": {
+		"webp": "1f3c6/512.webp",
+		"gif": "1f3c6/512.gif",
+		"json": "1f3c6/lottie.json",
+		"codepoint": [
+			127942
+		],
+		"string": "🏆",
+		"size": [
+			512
+		]
+	},
 	"soccer-ball": {
 		"webp": "26bd/512.webp",
 		"gif": "26bd/512.gif",
@@ -5140,6 +9916,163 @@
 			9917
 		],
 		"string": "⚽",
+		"size": [
+			512
+		]
+	},
+	"baseball": {
+		"webp": "26be/512.webp",
+		"gif": "26be/512.gif",
+		"json": "26be/lottie.json",
+		"codepoint": [
+			9918
+		],
+		"string": "⚾",
+		"size": [
+			512
+		]
+	},
+	"softball": {
+		"webp": "1f94e/512.webp",
+		"gif": "1f94e/512.gif",
+		"json": "1f94e/lottie.json",
+		"codepoint": [
+			129358
+		],
+		"string": "🥎",
+		"size": [
+			512
+		]
+	},
+	"tennis": {
+		"webp": "1f3be/512.webp",
+		"gif": "1f3be/512.gif",
+		"json": "1f3be/lottie.json",
+		"codepoint": [
+			127934
+		],
+		"string": "🎾",
+		"size": [
+			512
+		]
+	},
+	"badminton": {
+		"webp": "1f3f8/512.webp",
+		"gif": "1f3f8/512.gif",
+		"json": "1f3f8/lottie.json",
+		"codepoint": [
+			127992
+		],
+		"string": "🏸",
+		"size": [
+			512
+		]
+	},
+	"lacrosse": {
+		"webp": "1f94d/512.webp",
+		"gif": "1f94d/512.gif",
+		"json": "1f94d/lottie.json",
+		"codepoint": [
+			129357
+		],
+		"string": "🥍",
+		"size": [
+			512
+		]
+	},
+	"cricket-game": {
+		"webp": "1f3cf/512.webp",
+		"gif": "1f3cf/512.gif",
+		"json": "1f3cf/lottie.json",
+		"codepoint": [
+			127951
+		],
+		"string": "🏏",
+		"size": [
+			512
+		]
+	},
+	"field-hockey": {
+		"webp": "1f3d1/512.webp",
+		"gif": "1f3d1/512.gif",
+		"json": "1f3d1/lottie.json",
+		"codepoint": [
+			127953
+		],
+		"string": "🏑",
+		"size": [
+			512
+		]
+	},
+	"ice-hockey": {
+		"webp": "1f3d2/512.webp",
+		"gif": "1f3d2/512.gif",
+		"json": "1f3d2/lottie.json",
+		"codepoint": [
+			127954
+		],
+		"string": "🏒",
+		"size": [
+			512
+		]
+	},
+	"ice-skate": {
+		"webp": "26f8_fe0f/512.webp",
+		"gif": "26f8_fe0f/512.gif",
+		"json": "26f8_fe0f/lottie.json",
+		"codepoint": [
+			9976,
+			65039
+		],
+		"string": "⛸️",
+		"size": [
+			512
+		]
+	},
+	"roller-skates": {
+		"webp": "1f6fc/512.webp",
+		"gif": "1f6fc/512.gif",
+		"json": "1f6fc/lottie.json",
+		"codepoint": [
+			128764
+		],
+		"string": "🛼",
+		"size": [
+			512
+		]
+	},
+	"ballet-shoes": {
+		"webp": "1fa70/512.webp",
+		"gif": "1fa70/512.gif",
+		"json": "1fa70/lottie.json",
+		"codepoint": [
+			129648
+		],
+		"string": "🩰",
+		"size": [
+			512
+		]
+	},
+	"skateboard": {
+		"webp": "1f6f9/512.webp",
+		"gif": "1f6f9/512.gif",
+		"json": "1f6f9/lottie.json",
+		"codepoint": [
+			128761
+		],
+		"string": "🛹",
+		"size": [
+			512
+		]
+	},
+	"flag-in-hole": {
+		"webp": "26f3/512.webp",
+		"gif": "26f3/512.gif",
+		"json": "26f3/lottie.json",
+		"codepoint": [
+			9971
+		],
+		"string": "⛳",
 		"size": [
 			512
 		]
@@ -5168,6 +10101,186 @@
 			512
 		]
 	},
+	"flying-disc": {
+		"webp": "1f94f/512.webp",
+		"gif": "1f94f/512.gif",
+		"json": "1f94f/lottie.json",
+		"codepoint": [
+			129359
+		],
+		"string": "🥏",
+		"size": [
+			512
+		]
+	},
+	"boomerang": {
+		"webp": "1fa83/512.webp",
+		"gif": "1fa83/512.gif",
+		"json": "1fa83/lottie.json",
+		"codepoint": [
+			129667
+		],
+		"string": "🪃",
+		"size": [
+			512
+		]
+	},
+	"kite": {
+		"webp": "1fa81/512.webp",
+		"gif": "1fa81/512.gif",
+		"json": "1fa81/lottie.json",
+		"codepoint": [
+			129665
+		],
+		"string": "🪁",
+		"size": [
+			512
+		]
+	},
+	"fishing-pole": {
+		"webp": "1f3a3/512.webp",
+		"gif": "1f3a3/512.gif",
+		"json": "1f3a3/lottie.json",
+		"codepoint": [
+			127907
+		],
+		"string": "🎣",
+		"size": [
+			512
+		]
+	},
+	"martial-arts-uniform": {
+		"webp": "1f94b/512.webp",
+		"gif": "1f94b/512.gif",
+		"json": "1f94b/lottie.json",
+		"codepoint": [
+			129355
+		],
+		"string": "🥋",
+		"size": [
+			512
+		]
+	},
+	"8-ball": {
+		"webp": "1f3b1/512.webp",
+		"gif": "1f3b1/512.gif",
+		"json": "1f3b1/lottie.json",
+		"codepoint": [
+			127921
+		],
+		"string": "🎱",
+		"size": [
+			512
+		]
+	},
+	"ping-pong": {
+		"webp": "1f3d3/512.webp",
+		"gif": "1f3d3/512.gif",
+		"json": "1f3d3/lottie.json",
+		"codepoint": [
+			127955
+		],
+		"string": "🏓",
+		"size": [
+			512
+		]
+	},
+	"bowling": {
+		"webp": "1f3b3/512.webp",
+		"gif": "1f3b3/512.gif",
+		"json": "1f3b3/lottie.json",
+		"codepoint": [
+			127923
+		],
+		"string": "🎳",
+		"size": [
+			512
+		]
+	},
+	"die": {
+		"webp": "1f3b2/512.webp",
+		"gif": "1f3b2/512.gif",
+		"json": "1f3b2/lottie.json",
+		"codepoint": [
+			127922
+		],
+		"string": "🎲",
+		"size": [
+			512
+		]
+	},
+	"slot-machine": {
+		"webp": "1f3b0/512.webp",
+		"gif": "1f3b0/512.gif",
+		"json": "1f3b0/lottie.json",
+		"codepoint": [
+			127920
+		],
+		"string": "🎰",
+		"size": [
+			512
+		]
+	},
+	"wand": {
+		"webp": "1fa84/512.webp",
+		"gif": "1fa84/512.gif",
+		"json": "1fa84/lottie.json",
+		"codepoint": [
+			129668
+		],
+		"string": "🪄",
+		"size": [
+			512
+		]
+	},
+	"camera-flash": {
+		"webp": "1f4f8/512.webp",
+		"gif": "1f4f8/512.gif",
+		"json": "1f4f8/lottie.json",
+		"codepoint": [
+			128248
+		],
+		"string": "📸",
+		"size": [
+			512
+		]
+	},
+	"splatter": {
+		"webp": "1fadf/512.webp",
+		"gif": "1fadf/512.gif",
+		"json": "1fadf/lottie.json",
+		"codepoint": [
+			129759
+		],
+		"string": "🫟",
+		"size": [
+			512
+		]
+	},
+	"saxophone": {
+		"webp": "1f3b7/512.webp",
+		"gif": "1f3b7/512.gif",
+		"json": "1f3b7/lottie.json",
+		"codepoint": [
+			127927
+		],
+		"string": "🎷",
+		"size": [
+			512
+		]
+	},
+	"trumpet": {
+		"webp": "1f3ba/512.webp",
+		"gif": "1f3ba/512.gif",
+		"json": "1f3ba/lottie.json",
+		"codepoint": [
+			127930
+		],
+		"string": "🎺",
+		"size": [
+			512
+		]
+	},
 	"violin": {
 		"webp": "1f3bb/512.webp",
 		"gif": "1f3bb/512.gif",
@@ -5176,6 +10289,18 @@
 			127931
 		],
 		"string": "🎻",
+		"size": [
+			512
+		]
+	},
+	"harp": {
+		"webp": "1fa89/512.webp",
+		"gif": "1fa89/512.gif",
+		"json": "1fa89/lottie.json",
+		"codepoint": [
+			129673
+		],
+		"string": "🪉",
 		"size": [
 			512
 		]
@@ -5204,6 +10329,18 @@
 			512
 		]
 	},
+	"clapper": {
+		"webp": "1f3ac/512.webp",
+		"gif": "1f3ac/512.gif",
+		"json": "1f3ac/lottie.json",
+		"codepoint": [
+			127916
+		],
+		"string": "🎬",
+		"size": [
+			512
+		]
+	},
 	"battery-full": {
 		"webp": "1f50b/512.webp",
 		"gif": "1f50b/512.gif",
@@ -5228,6 +10365,18 @@
 			512
 		]
 	},
+	"coin": {
+		"webp": "1fa99/512.webp",
+		"gif": "1fa99/512.gif",
+		"json": "1fa99/lottie.json",
+		"codepoint": [
+			129689
+		],
+		"string": "🪙",
+		"size": [
+			512
+		]
+	},
 	"money-with-wings": {
 		"webp": "1f4b8/512.webp",
 		"gif": "1f4b8/512.gif",
@@ -5236,6 +10385,31 @@
 			128184
 		],
 		"string": "💸",
+		"size": [
+			512
+		]
+	},
+	"gem-stone": {
+		"webp": "1f48e/512.webp",
+		"gif": "1f48e/512.gif",
+		"json": "1f48e/lottie.json",
+		"codepoint": [
+			128142
+		],
+		"string": "💎",
+		"size": [
+			512
+		]
+	},
+	"balance-scale": {
+		"webp": "2696_fe0f/512.webp",
+		"gif": "2696_fe0f/512.gif",
+		"json": "2696_fe0f/lottie.json",
+		"codepoint": [
+			9878,
+			65039
+		],
+		"string": "⚖️",
 		"size": [
 			512
 		]
@@ -5264,6 +10438,30 @@
 			512
 		]
 	},
+	"ring": {
+		"webp": "1f48d/512.webp",
+		"gif": "1f48d/512.gif",
+		"json": "1f48d/lottie.json",
+		"codepoint": [
+			128141
+		],
+		"string": "💍",
+		"size": [
+			512
+		]
+	},
+	"fan": {
+		"webp": "1faad/512.webp",
+		"gif": "1faad/512.gif",
+		"json": "1faad/lottie.json",
+		"codepoint": [
+			129709
+		],
+		"string": "🪭",
+		"size": [
+			512
+		]
+	},
 	"umbrella": {
 		"webp": "2602_fe0f/512.webp",
 		"gif": "2602_fe0f/512.gif",
@@ -5277,14 +10475,67 @@
 			512
 		]
 	},
-	"gem-stone": {
-		"webp": "1f48e/512.webp",
-		"gif": "1f48e/512.gif",
-		"json": "1f48e/lottie.json",
+	"shovel": {
+		"webp": "1fa8f/512.webp",
+		"gif": "1fa8f/512.gif",
+		"json": "1fa8f/lottie.json",
 		"codepoint": [
-			128142
+			129679
 		],
-		"string": "💎",
+		"string": "🪏",
+		"size": [
+			512
+		]
+	},
+	"dig": {
+		"webp": "1fa8f/512.webp",
+		"gif": "1fa8f/512.gif",
+		"json": "1fa8f/lottie.json",
+		"codepoint": [
+			129679
+		],
+		"string": "🪏",
+		"size": [
+			512
+		]
+	},
+	"gear": {
+		"webp": "2699_fe0f/512.webp",
+		"gif": "2699_fe0f/512.gif",
+		"json": "2699_fe0f/lottie.json",
+		"codepoint": [
+			9881,
+			65039
+		],
+		"string": "⚙️",
+		"size": [
+			512
+		]
+	},
+	"broken-chain": {
+		"webp": "26d3_fe0f_200d_1f4a5/512.webp",
+		"gif": "26d3_fe0f_200d_1f4a5/512.gif",
+		"json": "26d3_fe0f_200d_1f4a5/lottie.json",
+		"codepoint": [
+			9939,
+			65039,
+			8205,
+			128165
+		],
+		"string": "⛓️‍💥",
+		"size": [
+			512
+		]
+	},
+	"pencil": {
+		"webp": "270f_fe0f/512.webp",
+		"gif": "270f_fe0f/512.gif",
+		"json": "270f_fe0f/lottie.json",
+		"codepoint": [
+			9999,
+			65039
+		],
+		"string": "✏️",
 		"size": [
 			512
 		]
@@ -5322,6 +10573,54 @@
 			128276
 		],
 		"string": "🔔",
+		"size": [
+			512
+		]
+	},
+	"crystal-ball": {
+		"webp": "1f52e/512.webp",
+		"gif": "1f52e/512.gif",
+		"json": "1f52e/lottie.json",
+		"codepoint": [
+			128302
+		],
+		"string": "🔮",
+		"size": [
+			512
+		]
+	},
+	"bomb": {
+		"webp": "1f4a3/512.webp",
+		"gif": "1f4a3/512.gif",
+		"json": "1f4a3/lottie.json",
+		"codepoint": [
+			128163
+		],
+		"string": "💣",
+		"size": [
+			512
+		]
+	},
+	"mouse-trap": {
+		"webp": "1faa4/512.webp",
+		"gif": "1faa4/512.gif",
+		"json": "1faa4/lottie.json",
+		"codepoint": [
+			129700
+		],
+		"string": "🪤",
+		"size": [
+			512
+		]
+	},
+	"locked": {
+		"webp": "1f512/512.webp",
+		"gif": "1f512/512.gif",
+		"json": "1f512/lottie.json",
+		"codepoint": [
+			128274
+		],
+		"string": "🔒",
 		"size": [
 			512
 		]
@@ -5482,6 +10781,92 @@
 			512
 		]
 	},
+	"exclamation": {
+		"webp": "2757/512.webp",
+		"gif": "2757/512.gif",
+		"json": "2757/lottie.json",
+		"codepoint": [
+			10071
+		],
+		"string": "❗",
+		"size": [
+			512
+		]
+	},
+	"exclamation-mark": {
+		"webp": "2757/512.webp",
+		"gif": "2757/512.gif",
+		"json": "2757/lottie.json",
+		"codepoint": [
+			10071
+		],
+		"string": "❗",
+		"size": [
+			512
+		]
+	},
+	"question": {
+		"webp": "2753/512.webp",
+		"gif": "2753/512.gif",
+		"json": "2753/lottie.json",
+		"codepoint": [
+			10067
+		],
+		"string": "❓",
+		"size": [
+			512
+		]
+	},
+	"question-mark": {
+		"webp": "2753/512.webp",
+		"gif": "2753/512.gif",
+		"json": "2753/lottie.json",
+		"codepoint": [
+			10067
+		],
+		"string": "❓",
+		"size": [
+			512
+		]
+	},
+	"?": {
+		"webp": "2753/512.webp",
+		"gif": "2753/512.gif",
+		"json": "2753/lottie.json",
+		"codepoint": [
+			10067
+		],
+		"string": "❓",
+		"size": [
+			512
+		]
+	},
+	"exclamation-question-mark": {
+		"webp": "2049_fe0f/512.webp",
+		"gif": "2049_fe0f/512.gif",
+		"json": "2049_fe0f/lottie.json",
+		"codepoint": [
+			8265,
+			65039
+		],
+		"string": "⁉️",
+		"size": [
+			512
+		]
+	},
+	"!?": {
+		"webp": "2049_fe0f/512.webp",
+		"gif": "2049_fe0f/512.gif",
+		"json": "2049_fe0f/lottie.json",
+		"codepoint": [
+			8265,
+			65039
+		],
+		"string": "⁉️",
+		"size": [
+			512
+		]
+	},
 	"exclamation-double": {
 		"webp": "203c_fe0f/512.webp",
 		"gif": "203c_fe0f/512.gif",
@@ -5532,14 +10917,65 @@
 			512
 		]
 	},
-	"musical-notes": {
-		"webp": "1f3b6/512.webp",
-		"gif": "1f3b6/512.gif",
-		"json": "1f3b6/lottie.json",
+	"sos": {
+		"webp": "1f198/512.webp",
+		"gif": "1f198/512.gif",
+		"json": "1f198/lottie.json",
 		"codepoint": [
-			127926
+			127384
 		],
-		"string": "🎶",
+		"string": "🆘",
+		"size": [
+			512
+		]
+	},
+	"phone-off": {
+		"webp": "1f4f4/512.webp",
+		"gif": "1f4f4/512.gif",
+		"json": "1f4f4/lottie.json",
+		"codepoint": [
+			128244
+		],
+		"string": "📴",
+		"size": [
+			512
+		]
+	},
+	"radioactive": {
+		"webp": "2622_fe0f/512.webp",
+		"gif": "2622_fe0f/512.gif",
+		"json": "2622_fe0f/lottie.json",
+		"codepoint": [
+			9762,
+			65039
+		],
+		"string": "☢️",
+		"size": [
+			512
+		]
+	},
+	"biohazard": {
+		"webp": "2623_fe0f/512.webp",
+		"gif": "2623_fe0f/512.gif",
+		"json": "2623_fe0f/lottie.json",
+		"codepoint": [
+			9763,
+			65039
+		],
+		"string": "☣️",
+		"size": [
+			512
+		]
+	},
+	"warning": {
+		"webp": "26a0_fe0f/512.webp",
+		"gif": "26a0_fe0f/512.gif",
+		"json": "26a0_fe0f/lottie.json",
+		"codepoint": [
+			9888,
+			65039
+		],
+		"string": "⚠️",
 		"size": [
 			512
 		]
@@ -5568,6 +11004,42 @@
 			512
 		]
 	},
+	"new": {
+		"webp": "1f195/512.webp",
+		"gif": "1f195/512.gif",
+		"json": "1f195/lottie.json",
+		"codepoint": [
+			127381
+		],
+		"string": "🆕",
+		"size": [
+			512
+		]
+	},
+	"free": {
+		"webp": "1f193/512.webp",
+		"gif": "1f193/512.gif",
+		"json": "1f193/lottie.json",
+		"codepoint": [
+			127379
+		],
+		"string": "🆓",
+		"size": [
+			512
+		]
+	},
+	"up!": {
+		"webp": "1f199/512.webp",
+		"gif": "1f199/512.gif",
+		"json": "1f199/lottie.json",
+		"codepoint": [
+			127385
+		],
+		"string": "🆙",
+		"size": [
+			512
+		]
+	},
 	"cool": {
 		"webp": "1f192/512.webp",
 		"gif": "1f192/512.gif",
@@ -5576,6 +11048,69 @@
 			127378
 		],
 		"string": "🆒",
+		"size": [
+			512
+		]
+	},
+	"litter": {
+		"webp": "1f6ae/512.webp",
+		"gif": "1f6ae/512.gif",
+		"json": "1f6ae/lottie.json",
+		"codepoint": [
+			128686
+		],
+		"string": "🚮",
+		"size": [
+			512
+		]
+	},
+	"peace-symbol": {
+		"webp": "262e_fe0f/512.webp",
+		"gif": "262e_fe0f/512.gif",
+		"json": "262e_fe0f/lottie.json",
+		"codepoint": [
+			9774,
+			65039
+		],
+		"string": "☮️",
+		"size": [
+			512
+		]
+	},
+	"yin-yang": {
+		"webp": "262f_fe0f/512.webp",
+		"gif": "262f_fe0f/512.gif",
+		"json": "262f_fe0f/lottie.json",
+		"codepoint": [
+			9775,
+			65039
+		],
+		"string": "☯️",
+		"size": [
+			512
+		]
+	},
+	"infinity": {
+		"webp": "267e_fe0f/512.webp",
+		"gif": "267e_fe0f/512.gif",
+		"json": "267e_fe0f/lottie.json",
+		"codepoint": [
+			9854,
+			65039
+		],
+		"string": "♾️",
+		"size": [
+			512
+		]
+	},
+	"musical-notes": {
+		"webp": "1f3b6/512.webp",
+		"gif": "1f3b6/512.gif",
+		"json": "1f3b6/lottie.json",
+		"codepoint": [
+			127926
+		],
+		"string": "🎶",
 		"size": [
 			512
 		]
@@ -5612,6 +11147,43 @@
 			127937
 		],
 		"string": "🏁",
+		"size": [
+			512
+		]
+	},
+	"triangular-flag": {
+		"webp": "1f6a9/512.webp",
+		"gif": "1f6a9/512.gif",
+		"json": "1f6a9/lottie.json",
+		"codepoint": [
+			128681
+		],
+		"string": "🚩",
+		"size": [
+			512
+		]
+	},
+	"black-flag": {
+		"webp": "1f3f4/512.webp",
+		"gif": "1f3f4/512.gif",
+		"json": "1f3f4/lottie.json",
+		"codepoint": [
+			127988
+		],
+		"string": "🏴",
+		"size": [
+			512
+		]
+	},
+	"white-flag": {
+		"webp": "1f3f3_fe0f/512.webp",
+		"gif": "1f3f3_fe0f/512.gif",
+		"json": "1f3f3_fe0f/lottie.json",
+		"codepoint": [
+			127987,
+			65039
+		],
+		"string": "🏳️",
 		"size": [
 			512
 		]
