@@ -16,6 +16,11 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 <br>
 
+# News
+* \[**2025-04-19**\] After 'years' the scripts still work! I just updated my mirror location and downloaded the newest smiles.
+
+<br>
+
 # Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
 in just one packet.. you had to scroll through the list, select your emojis and then decide which one of three
