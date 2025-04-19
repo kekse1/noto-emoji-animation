@@ -22,8 +22,8 @@ const instantStop = false;			// will stop process on the first download error; o
 const connectionLimit = 75;			// maximum concurrent connections to the download server (0 or below => infinite);
 const connectionsPerSecond = 25;		// self explaining.. (0 or below => infinite);
 const connectionTimeout = 16000;		// the timeout for each http(s) request (defaults to 20 seconds);
-const connectionBandwidthPerLink = null;//1024*1024*100;// bytes per second per link (defaults to 10 mib/s);
-const connectionBandwidthGlobal = null;//1024*1024*1000;// bytes per second in total, so all links together (defaults to 100 mib/s);
+const connectionBandwidthPerLink = null;	//1024*1024*100;// bytes per second per link (defaults to 10 mib/s);
+const connectionBandwidthGlobal = null;		//1024*1024*1000;// bytes per second in total, so all links together (defaults to 100 mib/s);
 const radix = 10;				// hehe.. BUT: (!==10) won't .toLocaleString(), so w/ thousand dots/commas, etc..
 const relativePaths = true;			// affects only the console output, where paths are printed out.
 const refreshTime = 96;				// the state screen; to prevent screen flickering in the update-output.
