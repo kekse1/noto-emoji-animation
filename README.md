@@ -17,7 +17,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 <br>
 
 # News
-* \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and got the newest smiles.
+* \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
 <br>
 
