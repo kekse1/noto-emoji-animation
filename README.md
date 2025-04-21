@@ -103,7 +103,8 @@ Downloads in progess:
 <br>
 
 ## Configuration
-Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
+Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script.
+Is not yet descripted in here.. but should be **intelligible**.
 
 <br>
 
