@@ -105,9 +105,6 @@ Downloads in progess:
 ## Configuration
 Located on (more/less) the top of this **[`emoji.js`](js/emoji.js)** script..
 
-> **Note**
-> My own **`getopt.js`** is _TODO_! ;)~
-
 <br>
 
 ## **PHP** script
