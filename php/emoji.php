@@ -867,7 +867,7 @@ if($url)
 		
 		if($attribSize !== null)
 		{
-			$result .= ' width="' . $attribSize . '" height="' . $attribSize . '" ';
+			$result .= 'width="' . $attribSize . '" height="' . $attribSize . '" ';
 		}
 		
 		$result .= 'style="width: ' . $styleSize . '; height: ' . $styleSize . ';" />';

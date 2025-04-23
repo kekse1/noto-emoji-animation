@@ -109,7 +109,7 @@ Here are two example screenshot, jfyi.
 ### Shell script
 This is the PHP script for [tag lookups](#tag-lookup), started via [shell](php/emoji.sh).
 
-![Tag Lookup via Shell](img/emoji-shell.png)
+![Tag Lookup via Shell](img/shell.png)
 
 ### Download
 The mass downloader in progess:
