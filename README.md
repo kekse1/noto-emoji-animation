@@ -12,7 +12,7 @@ This **ain't** a regular emoji website or smth. like this.. _here_ it's all abou
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
-![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face&size=384)
+![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face)
 
 <br>
 
@@ -49,7 +49,8 @@ I also published an example here (feel free to use this script right here, from 
 
 > [!NOTE]
 > **JFYI**: Only without `?size` there'll be a relay to the original (Google) image URL.
-> That's what it looks like **now** (years l8rs I don't really remember how i've done it..).
+> That's what I used above since GitHub needs pure images here. When you define a `?size`,
+> it'll result in some HTML content with embedded `<img>` with size attributes, etc. ...
 
 <br><br>
 
