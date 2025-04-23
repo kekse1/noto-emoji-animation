@@ -3,7 +3,11 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.1.3
+ * v2.2.0
+ */
+
+/*
+ * (v2.2.0) new '-? / --help' and '-t / --types' (getopt) parameters now!
  */
 
 //
@@ -286,6 +290,35 @@ function filterSize($_size, $_error = true)
 function getParameters($_error = true)
 {
 	//
+	function getHelp($_base)
+	{
+		$result = 'Syntax: `' . $_base . '` <tag> [ <type> ] // default type is `test`';
+		$result .= PHP_EOL . PHP_EOL . getTypes() . PHP_EOL;
+		return $result;
+	}
+	
+	function getTypes()
+	{
+		$result = 'Types:' . PHP_EOL;
+		
+		foreach(TYPES as $type)
+		{
+			$result .= "\t# `" . $type . '`';
+			
+			if($type === 'test')
+			{
+				$result .= ' (default)';
+			}
+			
+			$result .= PHP_EOL;
+		}
+		
+		$result = substr($result, 0, -1);
+		
+		return $result;
+	}
+	
+	//
 	$type = null;
 	$tag = null;
 	$size = null;
@@ -301,9 +334,31 @@ function getParameters($_error = true)
 		{
 			return error(' >> Invalid environment (CLI mode, but no argument count/vector found)!', 20);
 		}
-		else if($argc < 2)
+		
+		$showHelp = false;
+		$showTypes = false;
+		
+		for($i = 0; $i < $argc; ++$i)
 		{
-			return error('Syntax: `' . basename($argv[0]) . '` <tag> [ <type> ]	// default type is `test`.', 21);
+			if($argv[$i] === '-?' || $argv[$i] === '--help')
+			{
+				$showHelp = true;
+				break;
+			}
+			else if($argv[$i] === '-t' || $argv[$i] === '--types')
+			{
+				$showTypes = true;
+				break;
+			}
+		}
+
+		if($showTypes)
+		{
+			return error(getTypes(), 0);
+		}
+		else if($argc < 2 || $showHelp)
+		{
+			return error(getHelp(basename($argv[0])), 21);
 		}
 		else
 		{
@@ -433,6 +488,16 @@ function getCodePointString($_codepoint, $_error = true)
 	return substr($result, 0, -strlen(SEP));
 }
 
+function cleanURL($_url)
+{
+	while(str_contains($_url, '//'))
+	{
+		$_url = str_replace('//', '/', $_url);
+	}
+
+	return $_url;
+}
+
 //
 $REFERENCE = parseJSON(requestFile(JSON, true), true);
 if($REFERENCE === null) return error('Unable to read/parse the `' . basename(JSON) . '` index JSON file.', 13);
@@ -467,7 +532,7 @@ switch($PARAMS['type'])
 		if(! is_string($EMOJI[$PARAMS['type']]) || $EMOJI[$PARAMS['type']] === '') return error('The emoji got no valid item for type `' . $PARAMS['type'] . '` (unexpected)!', 18);
 		$url = true;
 		$result = $EMOJI[$PARAMS['type']];
-		if(!$PARAMS['size']) return relay(KEKSE_EMOJI_URL . '/' . $result, 0);
+		if(!$PARAMS['size']) return relay(cleanURL(KEKSE_EMOJI_URL . '/' . $result), 0);
 		break;
 }
 

@@ -12,11 +12,12 @@ This **ain't** a regular emoji website or smth. like this.. _here_ it's all abou
 Google](https://googlefonts.github.io/noto-emoji-animation/); .. and one or two scripts which will 'use
 them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
-![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face)
+![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face&size=384)
 
 <br>
 
 # News
+* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.2.0**!
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
 <br>
@@ -46,6 +47,10 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=:zipper-face:&type=webp)
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
 
+> [!NOTE]
+> **JFYI**: Only without `?size` there'll be a relay to the original (Google) image URL.
+> That's what it looks like **now** (years l8rs I don't really remember how i've done it..).
+
 <br><br>
 
 # Index
@@ -55,7 +60,7 @@ I also published an example here (feel free to use this script right here, from 
 4. [Downloads](#downloads)
 5. [`.json` output](#json-output)
 6. [Features](#features)
-7. [Screenshot](#screenshot)
+7. [Screenshots](#screenshots)
 8. [Configuration](#configuration)
 9. [PHP script](#php-script)
 10. [Contact](#contact)
@@ -65,10 +70,10 @@ I also published an example here (feel free to use this script right here, from 
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
-* [And here's the **`emoji.php`**](php/emoji.php) v**2.1.1** (see the [**PHP** script section](#php-script));
+* [And here's the **`emoji.php`**](php/emoji.php) v**2.2.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
-> **Warning**
+> [!WARNING]
 > Only tested in a **Linux** environment, so I'm not sure whether it'll all work w/ Windows OS..
 
 <br>
@@ -95,10 +100,18 @@ I also published an example here (feel free to use this script right here, from 
 
 <br>
 
-## Screenshot
-Downloads in progess:
+## Screenshots
+Here are two example screenshot, jfyi.
 
-![Screenshot](img/downloading.png)
+### Shell script
+This is the PHP script for [tag lookups](#tag-lookup), started via [shell](php/emoji.sh).
+
+![Tag Lookup via Shell](img/shell-tag-lookup.png)
+
+### Download
+The mass downloader in progess:
+
+![Screenshot](img/mass-downloader-in-action.png)
 
 <br>
 
@@ -109,21 +122,25 @@ Is not yet descripted in here.. but should be **intelligible**.
 <br>
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.1.1**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.2.0**).
+
+> [!TIP]
+> Just updated to v**2.2.0**; started via [`emoji.sh`](php/emoji.sh) (maybe) you can now
+> define also `-? / --help` or `-t / --types`!
 
 This script runs either via web server request, or in CLI mode (command line interface). :)~
 In CLI mode you've to define two parameters, whereas the first is the tag itself, the second is the type!
 Otherwise call via browser like [...**`?tag=zipper-face&type=webp`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/emoji.php?tag=zipper-face&type=webp),
 or maybe [...**`?tag=:zipper-face:&type=string`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/emoji.php?tag=:zipper-face:&type=string).. ;)~
 
-> **Note**
+> [!NOTE]
 > As a shebang is not supported here (because of the HTTPD mode), I just created a tiny shell script to start this `.php` script.
 > See the **[`emoji.sh`](php/emoji.sh)**.
 
 For direct emoji requests by emoji tags (like `:smile:`, etc.). _These_ ones are really **on demand**,
 directly from the Google servers.
 
-> **Warning**
+> [!WARNING]
 > You need a copy of my **`emoji.index.json`** (which was meant for such cases like this script).
 > Get it by using the **`emoji.js`** script itself!
 
