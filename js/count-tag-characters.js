@@ -21,7 +21,16 @@ const process = require('node:process');
 const sortAsc = true;
 
 //
-var tags = path.join(process.cwd(), DEFAULT_JSON);
+var tags;
+
+if(DEFAULT_JSON.startsWith('./'))
+{
+	tags = path.join(process.cwd(), DEFAULT_JSON);
+}
+else
+{
+	tags = path.join(__dirname, DEFAULT_JSON);
+}
 
 //
 if(!fs.existsSync(tags))
