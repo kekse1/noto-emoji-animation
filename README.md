@@ -21,9 +21,15 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
+#### TODO
 > [!NOTE]
 > Just a note for myself: maybe I should add an interface script for a complete **INDEX** of available tags,
 > plus a search function (maybe RegExp? Eher Globs..). Maybe.. and I had to integrate it in the tag lookup script!
+
+> [!NOTE]
+> And the [**tag lookup**](#php-script) script should also support optional third `SIZE` argument, so it can't
+> only output the image URLs, but also the embedding HTML code w/ size attribs, etc., which will be written out
+> if the `?size` GET parameter is also defined.
 
 <br>
 
