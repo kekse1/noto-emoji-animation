@@ -511,7 +511,7 @@ function getParameters($_error = true)
 	//
 	function getHelp($_base)
 	{
-		$result = 'Syntax: `' . $_base . '` <tag> [ <type> [ <size> ] ] // default type is `test`' . PHP_EOL;
+		$result = PHP_EOL . 'Syntax: `' . $_base . '` <tag> [ <type> [ <size> ] ] // default type is `test`' . PHP_EOL;
 		$result .= "\t\t[ -l / --list ] // Lists all available tags" . PHP_EOL;
 		$result .= PHP_EOL . "If a size is defined, it'll force a HTML `<img>` output, instead of pure URL or String" . PHP_EOL;
 		$result .= PHP_EOL . getTypes() . PHP_EOL;
