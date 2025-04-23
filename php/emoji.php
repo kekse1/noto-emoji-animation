@@ -65,8 +65,8 @@ function getTagName($_string, $_url = true)
 		}
 		
 		$result .= $add;
-			
-		if(($len += strlen($add)) >= 64)
+
+		if(++$len > 64)
 		{
 			return null;
 		}
@@ -311,7 +311,7 @@ function filterString($_string, $_empty = true, $_error = true)
 
 		$result .= $add;
 
-		if(($len += strlen($add)) >= 224)
+		if(++$len > 224)
 		{
 			if($_error)
 			{
@@ -425,7 +425,7 @@ function filterType($_string, $_error = true)
 		
 		$result .= $add;
 			
-		if(($len += strlen($add)) >= 16)
+		if(++$len > 16)
 		{
 			if($_error)
 			{
