@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.2
+ * v2.4.3
  */
 
 /*
@@ -19,7 +19,7 @@
  */
  
 /*
- * TODO @ getParameters(): SEARCH function, use GLOBS OR REGEXP!! ;-)
+ * TODO @ list/index: SEARCH function, use GLOBS OR REGEXP!! ;-)
  */
 
 //
@@ -30,7 +30,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.4.2');
+define('KEKSE_EMOJI_VERSION', '2.4.3');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -181,7 +181,7 @@ const INDEX = true;
 //
 const JSON = (__DIR__ . '/emoji.index.json');
 const TAGS = (__DIR__ . '/emoji.tags.json');
-const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
+const TYPES = array('utf', 'utf8', 'string', 'text', 'unicode', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
 const SEP = ' ';
 const YES = '1';
 const NO = '0';
@@ -466,7 +466,7 @@ function filterType($_string, $_error = true)
 	{
 		$result = 'json';
 	}
-	else if($result === 'utf' || $result === 'utf8')
+	else if($result === 'utf' || $result === 'utf8' || $result === 'text' || $result === 'unicode')
 	{
 		$result = 'string';
 	}
@@ -586,7 +586,7 @@ function getParameters($_error = true)
 		
 		$result = substr($result, 0, -1);*/
 
-		$result .= "\t# `utf` / `utf8` / `string`" . PHP_EOL;
+		$result .= "\t# `utf` / `utf8` / `string` / `text` / `unicode`" . PHP_EOL;
 		$result .= "\t# `webp`" . PHP_EOL;
 		$result .= "\t# `lottie` / `json`" . PHP_EOL;
 		$result .= "\t# `gif`" . PHP_EOL;

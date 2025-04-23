@@ -17,7 +17,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 <br>
 
 # News
-* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.2**; best version now; most things should work (much) better!
+* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.3**; best version now; most things should work (much) better!
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
@@ -73,7 +73,7 @@ I also published an example here (feel free to use this script right here, from 
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
-* [And here's the **`emoji.php`**](php/emoji.php) v**2.4.2** (see the [**PHP** script section](#php-script));
+* [And here's the **`emoji.php`**](php/emoji.php) v**2.4.3** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
 > [!WARNING]
@@ -125,7 +125,7 @@ Is not yet descripted in here.. but should be **intelligible**.
 <br>
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.4.2**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.4.3**).
 
 > [!NOTE]
 > All newer improvements/fixes/.. are listed on top of this script. there are some..
@@ -151,7 +151,7 @@ These are the supported types to query for (2nd parameter in the command line ar
 | Key/Name      | Alias(es)     | Description/Comment                                                                |
 | ------------: | :------------ | :--------------------------------------------------------------------------------: |
 | **`test`**      | -/-           | Just return `0` or `1`, depending on the pure _existence_ of an emoji tag        |
-| **`string`**    | `utf`, `utf8` | The unicode string representation of an emoji (the used font is maybe important) |
+| **`string`**    | `utf`, `utf8`, `text`, `unicode` | The unicode string representation of an emoji (the used font is maybe important) |
 | **`codepoint`** | `code`        | The codepoint(s). If more than just one, they're separated by spaces (by default)|
 | **`webp`**      | -/-           | The `WebP` image format (`image/webp`), designed by Google                       |
 | **`gif`**       | -/-           | The old `GIF` format (`image/gif`); only 256 colors supported..                  |
