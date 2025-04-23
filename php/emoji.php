@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.2.0
+ * v2.2.1
  */
 
 /*
@@ -301,7 +301,7 @@ function getParameters($_error = true)
 	{
 		$result = 'Types:' . PHP_EOL;
 		
-		foreach(TYPES as $type)
+		/*foreach(TYPES as $type)
 		{
 			$result .= "\t# `" . $type . '`';
 			
@@ -313,7 +313,14 @@ function getParameters($_error = true)
 			$result .= PHP_EOL;
 		}
 		
-		$result = substr($result, 0, -1);
+		$result = substr($result, 0, -1);*/
+
+		$result .= "\t# `utf` / `utf8` / `string`" . PHP_EOL;
+		$result .= "\t# `webp`" . PHP_EOL;
+		$result .= "\t# `lottie` / `json`" . PHP_EOL;
+		$result .= "\t# `gif`" . PHP_EOL;
+		$result .= "\t# `codepoint` / `codepoints` / `code`" . PHP_EOL;
+		$result .= "\t# `test` // default (checks if emoji/tag is avilable)";
 		
 		return $result;
 	}
