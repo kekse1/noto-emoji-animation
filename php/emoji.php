@@ -3,11 +3,12 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.3.0
+ * v2.3.1
  */
 
 /*
  * v(2.3.0) last but not least some more improvements and more. now it should work really better at all.
+ * v(2.2.4) the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
  * v(2.2.3) the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
  * (v2.2.2) also '-l / --list' integrated now; plus optional 3rd `?size` argument (@ html);
  * v(2.2.1) fixed the tag filter .. see `util/count-tag-characters.js` (some were not allowed);
@@ -184,7 +185,6 @@ const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'c
 const SEP = ' ';
 const YES = '1';
 const NO = '0';
-const MAX_SIZE = 65535;
 
 //
 function error($_text, $_exit = 255)
@@ -515,6 +515,10 @@ function getParameters($_error = true)
 			$type = ($argc <= 2 ? 'test' : $argv[2]);
 			$size = ($argc <= 3 ? null : $argv[3]);
 		}
+	}
+	else if(isset($_GET['list']))
+	{
+		return \kekse\emoji\output(getList(), \kekse\emoji\getMimeType('txt'), 0);
 	}
 	else if(isset($_GET['type']) && isset($_GET['tag']))
 	{
