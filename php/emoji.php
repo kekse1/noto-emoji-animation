@@ -3,10 +3,11 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.0
+ * v2.4.1
  */
 
 /*
+ * v(2.4.1) see also the `const INDEX` smwh. below..
  * v(2.3.2) Last fixes, etc.. best version now.
  * v(2.3.0) last but not least some more improvements and more. now it should work really better at all.
  * v(2.2.4) the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
@@ -170,6 +171,11 @@ function getMimeType($_ext)
 
 //
 namespace kekse\emoji\google;
+
+//
+//if(true) there'll be no error output w/o `?tag` but the list of tags.
+//
+const INDEX = true;
 
 //
 const JSON = (__DIR__ . '/emoji.index.json');
@@ -624,23 +630,33 @@ function getParameters($_error = true)
 	{
 		return \kekse\emoji\output(getList(), \kekse\emoji\getMimeType('txt'), 0);
 	}
-	else if(isset($_GET['type']) && isset($_GET['tag']))
-	{
-		$type = $_GET['type'];
-		$tag = $_GET['tag'];
-	}
-	else if(isset($_GET['tag']))
-	{
-		$tag = $_GET['tag'];
-		$type = 'test';
-	}
-	else if($_error)
-	{
-		return error('The necessary `?tag` parameter has not been set!', 4);
-	}
 	else
 	{
-		return null;
+		if(isset($_GET['tag']))
+		{
+			$tag = $_GET['tag'];
+
+			if(isset($_GET['type']))
+			{
+				$type = $_GET['type'];
+			}
+			else
+			{
+				$type = 'test';
+			}
+		}
+		else if(INDEX)
+		{
+			return \kekse\emoji\output(getList(), \kekse\emoji\getMimeType('txt'), 0);
+		}
+		else if($_error)
+		{
+			return error('The necessary `?tag` parameter has not been set!', 4);
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	//
