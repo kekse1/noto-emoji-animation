@@ -551,7 +551,7 @@ function getParameters($_error = true)
 		
 		foreach($INDEX as $tag)
 		{
-			$result .= $tag . PHP_EOL;
+			$result .= ':' . $tag . ':' . PHP_EOL;
 		}
 		
 		return substr($result, 0, -1);
