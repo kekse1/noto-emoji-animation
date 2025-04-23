@@ -3,10 +3,11 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.3.1
+ * v2.4.0
  */
 
 /*
+ * v(2.3.2) Last fixes, etc.. best version now.
  * v(2.3.0) last but not least some more improvements and more. now it should work really better at all.
  * v(2.2.4) the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
  * v(2.2.3) the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
@@ -39,21 +40,16 @@ const FILTER_TAGS = true;
 //
 function getTagName($_string, $_url = true)
 {
-	$l = strlen($_string);
-	
-	if($l > 224)
-	{
-		return null;
-	}
-	
+	$_string = urldecode($_string);
 	$_string = utf8_decode($_string);
+
 	$l = strlen($_string);
 	
-	if($l > 224)
+	if($l > 255)
 	{
 		return null;
 	}
-
+	
 	$result = '';
 	$len = 0;
 	$byte;
@@ -82,14 +78,11 @@ function getTagName($_string, $_url = true)
 			continue;
 		}
 		
-		if($add !== '')
-		{
-			$result .= $add;
+		$result .= $add;
 			
-			if(++$len >= 64)
-			{
-				break;
-			}
+		if(($len += strlen($add)) >= 64)
+		{
+			return null;
 		}
 	}
 	else
@@ -258,11 +251,115 @@ function loadTags()
 }
 
 //
+function filterString($_string, $_empty = true, $_error = true)
+{
+	if(!is_string($_string))
+	{
+		if($_error)
+		{
+			return error('Ain\'t a String!', 91);
+		}
+
+		return null;
+	}
+	
+	$_string = trim(urldecode($_string));
+	$l = strlen($_string);
+
+	if(!$_empty && $l === 0)
+	{
+		if($_error)
+		{
+			return error('String may not be empty!', 92);
+		}
+
+		return null;
+	}
+
+	if($l > 255)
+	{
+		if($_error)
+		{
+			return error('String is too long! Exceeds limit of 224 characters/bytes.', 93);
+		}
+
+		return null;
+	}
+
+	$result = '';
+	$len = 0;
+	$byte;
+	$add;
+
+	for($i = 0; $i < $l; ++$i)
+	{
+		if(($byte = ord($_string[$i])) >= 65 && $byte <= 90)
+		{
+			$add = chr($byte);
+		}
+		else if($byte >= 97 && $byte <= 122)
+		{
+			$add = chr($byte);
+		}
+		else if($byte >= 48 && $byte <= 57)
+		{
+			$add = chr($byte);
+		}
+		else if($byte === 32)
+		{
+			$add = chr($byte);
+		}
+		else if($byte === 44)
+		{
+			$add = chr($byte);
+		}
+		else if($byte === 39)
+		{
+			$add = '\'';
+		}
+		else if($byte === 34)
+		{
+			$add = '\\"';
+		}
+		else
+		{
+			continue;
+		}
+
+		$result .= $add;
+
+		if(($len += strlen($add)) >= 224)
+		{
+			if($_error)
+			{
+				return error('String exceeds length limit', 102);
+			}
+
+			return null;
+		}
+	}
+
+	if($len === 0 && !$_empty)
+	{
+		if($_error) return error('String may not be empty!', 105);
+		return null;
+	}
+
+	return $result;
+}
+
 function filterType($_string, $_error = true)
 {
+	if(!is_string($_string))
+	{
+		if($_error) return error('Type parameter is not a string!', 882);
+		return null;
+	}
+	
+	$_string = trim(urldecode($_string));
 	$l = strlen($_string);
 	
-	if($l > 224)
+	if($l > 255)
 	{
 		if($_error) return error('Type parameter exceeds string length limit (' . $l . '/224).', 8);
 		return null;
@@ -289,18 +386,19 @@ function filterType($_string, $_error = true)
 		}
 		else
 		{
-			$add = '';
 			continue;
 		}
 		
-		if($add !== '')
-		{
-			$result .= $add;
+		$result .= $add;
 			
-			if(++$len >= 16)
+		if(($len += strlen($add)) >= 16)
+		{
+			if($_error)
 			{
-				break;
+				return error('Type parameter exceeds length limit!', 99);
 			}
+
+			return null;
 		}
 	}
 
@@ -336,14 +434,16 @@ function filterSize($_size, $_error = true)
 	{
 		return (string)$_size;
 	}
-	else if(!is_string($_size) || $_size === '')
+	
+	if(!is_string($_size) || $_size === '')
 	{
 		return null;
 	}
 	
+	$_size = trim(urldecode($_size));
 	$l = strlen($_size);
 	
-	if($l > 224)
+	if($l > 255)
 	{
 		if($_error) return error('Size parameter exceeds string length limit (' . $l . '/224).', 8);
 		return null;
@@ -411,7 +511,7 @@ function getParameters($_error = true)
 	{
 		$result = 'Syntax: `' . $_base . '` <tag> [ <type> [ <size> ] ] // default type is `test`' . PHP_EOL;
 		$result .= "\t\t[ -l / --list ] // Lists all available tags" . PHP_EOL;
-		$result .= PHP_EOL . "If a size is defined, it'll force a HTML `<img>` output, instead of the image URL." . PHP_EOL;
+		$result .= PHP_EOL . "If a size is defined, it'll force a HTML `<img>` output, instead of pure URL or String" . PHP_EOL;
 		$result .= PHP_EOL . getTypes() . PHP_EOL;
 		return $result;
 	}
@@ -546,12 +646,32 @@ function getParameters($_error = true)
 		{
 			$size = $_GET['size'];
 		}
-		
-		$font = isset($_GET['font']);
+
+		$font;
+
+		if(isset($_GET['font']))
+		{
+			if($_GET['font'] === '')
+			{
+				$font = true;
+			}
+			else
+			{
+				$font = $_GET['font'];
+			}
+		}
+		else
+		{
+			$font = false;
+		}
 	}
 
 	//
-	$result = array('tag' => \kekse\emoji\getTagName($tag, $_error), 'type' => filterType($type, $_error), 'size' => filterSize($size, $_error), 'font' => $font);
+	$result = array(
+		'tag' => \kekse\emoji\getTagName($tag, $_error),
+		'type' => filterType($type, $_error),
+		'size' => filterSize($size, $_error),
+		'font' => (is_bool($font) ? $font : filterString($font, false, false)));
 
 	if(! ($result['type'] && $result['tag']))
 	{
@@ -757,9 +877,26 @@ if($url)
 }
 else
 {
+	if(ctype_digit($PARAMS['size']))
+	{
+		$PARAMS['size'] .= 'px';
+	}
+
+	if(!is_string($PARAMS['font']))
+	{
+		if($PARAMS['font'])
+		{
+			$PARAMS['font'] = 'Noto Emoji';
+		}
+		else
+		{
+			$PARAMS['font'] = null;
+		}
+	}
+
 	$orig = $result;
 	$result = '<span style="font-size: ' . $PARAMS['size'] . ';';
-	if($PARAMS['font']) $result .= ' font-family: \'Noto Emoji\';';
+	if($PARAMS['font']) $result .= ' font-family: ' . $PARAMS['font'] . ';';
 	$result .= '">' . $orig . '</span>';
 	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
 }

@@ -17,7 +17,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 <br>
 
 # News
-* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.3.1**!
+* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.0**; best version now; most things should work (much) better!
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
@@ -57,6 +57,7 @@ I also published an example here (feel free to use this script right here, from 
 * [**`?tag=zipper-face&type=string&size=384`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=zipper-face&type=string&size=384)
 * [**`?tag=:zipper-face:&type=webp`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=:zipper-face:&type=webp)
 * [**`?tag=zipper-face&type=webp&size=192`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?tag=zipper-face&type=webp&size=192)
+* [**`?list`**](https://mirror.kekse.biz/mirror/noto-emoji-animation/?list)
 
 > [!NOTE]
 > **JFYI**: Only without `?size` there'll be a relay to the original (Google) image URL.
@@ -82,7 +83,7 @@ I also published an example here (feel free to use this script right here, from 
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
-* [And here's the **`emoji.php`**](php/emoji.php) v**2.3.1** (see the [**PHP** script section](#php-script));
+* [And here's the **`emoji.php`**](php/emoji.php) v**2.4.0** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
 > [!WARNING]
@@ -134,7 +135,7 @@ Is not yet descripted in here.. but should be **intelligible**.
 <br>
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.3.1**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.4.0**).
 
 > [!NOTE]
 > All newer improvements/fixes/.. are listed on top of this script. there are some..
@@ -168,6 +169,9 @@ These are the supported types to query for (2nd parameter in the command line ar
 
 In the browser you'll automatically get relayed to the image/data itself;
 in the console the link will just be shown.
+
+If the `?size` parameter (or a third one in your shell) is defined, it'll enable **HTML** output
+with defined (and intelligently handled) sizes, etc.
 
 _Only in the **browser**_: The _new_ GET[] parameter **`?size`** is available now, for:
 * (**a**) Scaling up the `string` (w/ also new parameter **`?font`**, to also specify `font-family: 'Noto Emoji'`)
