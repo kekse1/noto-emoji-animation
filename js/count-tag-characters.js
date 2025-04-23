@@ -8,6 +8,9 @@
 //
 
 //
+const DEFAULT_JSON = 'emoji.tags.json';
+
+//
 const fs = require('node:fs');
 const path = require('node:path');
 const process = require('node:process');
@@ -16,17 +19,17 @@ const process = require('node:process');
 const sortAsc = true;
 
 //
-var json = path.join(process.cwd(), 'emoji.list.json');
+var json = path.join(process.cwd(), DEFAULT_JSON);
 
 //
 if(!fs.existsSync(json))
 {
-	console.error('The `%s` is not located at `%s`!', 'emoji.list.json', json);
+	console.error('The `%s` is not located at `%s`!', DEFAULT_JSON, json);
 	process.exit(1);
 }
 else if(! Array.isArray(json = require(json)))
 {
-	console.error('Erroneous `%s` file (not an Array)', 'emoji.list.json');
+	console.error('Erroneous `%s` file (not an Array)', DEFAULT_JSON);
 	process.exit(2);
 }
 
@@ -47,12 +50,12 @@ for(var i = 0; i < json.length; ++i)
 
 if(tagIndex === 0)
 {
-	console.warn('No real emoji tags found in `emoji.list.json`! :/');
+	console.warn('No real emoji tags found in `' + DEFAULT_JSON + '`! :/');
 	process.exit(4);
 }
 else
 {
-	console.info('Found %d tags in the `emoji.list.json` (that\'s good for now..).', tagIndex);
+	console.info('Found %d tags in the `' + DEFAULT_JSON + '` (that\'s good for now..).', tagIndex);
 	console.warn('Now we\'re going to extract and count all the used characters..');
 }
 
