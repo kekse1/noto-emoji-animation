@@ -29,7 +29,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.2.2');
+define('KEKSE_EMOJI_VERSION', '2.4.1');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -319,13 +319,9 @@ function filterString($_string, $_empty = true, $_error = true)
 		{
 			$add = chr($byte);
 		}
-		else if($byte === 39)
+		else if($byte === 34 || $byte === 39 || $byte === 96)
 		{
 			$add = '\'';
-		}
-		else if($byte === 34)
-		{
-			$add = '\\"';
 		}
 		else
 		{
