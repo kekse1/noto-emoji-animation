@@ -490,7 +490,8 @@ function getCodePointString($_codepoint, $_error = true)
 
 function cleanURL($_url)
 {
-	while(str_contains($_url, '//'))
+	while(strpos($_url, '//') !== false)
+	//while(str_contains($_url, '//'))//not supported below php 8.. ;-/
 	{
 		$_url = str_replace('//', '/', $_url);
 	}
