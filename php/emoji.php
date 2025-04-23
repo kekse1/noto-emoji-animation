@@ -597,9 +597,13 @@ function getParameters($_error = true)
 			}
 		}
 
-		if($argc < 2 || $showHelp)
+		if($argc < 2)
 		{
 			return error(getHelp(basename($argv[0])), 21);
+		}
+		else if($showHelp)
+		{
+			return error(getHelp(basename($argv[0])), 0);
 		}
 		else if($showTypes)
 		{
