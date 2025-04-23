@@ -548,13 +548,13 @@ function getParameters($_error = true)
 		$result .= "\t\t[ -l / --list ]  // Lists all available TAGs" . PHP_EOL;
 		$result .= "\t\t[ -t / --types ] // List available TYPEs" . PHP_EOL;
 		$result .= PHP_EOL . 'If a size is defined, it\'ll force a HTML `<img>` output, instead of pure URL or String.' . PHP_EOL;
-		$result .= PHP_EOL . getTypes();
+		$result .= PHP_EOL . 'Types:' . PHP_EOL . getTypes(true);
 		return $result;
 	}
 	
-	function getTypes()
+	function getTypes($_tab)
 	{
-		$result = 'Types:' . PHP_EOL;
+		$result = '';
 		
 		/*foreach(TYPES as $type)
 		{
@@ -570,12 +570,18 @@ function getParameters($_error = true)
 		
 		$result = substr($result, 0, -1);*/
 
-		$result .= "\t# `string` / `text` / `unicode`" . PHP_EOL;
-		$result .= "\t# `webp`" . PHP_EOL;
-		$result .= "\t# `lottie` / `json`" . PHP_EOL;
-		$result .= "\t# `gif`" . PHP_EOL;
-		$result .= "\t# `codepoint` / `codepoints` / `code`" . PHP_EOL;
-		$result .= "\t# `test` // default (checks if emoji/tag is avilable)";
+		if($_tab) $result .= "\t";
+		$result .= "# `string` / `text` / `unicode`" . PHP_EOL;
+		if($_tab) $result .= "\t";
+		$result .= "# `webp`" . PHP_EOL;
+		if($_tab) $result .= "\t";
+		$result .= "# `lottie` / `json`" . PHP_EOL;
+		if($_tab) $result .= "\t";
+		$result .= "# `gif`" . PHP_EOL;
+		if($_tab) $result .= "\t";
+		$result .= "# `codepoint` / `codepoints` / `code`" . PHP_EOL;
+		if($_tab) $result .= "\t";
+		$result .= "# `test` // default (checks if emoji/tag is avilable)";
 		
 		return $result;
 	}
@@ -643,7 +649,7 @@ function getParameters($_error = true)
 		}
 		else if($showTypes)
 		{
-			return \kekse\emoji\output(getTypes(), null, 0);
+			return \kekse\emoji\output(getTypes(false), null, 0);
 		}
 		else if($showList)
 		{
