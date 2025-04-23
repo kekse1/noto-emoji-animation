@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.4
+ * v2.4.5
  */
 
 //
@@ -14,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.4.4');
+define('KEKSE_EMOJI_VERSION', '2.4.5');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -664,7 +664,13 @@ function getParameters($_error = true)
 	}
 	else if(isset($_GET['list']))
 	{
-		return \kekse\emoji\output(getList(), \kekse\emoji\getMimeType('txt'), 0);
+		return \kekse\emoji\output(getList(),
+			\kekse\emoji\getMimeType('txt'), 0);
+	}
+	else if(isset($_GET['types']))
+	{
+		return \kekse\emoji\output(getTypes(false),
+			\kekse\emoji\getMimeType('txt'), 0);
 	}
 	else
 	{
