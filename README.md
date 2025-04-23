@@ -18,6 +18,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 # News
 * \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.2.0**!
+* \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
 <br>

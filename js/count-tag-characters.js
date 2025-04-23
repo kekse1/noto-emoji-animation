@@ -6,6 +6,8 @@
 // Just to count all the used tag characters (to let them fit into the
 // `\kekse\emoji\getTag()` function in the `../php/emoji.php` ;)~ ..
 //
+// Updated 2025-04-23, jfyi.
+//
 
 //
 const DEFAULT_JSON = 'emoji.tags.json';
@@ -19,43 +21,28 @@ const process = require('node:process');
 const sortAsc = true;
 
 //
-var json = path.join(process.cwd(), DEFAULT_JSON);
+var tags = path.join(process.cwd(), DEFAULT_JSON);
 
 //
-if(!fs.existsSync(json))
+if(!fs.existsSync(tags))
 {
-	console.error('The `%s` is not located at `%s`!', DEFAULT_JSON, json);
+	console.error('The `%s` is not located at `%s`!', DEFAULT_JSON, tags);
 	process.exit(1);
 }
-else if(! Array.isArray(json = require(json)))
+else if(! Array.isArray(tags = require(tags)))
 {
 	console.error('Erroneous `%s` file (not an Array)', DEFAULT_JSON);
 	process.exit(2);
 }
 
-//
-const tags = [];
-var tagIndex = 0;
-
-for(var i = 0; i < json.length; ++i)
-{
-	if(json[i][0] !== ':') continue;
-	else if(json[i][json[i].length - 1] !== ':')
-	{
-		console.error('Invalid item[%d] (starts with `:`, but not ending with it)', i);
-		process.exit(3);
-	}
-	tags[tagIndex++] = json[i].slice(1, -1);
-}
-
-if(tagIndex === 0)
+if(tags.length === 0)
 {
 	console.warn('No real emoji tags found in `' + DEFAULT_JSON + '`! :/');
 	process.exit(4);
 }
 else
 {
-	console.info('Found %d tags in the `' + DEFAULT_JSON + '` (that\'s good for now..).', tagIndex);
+	console.info('Found %d tags in the `' + DEFAULT_JSON + '` (that\'s good for now..).', tags.length);
 	console.warn('Now we\'re going to extract and count all the used characters..');
 }
 
