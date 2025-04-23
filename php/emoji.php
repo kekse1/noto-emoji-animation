@@ -538,7 +538,7 @@ switch($PARAMS['type'])
 
 if($url)
 {
-	$result = '<img src="' . KEKSE_EMOJI_URL . '/' . $result . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
+	$result = '<img src="' . cleanURL(KEKSE_EMOJI_URL . '/' . $result) . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
 	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
 }
 else
