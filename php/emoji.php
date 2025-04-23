@@ -581,7 +581,7 @@ function getParameters($_error = true)
 		if($_tab) $result .= "\t";
 		$result .= "# `codepoint` / `codepoints` / `code`" . PHP_EOL;
 		if($_tab) $result .= "\t";
-		$result .= "# `test` // default (checks if emoji/tag is avilable)";
+		$result .= "# `test` // default: checks if emoji/tag is available";
 		
 		return $result;
 	}
