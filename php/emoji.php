@@ -3,23 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.3
- */
-
-/*
- * v2.4.2 better ?font handling.. see new 'getFontString()'.
- * v2.4.1 see also the `const INDEX` smwh. below..
- * v2.3.2 Last fixes, etc.. best version now.
- * v2.3.0 last but not least some more improvements and more. now it should work really better at all.
- * v2.2.4 the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
- * v2.2.3 the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
- * v2.2.2 also '-l / --list' integrated now; plus optional 3rd `?size` argument (@ html);
- * v2.2.1 fixed the tag filter .. see `util/count-tag-characters.js` (some were not allowed);
- * v2.2.0 new '-? / --help' and '-t / --types' (getopt) parameters now!
- */
- 
-/*
- * TODO @ list/index: SEARCH function, use GLOBS OR REGEXP!! ;-)
+ * v2.4.4
  */
 
 //
@@ -30,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.4.3');
+define('KEKSE_EMOJI_VERSION', '2.4.4');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -160,11 +144,11 @@ function getMimeType($_ext)
 		case 'webp':
 			return 'image/webp';
 		case 'json':
-			return 'application/json;charset=utf-8';
+			return 'application/json; charset=UTF-8';
 		case 'txt':
-			return 'text/plain;charset=utf-8';
+			return 'text/plain; charset=UTF-8';
 		case 'html':
-			return 'text/html;charset=utf-8';
+			return 'text/html; charset=UTF-8';
 	}
 	
 	return 'application/octet-stream';
@@ -181,7 +165,7 @@ const INDEX = true;
 //
 const JSON = (__DIR__ . '/emoji.index.json');
 const TAGS = (__DIR__ . '/emoji.tags.json');
-const TYPES = array('utf', 'utf8', 'string', 'text', 'unicode', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
+const TYPES = array('string', 'text', 'unicode', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
 const SEP = ' ';
 const YES = '1';
 const NO = '0';
@@ -466,7 +450,7 @@ function filterType($_string, $_error = true)
 	{
 		$result = 'json';
 	}
-	else if($result === 'utf' || $result === 'utf8' || $result === 'text' || $result === 'unicode')
+	else if($result === 'text' || $result === 'unicode')
 	{
 		$result = 'string';
 	}
@@ -586,7 +570,7 @@ function getParameters($_error = true)
 		
 		$result = substr($result, 0, -1);*/
 
-		$result .= "\t# `utf` / `utf8` / `string` / `text` / `unicode`" . PHP_EOL;
+		$result .= "\t# `string` / `text` / `unicode`" . PHP_EOL;
 		$result .= "\t# `webp`" . PHP_EOL;
 		$result .= "\t# `lottie` / `json`" . PHP_EOL;
 		$result .= "\t# `gif`" . PHP_EOL;
