@@ -3,19 +3,11 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.3.0
+ * v2.2.1
  */
 
 /*
- * v(2.3.0) last but not least some more improvements and more. now it should work really better at all.
- * v(2.2.3) the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
- * (v2.2.2) also '-l / --list' integrated now; plus optional 3rd `?size` argument (@ html);
- * v(2.2.1) fixed the tag filter .. see `util/count-tag-characters.js` (some were not allowed);
  * (v2.2.0) new '-? / --help' and '-t / --types' (getopt) parameters now!
- */
- 
-/*
- * TODO @ getParameters(): SEARCH function, use GLOBS OR REGEXP!! ;-)
  */
 
 //
@@ -26,26 +18,15 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.2.2');
+define('KEKSE_EMOJI_VERSION', '2.2.0');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
 namespace kekse\emoji;
 
 //
-const FILTER_TAGS = true;
-
-//
 function getTagName($_string, $_url = true)
 {
-	$l = strlen($_string);
-	
-	if($l > 224)
-	{
-		return null;
-	}
-	
-	$_string = utf8_decode($_string);
 	$l = strlen($_string);
 	
 	if($l > 224)
@@ -58,7 +39,7 @@ function getTagName($_string, $_url = true)
 	$byte;
 	$add;
 	
-	if(FILTER_TAGS) for($i = 0; $i < $l; ++$i)
+	for($i = 0; $i < $l; ++$i)
 	{
 		if(($byte = ord($_string[$i])) >= 65 && $byte <= 90)
 		{
@@ -72,7 +53,7 @@ function getTagName($_string, $_url = true)
 		{
 			$add = chr($byte);
 		}
-		else if($byte === 95 || $byte === 45 || $byte === 32 || $byte === 43 || $byte === 33 || $byte === 32 || $byte === 63 || $byte === 241)
+		else if($byte === 95 || $byte === 45 || $byte === 32 || $byte === 43 || $byte === 33 || $byte === 32)
 		{
 			$add = chr($byte);
 		}
@@ -91,24 +72,13 @@ function getTagName($_string, $_url = true)
 			}
 		}
 	}
-	else
-	{
-		$result = $_string;
-		$len = $l;
-		
-		if($result[0] === ':' && $result[$len - 1] === ':')
-		{
-			$result = substr($result, 1, -1);
-			$len -= 2;
-		}
-	}
 
 	if($len === 0)
 	{
 		return null;
 	}
 
-	return utf8_encode($result);
+	return $result;
 }
 
 function output($_data, $_mime = null, $_exit = 0)
@@ -118,10 +88,6 @@ function output($_data, $_mime = null, $_exit = 0)
 	if($_exit === true)
 	{
 		$_exit = 0;
-	}
-	else if($_exit === null)
-	{
-		$_exit = rand(1, 255);
 	}
 	else if(! is_int($_exit))
 	{
@@ -179,12 +145,10 @@ namespace kekse\emoji\google;
 
 //
 const JSON = (__DIR__ . '/emoji.index.json');
-const TAGS = (__DIR__ . '/emoji.tags.json');
 const TYPES = array('utf', 'utf8', 'string', 'webp', 'lottie', 'json', 'gif', 'codepoint', 'codepoints', 'code', 'test');
 const SEP = ' ';
 const YES = '1';
 const NO = '0';
-const MAX_SIZE = 65535;
 
 //
 function error($_text, $_exit = 255)
@@ -200,62 +164,9 @@ function httpError($_url, $_exit = 254)
 	return error($result, $_exit);
 }
 
-function isValidJSONPath($_path, $_error = null)
-{
-	if($_error === true)
-	{
-		$_error = 0;
-	}
-	else if($_error === null)
-	{
-		$_error = rand(1, 255);
-	}
-	
-	if(!is_string($_path) || $_path === '')
-	{
-		if(is_int($_error))
-		{
-			return error('Invalid JSON file path (not a String or Empty)!', $_error);
-		}
-		
-		return false;
-	}
-	else if(strtolower(substr($_path, -5)) !== '.json')
-	{
-		if(is_int($_error))
-		{
-			return error('Invalid JSON file path (doesn\'t end with `.json`)!', $_error);
-		}
-		
-		return false;
-	}
-	else if(! (is_file($_path) && is_readable($_path)))
-	{
-		if(is_int($_error))
-		{
-			$base = basename($_path);
-			return error('Your JSON file path (' . $base . ') is not a file or not readable!', $_error);
-		}
-		
-		return false;
-	}
-	
-	return true;
-}
-
 //
-if(!isValidJSONPath(JSON, false)) return error('Your emoji index file path is invalid (or not a file or not existing)!', 3);
-
-//
-function loadTags()
-{
-	if(!isValidJSONPath(JSON, false))
-	{
-		return error('Invalid `TAGS` JSON file path configuration!', 240);
-	}
-	
-	return parseJSON(requestFile(TAGS, true), true);
-}
+if(!is_string(JSON) || JSON === '') return error('Invalid emoji index file path!', 3);
+else if(! (is_file(JSON) && is_readable(JSON))) return error('Emoji index file `' . (is_string(JSON) ? basename(JSON) : '-') . '` was not found, or it\'s not readable.', 3);
 
 //
 function filterType($_string, $_error = true)
@@ -332,11 +243,8 @@ function filterType($_string, $_error = true)
 
 function filterSize($_size, $_error = true)
 {
-	if(is_int($_size))
-	{
-		return (string)$_size;
-	}
-	else if(!is_string($_size) || $_size === '')
+
+	if(!is_string($_size) || $_size === '')
 	{
 		return null;
 	}
@@ -349,24 +257,7 @@ function filterSize($_size, $_error = true)
 		return null;
 	}
 	
-	$result;
-	
-	if($_size[0] === '-')
-	{
-		$result = '-';
-
-		if(($_size = substr($_size, 1)) === '')
-		{
-			return null;
-		}
-		
-		--$l;
-	}
-	else
-	{
-		$result = '';
-	}
-
+	$result = '';
 	$len = 0;
 	$byte;
 	$add;
@@ -377,14 +268,6 @@ function filterSize($_size, $_error = true)
 		{
 			$result .= chr($byte);
 			++$len;
-		}
-		else if($byte >= 65 && $byte <= 90)
-		{
-			$result .= chr($byte + 32);
-		}
-		else if($byte >= 97 && $byte <= 122)
-		{
-			$result .= chr($byte);
 		}
 		else if($len === 0)
 		{
@@ -400,7 +283,7 @@ function filterSize($_size, $_error = true)
 	{
 		return null;
 	}
-
+	
 	return $result;
 }
 
@@ -409,10 +292,8 @@ function getParameters($_error = true)
 	//
 	function getHelp($_base)
 	{
-		$result = 'Syntax: `' . $_base . '` <tag> [ <type> [ <size> ] ] // default type is `test`' . PHP_EOL;
-		$result .= "\t\t[ -l / --list ] // Lists all available tags" . PHP_EOL;
-		$result .= PHP_EOL . "If a size is defined, it'll force a HTML `<img>` output, instead of the image URL." . PHP_EOL;
-		$result .= PHP_EOL . getTypes() . PHP_EOL;
+		$result = 'Syntax: `' . $_base . '` <tag> [ <type> ] // default type is `test`';
+		$result .= PHP_EOL . PHP_EOL . getTypes() . PHP_EOL;
 		return $result;
 	}
 	
@@ -444,19 +325,6 @@ function getParameters($_error = true)
 		return $result;
 	}
 	
-	function getList()
-	{
-		$result = '';
-		$INDEX = loadTags();
-		
-		foreach($INDEX as $tag)
-		{
-			$result .= $tag . PHP_EOL;
-		}
-		
-		return substr($result, 0, -1);
-	}
-	
 	//
 	$type = null;
 	$tag = null;
@@ -476,7 +344,6 @@ function getParameters($_error = true)
 		
 		$showHelp = false;
 		$showTypes = false;
-		$showList = false;
 		
 		for($i = 0; $i < $argc; ++$i)
 		{
@@ -490,11 +357,6 @@ function getParameters($_error = true)
 				$showTypes = true;
 				break;
 			}
-			else if($argv[$i] === '-l' || $argv[$i] === '--list')
-			{
-				$showList = true;
-				break;
-			}
 		}
 
 		if($argc < 2 || $showHelp)
@@ -503,17 +365,12 @@ function getParameters($_error = true)
 		}
 		else if($showTypes)
 		{
-			return \kekse\emoji\output(getTypes(), null, 0);
-		}
-		else if($showList)
-		{
-			return \kekse\emoji\output(getList(), null, 0);
+			return error(getTypes(), 0);
 		}
 		else
 		{
 			$tag = $argv[1];
 			$type = ($argc <= 2 ? 'test' : $argv[2]);
-			$size = ($argc <= 3 ? null : $argv[3]);
 		}
 	}
 	else if(isset($_GET['type']) && isset($_GET['tag']))
@@ -638,41 +495,15 @@ function getCodePointString($_codepoint, $_error = true)
 	return substr($result, 0, -strlen(SEP));
 }
 
-// bewusst ohne ?query- oder #hash-anteil. ;-)
-function renderURL($_url)
-{
-	if(is_string($_url))
-	{
-		return $_url;
-	}
-
-	$result = $_url['scheme'] . '://';
-	$result .= $_url['host'];
-
-	if(isset($_url['port']))
-	{
-		$result .= ':' . $_url['port'];
-	}
-
-	return ($result . $_url['path']);
-}
-
 function cleanURL($_url)
 {
-	$_url = parse_url($_url);
-
-	if($_url === false)
+	while(strpos($_url, '//') !== false)
+	//while(str_contains($_url, '//'))//not supported below php 8.. ;-/
 	{
-		return error('Invalid URL!', 246);
+		$_url = str_replace('//', '/', $_url);
 	}
 
-	while(strpos($_url['path'], '//') !== false)
-	//while(str_contains($_url['path'], '//'))//not supported below php 8.. ;-/
-	{
-		$_url['path'] = str_replace('//', '/', $_url['path']);
-	}
-
-	return renderURL($_url);
+	return $_url;
 }
 
 //
@@ -706,7 +537,7 @@ switch($PARAMS['type'])
 		if(!$PARAMS['size']) return \kekse\emoji\output($result, \kekse\emoji\getMimeType('txt'), 0);
 		break;
 	default:
-		if(!is_string($EMOJI[$PARAMS['type']]) || $EMOJI[$PARAMS['type']] === '') return error('The emoji got no valid item for type `' . $PARAMS['type'] . '` (unexpected)!', 18);
+		if(! is_string($EMOJI[$PARAMS['type']]) || $EMOJI[$PARAMS['type']] === '') return error('The emoji got no valid item for type `' . $PARAMS['type'] . '` (unexpected)!', 18);
 		$url = true;
 		$result = $EMOJI[$PARAMS['type']];
 		if(!$PARAMS['size']) return relay(cleanURL(KEKSE_EMOJI_URL . '/' . $result), 0);
@@ -715,40 +546,7 @@ switch($PARAMS['type'])
 
 if($url)
 {
-	if($PARAMS['size'])
-	{
-		$attribSize = ''; $styleSize = '';
-
-		if(substr($PARAMS['size'], -2) === 'px')
-		{
-			$styleSize = $PARAMS['size'];
-			$attribSize = substr($PARAMS['size'], 0, -2);
-		}
-		else if(ctype_digit($PARAMS['size']))
-		{
-			$styleSize = $PARAMS['size'] . 'px';
-			$attribSize = $PARAMS['size'];
-		}
-		else
-		{
-			$styleSize = $PARAMS['size'];
-			$attribSize = null;
-		}
-
-		$result = '<img src="' . cleanURL(KEKSE_EMOJI_URL . '/' . $result) . '" ';
-		
-		if($attribSize !== null)
-		{
-			$result .= ' width="' . $attribSize . '" height="' . $attribSize . '" ';
-		}
-		
-		$result .= 'style="width: ' . $styleSize . '; height: ' . $styleSize . ';" />';
-	}
-	else
-	{
-		$result = '<img src="' . cleanURL(KEKSE_EMOJI_URL . '/' . $result) . '" />';
-	}
-	
+	$result = '<img src="' . cleanURL(KEKSE_EMOJI_URL . '/' . $result) . '" style="width: ' . $PARAMS['size'] . 'px; height: ' . $PARAMS['size'] . 'px;" />';
 	\kekse\emoji\output($result, \kekse\emoji\getMimeType('html'), 0);
 }
 else
