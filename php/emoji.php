@@ -483,24 +483,13 @@ function filterSize($_size, $_error = true)
 		return null;
 	}
 	
-	$result;
-	
 	if($_size[0] === '-')
 	{
-		$result = '-';
-
-		if(($_size = substr($_size, 1)) === '')
-		{
-			return null;
-		}
-		
-		--$l;
-	}
-	else
-	{
-		$result = '';
+		if($_error) return error('Size parameter needs to be positive.', 89);
+		return null;
 	}
 
+	$result = '';
 	$len = 0;
 	$byte;
 	$add;
