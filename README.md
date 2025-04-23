@@ -17,7 +17,7 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 <br>
 
 # News
-* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.1**; best version now; most things should work (much) better!
+* \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.2**; best version now; most things should work (much) better!
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
@@ -73,7 +73,7 @@ I also published an example here (feel free to use this script right here, from 
 
 ## Downloads
 * [Here's the link for this **`emoji.js`**](js/emoji.js) v**2.1.3**;
-* [And here's the **`emoji.php`**](php/emoji.php) v**2.4.1** (see the [**PHP** script section](#php-script));
+* [And here's the **`emoji.php`**](php/emoji.php) v**2.4.2** (see the [**PHP** script section](#php-script));
 * [A `.sh` starter/wrapper for the **PHP** script](php/emoji.sh);
 
 > [!WARNING]
@@ -125,7 +125,7 @@ Is not yet descripted in here.. but should be **intelligible**.
 <br>
 
 ## **PHP** script
-Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.4.1**).
+Just made a [**PHP** script **`emoji.php`**](php/emoji.php) (v**2.4.2**).
 
 > [!NOTE]
 > All newer improvements/fixes/.. are listed on top of this script. there are some..

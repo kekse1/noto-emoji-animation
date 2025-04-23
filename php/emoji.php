@@ -3,18 +3,19 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.1
+ * v2.4.2
  */
 
 /*
- * v(2.4.1) see also the `const INDEX` smwh. below..
- * v(2.3.2) Last fixes, etc.. best version now.
- * v(2.3.0) last but not least some more improvements and more. now it should work really better at all.
- * v(2.2.4) the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
- * v(2.2.3) the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
- * (v2.2.2) also '-l / --list' integrated now; plus optional 3rd `?size` argument (@ html);
- * v(2.2.1) fixed the tag filter .. see `util/count-tag-characters.js` (some were not allowed);
- * (v2.2.0) new '-? / --help' and '-t / --types' (getopt) parameters now!
+ * v2.4.2 better ?font handling.. see new 'getFontString()'.
+ * v2.4.1 see also the `const INDEX` smwh. below..
+ * v2.3.2 Last fixes, etc.. best version now.
+ * v2.3.0 last but not least some more improvements and more. now it should work really better at all.
+ * v2.2.4 the '?list' parameter is now also supported in the browser interface. once defined => text/plain;
+ * v2.2.3 the size parameter filter now allows regular non-alpha's.. since maybe we want a 'px' size;
+ * v2.2.2 also '-l / --list' integrated now; plus optional 3rd `?size` argument (@ html);
+ * v2.2.1 fixed the tag filter .. see `util/count-tag-characters.js` (some were not allowed);
+ * v2.2.0 new '-? / --help' and '-t / --types' (getopt) parameters now!
  */
  
 /*
@@ -29,7 +30,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.4.1');
+define('KEKSE_EMOJI_VERSION', '2.4.2');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -319,10 +320,6 @@ function filterString($_string, $_empty = true, $_error = true)
 		{
 			$add = chr($byte);
 		}
-		else if($byte === 34 || $byte === 39 || $byte === 96)
-		{
-			$add = '\'';
-		}
 		else
 		{
 			continue;
@@ -348,6 +345,57 @@ function filterString($_string, $_empty = true, $_error = true)
 	}
 
 	return $result;
+}
+
+function getFontString($_string, $_error = true)
+{
+	$fonts = explode(',', $_string);
+	$count = count($fonts);
+	
+	if($count === 0 || $count > 16)
+	{
+		if($_error)
+		{
+			return error('Invalid `?font` parameter.', 154);
+		}
+		
+		return null;
+	}
+	
+	$array = [];
+	$item;
+	
+	for($i = 0, $j = 0; $i < $count; ++$i)
+	{
+		$item = trim($fonts[$i]);
+		
+		if($item === '')
+		{
+			continue;
+		}
+		
+		$array[$j++] = $item;
+	}
+	
+	$count = count($array);
+	$result = '';
+	
+	if($count === 0)
+	{
+		if($_error)
+		{
+			return error('Invalid `?font` argument.', 155);
+		}
+
+		return null;
+	}
+	
+	for($i = 0; $i < $count; ++$i)
+	{
+		$result .= '\'' . $array[$i] . '\', ';
+	}
+	
+	return substr($result, 0, -2);
 }
 
 function filterType($_string, $_error = true)
@@ -663,17 +711,19 @@ function getParameters($_error = true)
 			$size = $_GET['size'];
 		}
 
-		$font;
-
 		if(isset($_GET['font']))
 		{
 			if($_GET['font'] === '')
 			{
 				$font = true;
 			}
+			else if(!($font = filterString($_GET['font'], false, false)))
+			{
+				return error('Your `?font` parameter is invalid.', 159);
+			}
 			else
 			{
-				$font = $_GET['font'];
+				$font = getFontString($font);
 			}
 		}
 		else
@@ -687,7 +737,7 @@ function getParameters($_error = true)
 		'tag' => \kekse\emoji\getTagName($tag, $_error),
 		'type' => filterType($type, $_error),
 		'size' => filterSize($size, $_error),
-		'font' => (is_bool($font) ? $font : filterString($font, false, false)));
+		'font' => $font);
 
 	if(! ($result['type'] && $result['tag']))
 	{
