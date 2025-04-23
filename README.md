@@ -21,16 +21,6 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
-#### TODO
-> [!NOTE]
-> Just a note for myself: maybe I should add an interface script for a complete **INDEX** of available tags,
-> plus a search function (maybe RegExp? Eher Globs..). Maybe.. and I had to integrate it in the tag lookup script!
-
-> [!NOTE]
-> And the [**tag lookup**](#php-script) script should also support optional third `SIZE` argument, so it can't
-> only output the image URLs, but also the embedding HTML code w/ size attribs, etc., which will be written out
-> if the `?size` GET parameter is also defined.
-
 <br>
 
 # Mass download (all emojis in one packet)
@@ -173,9 +163,12 @@ in the console the link will just be shown.
 If the `?size` parameter (or a third one in your shell) is defined, it'll enable **HTML** output
 with defined (and intelligently handled) sizes, etc.
 
-_Only in the **browser**_: The _new_ GET[] parameter **`?size`** is available now, for:
-* (**a**) Scaling up the `string` (w/ also new parameter **`?font`**, to also specify `font-family: 'Noto Emoji'`)
-* (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
+The (only browser) `?font` parameter can be argued with as empty value, so resulting HTML (w/ string type)
+will contain a `font` style or not, or it can be a String with font(s) defined in this value, so this/these
+will be inserted in the `font-family` CSS style.
+
+<!--* (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
+?????-->
 
 <br><br>
 
