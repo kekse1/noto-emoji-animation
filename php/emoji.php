@@ -3,7 +3,7 @@
 /*
  * Copyright (c) Sebastian Kucharczyk <kuchen@kekse.biz>
  * <https://github.com/kekse1/noto-emoji-animation/>
- * v2.4.5
+ * v2.4.6
  */
 
 //
@@ -14,7 +14,7 @@ if(!defined('KEKSE_CLI'))
 	define('KEKSE_CLI', (php_sapi_name() === 'cli'));
 }
 
-define('KEKSE_EMOJI_VERSION', '2.4.5');
+define('KEKSE_EMOJI_VERSION', '2.4.6');
 define('KEKSE_EMOJI_URL', 'https://fonts.gstatic.com/s/e/notoemoji/latest/');
 
 //
@@ -26,9 +26,7 @@ const FILTER_TAGS = true;
 //
 function getTagName($_string, $_url = true)
 {
-	$_string = urldecode($_string);
-	$_string = utf8_decode($_string);
-
+	$_string = trim(utf8_decode($_string));
 	$l = strlen($_string);
 	
 	if($l > 255)
@@ -254,7 +252,7 @@ function filterString($_string, $_empty = true, $_error = true)
 		return null;
 	}
 	
-	$_string = trim(urldecode($_string));
+	$_string = trim($_string);
 	$l = strlen($_string);
 
 	if(!$_empty && $l === 0)
@@ -390,7 +388,7 @@ function filterType($_string, $_error = true)
 		return null;
 	}
 	
-	$_string = trim(urldecode($_string));
+	$_string = trim($_string);
 	$l = strlen($_string);
 	
 	if($l > 255)
@@ -474,7 +472,7 @@ function filterSize($_size, $_error = true)
 		return null;
 	}
 	
-	$_size = trim(urldecode($_size));
+	$_size = trim($_size);
 	$l = strlen($_size);
 	
 	if($l > 255)
