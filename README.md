@@ -1,10 +1,10 @@
 <img src="https://kekse.biz/github.php?draw&override=github:noto-emoji-animation" />
 
-<br>
-
 # Animated Emojis by Google
 **=>** [**Google**: The hub for everything animated emoji!](https://googlefonts.github.io/noto-emoji-animation/),
 also with it's own [github repository](https://github.com/googlefonts/noto-emoji).
+
+<br>
 
 ![Google F.A.Q. item](img/google-faq.png)
 
@@ -14,14 +14,14 @@ them better'.. **so this ain't a regular site for emoji downloads! ^_^**
 
 ![:zany-face:](https://mirror.kekse.biz/mirror/noto-emoji-animation/?type=webp&tag=zany-face)
 
-<br>
+<br><br>
 
 # News
 * \[**2025-04-23**\] Updated the [**`emoji.php`**](#php-script), v**2.4.6**;
 * \[**2025-04-23**\] Also updated the [**`count-tag-characters.js`**](js/count-tag-characters.js); had to FIX it.. and a symlink.
 * \[**2025-04-19**\] After 'years' the scripts still worx! I just updated my mirror location and loaded the newest smiles.
 
-<br>
+<br><br>
 
 # Mass download (all emojis in one packet)
 This was a requested feature: as Google wasn't willing to allow users to mass download all the emojis at once,
@@ -168,10 +168,12 @@ will be inserted in the `font-family` CSS style.
 <!--* (**b**) Putting the images (like `?type=webp`) into `<span>` w/ size(s) css styles.. instead of only direct relay. ;)~
 ?????-->
 
-<br><br>
+<br><br><br>
 
 # Contact
 <img src="https://kekse.biz/github.php?override=github:noto-emoji-animation&draw&text=noto-emoji-animation@kekse.biz&angle=6&size=38pt&fg=150,20,90&font=OpenSans&ro&readonly&h=64&v=16" />
+
+<br>
 
 # Copyright and License
 The rest, everything on the Google servers (or smth. similar) is owned by Google, with their own license(s).
